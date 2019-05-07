@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/interactive/base.css"/>
+    <link rel="stylesheet" href="css/interactive/main.css"/>
+</head>
+<body>
+<div class="radio-box">
+    <i class="magic-checkbox active"></i>
+    <div class="u-box blue">
+        <h1>2017 3456 9876 8763</h1>
+        <p>通用卡可以在 某某某旗下所有门店使用</p>
+        <b>余额：500元</b>
+        <img src="images/interactive/code.png" class="code"/>
+        <img src="images/interactive/text01.png" class="u-box-bg"/>
+    </div>
+</div>
+<div class="radio-box">
+    <i class="magic-checkbox"></i>
+    <div class="u-box red">
+        <strong>cuscapi<i>|</i>园区店</strong>
+        <h1>2017 3456 9876 8763</h1>
+        <p>通用卡可以在 某某某旗下所有门店使用</p>
+        <b>余额：500元</b>
+        <img src="images/interactive/code.png" class="code"/>
+        <img src="images/interactive/text02.png" class="u-box-bg"/>
+    </div>
+</div>
+<div class="radio-box">
+    <i class="magic-checkbox"></i>
+    <div class="u-box red">
+        <strong>cuscapi<i>|</i>园区店</strong>
+        <h1>2017 3456 9876 8763</h1>
+        <p>通用卡可以在 某某某旗下所有门店使用</p>
+        <b>余额：500元</b>
+        <img src="images/interactive/code.png" class="code"/>
+        <img src="images/interactive/text02.png" class="u-box-bg"/>
+    </div>
+</div>
+<div style="height: 5.5rem;"></div>
+<div class="f-btn"><a>确定</a></div>
+<script src="js/jquery-2.1.0.js"></script>
+<script>
+    $(function () {
+        $(".u-box").click(function(){
+            $(this).siblings(".magic-checkbox").addClass("active");
+            $(this).parents().siblings().children(".magic-checkbox").removeClass("active");
+        })
+    })
+
+</script>
+</body>
+</html>

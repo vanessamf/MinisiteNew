@@ -1,0 +1,72 @@
+html {color: #333;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;height:100%}
+body { min-width: 320px ; background: #f4f4f4}
+*{ margin:0; padding:0;list-style: none; -webkit-tap-highlight-color:transparent;font-family:arial,Microsoft YaHei,\5b8b\4f53;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+input,textarea,select,code,kbd,pre,samp {font-size:100%;}
+input,button,select{border:none;outline: none;}/*???iphone???input???*/
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { }
+
+a{text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0);outline:none; color: #333;-webkit-appearance: none;}
+img { vertical-align: top}
+
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.clearfix{clear:both;}
+
+/* */
+@media screen and (min-width:240px) {
+    html,body,button,input,select,textarea {
+        font-size: 0.563rem/*9px*/
+    }
+}
+
+@media screen and (min-width:320px) {
+    html,body,button,input,select,textarea {
+        font-size: 0.75rem/*12px*/
+    }
+}
+
+@media screen and (min-width:380px) {
+    html,body,button,input,select,textarea {
+        font-size: 0.875rem/*14px*/
+    }
+}
+
+@media screen and (min-width:420px) {
+    html,body,button,input,select,textarea {
+        font-size: 1rem/*16px*/
+    }
+}
+
+@media screen and (min-width:450px) {
+    html,body,button,input,select,textarea {
+        font-size: 1.063rem/*17px*/
+    }
+}
+
+@media screen and (min-width:480px) {
+    html,body,button,input,select,textarea {
+        font-size: 1.125rem/*18px*/
+    }
+}
+
+@media screen and (min-width:540px) {
+    html,body,button,input,select,textarea {
+        font-size: 1.25rem/*20px*/
+    }
+}
+
+@media screen and (min-width:600px) {
+    html,body,button,input,select,textarea {
+        font-size: 1.375rem/*22px*/
+    }
+}
+
+@media screen and (min-width:640px) {
+    html,body,button,input,select,textarea {
+        font-size: 1.5rem/*24px*/
+    }
+}
+
+
+
+ 

@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="email=no" name="format-detection">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta http-equiv="Cache-Control" content="max-age=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>自助点餐</title>
+	<link rel="stylesheet" type="text/css" href="../css/interactive/base.css" />
+	<link rel="stylesheet" type="text/css" href="../css/interactive/main-mobile.css" />
+	<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css">
+</head>
+
+<body style="overflow-y: hidden">
+<!--  购物车  -->
+<div class="shop" style="display: none">
+	<div class="title-w">已选商品 <a class="iconfont icon-trash"></a></div>
+	<ul>
+		<li class="shop-item">
+			<span class="name">1.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">2.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">3.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">1.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">2.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">3.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">1.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">2.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">3.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+	</ul>
+</div>
+<!--  end 购物车  -->
+<!--  菜品详情弹窗  -->
+<div class="pop-shop">
+	<button class="close-btn iconfont icon-guanbi1">
+		<!-- 关闭 -->
+	</button>
+	<div class="menu-box">
+		<img src="../images/interactive/pic.png" class="top-pic"/>
+		<h1><em>香茅草三明治</em><label>¥ 148</label></h1>
+		<div class="t-wrap">香茅草鸡肉，牛油果芝麻色拉，腌黄瓜</div>
+		<div class="combo">
+			<h2>可选主食（4选1）</h2>
+			<ul>
+				<li>核桃黑麦面包</li>
+				<li>罗马面包</li>
+				<li>鸡肉</li>
+				<li>熏三文鱼</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<div class="combo">
+			<h2>可选主食（4选1）</h2>
+			<ul>
+				<li>核桃黑麦面包</li>
+				<li>罗马面包</li>
+				<li>鸡肉</li>
+				<li>熏三文鱼</li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu-footer">
+		<div class="nub">
+			<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+			<b class="add iconfont icon-jiahao1"></b>
+		</div>
+		<a>加入购物车</a>
+	</div>
+</div>
+<!--  end 菜品详情弹窗  -->
+<div class="pop-bg"></div>
+
+<div class="sell-header">
+	<img src="../images/interactive/sellBg.jpg" class="sellBg"/>
+	<div class="mark-info">
+		桌号：A007
+	</div>
+</div>
+<div class="container">
+	<div class="outer-container left">
+		<div class="inner-container">
+			<div class="element">
+				<ul>
+					<li class="list list-active"> 
+					<a href="#list01" class="list-a">
+						<span class="icon hot"></span>
+						热卖
+					</a> 
+					</li>
+					<li class="list"> <a href="#list02" class="list-a"> 超值套餐 </a> </li>
+					<li class="list"> <a href="#list03" class="list-a"> 温馨提示 </a> </li>
+					<li class="list"> <a href="#list04" class="list-a"> 新品上市 </a> </li>
+					<li class="list"> <a href="#list05" class="list-a"> 精美热菜 </a> </li>
+					<li class="list"> <a href="#list06" class="list-a"> 五谷养生 </a> </li>
+					<li class="list"> <a href="#list07" class="list-a"> 有机水果 </a> </li>
+					<li class="list"> <a href="#list08" class="list-a"> 特色小吃 </a> </li>
+					<li class="list"> <a href="#list09" class="list-a"> 酒水饮料 </a> </li>
+					<li class="list"> <a href="#list10" class="list-a"> 分类10 </a> </li>
+					<li class="list"> <a href="#list11" class="list-a"> 分类11 </a> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="outer-container right">
+		<div id=""class="top-fixed">
+			<div class="top-title">
+				<a href="#"class="txt active"data-name="remai01">热卖1</a>
+				<a href="#"class="txt"data-name="remai02">热卖2</a>
+				<a href="#"class="txt"data-name="remai03">热卖3</a>
+				<a href="#"class="txt "data-name="remai04">热卖4</a>
+				<a href="#"class="txt"data-name="remai05">热卖5</a>
+				<a href="#"class="txt"data-name="remai06">热卖6</a>
+				<a href="#"class="txt "data-name="remai07">热卖7</a>
+				<a href="#"class="txt"data-name="remai08">热卖8</a>
+				<a href="#"class="txt"data-name="remai09">热卖9</a>
+			</div>
+			<div class="top-sub-title">
+				<i class="tit-line line-left"></i>
+				<span class="txt">热卖1</span>
+				<i class="tit-line line-right"></i>
+			</div>
+		</div>
+		
+		<div class="inner-container" id="right-hook">
+			<div class="element">
+				<ul>
+					<li class="right-list" id="list01" >
+						<div class="title">
+							<a href="#"class="txt active"data-name="remai01">热卖1</a>
+							<a href="#"class="txt"data-name="remai02">热卖2</a>
+							<a href="#"class="txt"data-name="remai03">热卖3</a>
+							<a href="#"class="txt "data-name="remai04">热卖4</a>
+							<a href="#"class="txt"data-name="remai05">热卖5</a>
+							<a href="#"class="txt"data-name="remai06">热卖6</a>
+							<a href="#"class="txt "data-name="remai07">热卖7</a>
+							<a href="#"class="txt"data-name="remai08">热卖8</a>
+							<a href="#"class="txt"data-name="remai09">热卖9</a>
+						</div>
+						
+						<!-- <div style="height:calc(100% - 2.5rem);"> -->
+							<ul>
+							<li class="right-sub-list" id="remai01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">热卖1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/1111.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="remai02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">热卖2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/1111.jpg"/>
+									<div class="content">
+										<h1>热卖2记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>热卖2记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/jianbing.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/3333.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="remai03">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖3</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/chaofan.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+							<li class="right-sub-list" id="remai04">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖4</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+							<li class="right-sub-list" id="remai05">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖5</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+							<li class="right-sub-list" id="remai06">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖6</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+							<li class="right-sub-list" id="remai07">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖7</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+							<li class="right-sub-list" id="remai08">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖8</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+							<li class="right-sub-list" id="remai09">
+							<div class="sub-title">
+								<i class="tit-line line-left"></i>
+								<span class="txt">热卖9</span>
+								<i class="tit-line line-right"></i>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/1111.jpg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+							<div class="cart-list">
+								<img src="images/interactive/zhushou.jpeg"/>
+								<div class="content">
+									<h1>记忆中的耦合</h1>
+									<strong>南非路易波士茶，香茅草</strong>
+									<p class="price"><i>￥</i>40</p>
+									<div class="nub">
+										<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+										<b class="add iconfont icon-jiahao1"></b>
+									</div>
+								</div>
+							</div>
+						</li>
+						</ul>
+						<!-- </div> -->
+					</li>
+					<li class="right-list" id="list02">
+						<div class="title">
+							<a href="#"class="txt active"data-name="taocan01">超值套餐1</a>
+							<a href="#"class="txt"data-name="taocan02">超值套餐2</a>
+						</div>
+						<ul>
+							<li class="right-sub-list" id="taocan01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">超值套餐1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="taocan02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">超值套餐2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						
+					</li>
+					<li class="right-list" id="list03">
+						<div class="title">
+							<a href="#"class="txt active"data-name="tishi01">温馨提示1</a>
+							<a href="#"class="txt"data-name="tishi02">温馨提示2</a>
+						</div>
+						<ul>
+							<li class="right-sub-list" id="tishi01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">温馨提示1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="tishi02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">温馨提示2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list04">
+						<div class="title">
+							<a href="#"class="txt active"data-name="xinpin01">新品上市1</a>
+							<a href="#"class="txt"data-name="xinpin02">新品上市2</a>
+						</div>
+						<ul>
+							<li class="right-sub-list" id="xinpin01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">新品上市1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="xinpin02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">新品上市2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list05">
+						<div class="title">
+							<a href="#"class="txt active"data-name="recai01">精美热菜1</a>
+							<a href="#"class="txt"data-name="recai02">精美热菜2</a>
+						</div>
+						<ul>
+							<li class="right-sub-list" id="recai01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">精美热菜1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="recai02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">精美热菜2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list06">
+						<div class="title">
+							<a href="#"class="txt active"data-name="wugu01">五谷养生1</a>
+							<a href="#"class="txt"data-name="wugu02">五谷养生2</a>
+							</div>
+						<ul>
+							<li class="right-sub-list" id="wugu01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">五谷养生1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="wugu02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">五谷养生2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list07">
+						<div class="title">
+							<a href="#"class="txt active"data-name="shuiguo01">有机水果1</a>
+							<a href="#"class="txt"data-name="shuiguo02">有机水果2</a>
+							</div>
+						<ul>
+							<li class="right-sub-list" id="shuiguo01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">有机水果1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="shuiguo02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">有机水果2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list08">
+						<div class="title">
+							<a href="#"class="txt active"data-name="xiaochi01">特色小吃1</a>
+							<a href="#"class="txt"data-name="xiaochi02">特色小吃2</a>
+						</div>
+						<ul>
+							<li class="right-sub-list"id="xiaochi01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">特色小吃1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list"id="xiaochi02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">特色小吃2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list09">
+						<div class="title">
+							<a href="#"class="txt active"data-name="jiushui01">酒水饮料1</a>
+							<a href="#"class="txt"data-name="jiushui02">酒水饮料2</a>
+						</div>
+						<ul>
+							<li class="right-sub-list" id="jiushui01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">酒水饮料1</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list" id="jiushui02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">酒水饮料2</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list10">
+						<div class="title">
+							<a href="#"class="txt active"data-name="fenlei01">分类101</a>
+							<a href="#"class="txt"data-name="fenlei02">分类102</a>
+						</div>
+						<ul>
+							<li class="right-sub-list"id="fenlei01">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">分类101</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list"id="fenlei02">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">分类102</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="right-list" id="list11">
+						<div class="title">
+							<a href="#"class="txt active"data-name="1101">分类1101</a>
+							<a href="#"class="txt active"data-name="1102">分类1102</a>
+							<a href="#"class="txt active"data-name="1103">分类1103</a>
+						</div>
+						<ul>
+							<li class="right-sub-list"id="1101">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">分类111</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list"id="1102">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">分类111</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="right-sub-list"id="1103">
+								<div class="sub-title">
+									<i class="tit-line line-left"></i>
+									<span class="txt">分类111</span>
+									<i class="tit-line line-right"></i>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/zhushou.jpeg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/chaofan.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+								<div class="cart-list">
+									<img src="images/interactive/2222.jpg"/>
+									<div class="content">
+										<h1>记忆中的耦合</h1>
+										<strong>南非路易波士茶，香茅草</strong>
+										<p class="price"><i>￥</i>40</p>
+										<div class="nub">
+											<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">0</em></div>
+											<b class="add iconfont icon-jiahao1"></b>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="f-wrap">
+	<div class="shoppingBtn">
+		<i>0</i>
+	</div>
+	<div class="f-content">
+		<div id="" class="price">
+			合计：<i>￥</i><span>280.00</span>
+		</div>
+		<span class="tips">
+			另需配送费￥6.6
+		</span>
+	</div>
+	<a class="check-out-btn" href="预订时间.html">付款</a>
+</div>
+
+<i id="end"></i>
+
+<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="../js/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="../js/fly.js"></script>
+<script>
+	// window.onload = function() {
+		$(".outer-container.right").on("click","a",function(){
+			// debugger;
+			var aId=$(this).attr("data-name");
+			document.getElementById('right-hook').scrollTop=$("#"+aId).offset().top-$("#remai01").offset().top+2;
+		})
+	// }
+	
+    window.onload = function() {
+        var arrheight = [];
+
+        function arrHeight() {
+            var items = document.getElementsByClassName('right-list');
+            for (var i = 0; i < items.length; i++) {
+                var scrolltop = items[i].offsetTop;
+                arrheight.push(scrolltop);
+            }
+        }
+
+        function noactive() {
+            var item = document.getElementsByClassName('list')
+            for (var i = 0; i < item.length; i++) {
+                item[i].setAttribute('class', 'list');
+            }
+        }
+
+		// 左侧根据右侧当前滚动到的类别添加active
+        function scrollactive() {
+            var scrolltop = document.getElementById('right-hook').scrollTop;
+            for (var i = 0; i < arrheight.length; i++) {
+				// if (scrolltop > arrheight[i] && scrolltop < arrheight[i + 1]) {
+				if (scrolltop >= arrheight[i] && scrolltop < arrheight[i]+$(".right-list").eq(i).outerHeight()) {
+					noactive();
+					document.getElementsByClassName('list')[i].setAttribute('class', 'list list-active');
+					break;
+				}
+            }
+        }
+		//左侧点击添加样式
+        function clickactve() {
+            // var list = document.getElementsByClassName('list');
+			var list =$(".list");
+            for (var i = 0; i < list.length; i++) {
+                list[i].onclick = function() {
+                    noactive();
+                    // list[i].setAttribute('class','list list-active');
+					list.eq(i).addClass("list list-active");
+                }
+            }
+        }
+		
+		
+		function scrollTitleB(){
+			var scrolltop =document.getElementById('right-hook').scrollTop;
+			var titleHeight=$(".top-fixed").outerHeight();
+			var rightList=$(".right-list");
+			var titleSubHeight=$(".top-sub-title").outerHeight();
+			for(var i=0;i<rightList.length;i++){
+				var rightSubList=rightList.eq(i).find(".right-sub-list");
+				var offsetTop=rightList[i].offsetTop;
+				if(rightList.eq(i+1).length>0){
+					var offsetTop2=rightList[i+1].offsetTop;
+				}else{
+					var offsetTop2=rightList[i].offsetTop+rightList.eq(i).outerHeight();
+				}
+				
+				if(scrolltop>=offsetTop&&scrolltop<offsetTop2-titleHeight){
+					$(".top-fixed").css("top","0");
+					$(".top-title").empty();
+					for(var j=0;j<rightSubList.length;j++){
+						var idText=rightSubList.eq(j).attr("id");
+						var text=rightSubList.eq(j).find(".sub-title .txt").text();
+						if(j==0){
+							$(".top-title").append("<a href='#' data-name='"+idText+"' class='txt active'>"+text+"</a>");
+						}else{
+							$(".top-title").append("<a href='#' data-name='"+idText+"' class='txt'>"+text+"</a>");
+						}
+						
+					}
+					//scrollTitleSub2(rightSubList);
+					scrollTitleSub(i);
+					
+					break;
+				}else if(scrolltop>=offsetTop2-titleHeight&&scrolltop<offsetTop2){
+					$(".top-fixed").css("top",-(titleHeight+scrolltop-offsetTop2)+"px");
+					$(".top-title").empty();
+					for(var j=0;j<rightSubList.length;j++){
+						var idText=rightSubList.eq(j).attr("id");
+						var text=rightSubList.eq(j).find(".sub-title .txt").text();
+						if(j==0){
+							$(".top-title").append("<a href='#' data-name='"+idText+"' class='txt active'>"+text+"</a>");
+						}else{
+							$(".top-title").append("<a href='#' data-name='"+idText+"' class='txt'>"+text+"</a>");
+						}
+						// scrollTitleSub2(rightSubList,j);
+					}
+					
+					$(".top-sub-title .txt").text(rightList.eq(i).find(".right-sub-list:last-child .sub-title .txt").text());
+					break;
+				}else if(scrolltop==offsetTop2-1){
+					$(".top-fixed").css("top","0");
+					$(".top-title").empty();
+					for(var j=0;j<rightSubList.length;j++){
+						var idText=rightSubList.eq(j).attr("id");
+						var text=rightSubList.eq(j).find(".sub-title .txt").text();
+						if(j==0){
+							$(".top-title").append("<a href='#"+idText+"' class='txt active'>"+text+"</a>");
+						}
+						else{
+							$(".top-title").append("<a href='#"+idText+"' class='txt'>"+text+"</a>");
+						}
+					}
+					$(".top-sub-title .txt").text(rightList.eq(i+1).find(".right-sub-list").find(".sub-title .txt").text());
+					//scrollTitleSub2(rightSubList);
+					//scrollTitleSub();
+					break;
+				}
+			}
+		}
+		
+		
+		function scrollTitleSub(j){
+			var scrolltop =document.getElementById('right-hook').scrollTop;
+			var titleHeight=$(".top-sub-title").outerHeight();
+			var rightList=$(".right-sub-list");
+			for(var i=0;i<rightList.length;i++){
+// 				var offsetTop=rightList[i].offsetTop;
+// 				var offsetTop2=rightList[i+1].offsetTop;
+				var offsetTop=rightList.eq(i).offset().top-$(".sell-header").outerHeight()+scrolltop;
+				var offsetTop2=rightList.eq(i).offset().top+rightList.eq(i).outerHeight()-$(".sell-header").outerHeight()+scrolltop;
+				
+				if(scrolltop>=offsetTop-titleHeight&&scrolltop<offsetTop2-titleHeight*2){
+					$(".top-sub-title").css("top","0");
+					$(".top-sub-title .txt").text(rightList.eq(i).find(".sub-title .txt").text());
+					
+					$(".top-title").children("a").removeClass("active");
+					var m=$(".right-list").eq(j).find(".right-sub-list").index($(".right-sub-list").eq(i));
+					$(".top-title").children("a").eq(m).addClass("active");
+					break;
+				}else if(scrolltop>=offsetTop2-titleHeight*2&&scrolltop<offsetTop2-titleHeight){
+					$(".top-sub-title").css("top",-(titleHeight*2+scrolltop-offsetTop2)+"px");
+					$(".top-sub-title .txt").text(rightList.eq(i).find(".sub-title .txt").text());
+					
+					$(".top-title").children("a").removeClass("active");
+					var m=$(".right-list").eq(j).find(".right-sub-list").index($(".right-sub-list").eq(i));
+					$(".top-title").children("a").eq(m).addClass("active");
+					break;
+				}else if(scrolltop==offsetTop2-titleHeight){
+					$(".top-sub-title").css("top","0");
+					$(".top-sub-title .txt").text(rightList.eq(i+1).find(".sub-title .txt").text());
+					// $(".top-title").children("a").removeClass("active");
+					// for(var j=0;j<rightList.eq(i+1).length;j++){
+					// var m=$(".right-list").eq(j).find(".right-sub-list").index($(".right-sub-list").eq(i));
+						// $(".top-title").children("a").eq(i+1).addClass("active");
+					// }
+					break;
+				}
+			}
+		}
+		
+		
+		
+        document.getElementById('right-hook').onscroll = function() {
+            scrollactive();
+			scrollTitleB();
+        };
+        arrHeight();
+        scrollactive();
+        clickactve();
+    }
+	$(document).on('click', '.list', function(e) {
+		$this=e.target;
+		$(this).siblings(".list").removeClass("list-active");
+		$(this).addClass("list-active");
+	})
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        //菜品详情
+        var ph = $(".pop-shop").height();
+        var pop = ph / 2 * (-1);
+        $(".pop-shop").css({
+            'margin-top': pop + 'px'
+        });
+        $(".combo ul li").click(function () {
+            $(this).addClass("hover").siblings().removeClass("hover")
+        });
+        $(".cart-list").click(function () {
+            $(".pop-bg").show().css({"z-index":"1004"});
+            $(".pop-shop").show();
+        });
+        $(".close-btn").click(function () {
+            $(".pop-bg").hide().css({"z-index":"1000"});
+            $(".pop-shop").hide();
+        });
+
+
+        //左侧菜单
+        var wH = $(window).outerHeight();
+        var hH = $(".head").outerHeight();
+        var tH = $(".top").outerHeight();
+		var sH=$(".sell-header").outerHeight();
+        var fH = $(".f-wrap").outerHeight();
+        $(".container,.left,.left .element,.right,.right .element").css({"height":wH-sH-fH+2+"px"});
+		$(".right-list:last-child").css("min-height",wH-sH-fH+2+"px");
+		
+        $(".cart-list .ones").hide();
+
+
+        //加
+        $(".add").click(function () {
+            $(this).parent(".nub").find(".ones").css({"display":"inline-block"});
+            var tmp = parseInt($(this).parent(".nub").find("em").text());
+            tmp += 1;
+            $(this).parent(".nub").find("em").text(tmp);
+            $(".shoppingBtn").addClass("act");
+            $(".shoppingBtn i").text(tmp).addClass("act");
+			$(".check-out-btn").addClass("btn-active");
+            //$(".f-wrap").show();
+            //$(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH-fH+2+"px"});
+
+            $(".shoppingBtn").click(function () {
+                $(".pop-bg").show();
+                $(".shop").show();
+            });
+            $(".pop-bg").click(function () {
+                $(".pop-bg").hide();
+                $(".shop").hide();
+                $(".pop-shop").hide();
+            });
+
+            return false;
+        });
+
+        //减
+        $(".plus").click(function () {
+            var tmp = parseInt($(this).next().text());
+            tmp -= 1;
+            $(this).next().text(tmp);
+            $(".shoppingBtn i").text(tmp);
+            if ($(this).next().text() == "0") {
+                $(this).parent(".ones").hide();
+            }
+            if ($(".shoppingBtn i").text() == "0") {
+                $(".shoppingBtn").removeClass("act");
+                $(".shoppingBtn i").text(tmp).removeClass("act");
+				$(".check-out-btn").removeClass("btn-active");
+                //$(".f-wrap").hide();
+            }
+            //$(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH+2+"px"});
+
+            $(".shoppingBtn").unbind("click");
+            return false;
+        });
+        if ($(".cart-zhi").text() > "0") {
+            $(".menu-footer .ones").css({"display":"inline-block"});
+        }
+    });
+
+    //添加菜品动画效果
+    $(".add").on("click", addProduct);
+    function addProduct(event) {
+        var x = event.pageX - $(document).scrollLeft();
+        var y = event.pageY - $(document).scrollTop();
+        var t = $(document).scrollTop();
+        var l = $(document).scrollLeft();
+        var offset = $('#end').offset(),
+            flyer = $("<lable class='pointer'></label>");
+        flyer.fly({
+            start: {
+                left: x,
+                top: y
+            },
+            end: {
+                left: offset.left - l,
+                top: offset.top - t,
+                width: 10,
+                height: 10
+            }
+        });
+    }
+</script>
+</body>
+</html>

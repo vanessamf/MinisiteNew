@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>卡券中心-优惠券</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+</head>
+
+<body>
+<div class="nav-ticket"><a href="卡券中心-创建券.html">创建券</a> <i>></i> 优惠券</div>
+<div class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>品牌设置：</label>
+        <div class="layui-input-block brand-select">
+            <select name="interest" lay-filter="aihao" lay-verify="required">
+                <option value="" selected=""></option>
+                <option value="0">品牌一</option>
+                <option value="1">品牌二</option>
+                <option value="2">品牌三</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>券名称：</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input input01">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>优惠额度：</label>
+        <div class="layui-input-block">
+            <input type="radio" name="agio" title="抵扣" checked="">
+            <div class="layui-input-block" style="display: inline-block; margin: 0 5px 0 -15px">
+                <input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input input02">
+            </div>
+            <i class="t-text">元</i>
+            <input type="radio" name="agio" title="立享">
+            <div class="layui-input-block" style="display: inline-block; margin: 0 5px 0 -15px">
+                <input type="text" name="title" autocomplete="off" placeholder="" class="layui-input input02 disabled" disabled>
+            </div>
+            <i class="t-text">折</i>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">起用金额：</label>
+        <i class="t-text">消费满</i>
+        <input type="text" name="sel-agio" autocomplete="off" placeholder="" lay-verify="required" class="layui-input st-price wd-sm">
+        <i class="t-text">元可用</i>
+        <i class="t-text" style="color: #999">(留白或填0则无限制)</i>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>有效期：</label>
+        <div class="layui-input-block">
+            <input type="radio" name="date" title="领取后，" checked="">
+            <div class="layui-input-block brand-select agio-select" style="margin-left: -15px">
+                <select name="interest" lay-filter="aihao" lay-verify="required">
+                    <option value=""></option>
+                    <option value="0" selected="">当日</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                </select>
+            </div>
+            <i class="t-text">生效，有效天数</i>
+            <div class="layui-input-block brand-select agio-select" style="margin-left: -15px">
+                <select name="interest" lay-filter="aihao" lay-verify="required">
+                    <option value=""></option>
+                    <option value="0" selected="">1天</option>
+                    <option value="1">2天</option>
+                    <option value="2">3天</option>
+                </select>
+            </div>
+            <i class="t-text" style="color: #999">（生日赠券请填该类有效期）</i><br/>
+            <input type="radio" name="date" title="固定日期">
+            <div class="layui-input-block date">
+                <input type="text" id="date1" autocomplete="off" class="layui-input">
+            </div>
+            <i class="t-text">至</i>
+            <div class="layui-input-block date">
+                <input type="text" id="date2" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item" pane="" style="margin: 0 0 15px 0">
+        <label class="layui-form-label">使用时段：</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="like1[monday]" lay-skin="primary" title="周一" checked="">
+            <input type="checkbox" name="like1[tuesday]" lay-skin="primary" title="周二" checked="">
+            <input type="checkbox" name="like1[wednesday]" lay-skin="primary" title="周三" checked="">
+            <input type="checkbox" name="like1[thursday]" lay-skin="primary" title="周四" checked="">
+            <input type="checkbox" name="like1[friday]" lay-skin="primary" title="周五" checked="">
+            <input type="checkbox" name="like1[saturday]" lay-skin="primary" title="周六" checked>
+            <input type="checkbox" name="like1[sunday]" lay-skin="primary" title="周日" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">适用门店：</label>
+        <div class="layui-input-block" style="display: inline-block; margin-left: 0">
+            <input type="text" name="title" autocomplete="off" value="全部门店" lay-verify="required" class="layui-input input01" readonly>
+        </div>
+        <button class="choose-btn" onclick="member_add('选择适用门店','卡券中心-选择门店.html','780','426')">选择</button>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">限制与说明：</label>
+        <div class="layui-input-block">
+            <!--<textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>-->
+            <textarea class="layui-textarea layui-layedit" name="content"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block" style="margin-left: 350px">
+            <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+            <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+        </div>
+    </div>
+</div>
+<script src="./plugins/layui/layui.js"></script>
+<script src="build/js/x-layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate','element','layer'], function() {
+        var $ = layui.jquery;//jquery
+        var form = layui.form,
+            layer = layui.layer,
+            layedit = layui.layedit,
+            laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+        laydate.render({
+            elem: '#date2'
+        });
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+    });
+    /*用户-添加*/
+    function member_add(title,url,w,h){
+        x_admin_show(title,url,w,h);
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

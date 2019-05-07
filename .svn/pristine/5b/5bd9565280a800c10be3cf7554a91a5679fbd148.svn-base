@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>场景式营销-赠送设置-详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+    <script src="build/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".md-box dl dd:gt(16)").hide();
+            var flag = 1;
+            $(".more-md").click(function(){
+                if(flag==1){
+                    $(this).html("收起...")
+                    $(".md-box dl dd:gt(0)").show();
+                    flag=2;
+                }else if(flag==2){
+                    $(this).html("更多...")
+                    $(".md-box dl dd:gt(16)").hide();
+                    flag=1;
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+<ul class="view">
+    <li><em>券类型：</em>抵用券</li>
+    <li><em>券名称：</em>50元优惠券</li>
+    <li><em>优惠额度：</em>立减5元</li>
+    <li><em>起用金额：</em>消费满0元可用</li>
+    <li><em>有效期：</em>自券发出之日起3天有效</li>
+    <li><em>使用时段：</em>周一至周日</li>
+    <li><em>适用门店：</em>
+        <div class="md-box">
+        <dl>
+            <dd>门店1、</dd>
+            <dd>门店2、</dd>
+            <dd>门店3、</dd>
+            <dd>门店4、</dd>
+            <dd>门店5、</dd>
+            <dd>门店6、</dd>
+            <dd>门店7、</dd>
+            <dd>门店8、</dd>
+            <dd>门店9、</dd>
+            <dd>门店10、</dd>
+            <dd>门店11、</dd>
+            <dd>门店12、</dd>
+            <dd>门店13、</dd>
+            <dd>门店14、</dd>
+            <dd>门店15、</dd>
+            <dd>门店16、</dd>
+            <dd>门店17、</dd>
+            <dd>门店18、</dd>
+            <dd>门店19、</dd>
+            <dd>门店20、</dd>
+            <dd>门店21、</dd>
+        </dl>
+            <a class="more-md">更多...</a>
+        </div>
+    </li>
+    <li><em>限制与说明：</em>仅限大厅使用，包厢不能使用。</li>
+</ul>
+</body>
+</html>

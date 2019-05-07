@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/pay.css">
+</head>
+<body style="background: #f4f4f4">
+<div class="cg-box">
+    <img src="images/ok.png"/>
+    <em>支付成功</em>
+    <p>欧尚（星湖街店）已收到你的付款</p>
+    <h1>0.01元</h1>
+</div>
+<a class="btn-sub">完成</a>
+</body>
+</html>

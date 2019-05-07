@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>详情</title>
+    <link rel="stylesheet" href="css/interactive/base.css"/>
+    <link rel="stylesheet" href="css/interactive/main.css"/>
+</head>
+<body class="bg">
+<div class="address-warp">
+    <div class="user-info">
+        <h1>就餐人：WA</h1>
+        <p>门店地址：上海市长宁区780号</p>
+    </div>
+    <div class="order-info">
+        <ul>
+            <li><em>订单号：</em>900956</li>
+            <li><em>就餐时间：</em><b>2016-05－13  17:30（预计）</b></li>
+            <li><em>订单状态：</em>已支付</li>
+            <li><em>支付类型：</em>微信支付</li>
+            <li><em>就餐类型：</em><b>堂食</b></li>
+            <li><em>订单金额：</em>¥99.00</li>
+            <li><em>应付金额：</em><b>¥79.00</b></li>
+            <li><em>备注：</em></li>
+        </ul>
+    </div>
+    <ul class="price-info">
+        <li>煎三文鱼<label><em>X2</em><i>￥</i>33.00</label></li>
+        <li>沃歌斯冠军套餐<label><em>X1</em><i>￥</i>33.00</label></li>
+    </ul>
+</div>
+<a class="sub-btn">¥99.00  去付款</a>
+<script src="js/jquery-2.1.0.js"></script>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-2.1.0.js"></script>
+    <script src="js/rp.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>用户协议</title>
+</head>
+<body>
+<div class="clause-box">
+    <h1>1. 服务条款的接受与修改</h1>
+    <p>1.1 本协议是VIP会员与公司之间关于用户成为VIP会员且使用提供的VIP会员服务所订立的协议。本协议描述VIP会员之间关于软件许可以及服务使用及相关方面的权利义务。“VIP会员”或“您”是指享受提供的VIP会员服务的个人或单一实体。本服务协议构成您使用VIP会员服务之先决条件，除非您接受本协议条款，否则您无权使用本协议的相关服务。您的使用行为将视为同意接受本协议各项条款的约束。</p>
+    <p>1.2 有权随时对服务条款进行修改，一旦服务条款发使用；VIP会员继续使用提供的服务，则视为VIP会员已经接受本协议的全部修改。</p>
+    <p>1.3 本协议是VIP会员与公司之间关于用户成为VIP会员且使用提供的VIP会员服务所订立的协议。本协议描述VIP会员之间关于软件许可以及服务使用及相关方面的权利义务。“VIP会员”或“您”是指享受提供的VIP会员服务的个人或单一实体。本服务协议构成您使用VIP会员服务之先决条件，除非您接受本协议条款，否则您无权使用本协议的相关服务。您的使用行为将视为同意接受本协议各项条款的约束。</p>
+    <p>1.4 有权随时对服务条款进行修改，一旦服务条款发使用；VIP会员继续使用提供的服务，则视为VIP会员已经接受本协议的全部修改。</p>
+    <b>苏州客凯易科技有限公司</b>
+    <h2>客凯易 @ 2011 Cuscapi Berhad</h2>
+</div>
+</body>
+</html>

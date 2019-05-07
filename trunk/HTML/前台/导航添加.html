@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>EAT WELL - LIVE WELL</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+</head>
+<body style="background: #fff">
+<div class="logo">
+    <a href="index.html"><img src="images/logo-w.png"/></a>
+</div>
+<div style="height: 3.5rem"></div>
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/banner-1.png"/></div>
+        <div class="swiper-slide"><img src="images/banner-1.png"/></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<ul class="link">
+    <li><a style="background: url(images/link-1.png) 0 0 no-repeat; background-size: 100% 100%"></a></li>
+    <li><a style="background: url(images/link-2.png) 0 0 no-repeat; background-size: 100% 100%"></a></li>
+    <li><a style="background: url(images/link-3.png) 0 0 no-repeat; background-size: 100% 100%"></a></li>
+    <li><a style="background: url(images/link-4.png) 0 0 no-repeat; background-size: 100% 100%"></a></li>
+</ul>
+<ul class="footer">
+    <li class="active"><i></i>首页</li>
+    <li><i></i>发现</li>
+    <li><i></i>订单</li>
+    <li><i></i>我</li>
+</ul>
+<!-- Swiper JS -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/swiper.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+</script>
+</body>
+</html>

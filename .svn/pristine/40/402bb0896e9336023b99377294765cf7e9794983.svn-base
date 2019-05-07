@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/rp.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>积分明细</title>
+</head>
+<body>
+<div class="cart-num"><span class="jy">900</span></div>
+<ul class="list-box">
+  <li>
+    <h1>消费<em>-900</em></h1>
+    <p>交易号：20171204155543126987<em>12/4 12:18</em></p>
+  </li>
+  <li>
+    <h1>撤销消费<em>+300</em></h1>
+    <p>交易号：20171204155543126987<em>12/4 12:18</em></p>
+  </li>
+  <li>
+    <h1>消费<em>+300</em></h1>
+    <p>交易号：20171204155543126987<em>12/4 12:18</em></p>
+  </li>
+  <li>
+    <h1>充值赠送<em>-300</em></h1>
+    <p>交易号：20171204155543126987<em>12/4 12:18</em></p>
+  </li>
+  <li>
+    <h1>充值<em>-300</em></h1>
+    <p>交易号：20171204155543126987<em>12/4 12:18</em></p>
+  </li>
+</ul>
+</body>
+</html>

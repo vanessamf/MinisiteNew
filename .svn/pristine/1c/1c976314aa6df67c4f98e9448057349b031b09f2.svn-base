@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>山遇·桃源</title>
+		<link rel="stylesheet" type="text/css" href="../css/interactive/base.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/interactive/main.css" /> -->
+		<link rel="stylesheet" type="text/css" href="../css/interactive/main-mobile.css" />
+		<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css">
+		<link rel="stylesheet" href="../css/interactive/swiper.min.css">
+	</head>
+	<body class="bg-white" style="overflow-x: hidden;">
+		<div class="detail-wrapper">
+			<div class="detail-header swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="images/interactive/sellBg.jpg" alt="">
+					</div>
+					<div class="swiper-slide">
+						<img src="images/interactive/c-link-5.jpg" alt="">
+					</div>
+					<div class="swiper-slide">
+						<img src="images/interactive/c-link-6.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="content-introduce">
+				<div class="name">
+					<h2>山遇·桃源</h2>
+					<span class="tag">高雅</span>
+				</div>
+				<div class="info">
+					桃源餐厅为宾客奉上美味的闽粤菜肴和流行的川湘菜集锦。厨师团队采用最新鲜的食材和最精湛的技艺打造具有美感的地道菜肴。
+				</div>
+				<div class="time">
+					<span>午/晚餐</span>
+					<span>07:30-09:30</span>
+					<span>07:30-09:30</span>
+					<span>07:30-09:30</span>
+				</div>
+			</div>
+			<div class="item-container">
+				<div class="item-title">
+					<span>优惠套餐</span>
+					<span class="more">
+						更多
+						<i class="iconfont icon-you3"></i>
+					</span>
+				</div>
+				<ul class="item-content">
+					<li>
+						<img src="images/interactive/chaofan.jpg">
+						<div class="detail">
+							<h3>2-3人经典套餐</h3>
+							<span class="intro">南非路易波士茶，香茅草</span>
+							<div>
+								<span class="tag red-tag">已优惠￥70</span>
+								<span class="tag base-tag">免预约</span>
+							</div>
+							<p class="price">
+								<span class="new-price">
+									<i>￥</i>128
+								</span>
+								<span class="old-price">
+									<i>￥</i>198
+								</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<img src="images/interactive/chaofan.jpg">
+						<div class="detail">
+							<h3>2-3人经典套餐</h3>
+							<span class="intro">招牌烧鹅、记忆中的莲合、回味无穷、回味无穷、回味无穷、回味无穷、回味无穷</span>
+							<div>
+								<span class="tag red-tag">已优惠￥70</span>
+								<span class="tag base-tag">免预约</span>
+							</div>
+							<p class="price">
+								<span class="new-price">
+									<i>￥</i>128
+								</span>
+								<span class="old-price">
+									<i>￥</i>198
+								</span>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="item-container">
+				<div class="item-title">
+					<span>推荐菜</span>
+					<span class="more">
+						更多
+						<i class="iconfont icon-you3"></i>
+					</span>
+				</div>
+				<div class="recommend-content swiper-container1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="images/interactive/2222.jpg" alt="">
+							<span>酱香猪蹄</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/1111.jpg" alt="">
+							<span>红烧肘子</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/3333.jpg" alt="">
+							<span>山遇春笋</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/sellBg.jpg" alt="">
+							<span>酱香猪蹄</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/c-link-5.jpg" alt="">
+							<span>酱香猪蹄</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/c-link-6.jpg" alt="">
+							<span>酱香猪蹄</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/sellBg.jpg" alt="">
+							<span>酱香猪蹄</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/c-link-5.jpg" alt="">
+							<span>酱香猪蹄</span>
+						</div>
+						<div class="swiper-slide">
+							<img src="images/interactive/c-link-6.jpg" alt="">
+							<span>酱香猪蹄aafasfasfaf</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item-container">
+				<div class="item-title">
+					<span>评价</span>
+					<span class="more">
+						更多
+						<i class="iconfont icon-you3"></i>
+					</span>
+				</div>
+				<ul class="rating-wrapper">
+					<li class="rating-item">
+						<div class="user-wrapper">
+							<img class="avatar" src="images/interactive/c-link-6.jpg">
+							<div class="user-info-text">
+								<span class="name">害羞的大灰熊</span>
+								<div class="star-wrapper">
+									<div class="star"data-num="3">
+									</div>
+								</div>
+							</div>
+							<div class="time">08.10 12:03</div>
+						</div>
+						<div class="comment">
+							当你背上行囊，到了梦寐以求的地方，一路上兴致勃勃地参观，当夕阳西下时，大帽山苑厝就。
+						</div>
+						<div class="pics">
+							<div id=""class="img-item">
+								<img src="images/interactive/1111.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/zhushou.jpeg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/chaofan.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/2222.jpg" alt="">
+							</div>
+						</div>
+					</li>
+					<li class="rating-item">
+						<div class="user-wrapper">
+							<img class="avatar" src="images/interactive/jianbing.jpg">
+							<div class="user-info-text">
+								<span class="name">害羞的大灰熊</span>
+								<div class="star-wrapper">
+									<div class="star"data-num="4">
+									</div>
+								</div>
+							</div>
+							<div class="time">08.10 12:03</div>
+						</div>
+						<div class="comment">
+							当你背上行囊，到了梦寐以求的地方，一路上兴致勃勃地参观，当夕阳西下时，大帽山苑厝就。
+						</div>
+						<div class="pics">
+							<div id=""class="img-item">
+								<img src="images/interactive/3333.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/2222.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/chaofan.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/c-link-6.jpg" alt="">
+							</div>
+						</div>
+					</li>
+					<li class="rating-item">
+						<div class="user-wrapper">
+							<img class="avatar" src="images/interactive/c-link-6.jpg">
+							<div class="user-info-text">
+								<span class="name">害羞的大灰熊</span>
+								<div class="star-wrapper">
+									<div class="star"data-num="4.6">
+									</div>
+								</div>
+							</div>
+							<div class="time">08.10 12:03</div>
+						</div>
+						<div class="comment">
+							当你背上行囊，到了梦寐以求的地方，一路上兴致勃勃地参观，当夕阳西下时，大帽山苑厝就。
+						</div>
+						<div class="pics">
+							<div id=""class="img-item">
+								<img src="images/interactive/1111.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/3333.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/2222.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/zhushou.jpeg" alt="">
+							</div>
+						</div>
+					</li>
+					<li class="rating-item">
+						<div class="user-wrapper">
+							<img class="avatar" src="images/interactive/c-link-6.jpg">
+							<div class="user-info-text">
+								<span class="name">害羞的大灰熊</span>
+								<div class="star-wrapper">
+									<div class="star"data-num="4.1">
+									</div>
+								</div>
+							</div>
+							<div class="time">08.10 12:03</div>
+						</div>
+						<div class="comment">
+							当你背上行囊，到了梦寐以求的地方，一路上兴致勃勃地参观，当夕阳西下时，大帽山苑厝就。
+						</div>
+						<div class="pics">
+							<div id=""class="img-item">
+								<img src="images/interactive/chaofan.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/3333.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/1111.jpg" alt="">
+							</div>
+							<div id=""class="img-item">
+								<img src="images/interactive/c-link-6.jpg" alt="">
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="detail-btn">
+			<a href="">
+				<i class="tel"></i>
+				预约
+			</a>
+			<a href="">
+				<i class="order"></i>
+				点餐
+			</a>
+		</div>
+	</body>
+	<script src="../js/jquery-2.1.0.js"></script>
+	<script src="../js/swiper.min.js"></script>
+	<script>
+		window.onload = function() {
+			var swiper = new Swiper('.swiper-container', {
+				// freeMode: true,
+				slidesPerView: 1.03,
+				spaceBetween: 10,
+				freeMode: true,
+			});
+			var swiper = new Swiper('.swiper-container1', {
+				slidesPerView: 3.3,
+				spaceBetween: 10,
+				freeMode: true,
+			});
+		}
+	</script>
+	<script>
+		function itemStar(star,num) {
+			//debugger;
+			var result = [];
+			var LENGTH = 5;
+			var CLS_ON = 'on';
+			var CLS_HALF = 'half';
+			var CLS_OFF = 'off';
+	
+			var score = Math.floor(num * 2) / 2;
+			var hashDecimal = score % 1 !== 0;
+			var integer = Math.floor(score);
+			
+			star.empty();
+			for (var i = 0; i < integer; i++) {
+				result.push(CLS_ON);
+				
+				star.append('<i class="star-item '+CLS_ON+'"></i>');
+			}
+			if (hashDecimal) {
+				result.push(CLS_HALF);
+				star.append('<i class="star-item '+CLS_HALF+'"></i>');
+			}
+			while (result.length < LENGTH) {
+				result.push(CLS_OFF);
+				star.append('<i class="star-item '+CLS_OFF+'"></i>');
+			}
+			//return result;
+		}
+		var starItems=$(".rating-item .star");
+		for(var i=0;i<starItems.length;i++){
+			var dataNum=starItems.eq(i).attr("data-num");
+			itemStar(starItems.eq(i),dataNum);
+		}
+		//.attr("data-num");
+		
+	</script>
+</html>

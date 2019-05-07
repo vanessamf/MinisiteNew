@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/rp.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>优惠券</title>
+</head>
+<body class="code-bg">
+<div class="code-box">
+  <p>该页面用于向商家当面付款时核销</p>
+  <img src="images/code02.png" class="code01"/>
+  <em>2017 **** 查看付款码数字</em>
+  <img src="images/code01.png" class="code02"/>
+  <strong>09999999933</strong>
+</div>
+</body>
+</html>

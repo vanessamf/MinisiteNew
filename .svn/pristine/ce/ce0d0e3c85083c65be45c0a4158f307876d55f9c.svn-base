@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html style="font-size: 42.6667px;"><head lang="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/jquery-2.1.0.js"></script>
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/rp.js?v=1"></script>
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/main.js?v=1"></script>
+
+    <title>会员卡选择</title>
+    <link href="/XSite/MiniWeb/MiniWeb../Content/css?v=BGZ6B4E11QaAUkJMnbN8M95-AkAaL2Ndh-dXzHPtkd01" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/Content/public.css?v=1">
+    <link rel="stylesheet" href="../css/Content/main.css?v=4">
+</head>
+<body style="">
+    
+
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员卡选择</title>
+    <link rel="stylesheet" href="../Content/main.css?v=3">
+    <link rel="stylesheet" href="../Content/base.css">
+   <style>
+       html{
+           font-size: 12px!important;
+       }
+   </style>
+
+
+    <div id="result" style="padding-bottom:5px;" class="radio-box">
+        <div class="radio-box">
+            <div class="opt  card-radio">
+                <input class="magic-checkbox" type="radio" name="layout" id="16594ff5-56c2-4171-ab83-de35cf2d9f55" data-value="100">
+                <label for="16594ff5-56c2-4171-ab83-de35cf2d9f55"></label>
+            </div>
+            <div class="u-box red">
+                <strong name="16594ff5-56c2-4171-ab83-de35cf2d9f55">普通会员</strong>
+                <h1>6480 7740 65</h1>
+                <p></p>
+                <b>余额：100 元</b>
+                <img src="../Images/code.png" class="code">
+            </div>
+        </div>
+    </div>
+    <div style="height: 5.5rem;"></div>
+    <div class="f-btn" id="btnConfirm"><a>确定</a></div>
+    
+
+
+
+
+
+    <script src="/XSite/MiniWeb/MiniWeb/bundles/jquery?v=En0r26p__0qItu4jtwA46F5kVaPYtba5nG-x4LoVFiU1"></script>
+
+    <script src="/XSite/MiniWeb/MiniWeb/bundles/base?v=ZTKegJ8Q-Z7TS7i2FcOPO-6Vdx_Me5e7SBUDuLjoau81"></script>
+
+    <script src="/XSite/MiniWeb/MiniWeb/bundles/String?v=BwTqphDkrhcq0DKaAnvidaeqBqJBYhDzJwe7sFcYCjc1"></script>
+
+    
+
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/jsrender.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/jsrender.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/jsrender" id="contentarea" data-jsv-tmpl="_0">
+        <div class="radio-box">
+            <div class="opt">
+                <input class="magic-checkbox" type="radio" name="layout" id="{{:Id}}" data-value="{{:Balance}}">
+                <label for="{{:Id}}"></label>
+            </div>
+            <div class="u-box red">
+                <strong name="{{:Id}}">{{:RuleType}}</strong>
+                <h1>{{formatNumber:Number}}</h1>
+                <p>{{:Rule}}</p>
+                <b>余额：{{:Balance}} 元</b>
+                <img src="../Images/code.png" class="code" />
+            </div>
+        </div>
+    </script>
+    <script language="javascript">
+        $(document).ready(function () {
+            $("html").removeAttr("font-size");
+            $.views.converters("formatNumber", function (number) {
+                if (number != null) {
+                    return TruncateByFour(number);
+                }
+            });
+            var cardlist = {"Code":0,"ErrMsg":"操作成功","CardResult":[{"Code":0,"ErrMsg":null,"Id":"16594ff5-56c2-4171-ab83-de35cf2d9f55","Name":"普通会员","CardType":10,"Sequence":0,"Number":"6480774065","Balance":100.0000,"Enterprise":"和之风","cash_coupon":0.0,"Rule":null,"RuleType":"普通会员","MembershipName":null,"Phone":null,"point":0.0}]};
+            if (cardlist.Code!=0)
+            {
+                alert(cardlist.ErrMsg);
+                return;
+            }
+            var templates = $.templates("#contentarea");
+            var htmlOutput = templates.render(cardlist.CardResult);
+
+
+
+            $("#result").html(htmlOutput);
+            var cardid = '';
+            if(cardid!="")
+            {
+                $("#"+cardid).attr("checked","checked");;
+            }
+            $("#btnConfirm").click(function () {
+                var cardid=""
+                var balance=""
+                if($('input:radio[name="layout"]:checked').length!=0)
+                {
+                    cardid = $('input:radio[name="layout"]:checked').attr('id');
+                    balance = $('input:radio[name="layout"]:checked').attr('data-value');
+                }
+                callback(cardid,balance);
+            });
+            $(".magic-checkbox").click(function () {
+                if($(this).attr("checked")=="checked")
+                {
+                    $(this).removeAttr("checked");
+                }
+                else
+                {
+                    $(this).attr("checked","checked");
+                }
+
+
+            })
+
+        })
+
+        function callback(cardid,balance) {
+            $.ajax({
+                url: '/XSite/MiniWeb/MiniWeb/Card/CallBack',
+                type: 'POST', //POST
+                data: { CardId: cardid, Balance: balance },
+                async: false,
+                dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                success: function (data) {
+                    if (data.isRedirect) {
+                        alter(data.message)
+                        var urlRedirect = data.redirectUrl;
+                        window.location.href = urlRedirect;
+                        return;
+                    }
+                    if(data.Code!=0)
+                    {
+                        alert(data.ErrMsg);
+                        return;
+                    }
+                    window.location.href = '/XSite/MiniWeb/MiniWeb/Order/Pay';
+                },
+                error: function (xhr, textStatus, errorThrown) {
+
+                    alert('操作失败');
+                },
+            })};
+
+       
+    </script>
+
+
+
+<script>
+    //获取配置文件里的接口信息
+    var api_url = 'http://m.jiezhiinfo.cn/api/xsite/interface/';
+
+    setApiUrl(api_url);
+</script>
+</body></html>

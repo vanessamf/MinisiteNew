@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Cuscapi客户关系管理系统</title>
+	<link rel="stylesheet" href="css/base.css" type="text/css" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/date.js"></script>
+	<script src="js/Calendar.js"></script>
+
+</head>
+
+<body onload="showDT()">
+<div class="header">
+	<div class="top">
+		<strong>Cuscapi<em>客户关系管理系统</em></strong>
+		<label id="theClock"></label>
+	</div>
+	<a class="back" onclick="window.open('main.html','_parent')">返回</a>
+	<div class="user">
+		<label>Caspar</label>
+	</div>
+	<div class="tab">
+		<ul>
+			<li class="hover">会员管理</li>
+			<li>企业管理</li>
+			<li>基础资料</li>
+			<li>权限管理</li>
+		</ul>
+	</div>
+</div>
+<div class="navContent">
+	<a href="#">会员信息</a>
+	<a href="#">积分查询</a>
+	<a href="#">积分设置</a>
+	<a href="#">会员卡管理</a>
+	<a href="#">会员等级管理</a>
+	<a href="#" class="hover">成长值策略</a>
+</div>
+<div class="wrapper">
+	<div class="wrap">
+		<div class="leftBar">
+			<h1>品牌名称</h1>
+			<div class="tab-w">
+				<ul>
+					<li id="one0" onclick="Tab('one',0,4)" class="hover">客凯易0</li>
+					<li id="one1" onclick="Tab('one',1,4)">客凯易1</li>
+					<li id="one2" onclick="Tab('one',2,4)">客凯易2</li>
+					<li id="one3" onclick="Tab('one',3,4)">客凯易3</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tabContent-w">
+			<div id="one_0">
+				<div class="tbox">
+					<div class="tab-header">
+						<span>消费</span>
+						<div class="r-box">
+							<input class='toggle' type="checkbox" />
+						</div>
+					</div>
+					<ul>
+						<li>基本规则<i>*</i></li>
+						<li>每消费<input type="text" />元，加<input type="text" />成长值<span>注：这里消费指最终用户实付金额</span></li>
+					</ul>
+				</div>
+				<div class="tbox">
+					<div class="tab-header">
+						<span>充值</span>
+						<div class="r-box">
+							<input class='toggle' type="checkbox" />
+						</div>
+					</div>
+					<ul>
+						<li>基本规则<i>*</i></li>
+						<li>一次性充值<input type="text" />元，加<input type="text" />成长值</li>
+					</ul>
+				</div>
+				<div class="btn_box">
+					<a class="btn-cancel">取消</a><a class="btn-ok">保存</a>
+				</div>
+
+
+			</div>
+			<div id="one_1" style="display: none">2</div>
+			<div id="one_2" style="display: none">3</div>
+			<div id="one_3" style="display: none">4</div>
+		</div>
+
+	</div>
+</div>
+<script>
+    function Tab(name, cursel, n) {
+        for (i = 0; i < n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById( name + "_" + i);
+            menu.className = i == cursel ? "hover" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<h2>MiniSite</h2>
+			<ul>
+				<li>
+					<a href="用餐方式new.html" target="_blank">用餐方式</a>
+				</li>
+				<li>
+					<a href="选菜new.html" target="_blank">选菜</a>
+				</li>
+				<li>
+					<a href="送餐时间.html" target="_blank">送餐时间</a>
+				</li>
+				<li>
+					<a href="取餐时间.html" target="_blank">取餐时间</a>
+				</li>
+				<li>
+					<a href="预订时间.html" target="_blank">预订时间</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

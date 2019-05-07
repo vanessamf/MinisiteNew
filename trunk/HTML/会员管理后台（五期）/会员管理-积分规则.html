@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>会员管理-积分规则</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+    <style>
+        .view li em { top: 5px}
+        .view .layui-form-switch {width: 30px; margin-top:0 }
+        .view .layui-form-onswitch i,.cBox .layui-form-onswitch i { left: 22px}
+        .view .layui-form-onswitch,.cBox .layui-form-onswitch {border-color:#1d66dc;background-color:#1d66dc}
+        .cBox .layui-form-switch {width: 30px; margin-top:0; float: right }
+        .Contentbox input {display: inline-block; margin: 0 10px; width: 170px}
+        .b-box { padding: 40px 40px 30px 40px}
+        .b-box .c-box { margin-bottom: 10px}
+    </style>
+
+</head>
+
+<body>
+<div class="nav-ticket">积分规则 <i>></i> 创建积分规则</div>
+<div class="layui-form" action="">
+    <div class="s-step">
+        <h1>基础信息</h1>
+        <div class="view">
+            <ul>
+                <li>
+                    <em>规则名称：</em>
+                    <input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input" style="width: 350px">
+                </li>
+                <li>
+                    <em>规则说明：</em>
+                    <input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input" style="width: 350px">
+                </li>
+                <li>
+                    <em style="top: 0">状态：</em>
+                    <input type="checkbox" name="close" lay-skin="switch" lay-text="" >
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab">
+        <ul>
+            <li id="one0" onclick="tab('one',0,2)" class="sale_hover">积分生成</li>
+            <li id="one1" onclick="tab('one',1,2)">积分消耗</li>
+        </ul>
+    </div>
+    <div class="Contentbox">
+        <div id="one_0">
+            <div class="s-step cBox">
+                <h1>消费送积分<input type="checkbox" name="close" lay-skin="switch" lay-text="" ></h1>
+                <div class="b-box">
+                    <div class="c-box">
+                        <i class="red">*</i>基本规则：每消费满<input type="text" autocomplete="off" class="layui-input">元，送<input type="text" autocomplete="off" class="layui-input" placeholder="">积分
+                    </div>
+                    <div class="c-box" style="margin-left: 12px">
+                        额外奖励规则：一次性消费满<input type="text" autocomplete="off" class="layui-input">元，额外送<input type="text" autocomplete="off" class="layui-input" placeholder="">积分
+                        <button class="layui-btn add-btn">添加</button><font style="color: #999">最多添加5个，奖励间不叠加</font>
+                    </div>
+                </div>
+            </div>
+            <div class="s-step cBox">
+                <h1>充值送积分<input type="checkbox" name="close" lay-skin="switch" lay-text="" ></h1>
+                <div class="b-box">
+                    <div class="c-box">
+                        <i class="red">*</i>基本规则：每消费满<input type="text" autocomplete="off" class="layui-input">元，送<input type="text" autocomplete="off" class="layui-input" placeholder="">积分
+                    </div>
+                    <div class="c-box" style="margin-left: 12px">
+                        额外奖励规则：一次性消费满<input type="text" autocomplete="off" class="layui-input">元，额外送<input type="text" autocomplete="off" class="layui-input" placeholder="">积分
+                        <button class="layui-btn add-btn">添加</button><font style="color: #999">最多添加5个，奖励间不叠加</font>
+                    </div>
+                    <div class="c-box" style="margin-left: 12px">
+                        额外奖励规则：一次性消费满<input type="text" autocomplete="off" class="layui-input">元，额外送<input type="text" autocomplete="off" class="layui-input" placeholder="">积分
+                        <button class="del-btn">删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="one_1" style="display: none">
+            <div class="s-step cBox">
+                <h1>订单抵扣<input type="checkbox" name="close" lay-skin="switch" lay-text="" ></h1>
+                <div class="b-box">
+                    <i class="red">*</i>基本规则：每<input type="text" autocomplete="off" placeholder="" class="layui-input">积分，抵扣<input type="text" autocomplete="off" placeholder="" class="layui-input">元
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block" style="margin-right: 130px; text-align: center; margin-top: 20px">
+            <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+            <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+        </div>
+    </div>
+</div>
+<script src="./plugins/layui/layui.js"></script>
+<script src="build/js/x-layui.js"></script>
+<script>
+    layui.use(['form', 'element','layer'], function() {
+        var $ = layui.jquery;//jquery
+        var form = layui.form,
+            layer = layui.layer
+
+    });
+
+    //tab
+    function tab(name, cursel, n) {
+        for (i = 0; i < n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById( name + "_" + i);
+            menu.className = i == cursel ? "sale_hover" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+

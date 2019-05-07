@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>卡券中心-优惠券</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+    <style>
+
+        dl { position: relative; padding-left: 85px; min-height: 50px; margin-bottom: 20px}
+        dt { display: inline-block; position: absolute; left: 0; top: 10px}
+
+        .addCover{  display:inline-block; position:relative; width:297px; height:154px; background:#f5f5f5 url(build/images/add_icon.png) center center no-repeat; background-size: 110px 110px; vertical-align: bottom; border: 1px solid #eee; margin-left: -1px; overflow: hidden}
+        .addCover em { font-style:normal}
+        .addCover .upload { position:absolute; top:0; right:0;width:120px; height: 120px; cursor:pointer; opacity:0; filter:alpha(opacity=0);}
+        .del-btn01 { background: none; border: 0; color: #1d66dc; margin-left: 20px; cursor: pointer}
+        .text-i { color: #222; padding-top: 10px}
+
+        .wap { border: 1px solid #eee; width: 90%}
+        .box01 { border-bottom: 1px solid #eee; margin: 20px  10% 20px 40px; padding-bottom: 30px}
+        .box01 ul li { position: relative; margin-bottom: 10px; padding-left: 50px}
+        .box01 ul li em { display: inline-block; font-style: normal; position: absolute; left: 0; top: 0;}
+        .box01 ul li input,.box01 ul li textarea { width: 100%}
+        .box01 ul li img { margin: 0 20px 0 -20px}
+        .wap .box01:last-child { border-bottom: 0; padding-bottom: 0}
+    </style>
+</head>
+
+<body>
+<div class="nav-ticket">会员中心配置</div>
+<div class="box">
+    <img src="build/images/pic.png" class="pic"/>
+    <div class="layui-form">
+        <dl>
+            <dt>背景设置：</dt>
+            <dd>
+                <div class="btn btn-default addCover">
+                    <em></em>
+                    <input type="file" class="upload" />
+                </div>
+                <button class="del-btn01">删除</button>
+            </dd>
+            <dd class="text-i">推荐尺寸：750*388</dd>
+        </dl>
+        <dl>
+            <dt>卡面设置：</dt>
+            <dd>
+                <div class="btn btn-default addCover" style="height: 172px; border-radius: 6px">
+                    <em></em>
+                    <input type="file" class="upload" />
+                </div>
+                <button class="del-btn01">删除</button>
+            </dd>
+            <dd class="text-i">推荐尺寸：670*388</dd>
+        </dl>
+        <dl>
+            <dt>专享权益：</dt>
+            <dd>
+                <div class="wap">
+                    <div class="box01">
+                        <ul>
+                            <li><em>图标：</em><input type="radio" name="agio" title=" " checked=""><img src="build/images/icon14.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon15.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon16.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon17.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon18.png"/>
+                            </li>
+                            <li><em>标题：</em><input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input input01"></li>
+                            <li><em>描述：</em><textarea class="layui-textarea layui-layedit" name="content"></textarea></li>
+                        </ul>
+                    </div>
+                    <div class="box01">
+                        <ul>
+                            <li><em>图标：</em><input type="radio" name="agio" title=" " checked=""><img src="build/images/icon14.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon15.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon16.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon17.png"/>
+                                <input type="radio" name="agio" title=" "><img src="build/images/icon18.png"/>
+                            </li>
+                            <li><em>标题：</em><input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input input01"></li>
+                            <li><em>描述：</em><textarea class="layui-textarea layui-layedit" name="content"></textarea></li>
+                        </ul>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+        <div style="margin:0 0 30px 65px"><button class="layui-btn add-btn">添加</button><font style="color: #999">最多添加5条</font></div>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 350px">
+                <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./plugins/layui/layui.js"></script>
+<script src="build/js/x-layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate','element','layer'], function() {
+        var $ = layui.jquery;//jquery
+        var form = layui.form,
+            layer = layui.layer,
+            layedit = layui.layedit,
+            laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+        laydate.render({
+            elem: '#date2'
+        });
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+    });
+    /*用户-添加*/
+    function member_add(title,url,w,h){
+        x_admin_show(title,url,w,h);
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

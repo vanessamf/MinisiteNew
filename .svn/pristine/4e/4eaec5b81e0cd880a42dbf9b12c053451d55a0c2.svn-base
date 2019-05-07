@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+    <title>创建促销活动</title>
+    <style>
+        .layui-form-switch {width: 30px; float: right; margin-top:0 }
+        .layui-form-onswitch i { left: 22px}
+        .layui-form-onswitch {border-color:#1d66dc;background-color:#1d66dc}
+        .layui-input{ width: auto}
+    </style>
+</head>
+
+<body>
+<div class="nav-ticket">成长值策略</div>
+<div class="s-rule">
+    <h1>成长值计算规则</h1>
+    <p>成长值是根据不同成长值策略计算的分值和其对应的分值比例计算出的综合分值，成长值等于各策略分值乘以分值比例的总和。</p>
+    <p><em>当前成长值</em> = 占比 X RFM值 + 占比 X 消费激励值 + 占比 X 会员活跃值<font style="color: #999">（占比和为1）</font></p>
+</div>
+<form class="layui-form" action="">
+    <div class="s-step">
+        <h1> 成长值策略设置<input type="checkbox" name="close" lay-skin="switch" lay-text="" ></h1>
+        <table>
+            <tr>
+                <td>
+                    <div class="i-box">
+                        <p>RFM模型策略</p>
+                        <img src="build/images/icon11.png"/>
+                    </div>
+                </td>
+                <td>介绍：<br/>RFM模型由最近一次消费（Recency）、消费频率（Frequency)、消费金额（Monetary）三个指标组成，是衡量客户价值的和客户创利能力的重要工具和手段。</td>
+                <td><input type="text" name="title" placeholder="输入占比，0.1-1" autocomplete="off" class="layui-input disabled" disabled></td>
+                <td class="op-list"><a class="btn fun-unrealized">设置</a> </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="i-box">
+                        <p>消费激励策略</p>
+                        <img src="build/images/icon12.png"/>
+                    </div>
+                </td>
+                <td>介绍：<br/>消费激励策略是通过记录用户消费和充值金额来累计客户成长值，进而评估会员等级。</td>
+                <td><input type="text" name="title" placeholder="输入占比，0.1-1" autocomplete="off" class="layui-input"></td>
+                <td class="op-list"><a class="btn" href="会员中心-成长值策略-消费激励策略设置.html">设置</a> </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="i-box">
+                        <p>会员活跃策略</p>
+                        <img src="build/images/icon13.png"/>
+                    </div>
+                </td>
+                <td>介绍：<br/>会员活跃策略是通过记录用户评论、签到等行为来累计客户成长值，进而评估会员等级。</td>
+                <td><input type="text" name="title" placeholder="输入占比，0.1-1" autocomplete="off" class="layui-input"></td>
+                <td class="op-list"><a class="btn" href="会员中心-成长值策略-会员活跃策略.html">设置</a> </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script src="./plugins/layui/layui.js"></script>
+<script src="build/js/x-layui.js"></script>
+<script src="./build/js/jquery.js"></script>
+<script>
+    layui.use(['form', 'element','layer'], function() {
+        var $ = layui.jquery  //jquery
+            ,layer = layui.layer
+
+        $('.fun-unrealized').click(function(){
+            layer.open({
+                type: 1,
+                id:'func_unrealized',
+                area:'440px;',
+                title: false,
+                moveType:1,
+                closeBtn:false,
+                btnAlign:'c',
+                content: '<h3 class="h3-warn" style="">此功能暂未开放</h3>',
+                scrollbar: false,
+                btn: '关闭',
+                //btn: ['取消','确定']
+            })
+        })
+    });
+</script>
+</body>
+</html>

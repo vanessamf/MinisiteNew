@@ -1,0 +1,19 @@
+body{ background:#eaedf1; color:#333; margin-left: 190px; padding-top: 72px}
+* {padding:0; margin:0;font-family: "\5FAE\8F6F\96C5\9ED1", "\5B8B\4F53", "\9ED1\4F53", Arial, Helvetica, sans-serif; font-size:14px}
+li{list-style-position:outside; list-style:none}
+img{border:0; vertical-align:top}
+ol,ul{list-style:none;}
+a,a.link,a.visited{text-decoration:none; color:#222}
+.clear {display:block; height:0; clear:both; font-size:0; overflow:hidden;}
+
+input { outline:none;}
+textarea { resize:none}
+
+.table { width: 100%; border-collapse: collapse; border: 1px solid #eee}
+.table thead td { background: #fff }
+.table td{ padding: 0 5px; text-align: center;white-space:nowrap; text-overflow: ellipsis;border: 1px solid #eee;background: #fafcfc}
+.table tr:nth-child(2n) td { background: #fff}
+.table thead td { height: 32px;}
+.table thead td:last-child { border-right: 0}
+.table tbody td {height: 40px;}
+.table tr td.odd { background: #d4e4f2}

@@ -1,0 +1,1771 @@
+<html>
+	<head lang="en">
+		<link rel="stylesheet" type="text/css" href="http://webapi.amap.com/theme/v1.3/style1536672475627.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>确认订单</title>
+		<link rel="stylesheet" href="../css/interactive/base.css?version=1543776269.27494">
+		<link rel="stylesheet" href="../css/interactive/swiper.min.css?version=1542924120.77175">
+
+
+		<link rel="stylesheet" href="../css/interactive/main-mobile.css?version=1544384603.70619">
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&amp;key=4c715d578faf49041ebc15bc8e015b1b"></script>
+		<style type="text/css">
+			.amap-container {
+				cursor: url(http: //webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(http://webapi.amap.com/theme/v1.3/closedhand.cur),default;}
+		</style>
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="/assets/js/jquery.validate.min.js"></script>
+		<script src="/assets/js/default.js"></script>
+		<script src="/assets/js/bootstrap.js"></script>
+		<script src="/assets/js/jquery.mobile.custom.min.js"></script>
+		<script src="/assets/js/jquery.cookies.2.2.0.min.js"></script>
+		<script src="/assets/js/jquery.form.js"></script>
+		<script src="/assets/js/jquery.poshytip.min.js"></script>
+		<script src="/assets/js/jsrender.js"></script>
+		<script src="/assets/js/bootbox.js"></script>
+		<script src="/assets/js/messages_cn.js"></script>
+		<script src="/assets/js/String.js"></script>
+		<script src="/assets/js/msalert.js"></script>
+		<script src="/assets/js/main.js"></script>
+
+		<script src="/Scripts/base.js"></script>
+		<script type="text/javascript">
+			if (msalert) {
+				msalert.init({
+					_btn1Text: '取消',
+					_btn2Text: '确定',
+					_btnText: '确定'
+				});
+			}
+
+			//function wxshared(url)
+			//{
+			//alert(url);
+			var url = window.location.href;
+			var appId;
+			var timeStamp;
+			var nonceStr;
+			var sign;
+
+			$.post('/Home/WXconfig', {
+				'url': url
+			}, function(data) {
+				appId = data.appId;
+				timeStamp = data.timeStamp;
+				nonceStr = data.nonceStr;
+				sign = data.sign;
+
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: appId, // 必填，公众号的唯一标识
+					timestamp: timeStamp, // 必填，生成签名的时间戳
+					nonceStr: nonceStr, // 必填，生成签名的随机串
+					signature: sign, // 必填，签名，见附录1
+					jsApiList: ['checkJsApi',
+						'onMenuShareTimeline',
+						'onMenuShareAppMessage',
+						'onMenuShareQQ',
+						'onMenuShareWeibo',
+						'hideMenuItems',
+						'showMenuItems',
+						'hideAllNonBaseMenuItem',
+						'showAllNonBaseMenuItem',
+						'chooseImage',
+						'previewImage',
+						'uploadImage',
+						'getNetworkType',
+						'hideOptionMenu',
+						'showOptionMenu',
+						'scanQRCode'
+					] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+				wx.ready(function() {
+					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+
+					var cfg = {
+						title: 'EAT WELL - LIVE WELL', // 分享标题
+						desc: 'EAT WELL - LIVE WELL', // 分享描述
+						link: window.location.href, // 分享链接
+						imgUrl: 'http://' + window.location.host + '/assets/images/banner-2.jpg', // 分享图标
+						type: 'link', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function() {
+							//alert("分享成功");
+							// 用户确认分享后执行的回调函数
+						},
+						cancel: function() {
+							// 用户取消分享后执行的回调函数
+						}
+					};
+
+
+					wx.onMenuShareAppMessage(cfg);
+					wx.onMenuShareTimeline(cfg);
+					wx.onMenuShareQQ(cfg);
+					wx.onMenuShareWeibo(cfg);
+					wx.onMenuShareQZone(cfg);
+				});
+
+				wx.error(function(res) {
+					// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+				});
+			});
+			//}
+		</script>
+	</head>
+	<body>
+
+
+
+		<form action="/Order/Pay" id="Pay" method="post" novalidate="novalidate"><input data-val="true" data-val-number="字段 AddressId 必须是一个数字。"
+			 data-val-required="AddressId 字段是必需的。" id="AddressId" name="AddressId" type="hidden" value="42"><input data-val="true"
+			 data-val-number="字段 PaymentType 必须是一个数字。" data-val-required="PaymentType 字段是必需的。" id="PaymentType" name="PaymentType"
+			 type="hidden" value="2"><input data-val="true" data-val-number="字段 InvoiceType 必须是一个数字。" data-val-required="InvoiceType 字段是必需的。"
+			 id="InvoiceType" name="InvoiceType" type="hidden" value="0"><input id="EstimatedArriveTime" name="EstimatedArriveTime"
+			 type="hidden" value="2018-12-12 16:50"><input data-val="true" data-val-number="字段 CheckType 必须是一个数字。" id="CheckType"
+			 name="CheckType" type="hidden" value="2"><input data-val="true" data-val-required="BrandId 字段是必需的。" id="BrandId"
+			 name="BrandId" type="hidden" value="ee69d4aa-7d37-4d3a-8934-812c4b9f2fdc"><input data-val="true" data-val-required="RestaurantId 字段是必需的。"
+			 id="RestaurantId" name="RestaurantId" type="hidden" value="d8f9cae5-637e-466b-ac29-c9c362331168"><input id="localcart"
+			 name="localcart" type="hidden" value=""><input id="Coupon" name="Coupon" type="hidden" value=""><input id="CouponId"
+			 name="CouponId" type="hidden" value="">
+			<div class="coupon" id="coupon-box">
+
+				<ul id="ulCoupons"></ul>
+				<a class="menu-btn" id="sub-coupon-cancel-btn">取消</a>
+				<a class="menu-btn ok-btn" id="sub-coupon-btn">确定</a>
+			</div>
+			<div class="address-warp bg-grg">
+				<div class="drop" style="display:none;">
+					<ul>
+						<li><a class="phone" href="tel:4006318688">热线电话</a></li>
+
+						<li><a class="help" href="http://mp.weixin.qq.com/s/U7cJoeB504yz4Mw44mDO6A">问题帮助</a></li>
+					</ul>
+				</div>
+				<div class="pop-invoice">
+					<a id="aNoNeed" value="0">不需要发票</a>
+					<a id="aNeed" value="1">需要发票</a>
+				</div>
+				<div class="pop-bg1"></div>
+
+				<div class="main">
+					<a href="javascript:void(0)" onclick="goChooseAddress()">
+						<div class="user-info">
+							<h2 id="h2CheckType">自提</h2>
+							<h1>收货人：<span id="spanCustomerName">赵华森～软件</span><em id="emContactPhone">电话：</em></h1>
+							<p>用餐地址：<span id="spanAddress">太仓市港口开发区滨江南路18号 </span></p>
+						</div>
+					</a>
+					<div class="t-bg" style="height: 56px;"></div>
+				</div>
+				<div class="pay-info">
+					<p><span id="spanTimeTitle">取餐时间</span><input type="text" placeholder="请选择送餐时间" id="txtEstimatedArriveTime" name="txtEstimatedArriveTime"
+						 readonly=""></p>
+					<ul class="pay-box ul-box">
+						<li class="liPayType" id="liPaymentType1" value="1" style="display: none;"><img style="vertical-align: middle"
+							 src="/assets/images/alipay-icon.png">支付宝</li>
+						<li class="liPayType hover" id="liPaymentType2" value="2" style=""><img style="vertical-align: middle" src="/assets/images/wxpay-icon.jpg">微信支付</li>
+						<li class="liPayType" id="liPaymentType3" value="3" style="display:none"><img style="vertical-align: middle" src="/assets/images/unionpay-icon.png">银联在线</li>
+					</ul>
+					<ul class="pay">
+						<li>
+							<img src="/assets/images/jifen-icon.png">
+							<span>积分</span>
+							<div class="jf" id="divJf">无可用积分</div>
+							<input class="toggle" type="checkbox" id="chkJf" disabled="disabled">
+						</li>
+
+						<li id="liMembershipCard"><img src="/assets/images/vip-icon.png"><span>会员卡</span><a id="uPleaseChooseCard" class="nocart"
+							 href="javascript:void(0)">无可用会员卡</a></li>
+						<li id="coupon" class="couponCon">
+							<img src="../../assets/images/coupon-icon.png">
+							<span>优惠券</span>
+							<u id="uPleaseChoose">无可用优惠券</u></li>
+					</ul>
+
+					<ul class="invoice-info ul-box">
+						<li style="display:none;">
+							<strong>发票信息：</strong>
+							<div id="divNeedInvoice" class="selected-box">不需要发票</div>
+						</li>
+						<li id="liInvoiceType" style="display:none;">
+							<div class="radio"><input type="radio" id="radio-1" name="radio" value="1"><label for="radio-1"></label></div><em>个人</em>
+							<div class="radio"><input type="radio" id="radio-2" name="radio" value="2"><label for="radio-2"></label></div><em>公司</em>
+						</li>
+						<li id="liInvoiceTitle" style="display:none;"><strong>发票抬头：</strong><input type="text" id="txtInvoiceTtile" name="txtInvoiceTtile"
+							 placeholder="请填写发票抬头"></li>
+						<!--扫码点餐桌号 20170531-->
+						<li id="liCustomerTable" style="display:none;"><strong>桌号：</strong><input type="text" id="txtCustomerTable" name="txtCustomerTable"
+							 placeholder="选定桌号下单后，请不要更换餐桌！" maxlength="2"></li>
+						<li><strong>备注：</strong><input type="text" id="txtCustomerRemark" name="txtCustomerRemark" placeholder="添加备注，可输入偏好、忌口等"></li>
+
+					</ul>
+					<ul id="ulPriceDetail" class="cost-info ul-box">
+						<li>红烧猪脚<label><i>XNaN</i><strong>￥6.00</strong></label></li>
+						<li>糯米肉元<label><i>X1</i><strong>￥5.00</strong></label></li>
+						<li>炒杭白菜<label><i>X1</i><strong>￥2.00</strong></label></li>
+						<li>青椒肉丝<label><i>X1</i><strong>￥5.00</strong></label></li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="popDiv" id="PW" style="display:none">
+				<div class="popBox">
+					<a class="closeBtn"></a>
+					<h1>请输入支付密码</h1>
+
+					<div class="srzfmm_box">
+						<ul class="mm_box">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<a href="##" class="forgetPWBtn">忘记密码?</a>
+				</div>
+			</div>
+			<ul class="nub_ggg">
+				<li><a href="javascript:void(0);">1</a></li>
+				<li><a href="javascript:void(0);" class="zj_x">2</a></li>
+				<li><a href="javascript:void(0);">3</a></li>
+				<li><a href="javascript:void(0);">4</a></li>
+				<li><a href="javascript:void(0);" class="zj_x">5</a></li>
+				<li><a href="javascript:void(0);">6</a></li>
+				<li><a href="javascript:void(0);">7</a></li>
+				<li><a href="javascript:void(0);" class="zj_x">8</a></li>
+				<li><a href="javascript:void(0);">9</a></li>
+				<li><span></span></li>
+				<li><a href="javascript:void(0);" class="zj_x">0</a></li>
+				<li><span class="del"> <img src="/Images/jftc_18.png"></span></li>
+			</ul>
+			<div class="popDiv" id="sms">
+				<div class="popBox">
+					<a class="closeBtn"></a>
+					<h1>短信验证码</h1>
+					<p id="pSMSTip"></p>
+					<div class="inpBox">
+						<input type="text" placeholder="请输入验证码" id="inpSMSCode" maxlength="6" onpropertychange="inputSMSCode(this)"
+						 onkeyup="inputSMSCode(this)">
+						<input type="button" id="btnSMSConfirm" style="display:none">
+						<input type="button" id="btnGetSMSCode" value="点击获取" onclick="settime(this)">
+					</div>
+				</div>
+			</div>
+			<div class="popDiv" id="bind">
+				<div class="popBox">
+					<a class="closeBtn"></a>
+					<h1>绑定手机号码</h1>
+					<p class="t01">本次交易需要您先绑定手机号码</p>
+					<div class="inpBox">
+						<input type="text" placeholder="输入手机号码" id="inp" onpropertychange="inputVerificationCode(this)" oninput="inputVerificationCode(this)">
+						<input type="button" id="btnReacquire" onclick="settime(this)">
+					</div>
+
+					<input type="button" style="width:250px;" class="btn-center btn01 m20" id="btnPhoneConfirm" value="确定">
+				</div>
+			</div>
+			<div class="pop-bg02"></div>
+			<button id="btnSubmit" type="button" class="sub-btn">￥<span id="spanTotal">NaN</span>&nbsp;&nbsp;&nbsp;确认订单</button>
+		</form>
+
+
+		<!--时间选择弹窗-->
+		<script src="/assets/mobiscrolltime/js/mobiscroll.custom-2.16.1.min.js"></script>
+		<link href="/assets/mobiscrolltime/css/mobiscroll.custom-2.16.1.min.css" rel="stylesheet">
+
+		<script>
+			function goChooseAddress() {
+				if ($.cookies.get("current.checkType") != "3") {
+					$.cookies.set("next", "Pay");
+					//window.location.href="/Order/ChooseAddress";
+					window.location.href = "/Order/ChooseAddress";
+				}
+			}
+
+			function is_weixn() {
+				var ua = navigator.userAgent.toLowerCase();
+				if (ua.match(/MicroMessenger/i) == "micromessenger") {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			var lang = 'ch';
+			var mobiscrollInstance;
+			var subTotal = 0;
+			var subTotalOutOfCoupon = 0;
+			var IsEN = false;
+
+			var coupons;
+			var selectedCouponItems = $.cookies.get("pay.selectedCouponItems");; //已选择的优惠券获得的详情
+			var serilNo = window.getCookie("pay.couponSerilNo"); //选择的优惠券id
+			var couponNumber = 0; //优惠券的数量
+			var couponAmount = 0; //优惠券抵用金额
+			var deleveryDue = 0; //原始配送费
+
+			var pointFlag = false;
+			var cardFlag = false;
+			var bindPhone = false;
+			var voucherFlag = false;
+			var paymentMethod = -1;
+			var phoneNo = "";
+			var cardselectedId = "";
+			var cardbalance = 0;
+			var Receiver = "";
+			var actualPoint = "";
+			var actualAmount = 0;
+
+			var checkFlag = true;
+			var countdown; //间隔秒数
+			var selectedJfAmount = 0; //积分金额
+			var selectedvoucherAmount = 0; //券抵用金额
+			var selectedCardAmount = 0; //卡金额
+			var dishesAmount = 0;
+			var cardBalanceView = 0;
+			var isSetPaymentPWD;
+			var enablePayment;
+			var settimeFlag = true;
+			var membershipCardsExists = false;
+
+			var cnvalidator;
+
+			//cookie取值
+			//------根据cookie加载页面---begin---
+			//外送类型
+			var checktype = $.cookies.get("current.checkType");
+			//品牌id
+			var brandId = $.cookies.get("current.brandId");
+			//门店id
+			var restaurantId = $.cookies.get("current.restaurantId");
+			//配送地址id
+			var addressId = $.cookies.get("current.addressId");
+			//alert(addressId);
+			//送餐时间
+			//var estimatedArriveTime = $.cookies.get("current.estimatedArriveTime");
+			//支付方式
+			var paymentType = $.cookies.get("current.paymentType");
+			//是否需要发票
+			var needInvoice = $.cookies.get("current.needInvoice");
+			//发票类型
+			var invoiceType = $.cookies.get("current.invoiceType");
+			//发票抬头
+			var invoiceTitle = $.cookies.get("current.invoiceTitle");
+			//备注
+			var customerRemark = $.cookies.get("current.customerRemark");
+			//就餐人数
+			//var cover = $.cookies.get("current.cover");
+			//购物车
+			var cart = $.parseJSON(window.localStorage['localcart']); // $.cookies.get("cart");
+
+			//积分选中状态
+			var pointFlagHis = $.cookies.get("pay.pointFlag");
+
+			var restNum = '3110';
+
+			var brandNum = '212';
+
+			var enterpriseId = '3BBA2741-689D-4B85-BF77-16029D294A4E';
+
+			var TimeValue;
+
+			$(function() {
+				var opt = { //通用
+					theme: 'android-holo-light',
+					display: 'modal', //显示方式
+					mode: 'scroller',
+					layout: 'liquid',
+					dateFormat: 'yy-mm-dd',
+					timeFormat: 'HH:ii',
+					timeWheels: "HHii",
+					lang: lang == "en" ? "en-US" : 'zh',
+					steps: {
+						minute: 5,
+						zeroBased: true
+					},
+					minDate: new Date(2018, 12 - 1, 12, 16, 55, 18),
+					maxDate: new Date(2018, 12 - 1, 19, 00, 29, 00),
+					onBeforeShow: function(inst) {},
+					onMarkupReady: function(html, inst) {},
+					onPosition: function(html, windowWidth, windowHeight, inst) {}
+				};
+				var opt1 = { //外送
+					invalid: [{
+							start: '00:00',
+							end: '00:25'
+						},
+						{
+							start: '1.00:',
+							end: '23:59'
+						}
+					],
+					onSelect: function(valueText, inst) {
+						$("#EstimatedArriveTime").val(valueText);
+						$("#txtEstimatedArriveTime").val(valueText);
+					},
+					onShow: function(html, valueText, inst) {}
+				}
+
+				var opt2 = { //自提
+					invalid: [{
+							start: '00:00',
+							end: '00:25'
+						},
+						{
+							start: '1.00:',
+							end: '23:59'
+						}
+					],
+					onSelect: function(valueText, inst) {
+						//$.cookies.set("current.estimatedArriveTime",valueText);
+						$("#EstimatedArriveTime").val(valueText);
+						valueText = String.format("{0}取餐", valueText);
+						$("#txtEstimatedArriveTime").val(valueText);
+					},
+					onShow: function(html, valueText, inst) {
+
+					}
+				}
+				var opt3 = { //门店自助
+					onSelect: function(valueText, inst) {
+						//$.cookies.set("current.estimatedArriveTime",valueText);
+						$("#EstimatedArriveTime").val(valueText);
+						valueText = String.format("{0}取餐", valueText);
+						$("#txtEstimatedArriveTime").val(valueText);
+					},
+					onShow: function(html, valueText, inst) {}
+				}
+
+				///////////////
+				//外送类型
+				if (checktype != null) {
+					$("#h2CheckType").text(getCheckTypeName(checktype));
+					$("#CheckType").val(checktype);
+					if (checktype == 1) {
+
+						$("#spanTimeTitle").text("预计送达时间");
+
+					} else {
+						$("#spanTimeTitle").text("取餐时间");
+						//$("#liPaymentType0").hide();
+					}
+					switch (checktype) {
+						case 1:
+
+
+
+							var t1 = '2018-12-12 17:20';
+							$("#EstimatedArriveTime").val(t1);
+							TimeValue = $("#EstimatedArriveTime").val();
+							// $("#txtEstimatedArriveTime").val(String.format('立即送出（大约{0}送达）',t1));
+							//$("#txtEstimatedArriveTime").val('立即送出');
+
+							$("#txtEstimatedArriveTime").val(t1);
+							//}
+							//mobiscrollInstance=$("#txtEstimatedArriveTime").mobiscroll().time($.extend(opt,opt1));
+							mobiscrollInstance = $("#txtEstimatedArriveTime").mobiscroll().datetime($.extend(opt, opt1));
+
+							break;
+						case 2:
+
+							var t2 = '2018-12-12 16:50';
+							$("#EstimatedArriveTime").val(t2);
+							TimeValue = $("#EstimatedArriveTime").val();
+							$("#txtEstimatedArriveTime").val('立即取餐');
+							//$("#txtEstimatedArriveTime").val(String.format('{0}取餐',t2));
+							//}
+							mobiscrollInstance = $("#txtEstimatedArriveTime").mobiscroll().datetime($.extend(opt, opt2));
+
+							break;
+						case 3:
+
+							var t3 = '16:20';
+							$("#EstimatedArriveTime").val(t3);
+							TimeValue = $("#EstimatedArriveTime").val();
+							$("#txtEstimatedArriveTime").val('立即取餐');
+							//$("#txtEstimatedArriveTime").val(String.format('{0}取餐',t3));
+							//}
+							mobiscrollInstance = $("#txtEstimatedArriveTime").mobiscroll().time($.extend(opt, opt3));
+
+							//扫码点餐 20170531
+							$('#liCustomerTable').removeAttr('style');
+							var seatid = $.cookies.get('current.seatId');
+							$('#txtCustomerTable').val(seatid);
+
+							break;
+					}
+
+					//if(estimatedArriveTime){
+					//    $("#EstimatedArriveTime").val(estimatedArriveTime);
+					//}
+				}
+
+				//品牌id
+				if (brandId) {
+					$("#BrandId").val(brandId);
+				}
+				//门店id
+				if (restaurantId) {
+					$("#RestaurantId").val(restaurantId);
+				}
+
+				if (addressId != null) {
+					//根据地址id获取收货人电话地址
+					$.post('/Membership/GetAddress', {
+						id: addressId
+					}, function(data) {
+						if (data) {
+							//$("#spanCustomerName").text(data.ContactFirstName + ' ' + data.ContactLastName);
+							$("#spanCustomerName").text(data.NickName);
+							$("#emContactPhone").text('电话' + "：" + data.ContactPhone);
+							$("#spanAddress").text(data.Name1 + ' ' + data.Name2);
+							$("#AddressId").val(data.id);
+						}
+					})
+				}
+				//付款类型
+				setPaymentType();
+
+				if (needInvoice) {
+					$("#divNeedInvoice").text("需要发票");
+					$("#liInvoiceType").show();
+					if (invoiceType == 1) {
+						$("#radio-1").prop("checked", true);
+						$("#liInvoiceTitle").hide();
+						$("#InvoiceType").val(1);
+					} else {
+						$("#radio-2").prop("checked", true);
+						$("#liInvoiceTitle").show();
+						$("#InvoiceType").val(2);
+					}
+					if (invoiceTitle) { //escape,unescape
+						$("#txtInvoiceTtile").val(unescape(invoiceTitle));
+					}
+				} else {
+					$("#InvoiceType").val(0);
+				}
+				if (customerRemark) { //escape,unescape
+					$("#txtCustomerRemark").val(unescape(customerRemark));
+				}
+				loadCart();
+
+				getCouponNum();
+				$("#uPleaseChoose").html('请选择' + " " + couponNumber);
+				if (couponNumber == 0) {
+					$("#uPleaseChoose").html('无可用优惠券');
+				} else {
+					if (selectedCouponItems != null && selectedCouponItems.length > 0) {
+						if (serilNo == "coupon_notuse") {
+							$("#uPleaseChoose").html('不使用优惠券');
+						} else {
+							$("#uPleaseChoose").html(serilNo);
+						}
+					} else {
+						$("#uPleaseChoose").html(couponNumber + " " + '张优惠券可用');
+					}
+
+				}
+
+				//积分选中状态
+				if (pointFlagHis) {
+					$(".toggle").attr("checked", true);
+					pointFlag = true;
+
+					actualAmount = $.cookies.get("pay.actualAmount");
+				}
+
+
+				//获取会员手机号
+				phoneNo = '';
+				Receiver = phoneNo;
+
+				//获取会员积分
+				getMemberPoints();
+
+				//获取会员卡信息
+				getMembershipCards();
+
+				//获取付款方式
+				paymentMethod = '0';
+
+				//是否设置密码
+				isSetPaymentPWD = 'False';
+
+				//密码是否被禁用
+				enablePayment = 'True';
+
+				//获取卡号
+				cardselectedId = '';
+				if (cardselectedId != '') {
+					cardFlag = true;
+				}
+
+				//获取卡余额
+				cardbalance = '';
+
+				calculateAmount(actualAmount);
+
+				//------根据cookie加载页面---end---
+				//------保存用户设置---begin---
+
+				//支付方式点击
+				$(".pay-box li[class*='liPayType']").click(function() {
+					$("#PaymentType").val($(this).attr("value"));
+					$.cookies.set("current.paymentType", $(this).attr("value"));
+				})
+				//是否需要发票
+				$(".pop-invoice a").click(function() {
+					$.cookies.set("current.needInvoice", $(this).attr("value"));
+					$("#InvoiceType").val($(this).attr("value"));
+					if ($(this).attr("value") == '1') {
+						$("#liInvoiceType").show();
+						$("#radio-1").prop("checked", true);
+					} else {
+						$("#liInvoiceType").hide();
+						$("#liInvoiceTitle").hide();
+					}
+				})
+				//发票类型
+				$(":radio[name='radio']").click(function() {
+					$.cookies.set("current.invoiceType", this.value);
+					$("#InvoiceType").val(this.value);
+					if (this.value == '2') {
+						$("#liInvoiceTitle").show();
+					} else {
+						$("#liInvoiceTitle").hide();
+					}
+				})
+				//发票抬头
+				$("#txtInvoiceTtile").blur(function() {
+					$.cookies.set("current.invoiceTitle", this.value);
+				})
+				//备注
+				$("#txtCustomerRemark").blur(function() {
+					$.cookies.set("current.customerRemark", this.value);
+				})
+
+				//桌号点击
+				$("#txtCustomerTable").keydown(function(e) {
+					var code = parseInt(e.keyCode);
+					if (code >= 96 && code <= 105 || code >= 48 && code <= 57 || code == 8) {
+						return true;
+					} else {
+						return false;
+					}
+				})
+
+				//桌号 20170531
+				$('#txtCustomerTable').blur(function() {
+					$.cookies.set("current.seatId", this.value);
+				})
+
+				//就餐人数
+				//$("#txtCover").blur(function () {
+				//    $.cookies.set("current.cover", this.value);
+				//})
+
+				//------保存用户设置---end---
+
+				//------确认提交订单---begin---
+
+				//验证--
+				jQuery.validator.addMethod("InvoiceTtile", function(value, element) {
+					if ($.cookies.get("current.needInvoice") == "1" && $("#radio-2").prop("checked")) {
+						return !this.optional(element) && value.length <= 50;
+					}
+				}, "请输入发票抬头");
+				cnvalidator = $("#Pay").validate({
+					rules: {
+						txtEstimatedArriveTime: {
+							required: true
+						},
+						txtInvoiceTtile: {
+							InvoiceTtile: true,
+							maxlength: 50
+						},
+						txtCustomerRemark: {
+							maxlength: 100
+						}
+					},
+					messages: {
+						txtEstimatedArriveTime: {
+							required: "请选择送餐时间"
+						},
+						txtInvoiceTtile: {
+							InvoiceTtile: "请输入发票抬头",
+							maxlength: "发票抬头最多50个字符"
+						},
+						txtCustomerRemark: {
+							maxlength: "请输入100个字符以内的备注信息"
+						}
+					},
+					onfocusout: false,
+					onkeyup: false,
+					success: function(label) {
+						label.addClass("valid");
+					},
+					errorPlacement: function(error, element) {
+						error.insertAfter(element);
+					},
+					/* 重写错误显示消息方法,以alert方式弹出错误消息 */
+					showErrors: function(errorMap, errorList) {
+						if (errorList.length) {
+							msalert.alert(errorList[0].message);
+						}
+					}
+				});
+
+				$("#btnSubmit").click(function() {
+					//清空值
+					countdown = 60;
+					selectedJfAmount = 0;
+					selectedCardAmount = 0;
+					selectedvoucherAmount = 0;
+					//还原绑定手机文本框
+					resetBindPhoneContent();
+
+					var subTotal = parseFloat($.trim($("#spanTotal").text()));
+					$.cookies.del("goPay");
+					var cart = $.parseJSON(window.localStorage['localcart']); //$.cookies.get("cart");
+					if (cart == null || cart == '') {
+						msalert.alert("请先选择菜品");
+						//msalert.confirm("提交失败，购物车内没有商品，如您已经下单，请到我的订单中查看，或重新点菜",function(){},"查看",function(){},"点菜");
+						return false;
+					}
+					//桌号检测
+					var tablenum = $("#txtCustomerTable").val();
+					if (checktype == 3 && (tablenum == "" || tablenum == "0" || tablenum == "00")) {
+						msalert.alert('桌号输入有误');
+						return false;
+					}
+					//end add
+
+					//卡余额检测
+					if (cardFlag == true && !CheckCardBalance()) {
+						return false;
+					}
+
+					if (!CheckCartPriceStatus()) {
+						window.location.href = '/Order/Menu1';
+						return false;
+					} else {
+						var param = {
+							checkType: checktype,
+							time: $("#EstimatedArriveTime").val(),
+							restId: restaurantId
+						};
+						$.ajax({
+							type: 'POST',
+							url: 'CheckTime',
+							data: param,
+							dataType: 'json',
+							async: false,
+							success: function(data) {
+								if (data.isRedirect) {
+									alter(data.message)
+									var urlRedirect = data.redirectUrl;
+									window.location.href = urlRedirect;
+									return;
+								}
+								if (data.resultcode == 200) {
+									checkFlag = true;
+									$.ajax({
+										type: 'POST',
+										url: 'CheckMenu',
+										data: {
+											"cart": window.localStorage["localcart"],
+											"brandId": brandId,
+											"restId": restaurantId,
+											"time": param.time
+										},
+										dataType: 'json',
+										async: false,
+										success: function(data) {
+											if (data.isRedirect) {
+												alter(data.message)
+												var urlRedirect = data.redirectUrl;
+												window.location.href = urlRedirect;
+												return;
+											}
+											if (data.resultcode == 200) {
+												//存库-->积分、会员卡抵扣-->支付页面
+												if (cnvalidator.form()) {
+													$("#localcart").val(window.localStorage["localcart"]); //购物车信息
+													$.ajax({
+														type: 'post',
+														url: "Pay",
+														data: $("#Pay").serialize(),
+														async: false,
+														success: function(data) {
+															if (data.retCode == '0') {
+																checkFlag = true;
+															} else {
+																msalert.alert(data.retMsg);
+																checkFlag = false;
+															}
+														}
+													});
+												} else {
+													checkFlag = false;
+												}
+											} else {
+												msalert.alert(data.msg);
+												checkFlag = false;
+											}
+										}
+									});
+								} else if (data.resultcode == 501) {
+									msalert.alert('门店当前不在营业状态');
+									checkFlag = false;
+								} else {
+									msalert.alert("不在点餐时间范围内" + "(" + (data.msg) + ")");
+									checkFlag = false;
+								}
+
+								if (checkFlag == false) {
+									return false;
+								}
+								//绑定手机号
+								if (phoneNo == '') {
+									bindPhoneNo();
+								} else {
+									pointCardOperation();
+								}
+							}
+						});
+					}
+				});
+
+				//------确认提交订单---end---
+
+				if ('true' == 'true') {
+					$('a[class="phone"]').attr('href', 'tel:4006318688');
+				} else {
+					$('a[class="phone"]').click(function() {
+						$('div[class="drop"]').hide();
+						msalert.alert('4006318688');
+					});
+				}
+
+				//帮助Tip
+				$('i[class="arrow-icon"]').click(function() {
+					if ($('div[class="drop"]').css('display') == 'none') {
+						$('div[class="drop"]').show();
+					} else {
+						$('div[class="drop"]').hide();
+					}
+				});
+
+				$("#btnGetSMSCode").click(function() {
+					sendSMSCode(1)
+				});
+
+			})
+
+			///根据缓存加载菜品
+			function loadCart() {
+				//菜品
+				if (cart) {
+					var items = [];
+					subTotal = 0;
+					subTotalOutOfCoupon = 0;
+					$(cart).each(function() {
+						if (this.Brandid == brandId) {
+							subTotal = subTotal + parseFloat(this.Price) * parseFloat(this.Quantity);
+							var name = decodeURIComponent(lang == 'en' ? this.Name2 : this.Name1);
+							var price = parseFloat(this.Price).toFixed(2);
+							items.push(String.format('<li>{0}<label><i>X{1}</i><strong>￥{2}</strong></label></li>', name, this.Quantity,
+								price));
+							if (this.CondimentRequests.length > 0 || this.CondimentAllows.length > 0) {
+								items.push('<li>');
+								$.each(this.CondimentRequests, function(rindex, ritem) {
+									var rname = (lang == 'en' ? ritem.Name2 : decodeURIComponent(ritem.Name1));
+									items.push(String.format('<em>{0}</em>', rname));
+								});
+								$.each(this.CondimentAllows, function(rindex, ritem) {
+									var rname = (lang == 'en' ? ritem.Name2 : decodeURIComponent(ritem.Name1));
+									items.push(String.format('<em>{0}</em>', rname));
+								});
+
+								items.push('</li>');
+							}
+
+						}
+					});
+					subTotalOutOfCoupon = subTotal;
+
+
+					if (subTotal < parseFloat(50) && checktype == 1) { //总金额超过配合，快递费可免，不显示
+						items.push(String.format('<li>{0}<label>￥{1}</label></li>', '配送费', '0'));
+						subTotal = subTotal + 0;
+					}
+					if (0.00 > 0) { //包装费
+						items.push(String.format('<li>{0}<label>￥{1}</label></li>', '包装费', '0.00'));
+						subTotal = subTotal + 0.00;
+					}
+
+					//赠菜或折扣信息
+					if (selectedCouponItems != null && selectedCouponItems.length > 0) {
+						var selectedCouponItem = selectedCouponItems[0];
+						if (selectedCouponItem.voucherType == 0) { //单品折扣
+							var menuitemInfo = cart.sort()[0];
+							subTotal = subTotal - parseFloat(menuitemInfo.Price) * (1 - parseFloat(selectedCouponItem.discount) / 10);
+							var name = selectedCouponItem.voucherName;
+							var price = -(parseFloat(menuitemInfo.Price) * (1 - parseFloat(selectedCouponItem.discount) / 10)).toFixed(2);
+							items.push(String.format('<li>{0}<label><i>X{1}</i><strong>￥{2}</strong></label></li>', name, 1, price));
+							couponAmount = parseFloat(menuitemInfo.Price) * (1 - parseFloat(selectedCouponItem.discount) / 10);
+						}
+						if (selectedCouponItem.voucherType == 1) { //代金劵
+							subTotal = subTotal - parseFloat(selectedCouponItem.amount);
+							var name = selectedCouponItem.voucherName;
+							var price = -parseFloat(selectedCouponItem.amount).toFixed(2);
+							items.push(String.format('<li>{0}<label><i>X{1}</i><strong>￥{2}</strong></label></li>', name, 1, price));
+							couponAmount = parseFloat(selectedCouponItem.amount);
+						}
+
+					}
+
+					if ((pointFlag || $.cookies.get("pay.pointFlag")) && getCookie("pay.actualAmount")) { //积分抵扣
+						subTotal = subTotal - parseFloat(getCookie("pay.actualAmount"));
+						var name = "积分抵扣";
+						var price = -parseFloat(getCookie("pay.actualAmount")).toFixed(2);
+						items.push(String.format('<li>{0}<label><i>X{1}</i><strong>￥{2}</strong></label></li>', name, 1, price));
+					}
+					subTotal = subTotal.toFixed(2);
+					$("#ulPriceDetail").html(items.join(''));
+					$("#spanTotal").text(subTotal);
+					dishesAmount = subTotal;
+					calculateAmount();
+				}
+			}
+
+			//根据cookie设置付款方式
+			function setPaymentType() {
+				//在微信中打开，显示微信支付不显示支付宝
+				if (is_weixn()) {
+					$("#liPaymentType1").hide();
+					$("#liPaymentType2").show();
+					//1.在微信中,如果cookie是到付，支付宝，微信或者没有cookie，统一更正为微信支付
+					if (paymentType == 0 || paymentType == 1 || paymentType == 2 || paymentType == null) {
+						$("li[id*='liPaymentType']").removeClass("hover");
+						$("#liPaymentType2").addClass("hover");
+						$("#PaymentType").val("2");
+						$.cookies.set("current.paymentType", 2);
+					} else { //2.否则按正常设置
+						$("li[id*='liPaymentType']").removeClass("hover");
+						$("#liPaymentType" + paymentType).addClass("hover");
+						$("#PaymentType").val(paymentType);
+						$.cookies.set("current.paymentType", paymentType);
+					}
+				}
+				//在其他浏览器打开，显示支付宝不显示微信
+				else {
+					$("#liPaymentType1").show();
+					$("#liPaymentType2").hide();
+					//1.在其他浏览器中,如果cookie是到付，支付宝，微信或者没有cookie，统一更正为支付宝支付
+					if (paymentType == 0 || paymentType == 1 || paymentType == 2 || paymentType == null) {
+						$("li[id*='liPaymentType']").removeClass("hover");
+						$("#liPaymentType1").addClass("hover");
+						$("#PaymentType").val("1");
+						$.cookies.set("current.paymentType", 1);
+					} else { //2.否则按正常设置
+						$("li[id*='liPaymentType']").removeClass("hover");
+						$("#liPaymentType" + paymentType).addClass("hover");
+						$("#PaymentType").val(paymentType);
+						$.cookies.set("current.paymentType", paymentType);
+					}
+				}
+
+			}
+
+			function getCheckTypeName(t) {
+				if (t == 1) {
+					return "外送";
+				}
+				if (t == 2) {
+					return "自提";
+				}
+				if (t == 3) {
+					return "门店自助";
+				}
+				return "";
+			}
+
+			//重置文本框
+			function resetBindPhoneContent() {
+				bindPhone = false;
+				settimeFlag = true;
+				$("#inp").val("");
+				$("#inp").attr("placeholder", "输入手机号码");
+				$(".t01").html("本次交易需要您先绑定手机号码");
+				$("#btnReacquire").hide();
+			}
+
+			//验证码秒数倒计时
+			function settime(obj) {
+				if (countdown == 0) {
+					$("#inpSMSCode").val("");
+					obj.removeAttribute("disabled");
+					obj.removeAttribute("class");
+					obj.value = "重新获取";
+					countdown = 60;
+					return;
+				} else {
+					obj.setAttribute("disabled", true);
+					obj.className = 'abc';
+					obj.value = countdown + "s";
+					countdown--;
+				}
+				setTimeout(function() {
+					if (settimeFlag) {
+						settime(obj);
+					}
+				}, 1000)
+			}
+
+			//关闭按钮
+			$(".closeBtn").click(function() {
+				$(".popDiv").hide();
+				$(".pop-bg02").hide();
+				$(".form-control").val("");
+				$(".nub_ggg").hide();
+				settimeFlag = false;
+
+				var j = 6;
+				$(".mm_box li").each(function() {
+					j--
+					$(".mm_box li").eq(j).removeClass("mmdd").html("");
+				});
+				i = 0;
+			})
+
+			//获取会员积分
+			function getMemberPoints() {
+				$.ajax({
+					type: 'POST',
+					url: 'GetMemberPoints',
+					data: {
+						BrandId: brandId,
+						Amount: subTotalOutOfCoupon
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.retCode == '0') {
+							var divValueText = String.format("积分可抵扣{0}元", data.decutionAmount);
+							$("#divJf").html(divValueText);
+
+
+							actualAmount = data.decutionAmount;
+							actualPoint = data.decutionPoint;
+							if (pointFlag) {
+								$.cookies.set("pay.actualAmount", actualAmount);
+							}
+							$(".toggle").click(function() {
+								if (!pointFlag) {
+									pointFlag = true;
+									$.cookies.set("pay.actualAmount", actualAmount);
+									$.cookies.set("pay.pointFlag", true);
+									loadCart();
+								} else if (pointFlag) {
+									pointFlag = false;
+									$.cookies.set("pay.actualAmount", 0);
+									$.cookies.set("pay.pointFlag", false);
+									loadCart();
+								}
+							})
+
+						} else {
+							$("#divJf").html("无可用积分");
+							$(".toggle").attr("checked", false);
+							$("#chkJf").attr("disabled", "disabled");
+							pointFlag = false;
+							$.cookies.set("pay.pointFlag", pointFlag);
+						}
+					}
+				});
+				loadCart();
+			}
+
+			//获取会员卡信息
+			function getMembershipCards() {
+				$.ajax({
+					type: 'POST',
+					url: 'GetMembershipCards',
+					data: {
+						BrandId: brandId,
+						RestId: restaurantId
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.retCode == '0') {
+							membershipCardsExists = true;
+						} else {
+							membershipCardsExists = false;
+							$("#aCardLink").hide();
+							$("#uPleaseChooseCard").html("无可用会员卡");
+							$("#uPleaseChooseCard").removeAttr('onclick');
+						}
+					}
+				});
+			}
+
+			function chooseCardClick() {
+				window.location = "/card/CardSelectIndex?enterpriseId=" + enterpriseId + "&brandNum=" + brandNum + "&storeNum=" +
+					restNum + "&cardId=" + cardselectedId;
+			}
+
+			//发送短信验证码
+			function sendSMSCode(type) {
+				$.ajax({
+					type: 'POST',
+					url: 'SMSVerifyCodeSend',
+					data: {
+						Receiver: Receiver,
+						Type: type
+					},
+					dataType: 'json',
+					async: true,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.Code == '0') {
+							checkFlag = true;
+						} else {
+							msalert.alert(data.ErrMsg + " " + data.sms_errmsg);
+							checkFlag = false;
+						}
+					}
+				});
+			}
+
+			//绑定手机号验证
+			function bindPhoneNo() {
+				$("#bind").show();
+				$(".pop-bg02").show();
+
+				var bindh = $("#bind").outerHeight(true) / 2 * (-1);
+				$("#bind").css({
+					'margin-top': bindh
+				});
+
+				$("#btnReacquire").hide();
+
+				$("#btnPhoneConfirm").attr("disabled", false);
+				$("#btnPhoneConfirm").css("background", "#d6a465");
+			}
+
+			$("#btnReacquire").click(function() {
+				sendSMSCode(2);
+			});
+
+			//绑定手机验证码验证
+			function inputVerificationCode(obj) {
+				if (obj.value.length == 6) {
+					$("#btnPhoneConfirm").attr("disabled", false);
+					$("#btnPhoneConfirm").css("background", "#d6a465");
+					//$("#btnPhoneConfirm").css("background","#909294");
+				}
+			}
+
+			//短信验证码验证
+			function inputSMSCode(obj) {
+				if (obj.value.length == 6) {
+					$("#btnSMSConfirm").click();
+				}
+			}
+
+			//积分、会员卡抵扣验证码验证
+			function paymentVerificationCode() {
+				if (paymentMethod == '1') {
+					var smsh = $("#sms").outerHeight(true) / 2 * (-1);
+					$("#sms").css({
+						'margin-top': smsh
+					});
+					$("#sms").show();
+					$(".pop-bg02").show();
+					$("#pSMSTip").html(String.format("本次交易需要短信确认，验证码已发送至您的手机{0}****{1}", Receiver.substr(0, 3), Receiver.substr(
+						Receiver.length - 4)));
+
+					sendSMSCode(1);
+					settime(document.getElementById("btnGetSMSCode"));
+				}
+			}
+			//计算金额
+			function calculateAmount() {
+				var amount = 0;
+
+				amount = dishesAmount;
+				if (membershipCardsExists) {
+					if (cardFlag) {
+						if (cardbalance - amount > 0) {
+							cardBalanceView = amount;
+							amount = 0;
+						} else {
+							amount = parseFloat(amount) - parseFloat(cardbalance);
+							cardBalanceView = cardbalance;
+						}
+						if (cardBalanceView == 0) {
+							cardFlag = false;
+						}
+						$("#uPleaseChooseCard").html(String.format("抵扣{0}元", parseFloat(cardBalanceView).toFixed(2)));
+					}
+				} else {
+					cardFlag = false;
+				}
+				$("#spanTotal").text(parseFloat(amount).toFixed(2));
+			}
+
+			//会员积分抵扣
+			function membershipPointsDeduction(value, type) {
+				$.ajax({
+					type: 'POST',
+					url: 'MembershipPointsDeduction',
+					data: {
+						Localcart: window.localStorage["localcart"],
+						RestId: restaurantId,
+						Points: actualPoint,
+						BrandId: brandId,
+						Value: value,
+						Type: type,
+						Amount: actualAmount
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							msalert.alert(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.Code == '0') {
+							selectedJfAmount = actualAmount;
+							checkFlag = true;
+						} else {
+							msalert.alert(data.ErrorMsg);
+							checkFlag = false;
+							$("#spJf").html("无可用积分");
+							//$("#chkJf").attr("disabled","disabled");
+						}
+					}
+				});
+			}
+
+			//会员卡金额抵扣
+			function cardDeduction(value, type) {
+				var useCardAmount = cardBalanceView;
+				$.ajax({
+					type: 'POST',
+					url: 'CardDeduction',
+					data: {
+						Localcart: window.localStorage["localcart"],
+						RestId: restaurantId,
+						BrandId: brandId,
+						CardId: cardselectedId,
+						Value: value,
+						Type: type,
+						Amount: useCardAmount
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							msalert.alert(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.Code == '0') {
+							selectedCardAmount = useCardAmount;
+							checkFlag = true;
+						} else {
+							msalert.alert(data.ErrorMsg);
+							checkFlag = false
+						}
+					}
+				});
+			}
+			//劵抵用金额
+			function VoucherUse() {
+				$.ajax({
+					type: 'POST',
+					url: 'VoucherUse',
+					data: {
+						serilNo: serilNo,
+						Amount: -couponAmount,
+						RestId: restaurantId,
+						BrandId: brandId
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.Code == 0) {
+							selectedvoucherAmount = couponAmount;
+							checkFlag = true;
+						} else {
+							msalert.alert(data.ErrorMsg);
+							checkFlag = false
+						}
+					}
+				});
+			}
+			//积分卡抵扣操作
+			function pointCardOperation() {
+				if (pointFlag || cardFlag || (serilNo != null && serilNo != "")) {
+					if (paymentMethod == "0" || paymentMethod == "3" || enablePayment.toLowerCase() == "false") { //无密码、小额免密、关闭验证
+						if (pointFlag && checkFlag) {
+							membershipPointsDeduction("", paymentMethod);
+						}
+						if ((serilNo != null && serilNo != "") && checkFlag) {
+							VoucherUse();
+						}
+						if (cardFlag && checkFlag) {
+							cardDeduction("", paymentMethod);
+						}
+
+						if (checkFlag) {
+							submitForm();
+						}
+					} else if (paymentMethod == "1") { //验证码
+						paymentVerificationCode();
+
+						if (!checkFlag) {
+							return false;
+						}
+					} else if (paymentMethod == "2") { //密码验证
+						if (isSetPaymentPWD.toLowerCase() == 'true') {
+
+							$("#PW").show();
+							$(".pop-bg02").show();
+							$(".nub_ggg").show();
+						} else {
+							window.location = "/Membership/SetUp?from=pay";
+						}
+					} else {
+						msalert.alert("支付验证方式未设置");
+					}
+				} else {
+					submitForm(); //直接提交表单
+				}
+			}
+
+			var i = 0;
+			$(".nub_ggg li a").click(function() {
+				if (i < 6) {
+					i++
+					$(".mm_box li").eq(i - 1).addClass("mmdd").html($(this).text());
+				}
+				if (i == 6) {
+					var value;
+
+					var arr = new Array();
+					$(".mm_box li").each(function() {
+						arr.push($(this).text());
+					});
+					value = arr.join("");
+
+					if (pointFlag) {
+						membershipPointsDeduction(value, paymentMethod);
+					}
+
+					if (cardFlag) {
+						cardDeduction(value, paymentMethod);
+					}
+
+					if (checkFlag) {
+						$("#PW").hide();
+						$(".pop-bg02").hide();
+
+						submitForm();
+					}
+				}
+			});
+
+			$(".nub_ggg li .del").click(function() {
+
+				if (i > 0) {
+					i--
+					$(".mm_box li").eq(i).removeClass("mmdd").html("");
+				}
+			});
+
+			//积分或会员卡抵扣验证码验证
+			$("#btnSMSConfirm").click(function() {
+				var verificationCode = $("#inpSMSCode").val();
+				$.ajax({
+					type: 'POST',
+					url: 'ValidateVerifyCode',
+					data: {
+						verificationCode: verificationCode,
+						phoneNo: phoneNo,
+						type: 1
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						$("#inpSMSCode").val("");
+						if (data.Code == '0') {
+
+							if (pointFlag) {
+								membershipPointsDeduction(verificationCode, paymentMethod);
+							}
+
+							if (cardFlag) {
+								cardDeduction(verificationCode, paymentMethod);
+							}
+
+							if (checkFlag) {
+								$("#sms").hide();
+								$(".pop-bg02").hide();
+
+								submitForm();
+							}
+						} else {
+							msalert.alert(data.ErrMsg + data.sms_errmsg);
+							checkFlag = false;
+						}
+					}
+				});
+			});
+
+			//绑定手机号发送/验证验证码
+			$("#btnPhoneConfirm").click(function() {
+				if (!bindPhone) {
+					bindPhone = true;
+					Receiver = $("#inp").val();
+
+					if (!checkMobile(Receiver)) {
+						msalert.alert("手机号码有误");
+						checkFlag = false;
+						bindPhone = false;
+					} else {
+						$.ajax({
+							type: 'POST',
+							url: 'SMSVerifyCodeSend',
+							data: {
+								Receiver: Receiver,
+								Type: 2
+							},
+							dataType: 'json',
+							async: false,
+							success: function(data) {
+								if (data.isRedirect) {
+									msalert.alert(data.message)
+									var urlRedirect = data.redirectUrl;
+									window.location.href = urlRedirect;
+									return;
+								}
+								if (data.Code == '0') {
+									$("#inp").attr("placeholder", "短信验证码");
+
+									$(".t01").html(String.format("验证码已发送到您的手机{0}****{1}", Receiver.substr(0, 3), Receiver.substr(Receiver.length -
+										4)));
+
+									$("#btnReacquire").show();
+									$("#btnPhoneConfirm").attr("disabled", true);
+									$("#btnPhoneConfirm").css("background", "#909294");
+
+									$("#inp").val("");
+									settime(document.getElementById("btnReacquire"));
+								} else {
+									msalert.alert(data.ErrMsg);
+									checkFlag = false;
+									bindPhone = false;
+								}
+							}
+						});
+					}
+				} else {
+					$.ajax({
+						type: 'POST',
+						url: 'ValidateVerifyCode',
+						data: {
+							verificationCode: $("#inp").val(),
+							phoneNo: Receiver,
+							type: 2
+						},
+						dataType: 'json',
+						async: false,
+						success: function(data) {
+							if (data.isRedirect) {
+								alter(data.message)
+								var urlRedirect = data.redirectUrl;
+								window.location.href = urlRedirect;
+								return;
+							}
+							$("#inp").val("");
+							if (data.Code == '0') {
+								$("#bind").hide();
+								$(".pop-bg02").hide();
+								phoneNo = Receiver;
+								checkFlag = true;
+
+								countdown = 60;
+
+								pointCardOperation();
+							} else {
+								msalert.alert(data.ErrMsg + data.sms_errmsg);
+								checkFlag = false;
+							}
+						}
+					});
+				}
+			});
+
+			function submitForm() {
+				$.ajax({
+					type: 'POST',
+					url: 'PayOperation',
+					data: {
+						jfAmount: selectedJfAmount,
+						cardAmount: selectedCardAmount,
+						voucherAmount: selectedvoucherAmount
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.retCode == 0) {
+							if (data.subTotal == 0 || (data.paymentType == 0 && data.checkType == 1)) {
+								window.location.href = '/Order/OrderSuccess?orderCheckId=' + data.orderCheckId;
+							} else if (data.paymentType == 1) { //支付宝
+								window.location.href = '/Alipay/Ordering?orderId=' + data.orderCheckId;
+							} else if (data.paymentType == 2) { //微信支付
+								window.location.href = '/WxPay/Ordering?orderId=' + data.orderCheckId;
+							} else if (data.paymentType == 3) { //银联支付
+								window.location.href = '/Unionpay/Ordering?orderId=' + data.orderCheckId;
+							} else {
+								return false;
+							}
+						} else {
+							alert(data.retMsg);
+							return false;
+						}
+					}
+				});
+			}
+
+			// 验证商品特价时效性
+			function CheckCartPriceStatus() {
+				var flag = false;
+				if (window.localStorage["localcart"] == '') {
+					return;
+				}
+				$.ajax({
+					type: 'POST',
+					url: 'CheckCartPriceStatus',
+					data: {
+						"cart": window.localStorage["localcart"]
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.result.resultcode != 200) {
+							alert(data.result.msg);
+							window.localStorage['localcart'] = data.newCarts;
+							flag = false;
+						} else {
+							flag = true;
+						}
+					}
+				});
+				return flag;
+			}
+
+			//检测会员卡余额
+			function CheckCardBalance() {
+				var flag = false;
+				$.ajax({
+					type: 'POST',
+					url: 'CheckCardBalance',
+					data: {
+						"cardSelectedId": cardselectedId,
+						"deductionBalance": cardBalanceView
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.retCode != "0") {
+							msalert.alert("卡余额不足");
+							flag = false;
+						} else {
+							flag = true;
+						}
+					}
+				});
+				return flag;
+			}
+
+			//优惠券
+			$("#coupon").click(function() {
+				getCouponDetail();
+
+
+			})
+			//取消选择优惠券
+			$("#sub-coupon-cancel-btn").click(function() {
+				$(".pop-bg1").hide();
+				$(".coupon").hide();
+			});
+			$("#sub-coupon-btn").click(function() {
+				var serilNo = $(".coupon ul li[class*='hover']").attr("id");
+				selectedCouponItems = [];
+				$.cookies.set("pay.couponSerilNo", serilNo);
+				serilNo = serilNo;
+				$("#Coupon").val('');
+				$("#CouponId").val('');
+				$("#uPleaseChoose").html('请选择');
+				//新增不使用优惠券选项
+				if (serilNo == "coupon_notuse") {
+					$("#uPleaseChoose").html('不使用优惠券');
+				}
+				//end
+				for (var i in coupons) {
+					if (coupons[i].serilNo == serilNo) { //选择的优惠券
+						item = coupons[i];
+						serilNo = serilNo;
+
+						$("#uPleaseChoose").html(serilNo);
+
+						selectedCouponItems.push(item);
+					}
+				}
+
+				$(".pop-bg1").hide();
+				$(".coupon").hide();
+				$.cookies.set("pay.selectedCouponItems", selectedCouponItems);
+				loadCart();
+			})
+
+			//兑换优惠券
+			function checkFrom() {
+				var couponNum = $.trim($("#txtCouponCode").val());
+				if (couponNum.length > 0) {
+					$.post("/User/ClaimCoupon", {
+						couponNum: couponNum
+					}, function(data) {
+						if (data == null) {
+							msalert.alert('兑换失败', function() {}, '确定')
+						}
+						if (data.res_no == '00') {
+							msalert.alert('兑换成功', function() {
+								//兑换成功确认
+								getCouponDetail();
+							}, '确定')
+						} else {
+							msalert.alert('兑换失败', function() {}, '确定')
+						}
+					});
+				}
+
+			}
+
+			function getCouponDetail() {
+				var para = {
+					localcart: window.localStorage["localcart"],
+					BrandId: brandId,
+					AddressId: $("#AddressId").val(),
+					CheckType: checktype,
+					RestId: restaurantId
+				};
+				$.post("/Order/GetCanUseCoupon", para, function(data) {
+					if (data == null) {
+						msalert.alert('查询优惠券失败', function() {}, '确定')
+						return;
+					} else
+					if (true) {
+						coupons = data;
+						var ulhtml = [];
+						ulhtml.push('<li id="coupon_notuse"><h1>' + '不使用优惠券' + '<em>' + '</em></h1></li>');
+						for (var i in data) {
+							var item = data[i];
+							//成功
+							var serilNo = item.serilNo;
+							var voucherName = item.voucherName;
+							var vouchernum = item.vouchernum;
+							//  var expDate='使用有效期限 '+item.eff_date_start.replace(/-/g,'.')+" - "+item.eff_date_end.replace(/-/g,'.');
+							ulhtml.push('<li id="' + serilNo + '"><h1>' + voucherName + '<em>' + '</em></h1><p>' + vouchernum +
+								'</p></li>');
+						}
+						$("#ulCoupons").html(ulhtml.join(''));
+
+						//优惠券
+						$(".coupon ul li").click(function() {
+							$(this).addClass("hover").siblings().removeClass("hover");
+						})
+						$(".pop-bg1").show();
+						$(".coupon").show();
+					} else {
+						msalert.alert('查询优惠券失败', function() {}, '确定')
+					}
+				});
+			}
+
+			function getCouponNum() {
+				$.ajax({
+					type: 'POST',
+					url: 'GetCanUseCoupon',
+					data: {
+						localcart: window.localStorage["localcart"],
+						BrandId: brandId,
+						AddressId: addressId,
+						CheckType: checktype,
+						RestId: restaurantId
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data != null) {
+							var couponsn = data;
+							couponNumber = couponsn.length;
+						}
+					}
+				});
+			}
+		</script>
+
+
+		<script src="../assets/js/mobile.js"></script>
+	</body>
+</html>

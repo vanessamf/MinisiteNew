@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<link rel="stylesheet" type="text/css" href="http://webapi.amap.com/theme/v1.3/style1536672475627.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>购物车</title>
+		<link rel="stylesheet" href="../css/interactive/base.css?version=1543776269.27494">
+		<link rel="stylesheet" href="../css/interactive/swiper.min.css?version=1542924120.77175">
+		<link rel="stylesheet" href="../css/interactive/main-mobile.css?version=1544384603.70619">
+		<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css">
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&amp;key=4c715d578faf49041ebc15bc8e015b1b"></script>
+		<style type="text/css">
+			.amap-container {
+				cursor: url(http: //webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(http://webapi.amap.com/theme/v1.3/closedhand.cur),default;}
+		</style>
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="/assets/js/jquery.validate.min.js"></script>
+		<script src="/assets/js/default.js"></script>
+		<script src="/assets/js/bootstrap.js"></script>
+		<script src="/assets/js/jquery.mobile.custom.min.js"></script>
+		<script src="/assets/js/jquery.cookies.2.2.0.min.js"></script>
+		<script src="/assets/js/jquery.form.js"></script>
+		<script src="/assets/js/jquery.poshytip.min.js"></script>
+		<script src="/assets/js/jsrender.js"></script>
+		<script src="/assets/js/bootbox.js"></script>
+		<script src="/assets/js/messages_cn.js"></script>
+		<script src="/assets/js/String.js"></script>
+		<script src="/assets/js/msalert.js"></script>
+		<script src="/assets/js/main.js"></script>
+
+		<script src="/Scripts/base.js"></script>
+		<script type="text/javascript">
+			if (msalert) {
+				msalert.init({
+					_btn1Text: '取消',
+					_btn2Text: '确定',
+					_btnText: '确定'
+				});
+			}
+
+			//function wxshared(url)
+			//{
+			//alert(url);
+			var url = window.location.href;
+			var appId;
+			var timeStamp;
+			var nonceStr;
+			var sign;
+
+			$.post('/Home/WXconfig', {
+				'url': url
+			}, function(data) {
+				appId = data.appId;
+				timeStamp = data.timeStamp;
+				nonceStr = data.nonceStr;
+				sign = data.sign;
+
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: appId, // 必填，公众号的唯一标识
+					timestamp: timeStamp, // 必填，生成签名的时间戳
+					nonceStr: nonceStr, // 必填，生成签名的随机串
+					signature: sign, // 必填，签名，见附录1
+					jsApiList: ['checkJsApi',
+						'onMenuShareTimeline',
+						'onMenuShareAppMessage',
+						'onMenuShareQQ',
+						'onMenuShareWeibo',
+						'hideMenuItems',
+						'showMenuItems',
+						'hideAllNonBaseMenuItem',
+						'showAllNonBaseMenuItem',
+						'chooseImage',
+						'previewImage',
+						'uploadImage',
+						'getNetworkType',
+						'hideOptionMenu',
+						'showOptionMenu',
+						'scanQRCode'
+					] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+				wx.ready(function() {
+					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+
+					var cfg = {
+						title: 'EAT WELL - LIVE WELL', // 分享标题
+						desc: 'EAT WELL - LIVE WELL', // 分享描述
+						link: window.location.href, // 分享链接
+						imgUrl: 'http://' + window.location.host + '/assets/images/banner-2.jpg', // 分享图标
+						type: 'link', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function() {
+							//alert("分享成功");
+							// 用户确认分享后执行的回调函数
+						},
+						cancel: function() {
+							// 用户取消分享后执行的回调函数
+						}
+					};
+
+
+					wx.onMenuShareAppMessage(cfg);
+					wx.onMenuShareTimeline(cfg);
+					wx.onMenuShareQQ(cfg);
+					wx.onMenuShareWeibo(cfg);
+					wx.onMenuShareQZone(cfg);
+				});
+
+				wx.error(function(res) {
+					// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+				});
+			});
+			//}
+		</script>
+	</head>
+	<body class="bg-grg" style="padding-top: 0px;">
+
+
+
+		<style type="text/css">
+			#menudetaila {
+				cursor: pointer;
+			}
+
+			lable {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				background: #f90;
+			}
+		</style>
+		<!-- <link href="/Content/interactive/base.css" rel="stylesheet">
+		<link href="/Content/interactive/main.css" rel="stylesheet"> -->
+
+
+		<div class="drop" style="display:none;">
+			<ul>
+				<li><a class="phone" href="tel:4006318688">热线电话</a></li>
+
+				<li><a class="help" href="http://mp.weixin.qq.com/s/U7cJoeB504yz4Mw44mDO6A">问题帮助</a></li>
+			</ul>
+		</div>
+		<div class="logo" style="display: none;">
+
+
+
+		</div>
+		<div class="pop-shop" id="cart">
+			<button class="close-btn">关闭</button>
+			<div class="menu-box" id="menuitemdetaildiv">
+				<img src="/assets/images/left-pic-1.png" class="top-pic" id="MenuItemDetailimg">
+				<input type="hidden" id="menuitemdetailhiden">
+				<h1><em id="menumitemnameem">Domaine Bousquet Malbec Reserve</em><label id="menumitemsumpricelabel">¥148</label></h1>
+				<div class="t-wrap" id="menuitemdescriptiondiv">
+					Country: Argentina<br>
+					Reference Number: 2015122505<br>
+					Year: 2012<br>
+					Type: Red Wine<br>
+					Style: Organic, Dry<br>
+					Grape Varlety: 5% Malbec, 5% Cabernet Sauvignon, 5% Merlot, 5% Shiraz<br>
+					Volume:<br>
+					Packagings: Bottle/Box<br>
+					Producer: Domaine Bousque<br>
+					Area: Bolgheri DOC<br>
+					Alcohol: 14.5%<br>
+					Recommendation:<br>
+					Body: Medium-full body<br>
+					Serving Temperature:<br>
+					Web:v<br>
+					Ratings &amp; Awards:<br>
+					Gold Medal - Decanter World Wine Awards 2013<br>
+					Silver Medal - Concours Mondial de Bruxelles<br>
+					92 points by Wine &amp; Spirits<br>
+					92 points by James Sucklingh<br>
+					Background:<br>
+					Behind Domaine Bousquet there are 4 generations of prestigious winemaking tradition and experience from France. DB
+					found the best terroir in Tupungato and settled down to continue making their wines. The vineyards, organic
+					certified, enjoy an great climate with high temperature difference from day to night. The grapes mature with an
+					excellent acitidy, resulting in fruity wines of intense colour, very balanced and elegant.<br><br>
+					Tasting notes:<br>
+					Intense rich aromas of blackberry fruit with spicy black pepper notes and blackcurrant.Blackberry, ripe plum and
+					chocolate flavours with a very soft, supple mouthfeel. Excellent structure and length. Ideal with red meats,
+					sauces, cheese and pasta dishes.<br>
+				</div>
+
+			</div>
+			<div class="menu-footer">
+				<div class="nub nub-box">
+					<div class="ones one-box">
+						<b class="plus jian"></b>
+						<em class="zhi" id="quantityem">1</em>
+					</div>
+					<b class="add jia"></b>
+				</div>
+				<a id="menudetaila" href="javascript:void(0)" onclick="CheckCondimentRequest()">加入购物车</a>
+			</div>
+		</div>
+
+		<div class="pop-bg"></div>
+
+		<div class="pop" id="menuitemalertdiv" style="margin-top: -58px;">
+			<div class="suc-box">请选择要购买的商品！</div>
+			<button class="back-home" onclick="CloseMenuItemRequestAlert();">确定</button>
+		</div>
+
+		<div class="pop" id="requestalertdiv" style="margin-top: -58px;">
+			<div class="suc-box">请选择必选的配料！</div>
+			<button class="back-home" onclick="CloseCondimentRequestAlert();">确定</button>
+		</div>
+
+		<div class="pop" id="alertdiv" style="margin-top: -58px;">
+			<div class="pop-text">是否确认删除该商品？</div>
+			<div class="pop-btn-box">
+				<ul>
+					<li><a href="JavaScript:return viod(0);" id="CondimentRequestReturna">返回</a></li>
+					<li><a href="JavaScript:return viod(0);" id="CondimentRequestSurea">确认</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="w960">
+			<div class="list-wrap sc" id="cartlistdiv">
+				<div class="cart-list">
+					<div class="nub cart-nub-box">
+						<div class="ones">
+							<b class="plus iconfont icon-jianhao2 cart-jian" value="1" name="mycartplus"></b>
+							<em class="cart-zhi">1</em>
+							<b class="add iconfont icon-jiahao1 cart-jia"value="1" name="mycartadd"></b>
+						</div>
+					</div>
+					<h1>红烧猪脚</h1>
+					<div class="an"></div><label style="margin-top: 2px;margin-left: 6.6rem;">￥6.00</label>
+				</div>
+				
+	<!-- <ul >
+		<li class="shop-item">
+			<span class="name">1.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">2.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+		<li class="shop-item">
+			<span class="name">2.三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+			<p class="price"><i>￥</i>40</p>
+			<div class="nub">
+				<div class="ones"><b class="plus iconfont icon-jianhao2"></b><em class="cart-zhi">1</em></div>
+				<b class="add iconfont icon-jiahao1"></b>
+			</div>
+		</li>
+	</ul>
+ -->
+
+				<div class="recommend"><span>推荐菜品</span></div>
+				<!-- Swiper -->
+				<div class="swiper-container s-2 swiper-container-horizontal">
+					<div class="swiper-wrapper" id="recommenddiv">
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="f-wrap">
+			<div class="shoppingBtn" id="ends">
+				<i id="menuitemcountlabel" style="background:#FFB400">1</i>
+			</div>
+			<div class="f-content" id="sumpayb">
+				<div class="price">合计：<i></i><span>￥6</span></div> <span class="tips">配送费 ￥0 <br>打包费 ￥0</span>
+			</div>
+			<a class="check-out-btn" onclick="return CheckCartPriceStatus('goCart');">结算</a>
+
+
+
+
+		</div>
+
+
+
+		<!-- Swiper JS -->
+		<script src="/assets/js/swiper.min.js"></script>
+		<script src="/assets/js/requestAnimationFrame.js"></script>
+		<script src="/assets/js/fly.js"></script>
+		<!-- Initialize Swiper -->
+		<script type="text/javascript">
+			var brandid; //用户选择品牌id
+			var restid
+			var langkey; //用户当前语言
+			var checktype; //用户当前用餐方式
+			var localstoragecart = ''; //购物车localstorage
+			$(function() {
+
+				brandid = $.cookies.get('current.brandId');
+				restid = $.cookies.get('current.restaurantId')
+				checktype = $.cookies.get('current.checkType');
+
+				langkey = getlanguage();
+
+				localstoragecart = window.localStorage['localcart'];
+
+				if (localstoragecart == undefined) {
+					localstoragecart = '';
+				}
+
+				GetCart(brandid);
+
+				GetCartCount(brandid);
+
+				GetRecommend(brandid);
+
+				//$('html,body').on('click', addProduct);
+
+				if ('true' == 'true') {
+					$('a[class="phone"]').attr('href', 'tel:4006318688');
+				} else {
+					$('a[class="phone"]').click(function() {
+						$('div[class="drop"]').hide();
+						msalert.alert('4006318688');
+					});
+				}
+
+				//帮助Tip
+				$('i[class="arrow-icon"]').click(function() {
+					if ($('div[class="drop"]').css('display') == 'none') {
+						$('div[class="drop"]').show();
+					} else {
+						$('div[class="drop"]').hide();
+					}
+				});
+
+			});
+
+			//抛物线动画效果
+			function addProduct(x, y, l, t, menuitemid, condimentrequest, condimentallow, price, quantity) {
+				var offset = $('#ends').offset(),
+					flyer = $('<lable></label>');
+				flyer.fly({
+					start: {
+						left: x,
+						top: y
+					},
+					end: {
+						left: offset.left - l,
+						top: offset.top - t,
+						width: 20,
+						height: 20
+					},
+					onEnd: function() {
+						$('lable').remove();
+					}
+				});
+				addcart(menuitemid, condimentrequest, condimentallow, price, quantity);
+			}
+
+			//获取当前语言
+			function getlanguage() {
+				var languagetype;
+				$.ajax({
+					type: 'POST',
+					url: 'GetLanguage',
+					data: {},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						languagetype = data.retCode;
+					}
+				});
+				return languagetype;
+			}
+
+			//购物车
+			function GetCart(brandid) {
+
+				$('.cart-list').remove();
+				var currentbrandid = brandid;
+				//var cart = $.cookies.get('cart');
+				var cart = $.parseJSON(localstoragecart);
+				var html = '';
+
+				if (cart != null) {
+					$.each(cart, function(index, item) {
+						if (item.Brandid == currentbrandid) {
+
+							html += '<div class="cart-list">'
+							html += '<div class="nub">';
+							html += '<div class="ones cart-nub-box">';
+							html += '<b class="plus cart-jian" value="' + item.CartId + '" name="mycartplus"></b>';
+							html += '<em class="cart-zhi">' + item.Quantity + '</em>';
+							html += '<b class="add cart-jia" value="' + item.CartId + '" name="mycartadd"></b>';
+							html += '</div>'
+							html += '</div>';
+							if (langkey == 'en') {
+								html += '<h1>' + item.Name2 + '</h1>';
+							} else {
+								html += '<h1>' + decodeURIComponent(item.Name1) + '</h1>';
+							}
+							html += '<div class="an">';
+
+							$.each(item.CondimentRequests, function(rindex, ritem) {
+								if (langkey == 'en') {
+									html += '<p>' + ritem.Name2 + '</p>';
+								} else {
+									html += '<p>' + decodeURIComponent(ritem.Name1) + '</p>';
+								}
+							});
+
+							$.each(item.CondimentAllows, function(aindex, aitem) {
+								if (langkey == 'en') {
+									html += '<p>' + aitem.Name2 + '</p>';
+								} else {
+									html += '<p>' + decodeURIComponent(aitem.Name1) + '</p>';
+								}
+							});
+
+							html += '</div>';
+
+							var price = parseFloat(item.Price);
+							var quantity = parseFloat(item.Quantity);
+							var total = price * quantity;
+							total = total.toFixed(2);
+							html += '<label style="margin-top: 2px;margin-left: 6.6rem;">￥' + total + '</label>';
+							html += '</div>';
+						}
+
+					});
+					$('#cartlistdiv').prepend(html);
+
+					//购物车数量加
+					$(".add[name='mycartadd']").click(function() {
+
+						var cartid = $(this).attr('value');
+						cartid = parseInt(cartid);
+
+						$(this).parent(".nub").find(".ones").show();
+						var tmp = parseInt($(this).parent(".nub").find("em").text());
+						tmp += 1;
+						$(this).parent(".nub").find("em").text(tmp);
+
+						//var cart = $.cookies.get('cart');
+						var cart = $.parseJSON(localstoragecart);
+						$.each(cart, function(index, item) {
+							if (item.CartId == cartid) {
+								ChangeQuantityCart(cartid, tmp);
+							}
+						});
+
+						GetCart(brandid);
+
+						GetCartCount(brandid);
+					});
+
+					//购物车数量减
+					$(".plus[name='mycartplus']").click(function() {
+
+						var cartid = $(this).attr('value');
+						cartid = parseInt(cartid);
+
+						var tmp = parseInt($(this).next().text());
+						tmp -= 1;
+
+						$(this).next().text(tmp);
+						if ($(this).next().text() == "0") {
+							$(this).parent(".ones").hide();
+						}
+
+						//var cart = $.cookies.get('cart');
+						var cart = $.parseJSON(localstoragecart);
+						$.each(cart, function(index, item) {
+							if (item.CartId == cartid) {
+								ChangeQuantityCart(cartid, tmp);
+								GetCart(brandid);
+								GetCartCount(brandid);
+							}
+						});
+					});
+				}
+			}
+
+			//获取购物车货物数量和总金额
+			function GetCartCount(brandid) {
+				var itemcount;
+				var sumpay;
+				var deliveryfee;
+				var packagefee;
+				var freedeliveryfeestand = 50
+				freedeliveryfeestand = parseFloat(freedeliveryfeestand);
+				$.ajax({
+					type: 'POST',
+					url: 'GetCartCount',
+					data: {
+						"brandid": brandid,
+						"localcart": localstoragecart
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						itemcount = data.retCode;
+						sumpay = data.retMsg;
+					}
+				});
+
+				$('#menuitemcountlabel').html(itemcount);
+
+				if (itemcount != '0') {
+					$('#menuitemcountlabel').attr('style', 'background:#FFB400');
+					$('.f-wrap p i').attr('style', 'background-image:url("/assets/images/cart-icon-orange.png")');
+				} else {
+					$('#menuitemcountlabel').attr('style', 'background:#909294');
+					$('.f-wrap p i').attr('style', 'background-image:url("/assets/images/cart-icon.png")');
+				}
+
+				if (checktype == '3') {
+					if (langkey == 'en') {
+						$('#sumpayb').html('<div class="price">SUM：<i></i><span>￥' + sumpay +
+							'</span></div> <span class="tips">Delivery Fee ￥0</br>Delivery Fee ￥0</span>');
+					} else {
+						$('#sumpayb').html('<div class="price">合计：<i></i><span>￥' + sumpay +
+							'</span></div> <span class="tips">配送费 ￥0</br>打包费 ￥0</span>');
+					}
+				}
+
+				if (checktype == '1' || checktype == '2') {
+
+					$.ajax({
+						type: 'POST',
+						url: 'GetDeliveryPackageFee',
+						data: {
+							"brandid": brandid
+						},
+						dataType: 'json',
+						async: false,
+						success: function(data) {
+							if (data.isRedirect) {
+								alter(data.message)
+								var urlRedirect = data.redirectUrl;
+								window.location.href = urlRedirect;
+								return;
+							}
+							deliveryfee = data.retCode;
+							packagefee = data.retMsg;
+						}
+					});
+
+					if (checktype == '2') {
+
+						if (langkey == 'en') {
+							$('#sumpayb').html('<div class="price">SUM：<i></i><span>￥' + sumpay +
+								'</span></div> <span class="tips">Delivery Fee ￥0</br>Delivery Fee ￥' + packagefee + '</span>');
+						} else {
+							$('#sumpayb').html('<div class="price">合计：<i></i><span>￥' + sumpay +
+								'</span></div> <span class="tips">配送费 ￥0 </br>打包费 ￥' + packagefee + '</span>');
+						}
+
+					}
+					if (checktype == '1') {
+						sumpay = parseFloat(sumpay);
+						if (sumpay >= freedeliveryfeestand) {
+							deliveryfee = '0';
+						}
+						if (langkey == 'en') {
+							$('#sumpayb').html('<div class="price">SUM：<i></i><span>￥' + sumpay +
+								'</span></div> <span class="tips">Delivery Fee ￥' + deliveryfee + ' </br>Delivery Fee ￥' + packagefee +
+								'</span>');
+						} else {
+							$('#sumpayb').html('<div class="price">合计：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">配送费 ￥' +
+								deliveryfee + '</br>打包费 ￥' + packagefee + '</span>');
+						}
+					}
+
+				}
+			}
+
+			//更改菜品数量
+			function ChangeQuantityCart(cartid, quantity) {
+
+				var msg;
+				if (langkey == 'en') {
+					msg = 'Are you sure you want to delete it?';
+				} else {
+					msg = '确定要删除吗？';
+				}
+
+				if (quantity == 0) {
+					$('#alertdiv').show();
+					$('.pop-bg').show();
+
+					$('#CondimentRequestReturna').unbind();
+
+					$('#CondimentRequestReturna').click(function() {
+						$('#alertdiv').hide();
+						$('.pop-bg').hide();
+
+					});
+
+					$('#CondimentRequestSurea').unbind();
+					$('#CondimentRequestSurea').click(function() {
+						$.ajax({
+							type: 'POST',
+							url: 'ChangeQuantity',
+							data: {
+								"cartid": cartid,
+								"quantity": quantity,
+								"localcart": localstoragecart
+							},
+							dataType: 'json',
+							async: false,
+							success: function(data) {
+								if (data.isRedirect) {
+									alter(data.message)
+									var urlRedirect = data.redirectUrl;
+									window.location.href = urlRedirect;
+									return;
+								}
+								localstoragecart = data.retMsg;
+							}
+						});
+
+						window.localStorage['localcart'] = localstoragecart;
+						$('#alertdiv').hide();
+						$('.pop-bg').hide();
+
+						GetCart(brandid);
+						GetCartCount(brandid);
+
+					});
+
+					//if (confirm(msg)) {
+					//    $.ajax({
+					//        type: 'POST',
+					//        url: 'ChangeQuantity',
+					//        data: { "cartid": cartid, "quantity": quantity },
+					//        dataType: 'json',
+					//        async: false,
+					//        success: function (data) {
+					//        }
+					//    });
+					//}
+
+				} else {
+					$.ajax({
+						type: 'POST',
+						url: 'ChangeQuantity',
+						data: {
+							"cartid": cartid,
+							"quantity": quantity,
+							"localcart": localstoragecart
+						},
+						dataType: 'json',
+						async: false,
+						success: function(data) {
+							if (data.isRedirect) {
+								alter(data.message)
+								var urlRedirect = data.redirectUrl;
+								window.location.href = urlRedirect;
+								return;
+							}
+							localstoragecart = data.retMsg;
+						}
+					});
+					window.localStorage['localcart'] = localstoragecart;
+				}
+			}
+
+			//推荐菜品
+			function GetRecommend(brandid) {
+				$.ajax({
+					type: 'POST',
+					url: 'GetRecommend',
+					data: {
+						"brandid": brandid
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						html = '';
+						if (data.retCode == '0') {
+							if (data.isRedirect) {
+								alter(data.message)
+								var urlRedirect = data.redirectUrl;
+								window.location.href = urlRedirect;
+								return;
+							}
+							$.each(data.Result, function(index, item) {
+								html += '<div class="swiper-slide">';
+								html += '<div class="recommend-list">';
+								html += '<a><div class="thumb"><img src="' + item.ImageUrl + '" onclick="MenuItemImageOnclick(\'' + item.id +
+									'\')" /></div></a>'
+								if (langkey == 'en') {
+									html += '<h1 style="text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">' + item.Name2 +
+										'</h1>';
+								} else {
+									html += '<h1 style="text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">' + item.Name1 +
+										'</h1>';
+								}
+								html += '<p>￥' + item.Price + '</p>';
+								html += '</div></div>';
+							});
+						} else {}
+
+						$('#recommenddiv').append(html);
+					}
+				});
+
+				var swiper = new Swiper('.swiper-container', {
+					pagination: '.swiper-pagination',
+					slidesPerView: 3,
+					paginationClickable: true,
+					spaceBetween: 0
+				});
+			}
+
+			//菜品图片点击
+			function MenuItemImageOnclick(menuitemid) {
+				MenuItemDetail(menuitemid);
+				var ph = $(".pop-shop").height();
+				var pop = ph / 2 * (-1);
+				$(".pop-shop").css({
+					'margin-top': pop + 'px'
+				});
+				$("#cart").show();
+				$(".pop-bg").show();
+				$("body").css({
+					'overflow': 'hidden'
+				})
+			}
+
+			//菜品详情
+			function MenuItemDetail(menuitemid) {
+
+				$('#quantityem').html('1');
+
+				$('#menuitemdetailhiden').val(menuitemid);
+
+				$.ajax({
+					type: 'POST',
+					url: 'MenuItemDetail',
+					data: {
+						"menuitemid": menuitemid,
+						"brandid": brandid,
+						"restid": restid
+					},
+					//data: { "menuitemid": menuitemid },
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.retCode == '0') {
+							//$.each(data.Result, function (index, item) {
+							if (data.Result.Remark1 != '' && data.Result.Remark1 != null) {
+								$('#MenuItemDetailimg').attr('src', data.Result.Remark1);
+							}
+							if (langkey == 'en') {
+								$('#menumitemnameem').html(data.Result.Name2);
+								$('#menuitemdescriptiondiv').html(data.Result.Description2);
+							} else {
+								$('#menumitemnameem').html(data.Result.Name1);
+								$('#menuitemdescriptiondiv').html(data.Result.Description1);
+							}
+							$('#menumitemsumpricelabel').html('¥' + data.Result.Price.toFixed(2));
+
+							//});
+						} else {
+
+						}
+					}
+				});
+
+				$('.combo').remove();
+
+				$.ajax({
+					type: 'POST',
+					url: 'GetCondimentRequestDetail',
+					data: {
+						"menuitemid": menuitemid
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.retCode == '0') {
+							var html = '';
+							$.each(data.Result, function(index, item) {
+								$.each(item.CondimentRequests, function(ind, it) {
+									if (ind == 0) {
+										html += '<div class="combo"><ul name="requestul">';
+										if (langkey == 'en') {
+											html += '<h2>' + item.CondimentGroupName2 + '(' + item.CondimentRequests.length + ' choose 1)' +
+												'</h2>';
+										} else {
+											html += '<h2>' + item.CondimentGroupName1 + '(' + item.CondimentRequests.length + '选1)' + '</h2>';
+										}
+									}
+									if (langkey == 'en') {
+										html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.CondimentRequestName2 +
+											'</li>';
+									} else {
+										html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.CondimentRequestName1 +
+											'</li>';
+									}
+									if ((ind + 1) == item.CondimentRequests.length) {
+										html += '</ul></div>';
+										html += '<div class="clearfix"></div>';
+									}
+								});
+							});
+
+							$('#menuitemdetaildiv').append(html);
+						} else {}
+					}
+				});
+
+				$.ajax({
+					type: 'POST',
+					url: 'GetCondimentAllowDetail',
+					data: {
+						"menuitemid": menuitemid
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.retCode == '0') {
+							var html = '';
+							$.each(data.Result, function(index, item) {
+								$.each(item.CondimentAllows, function(ind, it) {
+									if (ind == 0) {
+										html += '<div class="combo"><ul name="allowul">';
+										if (langkey == 'en') {
+											html += '<h2>' + item.CondimentGroupName2 + '</h2>';
+										} else {
+											html += '<h2>' + item.CondimentGroupName1 + '</h2>';
+										}
+									}
+									if (langkey == 'en') {
+										html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.CondimentAllowName2 +
+											'</li>';
+									} else {
+										html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.CondimentAllowName1 +
+											'</li>';
+									}
+									if ((ind + 1) == item.CondimentAllows.length) {
+										html += '</ul></div>';
+										html += '<div class="clearfix"></div>';
+									}
+								});
+							});
+
+							$('#menuitemdetaildiv').append(html);
+						} else {}
+					}
+				});
+
+				$("ul[name='requestul'] li").click(function() {
+					if ($(this).attr('class') != 'hover') {
+						var sumprice = $('#menumitemsumpricelabel').html().replace('¥', '');
+
+						sumprice = parseFloat(sumprice);
+
+						var obj = $(this).siblings('.hover');
+
+						var tempprice1 = obj.attr('price');
+
+						var tempprice2 = parseFloat($(this).attr('price'));
+
+						if (tempprice1 == undefined) {
+							tempprice1 = '0.00';
+							tempprice1 = parseFloat(tempprice1);
+						} else {
+							tempprice1 = parseFloat(tempprice1);
+						}
+
+						$(this).addClass("hover").siblings().removeClass("hover");
+
+						sumprice = sumprice - tempprice1;
+						sumprice = sumprice + tempprice2;
+
+						sumprice = sumprice.toFixed(2);
+
+						$('#menumitemsumpricelabel').html('¥' + sumprice);
+					}
+				});
+
+				$("ul[name='allowul'] li").click(function() {
+
+					var sumprice = $('#menumitemsumpricelabel').html().replace('¥', '');
+					sumprice = parseFloat(sumprice);
+					var tempprice = parseFloat($(this).attr('price'));
+
+					$(this).toggleClass("hover");
+
+					if ($(this).attr('class') == 'hover') {
+						sumprice = sumprice + tempprice;
+					} else {
+						sumprice = sumprice - tempprice;
+					}
+
+					sumprice = sumprice.toFixed(2);
+
+					$('#menumitemsumpricelabel').html('¥' + sumprice);
+				});
+
+			}
+
+			//必选配料验证并加入购物车
+			function CheckCondimentRequest() {
+
+				var requestobj = $('ul[name="requestul"]');
+				try {
+					if (requestobj.length != 0) {
+						var mark2 = false;
+						$.each(requestobj, function(index, item) {
+							var lis = item.childNodes;
+
+							var mark1 = false;
+							$.each(lis, function(ind, it) {
+								if (it.className == 'hover') {
+									mark1 = true;
+								}
+							});
+
+							mark2 = mark1;
+
+						});
+					} else {
+						mark2 = true;
+					}
+
+					if (!mark2) {
+						$('#requestalertdiv').show();
+					}
+
+					if (!mark2) {
+						//return mark2;
+					} else {
+						MenuItemAllowRequestAddCart();
+					}
+				} catch (ex) {}
+				$("body").css({
+					'overflow': 'auto'
+				})
+			}
+
+			//必选配料提示关闭
+			function CloseCondimentRequestAlert() {
+				$('#requestalertdiv').hide();
+			}
+
+			//菜品详情加入购物车
+			function MenuItemAllowRequestAddCart() {
+
+				var menuitemid = $('#menuitemdetailhiden').val();
+				var condimentrequest = '';
+				var condimentallow = '';
+				var totalprice = $('#menumitemsumpricelabel').html().replace('¥', '');
+				var quantity = $('#quantityem').html();
+
+				var requestobj = $('ul[name="requestul"]');
+
+				if (requestobj.length != 0) {
+					$.each(requestobj, function(index, item) {
+						var lis = item.childNodes;
+						$.each(lis, function(ind, it) {
+							if (it.className == 'hover') {
+								condimentrequest += it.getAttribute("name") + '|';
+							}
+						});
+					});
+				}
+
+				var allowobj = $('ul[name="allowul"]');
+
+				if (allowobj.length != 0) {
+					$.each(allowobj, function(index, item) {
+						var lis = item.childNodes;
+						$.each(lis, function(ind, it) {
+							if (it.className == 'hover') {
+								condimentallow += it.getAttribute("name") + '|';
+							}
+						});
+					});
+				}
+
+				var x = $('#menudetaila').position().left - $(document).scrollLeft();
+				var y = $('#menudetaila').position().top - $(document).scrollTop();
+				var t = $(document).scrollTop();
+				var l = $(document).scrollLeft();
+
+				addProduct(x, y, l, t, menuitemid, condimentrequest, condimentallow, totalprice, quantity);
+				//addcart(menuitemid, condimentrequest, condimentallow, totalprice, quantity);
+
+				$("#cart").hide();
+				$(".pop-bg").hide();
+			}
+
+			//加入购物车
+			function addcart(menuitemid, condimentrequest, condimentallow, price, quantity) {
+				if (quantity != 0) {
+					$.ajax({
+						type: 'POST',
+						url: 'AddCart',
+						data: {
+							"menuitemid": menuitemid,
+							"condimentrequestlist": condimentrequest,
+							"condimentallowlist": condimentallow,
+							"price": price,
+							"quantity": quantity,
+							"brandid": brandid,
+							"localcart": localstoragecart
+						},
+						dataType: 'json',
+						async: false,
+						success: function(data) {
+							if (data.isRedirect) {
+								alter(data.message)
+								var urlRedirect = data.redirectUrl;
+								window.location.href = urlRedirect;
+								return;
+							}
+							if (data.retCode == '0') {
+								//alert('');
+								localstoragecart = data.retMsg;
+								GetCart(brandid);
+								GetCartCount(brandid); //统计购物车
+							} else {
+
+							}
+						}
+					});
+					window.localStorage['localcart'] = localstoragecart;
+				}
+				if (quantity == 0) {
+					return;
+				}
+			}
+
+			//零件商品提交结算提醒
+			function checkcart() {
+				var itemcount;
+				var sumpay;
+				$.ajax({
+					type: 'POST',
+					url: 'GetCartCount',
+					data: {
+						"brandid": brandid,
+						"localcart": localstoragecart
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						itemcount = data.retCode;
+						sumpay = data.retMsg;
+					}
+				});
+
+				if (itemcount == '0') {
+					$('#menuitemalertdiv').show();
+					$('.pop-bg').show();
+					return false;
+				}
+			}
+
+			//零件商品提交结算提醒关闭
+			function CloseMenuItemRequestAlert() {
+				$('#menuitemalertdiv').hide();
+				$('.pop-bg').hide();
+			}
+
+			// 验证商品特价时效性
+			function CheckCartPriceStatus() {
+				var flag = false;
+				if (localstoragecart == '') {
+					return;
+				}
+				$.ajax({
+					type: 'POST',
+					url: 'CheckCartPriceStatus',
+					data: {
+						"cart": localstoragecart
+					},
+					dataType: 'json',
+					async: false,
+					success: function(data) {
+						if (data.result.resultcode != 200) {
+							alert(data.result.msg);
+							window.localStorage['localcart'] = data.newCarts;
+							localstoragecart = window.localStorage['localcart'];
+							window.location.href = '/Order/Menu1';
+							//window.location.href = '/Order/Menu1';
+							flag = false;
+						} else {
+							flag = true;
+							checkcart();
+						}
+					}
+				});
+				return flag;
+			}
+		</script>
+
+
+		<script src="../assets/js/mobile.js"></script>
+	</body>
+</html>

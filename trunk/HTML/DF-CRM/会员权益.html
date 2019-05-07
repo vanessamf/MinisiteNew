@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/rp.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>会员权益</title>
+</head>
+<body>
+<div class="vip-header">
+  <div class="v-box">
+    <h1>您已是尊贵<br/>的铂金会员</h1>
+    <img src="images/pic-z.png" class="pic-z"/>
+  </div>
+  <div class="v-box" style="display: none">
+    <div class="level">钻石会员</div>
+    <div class="progress-v">
+      <div class="progress-bar-v" style="width: 30%;">
+        <div class="progress-value">130</div>
+      </div>
+      <i class="i01">101</i>
+      <i class="i02">200</i>
+    </div>
+    <p>再获取88成长值升级为超级VIP</p>
+  </div>
+</div>
+
+<div class="tab">
+  <ul class="tab-t">
+    <li id="hot0" onmouseover="Tab('hot',0,2)" class="tab_hover">成长值明细</li>
+    <li id="hot1" onmouseover="Tab('hot',1,2)">权益说明</li>
+  </ul>
+  <div class="tabContent">
+    <div id="tab_hot_0">
+      <ul class="list-box">
+        <li>
+          <h1>大额充值奖励<em class="num-text">+3</em></h1>
+          <p>2017-05-31 13:21</p>
+        </li>
+        <li>
+          <h1>充值奖励<em class="num-text">+3</em></h1>
+          <p>2017-05-31 13:21</p>
+        </li>
+        <li>
+          <h1>大额充值奖励<em class="num-text">+3</em></h1>
+          <p>2017-05-31 13:21</p>
+        </li>
+        <li>
+          <h1>消费奖励<em class="num-text">+3</em></h1>
+          <p>2017-05-31 13:21</p>
+        </li>
+        <li>
+          <h1>注册奖励<em class="num-text">+3</em></h1>
+          <p>2017-05-31 13:21</p>
+        </li>
+      </ul>
+    </div>
+    <div id="tab_hot_1" style="display: none">
+      <ul class="t-box">
+        <li><i>*</i>注册即获3个成长值</li>
+        <li><i>*</i>注册即获一张3元优惠券</li>
+        <li><i>*</i>生日前夕可获赠一张超级生日券</li>
+        <li><i>*</i>白银会员享受9.9折优惠</li>
+        <li><i>*</i>白银会员享受充100送5元、充200送15元</li>
+        <li><i>*</i>白银会员积分规则：消费1元获1积分，充值1元获1积分；支付时10积分抵扣1元。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

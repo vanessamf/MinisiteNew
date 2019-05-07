@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="email=no" name="format-detection">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta http-equiv="Cache-Control" content="max-age=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>用餐方式</title>
+	<link rel="stylesheet" type="text/css" href="css/interactive/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/interactive/main.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/interactive/main-mobile.css" /> -->
+	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+</head>
+
+<body style="height:100%">
+	<ul class="mode-wrap">
+	    <li >
+	        <!-- <div class="weather" style="display:none;">
+	            <h1>
+					<label id="labweatherc">苏州市</label>
+					<em id="emweathert">
+						<i id="iweathert">14℃</i>
+					</em>
+				</h1>
+	            <img src="/assets/images/weather-line.png">
+	            <p>由于天气不可控因素，订单将会超过60分钟送达，请谅解！</p>
+	        </div> -->
+	        <a href="javascript:void(0)" onclick="checkType(1)">
+	            <i class="">DELIVERY</i>
+	            <p>外卖 - 健康美食直送</p>
+	        </a>
+	    </li>
+	   <li>
+	        <a href="javascript:void(0)" onclick="checkType(2)">
+	            <i class="">PICK UP</i>
+	            <p>到店自提 - 美味无需等待</p>
+	        </a>
+	    </li>
+	    <li>
+	        <a href="javascript:void(0)" onclick="checkType(3);openAttentionBox(this);">
+	            <i class="">RESERVE</i>
+	            <p>预订 - 恭候您的光临</p>
+	        </a>
+	    </li>
+	</ul>
+	<div class="pop-bg"></div>
+	<div class="attention-box">
+		<div class="main-content">
+			<p>提示</p>
+			<p>请扫描二维码进行点餐</p>
+		</div>
+		<div class="btn-wrapper">
+			<div class="btn btn-cancle">取消</div>
+			<div class="btn btn-confirm highlighted">确认</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script>
+	function checkType(type) {
+	        switch (type) {//订单类型(1-外卖;2-自提;3-预定)
+	            case 1:
+	                window.location.href = "选菜new.html";
+	                break;
+	            case 2:
+	                break;
+	            case 3:
+	                // alert("123")
+	                break;
+	        }
+	    }
+		
+	var openAttentionBox=function(selector){
+		var _this = $(selector);
+		$(".pop-bg").show();
+		$(".attention-box").show();
+		closeAttentionBox(_this);
+	}
+	
+	var closeAttentionBox = function(selector) {
+		$('.btn-confirm').click(function() {
+			$(".pop-bg").hide();
+			$(".attention-box").hide();
+		})
+		$('.btn-cancle').click(function() {
+			$(".pop-bg").hide();
+			$(".attention-box").hide();
+		})
+	}
+</script>
+</html>

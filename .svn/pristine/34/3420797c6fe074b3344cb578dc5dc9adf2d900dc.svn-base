@@ -1,0 +1,440 @@
+﻿/*-------------------------------------------------------ע�ᡢ��¼----------------------------------------------------------------*/
+.bg { position: fixed; left: 0; top: 0; width: 100%; height: 100%}
+.login { position: relative; z-index: 1; margin-left: 2rem}
+.login a { background: #d6a465; border-radius: .5rem; color: #fff}
+.login ul { margin: 10rem 0}
+.login ul li { position: relative; border-bottom: .1rem solid #fff; padding: 4rem 0 1rem 0}
+.login ul li input { line-height: 2rem; font-size: 1.1rem; background: none; color: #fff; width: 100%}
+.login ul li a{ position: absolute; right: 1rem; top: 4rem; display: inline-block; line-height: 2rem; font-size: 1.1rem; padding:0 1rem}
+.login-btn { display: block; margin: 1rem 2rem 1rem 0; text-align: center; font-size: 1.4rem; padding: .5rem 0}
+
+.login ::-webkit-input-placeholder { color: #fff;}   /* WebKit browsers */
+.login :-moz-placeholder { color: #fff;}   /* Mozilla Firefox 4 to 18 */
+.login ::-moz-placeholder { color: #fff;}  /* Mozilla Firefox 19+ */
+.login :-ms-input-placeholder { color: #fff;}   /* Internet Explorer 10+ */
+
+.box { background: #fff; font-size: 1.1rem;}
+.box ul { padding-left:1rem}
+.box ul li { border-bottom: .1rem solid #ddd; position: relative; padding: .5rem 1rem .5rem 8rem}
+.box ul li:last-child { border-bottom: 0}
+.box span { position: absolute; left: 0; top: 1.3rem;}
+.box input { line-height: 3rem; font-size: 1.1rem; width: 100%}
+.box p { position: relative; padding: .5rem 1rem .5rem 9rem; border-top: .5rem solid #f4f4f4}
+.box p span { left: 1rem;}
+.box p a,.code-btn { position: absolute; right: 1rem; top: .8rem; background: #919294; display: inline-block; line-height: 2.4rem; border-radius: .5rem; padding: 0 1rem; color: #fff}
+
+.btn {display: block; text-align: center; font-size: 1.4rem; padding: .5rem 0;background: #d6a465; border-radius: .5rem; color: #fff}
+.reg { position: fixed; left: 0; bottom: 5rem; width: 100%; text-align: right; z-index: 1}
+.reg a { margin: 0 1rem}
+.a-btn { color: #333; display: inline-block; padding-top: .5rem; font-size: 1.1rem;}
+.a-btn input[type=checkbox] { vertical-align: middle}
+.a-btn span { display: inline-block; vertical-align: middle;}
+.text-w { color: #fff}
+
+.regBox { position: relative; z-index: 1; color:#fff; font-size: 1rem; padding: 0 3rem 0 2rem}
+.regBox ul { margin-left:7%; border-top: .3rem solid #fff; padding-top: 2rem }
+.regBox ul li { padding-bottom: .5rem}
+.regBox img { display: block; width:100%; margin:4rem auto 1rem auto}
+
+
+
+/*------------------------------------------------------- 用户中心 ----------------------------------------------------------------*/
+.user-header { position: relative; background: #fff url("../images/userCenterBg.png") 0 0 no-repeat; background-size: 100% 100%; padding: 1rem; overflow: hidden}
+.user-header img.top-user {width: 5rem; height: 5rem; border-radius: 2.7rem; float: left; margin: 0 1rem 0 0; border: .2rem solid #c2c2c2}
+.user-header h1 { font-size: 1.8rem; margin: .5rem 0; color: #fff}
+.user-header p {  line-height: 1.5rem; font-size: 1.2rem; color: #fff}
+.user-header p i {display: inline-block; background: url("../images/phone-icon.png") 0 .2rem no-repeat; background-size: 1rem; font-style: normal; padding-left: 1.2rem}
+.user-header a.vip {
+    position: absolute; right: 0; top: 2.3rem;
+    display: block; border-radius: 2rem 0 0 2rem;
+    background:rgba(201,201,201,.3) url("../images/level-icon.png") 1rem center no-repeat; background-size: 1.8rem;
+    color: #fff; font-size: 1.2rem; line-height: 2.5rem;
+    padding: 0 .5rem 0 3rem;
+}
+
+
+.user-link { background: #fff; padding: 1rem 0; border-bottom: .1rem solid #eee; overflow: hidden;}
+.user-link li{ float: left; width: 33.3333%; text-align: center}
+.user-link li p { position: relative; width: 2.6rem; height: 2.6rem; margin:0 auto; padding:.5rem}
+.user-link li p img { width: 100%}
+.user-link li p i { position: absolute; right: 0; top: 0; width: .6rem; height: .6rem; background: #f4511e; border-radius: .3rem}
+.user-link li label { display: block; font-size: 1.1rem; color: #777}
+
+.nav { background: #fff; margin-top: 1rem; border-top: .1rem solid #eee; border-bottom: .1rem solid #eee}
+.nav li { padding-left: 2rem }
+.nav li a { display: block; font-size: 1.2rem;border-bottom: .1rem solid #eee; line-height: 3.5rem; padding-left: 2.5rem}
+.nav li:last-child a { border-bottom: 0}
+.nav li:nth-child(1) a { background: url("../images/left-icon01.png") 0 center no-repeat; background-size: 1.5rem;}
+.nav li:nth-child(2) a { background: url("../images/left-icon02.png") 0 center no-repeat; background-size: 1.5rem;}
+.nav li:nth-child(3) a { background: url("../images/left-icon03.png") 0 center no-repeat; background-size: 1.5rem;}
+.nav li:nth-child(4) a { background: url("../images/left-icon04.png") 0 center no-repeat; background-size: 1.5rem;}
+.set li:nth-child(1) a { background: url("../images/left-icon05.png") 0 center no-repeat; background-size: 1.5rem;}
+
+.u-box { position: relative; margin: 1rem; border-radius: .5rem; color: #fff; padding: 1rem; overflow: hidden}
+.u-box h1 { font-size: 2rem; }
+.u-box p { font-size: 1rem}
+.u-box img.code { float: right; width: 3rem; margin-top: -1.5rem}
+.u-box-bg { position: absolute; left: .4rem; bottom: -.4rem; width: 50%}
+.u-box strong {
+    position: absolute; right: 0; top: .5rem; font-weight: normal; font-size: 1.1rem; padding: 0 1rem; line-height: 2rem;
+    background: -webkit-linear-gradient(90deg, #ff6f54, #ff9f43); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ff6f54, #ff9f43); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ff6f54, #ff9f43); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ff6f54, #ff9f43); /* ��׼���﷨������������ */
+}
+.u-box strong i { font-style: normal; display: inline-block; margin: 0 1rem}
+.u-box em { font-style: normal; display: block; font-size: 1.6rem}
+.u-box b { display: block; font-size: 1.2rem; font-weight: normal; margin:.5rem 0 -.5rem 0}
+.blue {
+    background: -webkit-linear-gradient(90deg, #38cce7, #6970ff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #38cce7, #6970ff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #38cce7, #6970ff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #38cce7, #6970ff); /* ��׼���﷨������������ */
+}
+.red {
+    background: -webkit-linear-gradient(90deg, #ffa043, #ff525f); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ffa043, #ff525f); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ffa043, #ff525f); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ffa043, #ff525f); /* ��׼���﷨������������ */
+    padding-top: 3rem;
+}
+
+.user-photo { padding: 1rem; font-size: 1.1rem; background:#fff url("../images/arrow.png") 95% center no-repeat; background-size: 1.5rem; margin-bottom: 1rem; overflow: hidden}
+.user-photo a { display: block}
+.user-photo img { width: 5rem; height: 5rem; border-radius: 2.5rem; display: inline-block; margin-right: 1rem; vertical-align: middle}
+
+.user-nav { background: #fff; padding-left: 1rem; overflow: hidden}
+.user-nav li { border-bottom: .1rem solid #ddd; line-height: 4rem; font-size: 1.1rem;}
+.user-nav li:last-child { border-bottom: 0;}
+.user-nav li a { display: block; background: url("../images/arrow.png") 95% center no-repeat; background-size: 1.5rem;}
+.user-nav li em { float: right; font-style: normal; padding-right:13%; color: #999}
+.user-nav li img { width: 2rem; display: inline-block; vertical-align: middle; margin-right: 1rem}
+.user-nav li input[type=text] { text-align: right; font-size: 1.2rem; color:#999}
+.m10 { margin-top: 1rem}
+.ma20 { margin: 2rem}
+
+.info { background: #fff; padding-left: 1rem; margin-bottom: 6rem}
+.info li { position: relative; border-bottom: .1rem solid #ddd; line-height: 5rem; font-size: 1.1rem; padding-left:7rem}
+.info li:last-child {border-bottom: 0}
+.info li.bg01 { background: url("../images/arrow.png") 95% center no-repeat; background-size: 1.5rem; }
+.info label {  position: absolute; left: 0; top: 0;}
+.info select { width: 100%; background: none; line-height: 4rem; font-size: 1.1rem}
+.info input { width: 100%; line-height: 4rem; font-size: 1.1rem}
+
+.sex { background: #fff; padding-left: 1rem; margin-bottom: 6rem}
+.sex li { position: relative; border-bottom: .1rem solid #ddd; line-height: 4rem; font-size: 1.1rem;}
+.sex li:last-child {border-bottom: 0}
+.sex li.hover {background: url("../images/arrow01.png") 95% center no-repeat; background-size: 1.5rem;}
+
+
+.code01 {background: #fff; text-align: center; padding: 2rem 0; margin-bottom: 1rem}
+.code01 img { width: 70%; display: inline-block}
+
+.Noticebox { background: #fff; padding: 0 3rem; overflow: hidden}
+.Noticebox ul {}
+.Noticebox li { float: left; cursor:pointer; text-align:center; font-size: 1.1rem; width: 33.33%; line-height: 3rem}
+.sn_hover { border-bottom: .2rem solid #d6a465}
+.Contentbox{clear:both; background: #fff; border-top: .1rem solid #ddd; overflow: hidden}
+.list-info { margin: 1rem 0 1rem 1rem; border-bottom: .1rem solid #ddd; padding:0 1rem 1rem 0}
+.list-info h1 { font-size: 1.4rem; padding-bottom: .5rem}
+.list-info h1 em { font-size: 1rem;; font-style: normal; float: right}
+.list-info p { font-size: 1rem; color: #999}
+.list-info p em { font-style: normal; float: right}
+
+.imgBox { position: absolute; left: 50%; top: 50%; width: 8rem; height: 8rem; margin: -10rem 0 0 -4rem;}
+.pic {width: 8rem; height: 8rem; border-radius: .5rem; }
+
+.btn-box { position: fixed; left: 5%; bottom: 5%; width: 90%}
+.addCover{ position:relative; background:#fff; border: .1rem solid #ddd; border-radius: .5rem; text-align: center; font-size: 1.4rem; padding: .5rem 0; margin: 1rem 0; overflow: hidden}
+.addCover em { font-style:normal}
+.addCover .upload { position:absolute; top:0; right:0; margin:0; padding:0; width: 100%; height: 3rem; cursor:pointer; opacity:0; filter:alpha(opacity=0);}
+
+
+/*2017-06-05*/
+.t-box { background: #fff; margin: .5rem; overflow: hidden}
+.from-box { margin: 1rem}
+.from-box h1{ font-size: 1.2rem}
+.from-box div { position: relative; border-bottom: .1rem solid #d0d0d0; padding:1rem 0 1rem 2.5rem;}
+.from-box div i { font-style: normal; position: absolute; left: 0; top: 1rem; font-size: 1.6rem}
+.from-box div input[type=text] {font-size: 3rem; width: 100%}
+.from-box input[type=button] { background: #d6a465; border-radius: .5rem; width: 100%; font-size: 1.4rem; color: #fff; padding: .8rem 0; margin-top: 1rem}
+
+.clause-box{ background: #fff;}
+.clause-box h1 { padding: 1rem; color: #161616; font-size: 1.4rem}
+.clause-box p { text-indent: 2rem; color: #484848;font-size: 1.15rem; line-height: 150%; padding: 0 1rem}
+.clause-box b { display: block; text-align: right; color: #484848;font-size: 1.15rem; font-weight: normal; padding: 2rem 1rem}
+.clause-box h2 { border-top: .1rem solid #ccc; color: #ccc; text-align: center; font-size: 1.2rem; font-weight: normal; padding: 1rem 0}
+
+.jf-list { position: relative; background: #fff; border-radius: .5rem; margin: 1rem; padding:1rem 0 1rem 6rem; overflow: hidden}
+.jf-list img { position: absolute; left: .5rem; top: 1.5rem; width: 4rem}
+.jf-list h1 {font-size: 1.3rem; padding: .5rem 0; color: #333}
+.jf-list b { display: block; font-size: 1.1rem; font-weight: normal; color: #333}
+.jf-list em { display: inline-block; font-style: normal; font-size: 1.1rem; margin: .5rem 0; background: url("../images/arrow-down.png") right center no-repeat; background-size: 1.2rem; padding-right: 2rem; color: #3a3a3a}
+.jf-list em.act{background: url("../images/arrow-up.png") right center no-repeat; background-size: 1.2rem;}
+.jf-list ul { display: none; margin: .5rem 0; overflow: hidden}
+.jf-list ul li { font-size: 1.1rem; color: #525151}
+.jf-right { position: absolute; right: .5rem; top: 1.5rem; text-align: center}
+.jf-right label { display: inline-block; font-style: normal; font-size: 2rem; color: #fc8d03; margin-right: .5rem}
+.jf-right i { font-style: normal; color: #fc8d03; font-size: 1.1rem}
+.jf-right p { font-size: 1.1rem}
+
+.d-box { margin: 1rem; background: #fff; border-radius: .5rem; padding: 1rem; overflow: hidden}
+.d-box img { float: left; width: 5rem; margin-right: 1rem}
+.d-box h1 { font-size: 1.4rem; padding-bottom: 1rem}
+.d-box label { color: #fc8d03; display: block; font-size: 1.2rem}
+
+.hotbox {border: .1rem solid #d6a465; border-radius: .5rem; margin: 1rem 1rem .5rem 1rem; overflow: hidden}
+.hotbox li { float:left; display:block; cursor:pointer; width:33.3%; padding:.5rem 0; text-align:center;font-size:1.2rem;}
+.hotbox li:nth-child(2) {background: url("../images/line.png") 0 top repeat-y; }
+.hotbox li:nth-child(3) {background: url("../images/line.png") 0 top repeat-y; }
+.hotbox li.hot_hover {background:#d6a465; color: #fff}
+.hotContentbox{clear:both;}
+.hotContentbox ul li { border-bottom: .1rem solid #eee; padding:.5rem 1rem; overflow: hidden;}
+.hotContentbox ul li span { float: right}
+.hotContentbox ul li h1 { font-size: 1.4rem; line-height: 2rem}
+.hotContentbox ul li p { color: #888;font-size: 1.1rem; line-height: 2rem}
+
+.head { display: block; background: #fff; width: 8rem; border-radius: 4rem; margin:2rem auto -4rem auto}
+.code-box { margin: .5rem; padding: 5rem 1rem 1rem 1rem; background: #fff; text-align: center}
+.code-box p { font-size: 1rem; padding:1rem 0 2rem 0}
+.code-box a { font-size: 1.2rem; display: inline-block; margin: 2rem 0}
+.code-box img.w100 { width: 100%}
+.code-box img.w40 { display: block; width: 40%; margin: 0 auto}
+.tips-text { text-align: center; color: #fff; font-size: 1.2rem; line-height: 4rem}
+
+.pay-box { display: none; position: fixed; left: 0; bottom: 0; width: 100%; background: #fff; z-index: 2}
+.pay-box h1 { position: relative; line-height: 4rem; font-size: 1.4rem; text-align: center; color: #000;}
+.close { position: absolute; left: .5rem; top: .5rem; background: url("../images/close.png") center center no-repeat; width: 3rem; height: 3rem; background-size: 60%; display: inline-block; vertical-align: middle}
+.pay-box p { font-size: 1.1rem; background: #f5f5f5; color:#666; padding: 1rem; border-top: .1rem solid #ddd; border-bottom: .1rem solid #ddd}
+.pop-bg { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,.5); z-index: 1}
+.pay-box ul { margin-left: 1rem;height: 20rem; overflow: auto}
+.pay-box ul li { border-bottom: .1rem solid #ddd; font-size: 1.2rem; line-height: 4rem}
+.pay-box ul li:last-child {border-bottom: 0}
+.pay-box ul li.act { background: url("../images/arrow01.png") 95% center no-repeat;background-size: 1.5rem;}
+
+/* vip */
+.vip-bg { background: #222}
+.vip-box { position: relative; background: url("../images/level-bg.png") 0 0 no-repeat; background-size: 100% 100%; border-radius: .5rem; margin: 1rem; padding: 1rem 1rem .5rem 1rem}
+.brand-info img { width: 4rem; height: 4rem; display: inline-block; vertical-align: middle}
+.brand-info span { display: inline-block; vertical-align: middle; font-size: 1.5rem; margin-left: .5rem; color: #fff}
+.level { position: absolute; right: 1rem; top: 1rem; color: #fff3c1; font-size: 1.1rem}
+.level span { font-weight: bold}
+.progress{ position: relative; height: .2rem; background: #594725; border-radius: .2rem; width:80%; margin: 4rem auto 0 auto;}
+.progress-bar{ height: .2rem; border-radius: .2rem; background: #fff3c1; position: relative;}
+.progress i { position: absolute; right: 0; bottom: -1.5rem; color: #fff3c1; font-style: normal; font-size: 1.1rem}
+.progress-value{ display: block; padding: .3rem .7rem; font-size: 13px; color: #fff3c1; border-radius: 4px; border: 1px solid #fff3c1; position: absolute; top: -3rem; right: -2.2rem;}
+.progress-value:after{ content: ""; border-top: .4rem solid #fff3c1; border-left: .4rem solid transparent; border-right: .4rem solid transparent; position: absolute; bottom: -.4rem; left: 40%;}
+.vip-box p{color: #fff3c1; text-align: center; font-size: 1.1rem; padding: 2rem 0 1rem 0}
+
+.header { background: #222; overflow: hidden}
+.tab { background: #fff; overflow: hidden}
+.tab-t { border: .1rem solid #d6a465; border-radius: .5rem; margin: 1rem 1rem 0 1rem; overflow: hidden}
+.tab-t li { float:left; display:block; cursor:pointer; width:50%; padding:.5rem 0; text-align:center;font-size:1.2rem; color: #d6a465}
+.tab-t li.tab_hover {background:#d6a465; color: #fff}
+.tabContent{ clear:both;}
+.tab-list { position: relative; border-bottom: .1rem solid #eee; padding: 1rem}
+.tab-list h1 { font-size: 1.3rem; padding-bottom: .5rem}
+.tab-list p {color: #888; font-size: 1.1rem}
+.lv { position: absolute; right: 1rem; top: 2rem; color: #d6a465; font-size: 1.4rem; font-weight: bold}
+
+.user-info {width: 85%; margin: 1.5rem auto 0 auto;-moz-box-shadow:0 0 .8rem #999;
+    -webkit-box-shadow:0 0 .8rem #999;
+    box-shadow:0 0 .8rem #999; border-radius: .5rem;border-bottom: 0; background: #fff;}
+.user-info h2 { text-align: center; padding-bottom: 1rem; font-size: 1.6rem}
+.tips { background: url("../images/d-icon.png") center bottom no-repeat; background-size:1.5rem;  text-align: right; margin-top: 1rem}
+.tips img { width: 20%}
+
+.user-info { font-size: 1.2rem; padding: 1rem}
+.user-info h1 { margin-bottom: .5rem}
+.user-info h1 em { font-style: normal; float:right}
+
+
+.time { background: #fff; border-top: .1rem solid #ddd; border-bottom: .1rem solid #ddd; height: 3.5rem; font-size: 1.2rem; padding: 0 1rem; line-height: 3.5rem; margin-top: 1.5rem}
+.time input { float: right; font-size: 1.2rem; line-height: 3.5rem; text-align: right; color: #ff8222; background: url("../images/arrow.png") right center no-repeat; background-size: 1.5rem; padding-right: 2rem}
+.pay { overflow: hidden}
+.pay ul { border-top: .1rem solid #ddd; border-bottom: .1rem solid #ddd; background: #fff; margin-top: 1.5rem; padding-left: 1rem}
+.pay ul li { border-bottom: .1rem solid #ddd; padding: .5rem 0}
+.pay ul li:last-child {border-bottom: 0}
+.pay ul li.hover { background: url("../images/hover.png") 95% center no-repeat; background-size: 1.5rem}
+.pay ul li img { width: 3rem}
+.pay ul li span { display: inline-block; line-height: 3rem; font-size: 1.2rem; margin-left: .5rem}
+.pay ul li a { float: right; display: inline-block; background: url("../images/arrow.png") right center no-repeat; background-size: 1.5rem; padding-right: 2rem; line-height: 3rem; font-size: 1.2rem; margin-right: 1rem; color: #999}
+
+.t-bg { position: absolute; left: 0; top: 0; width: 100%; background: #222; z-index: -1}
+
+.toggle {
+    float: right;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 4.5rem;
+    height: 2.2rem;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 1.1rem;
+    -webkit-border-radius: 1.1rem;
+    border-radius: 1.1rem;
+    border: .1rem solid #eee;
+    margin: .3rem 1rem 0 0;
+    @inlcude box-shadow(none);
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.toggle:hover:after {
+    background: #fff;
+}
+.toggle:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: #fff;
+    top: -.1rem;
+    left: 0;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 .2rem rgba(0,0,0,.5);
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+:checked.toggle {
+    background: #4bd662;
+}
+:checked.toggle:after {
+    left: 2.2rem;
+    background: #fff;
+}
+.set-link .toggle { margin: .9rem 1rem 0 0}
+.sub-btn { cursor: pointer; position: fixed; left: 0; bottom: 0; width: 100%; background: #222; height: 4rem; font-size: 1.2rem; color: #fff}
+.sub-btn span { display: inline-block; margin-right: 1rem}
+.emDiv { height: 5.5rem;}
+
+.jf-info { display: none; margin-left: .2rem}
+.jf-info p { font-size: 1.2rem; color: #ff883c}
+.jf-info b { font-weight: normal; color: #999}
+
+.pop { position: absolute; left: 50%; top: 50%; width: 70%; margin-left: -35%; background: #fff; border-radius: .5rem; z-index: 2}
+.popBox { position: relative;}
+.closeBtn { position: absolute; left: .5rem; top: .5rem; background: url("../images/close.png") center center no-repeat; width: 2rem; height: 2rem; background-size: 60%; display: inline-block; vertical-align: middle}
+.popBox h1 { text-align: center; font-size: 1.4rem; padding-top: 1rem}
+.popBox p { font-size: 1.1rem; color: #999; padding: 1rem}
+.inpBox { position: relative; background: #f1f1f5; margin: 1rem; height: 3rem; padding:0 6.5rem 0 .5rem}
+.inpBox input[type=text] { background: none; line-height: 3rem; font-size: 1.2rem; width: 100%;}
+.inpBox input[type=button] { position: absolute; right: 0; top: 0; background: #222; color: #fff; display: inline-block; line-height: 3rem; font-size: 1.2rem; width: 6rem; text-align: center}
+.inpBox input[type=button].abc { background: #949494}
+.forgetPWBtn { float: right; color: #ff8222; margin:0 1rem 1rem 1rem; display: inline-block; font-size: 1.1rem}
+
+.pop-text { font-size: 1.4rem; text-align: center; padding: 2rem 1rem}
+.pop-btn-box ul li { float: left; width: 50%;border-top: .1rem solid #999; }
+.pop-btn-box ul li a { display:block;font-size: 1.5rem; padding: 1rem 0; background: none; text-align: center}
+.pop-btn-box ul li:first-child a { color: #999}
+.pop-btn-box ul li:last-child a { border-left: .1rem solid #999}
+
+.swiper-container { width: 100%;height: 100%;}
+.s-2 { padding-bottom: 6rem}
+.swiper-slide {}
+.swiper-slide img { width: 100%;}
+
+.link { padding-right: .5rem; overflow: hidden; background: #fff; margin-bottom: 4.5rem}
+.link li { float: left; width: 50%; margin-top: .5rem;}
+.link li a { display: block; margin: 0 0 0 .5rem; height: 9rem}
+
+.footer {
+    position: fixed; left: 0; bottom: 0; width: 100%; height: 4rem; z-index: 5; background: #fff;
+    -webkit-box-shadow: 0 -.2rem .2rem rgba(0 ,0, 0,.2);
+    box-shadow: 0 -.2rem .2rem rgba(0 ,0, 0,.2);
+}
+.footer li { float: left; width: 25%; text-align: center; font-size: 1rem}
+.footer li i { width: 1.6rem; height: 1.6rem; display: block; margin: .5rem auto .2rem auto}
+.footer li:nth-child(1) i { background: url("../images/f-icon01.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(2) i { background: url("../images/f-icon02.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(3) i { background: url("../images/f-icon03.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(4) i { background: url("../images/f-icon04.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(1).active i { background: url("../images/f-icon01-hover.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(2).active i { background: url("../images/f-icon02-hover.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(3).active i { background: url("../images/f-icon03-hover.png") 0 0 no-repeat; background-size: 100% 100%}
+.footer li:nth-child(4).active i { background: url("../images/f-icon04-hover.png") 0 0 no-repeat; background-size: 100% 100%}
+
+.set-link { border-top: .1rem solid #eee;border-bottom: .1rem solid #eee; line-height: 4rem; font-size: 1.1rem; background: #fff; margin-top: 1rem; padding-left: 1rem}
+.set-link a { display: block; background: url("../images/arrow.png") 95% center no-repeat; background-size: 1.5rem;}
+
+.set-box { background: #fff; padding: 3rem 1rem; text-align: center; font-size: 1.1rem; color: #888}
+.set-box span { color: #ff883c}
+
+.set-btn { margin-top: 5%; overflow: hidden}
+.set-btn li {float: left; width: 50%;}
+.set-btn li a { display: inline-block; border: .1rem solid #d6a465; text-align: center; line-height: 3rem; border-radius: .5rem; width: 85%; margin: 0 5%; font-size: 1.2rem}
+.set-btn li:nth-child(1) { text-align: right}
+.set-btn li:nth-child(2) { text-align: left}
+.set-btn li:nth-child(1) a { background: #fff; color: #d6a465}
+.set-btn li:nth-child(2) a { color: #fff; background: #d6a465}
+
+.set-box01 { background: #fff; padding: 3rem 1rem; text-align: center; font-size: 1.1rem;}
+.set-box01 em { display: block; font-style: normal; color: #888; margin-bottom: .5rem}
+
+.t-text { font-style: normal; display: block; text-align: center; font-size: 1.1rem; color: #888; margin-top: 1rem}
+.btn-sub { display: block; margin:2rem 1rem; color: #fff; background: #d6a465; text-align: center; border-radius: .5rem; line-height: 3rem; font-size: 1.2rem}
+
+.meg-box { background: #fff; padding: 3rem 1rem; text-align: center; font-size: 1.1rem;}
+.meg-box strong { display: block; font-size: 1.6rem; padding-top: .5rem}
+.meg-box b { display: inline-block; color: #ff893b }
+
+.inpBox01 { position: relative; background: #fff; margin: 1rem 0; height: 3rem; padding:0 6.5rem 0 .5rem}
+.inpBox01 input[type=text] { background: none; line-height: 3rem; font-size: 1.2rem; width: 100%;}
+.inpBox01 input[type=button] { position: absolute; right: 0; top: 0; background: #222; color: #fff; display: inline-block; line-height: 3rem; font-size: 1.2rem; width: 6rem; text-align: center}
+.inpBox01 input[type=button].abc { background: #949494}
+.error {background: url("../images/error.png") .5rem center no-repeat; background-size: 1rem; line-height: 1.5rem; padding-left: 2rem; font-size: 1.1rem; color: #ed2020}
+
+.m20 { margin: 1rem 4rem}
+.t01 { text-align: center}
+.t01 span { color: #333}
+
+.radio-box .u-box { margin:1rem 1rem 1rem 3rem}
+.radio-box { }
+.opt{float: left; margin: 8% .5rem 0 .5rem}
+.magic-checkbox {position: absolute;display: none; }
+.magic-checkbox[disabled] {cursor: not-allowed;}
+.magic-checkbox + label {position: relative;display: block; cursor: pointer;}
+.magic-checkbox + label:before { position: absolute; top: 0; left: 0;display: inline-block; width: 2rem; height: 2rem; content: ''; border: .1rem solid #c0c0c0; background: #fff;border-radius: 1.1rem;}
+.magic-checkbox + label:after { position: absolute; display: none; content: '';}
+.magic-checkbox:checked + label:after { display: block; }
+.magic-checkbox + label:after {top: .2rem;left: .7rem; box-sizing: border-box; width: .6rem; height: 1.2rem; transform: rotate(45deg); border:.15rem solid #fff; border-top: 0; border-left: 0; }
+.magic-checkbox:checked + label:before {border: #d6a465; background: #d6a465; }
+
+.f-btn { position: fixed; left: 0; bottom: 0; width: 100% }
+.f-btn a { background: #d6a465; border-radius: .5rem;  font-size: 1.4rem; text-align: center; color: #fff; padding: .8rem 0;  display: block; margin: 1rem}
+
+.i-box { padding: 0 .5rem; background: #fff}
+.i-box input { width: 100%; font-size: 1.2rem; line-height: 3rem; background: none}
+
+.ibox { color: #fff; font-size: 1.6rem; margin:1rem 0 0 4.5rem; font-weight: bold}
+.i { position: absolute; right: 5%; top: 0; width: 50%}
+
+.inpBox02 { position: relative; background: #fff; margin: 1rem 0; height: 3rem; padding:0 10.5rem 0 8.5rem}
+.inpBox02 em { position: absolute; left: .5rem; top: 0; font-style: normal; display: inline-block; width: 8rem; font-size: 1.2rem; line-height: 3rem;}
+.inpBox02 input[type=text] { background: none; line-height: 3rem; font-size: 1.2rem; width: 100%;}
+.inpBox02 input[type=button] { position: absolute; right: 0; top: 0; background: #222; color: #fff; display: inline-block; line-height: 3rem; font-size: 1.2rem; width: 10rem; text-align: center}
+.inpBox02 input[type=button].abc { background: #949494}
+.inpBox02 img { position: absolute; right: 0; top: 0; height: 3rem; width: 10rem}
+
+
+.logo { padding: .5rem 0;position: absolute; left: 0; width: 100%; top: 0; z-index: 99; background: #fff; height: 3.5rem}
+.logo img { height: 3rem; margin:.5rem 0 0 .5rem}
+
+.inpBox02 input[type=tel] { background: none; line-height: 3rem; font-size: 1.2rem; width: 100%;}
+
+
+.inpBox03 {  margin: 1rem 0;}
+.inpBox03 div {position: relative; background: #fff; min-height: 3rem; padding:0 10.5rem 0 1rem}
+.inpBox03 em { font-style: normal; display: inline-block; font-size: 1.2rem; line-height: 3rem; margin: 0 1rem}
+.inpBox03 input[type=text] { background: none; line-height: 3rem; font-size: 1.2rem; width: 100%;}
+.inpBox03 input[type=button] { position: absolute; right: 0; top: 0; background: #222; color: #fff; display: inline-block; font-size: 1.2rem; text-align: center; min-height: 3rem; padding: 0 1rem}
+.inpBox03 input[type=button].abc { background: #949494}
+.inpBox03 img { position: absolute; right: 0; top: 0; height: 3rem; width: 10rem}

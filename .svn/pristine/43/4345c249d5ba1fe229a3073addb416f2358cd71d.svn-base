@@ -1,0 +1,2309 @@
+<html>
+<head lang="en">
+    <link rel="stylesheet" type="text/css" href="http://webapi.amap.com/theme/v1.3/style1536672475627.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>菜单</title>
+    <link rel="stylesheet" href="../css/interactive/base.css?version=1543860190.35352">
+    <link rel="stylesheet" href="../css/interactive/swiper.min.css?version=1540755701.66216">
+
+
+    <link rel="stylesheet" href="../css/interactive/main-mobile.css?version=1544407046.02878">
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&amp;key=4c715d578faf49041ebc15bc8e015b1b"></script>
+    <style type="text/css">
+        .amap-container {
+            cursor: url(http://webapi.amap.com/theme/v1.3/openhand.cur),default;
+        }
+
+        .amap-drag {
+            cursor: url(http://webapi.amap.com/theme/v1.3/closedhand.cur),default;
+        }
+    </style>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="../js/jquery-2.1.0.js"></script>
+    <script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/default.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/jquery.mobile.custom.min.js"></script>
+    <script src="/assets/js/jquery.cookies.2.2.0.min.js"></script>
+    <script src="/assets/js/jquery.form.js"></script>
+    <script src="/assets/js/jquery.poshytip.min.js"></script>
+    <script src="/assets/js/jsrender.js"></script>
+    <script src="/assets/js/bootbox.js"></script>
+    <script src="/assets/js/messages_cn.js"></script>
+    <script src="/assets/js/String.js"></script>
+    <script src="/assets/js/msalert.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <script src="/Scripts/base.js"></script>
+    <script type="text/javascript">
+
+        if (msalert) {
+            msalert.init({
+                _btn1Text: '取消',
+                _btn2Text: '确定',
+                _btnText: '确定'
+            });
+        }
+
+    //function wxshared(url)
+    //{
+    //alert(url);
+    var url = window.location.href;
+    var appId;
+    var timeStamp;
+    var nonceStr;
+    var sign;
+
+    $.post('/Home/WXconfig', { 'url': url }, function (data) {
+        appId = data.appId;
+        timeStamp = data.timeStamp;
+        nonceStr = data.nonceStr;
+        sign = data.sign;
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: appId, // 必填，公众号的唯一标识
+            timestamp: timeStamp, // 必填，生成签名的时间戳
+            nonceStr: nonceStr, // 必填，生成签名的随机串
+            signature: sign,// 必填，签名，见附录1
+            jsApiList: ['checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'getNetworkType',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'scanQRCode'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function () {
+            // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+
+            var cfg = {
+                title: 'EAT WELL - LIVE WELL', // 分享标题
+                desc: 'EAT WELL - LIVE WELL', // 分享描述
+                link: window.location.href, // 分享链接
+                imgUrl: 'http://' + window.location.host + '/assets/images/banner-2.jpg', // 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    //alert("分享成功");
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            };
+
+
+            wx.onMenuShareAppMessage(cfg);
+            wx.onMenuShareTimeline(cfg);
+            wx.onMenuShareQQ(cfg);
+            wx.onMenuShareWeibo(cfg);
+            wx.onMenuShareQZone(cfg);
+        });
+
+        wx.error(function (res) {
+            // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+        });
+    });
+    //}
+    </script>
+</head>
+<body style="padding-top: 0px;">
+
+
+
+
+    <style type="text/css">
+        html {
+            overflow-y: auto;
+        }
+
+        .add-btn, .recommend-list img {
+            cursor: pointer;
+        }
+
+        lable {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background: #f90;
+            z-index: 100000;
+        }
+
+        .totall {
+            margin-left: 6rem;
+        }
+    </style>
+    <link href="/assets/fonts/iconfont.css" rel="stylesheet">
+    <div class="pop-shop" id="cart" style="margin-top: -207.5px;">
+        <button class="close-btn">关闭</button>
+        <div class="menu-box" id="menuitemdetaildiv">
+            <img src="/assets/images/left-pic-1.png" class="top-pic" id="MenuItemDetailimg">
+            <input type="hidden" id="menuitemdetailhiden">
+            <h1><em id="menumitemnameem">Domaine Bousquet Malbec Reserve</em><label id="menumitemsumpricelabel">¥148</label></h1>
+            <div class="t-wrap" id="menuitemdescriptiondiv">
+                Country: Argentina<br>
+                Reference Number: 2015122505<br>
+                Year: 2012<br>
+                Type: Red Wine<br>
+                Style: Organic, Dry<br>
+                Grape Varlety: 5% Malbec, 5% Cabernet Sauvignon, 5% Merlot, 5% Shiraz<br>
+                Volume:<br>
+                Packagings: Bottle/Box<br>
+                Producer: Domaine Bousque<br>
+                Area: Bolgheri DOC<br>
+                Alcohol: 14.5%<br>
+                Recommendation:<br>
+                Body: Medium-full body<br>
+                Serving Temperature:<br>
+                Web:v<br>
+                Ratings &amp; Awards:<br>
+                Gold Medal - Decanter World Wine Awards 2013<br>
+                Silver Medal - Concours Mondial de Bruxelles<br>
+                92 points by Wine &amp; Spirits<br>
+                92 points by James Sucklingh<br>
+                Background:<br>
+                Behind Domaine Bousquet there are 4 generations of prestigious winemaking tradition and experience from France. DB found the best terroir in Tupungato and settled down to continue making their wines. The vineyards, organic certified, enjoy an great climate with high temperature difference from day to night. The grapes mature with an excellent acitidy, resulting in fruity wines of intense colour, very balanced and elegant.<br><br>
+                Tasting notes:<br>
+                Intense rich aromas of blackberry fruit with spicy black pepper notes and blackcurrant.Blackberry, ripe plum and chocolate flavours with a very soft, supple mouthfeel. Excellent structure and length. Ideal with red meats, sauces, cheese and pasta dishes.<br>
+            </div>
+
+        </div>
+        <div class="menu-footer">
+            <div class="nub nub-box">
+                <div class="ones one-box">
+                    <b class="plus jian"></b>
+                    <em class="zhi" id="quantityem">1</em>
+                </div>
+                <b class="add jia"></b>
+            </div>
+            <a href="javascript:return void(0);" onclick="return CheckCondimentRequest();">加入购物车</a>
+        </div>
+    </div>
+    <div class="drop" style="display:none">
+        <ul>
+            <li><a class="phone" href="tel:4006318688">热线电话</a></li>
+
+            <li><a class="help" href="http://mp.weixin.qq.com/s/U7cJoeB504yz4Mw44mDO6A">问题帮助</a></li>
+        </ul>
+    </div>
+    <div class="logo" style="display: none;">
+
+
+
+    </div>
+
+    <div class="sell-header">
+        <img src="/assets/images/Stores/20181207164100112.jpg" class="sellBg">
+
+    </div>
+    <div class="pop-bg"></div>
+
+    <div class="pop" id="alertdiv" style="margin-top: -58px;">
+        <div class="suc-box">请选择必选的配料！</div>
+        <button class="back-home" onclick="CloseCondimentRequestAlert();">确定</button>
+    </div>
+    <div class="pop" id="alertdivtime" style="margin-top: -58px;">
+        <div class="suc-box"></div>
+        <button class="back-home" onclick="CloseTimetAlert();">确定</button>
+    </div>
+    <div class="pop" id="cartdelalertdiv" style="margin-top: -58px;">
+        <div class="pop-text">是否确认删除该商品？</div>
+        <div class="pop-btn-box">
+            <ul>
+                <li><a href="JavaScript:void(0);" id="CondimentRequestReturna">返回</a></li>
+                <li><a href="JavaScript:void(0);" id="CondimentRequestSurea">确认</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="ball-clip-rotate" style="display: none;">
+        <div></div>
+    </div>
+
+    <div class="container" style="overflow: hidden; height: 331px;">
+        <div class="outer-container left" style="height: 331px;">
+            <div class="inner-container">
+
+
+
+                <div class="element" id="sidebar" style="height: 331px;">
+                    <ul>
+
+                        <li class="list list-active" name="72" type="1"> <a href="#72" onclick="ClearCache(this,'1');return false;" class="list-a">周一菜单</a></li>
+                        <li class="list" name="73" type="1"> <a href="#73" onclick="ClearCache(this,'1');return false;" class="list-a"> 周二菜单 </a> </li>
+                        <li class="list" name="74" type="1"> <a href="#74" onclick="ClearCache(this,'1');return false;" class="list-a"> 周三菜单 </a> </li>
+                        <li class="list" name="75" type="1"> <a href="#75" onclick="ClearCache(this,'1');return false;" class="list-a"> 周四菜单 </a> </li>
+                        <li class="list" name="76" type="1"> <a href="#76" onclick="ClearCache(this,'1');return false;" class="list-a"> 周五菜单 </a> </li>
+                        <li class="list" name="77" type="1"> <a href="#77" onclick="ClearCache(this,'1');return false;" class="list-a"> 周六菜单 </a> </li>
+                        <li class="list" name="78" type="1"> <a href="#78" onclick="ClearCache(this,'1');return false;" class="list-a"> 周日菜单 </a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="outer-container right" style="height: 331px;">
+            <div id="sectiongroupid" class="top-fixed">
+
+            </div>
+<div id="" class="top-fixed" style="top: 0px;">
+			<div class="top-title" style="
+    display: none;
+"><a href="#shuiguo01" class="txt">有机水果1</a><a href="#shuiguo02" class="txt active">有机水果2</a></div>
+			<div class="top-sub-title" style="top: 0px;">
+				<i class="tit-line line-left"></i>
+				<span class="txt">有机水果2</span>
+				<i class="tit-line line-right"></i>
+			</div>
+		</div>
+            <div class="inner-container" id="right-hook">
+                <div class="element" id="sectiongroupname" style="height: 331px;">
+
+                    <ul><li class="right-list" id="list72"><div class="title" style="display:none;"><a href="#remai72" class="txt active">周一菜单</a></div><ul><li class="right-sub-list" id="remai72"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周一菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧猪脚</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-316" name="Reduce-316"></b><em id="cartmenu-quantity-316" class="cart-zhi" name="Qty-316">0</em></div><b name="Plus-316" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>糯米肉元</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-317" name="Reduce-317"></b><em id="cartmenu-quantity-317" class="cart-zhi" name="Qty-317">0</em></div><b name="Plus-317" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒肉丝</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-318" name="Reduce-318"></b><em id="cartmenu-quantity-318" class="cart-zhi" name="Qty-318">0</em></div><b name="Plus-318" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>茭白肉丝</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-319" name="Reduce-319"></b><em id="cartmenu-quantity-319" class="cart-zhi" name="Qty-319">0</em></div><b name="Plus-319" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>炒青菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-320" name="Reduce-320"></b><em id="cartmenu-quantity-320" class="cart-zhi" name="Qty-320">0</em></div><b name="Plus-320" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>炒杭白菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-321" name="Reduce-321"></b><em id="cartmenu-quantity-321" class="cart-zhi" name="Qty-321">0</em></div><b name="Plus-321" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-404" name="Reduce-404"></b><em id="cartmenu-quantity-404" class="cart-zhi" name="Qty-404">0</em></div><b name="Plus-404" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-405" name="Reduce-405"></b><em id="cartmenu-quantity-405" class="cart-zhi" name="Qty-405">0</em></div><b name="Plus-405" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-406" name="Reduce-406"></b><em id="cartmenu-quantity-406" class="cart-zhi" name="Qty-406">0</em></div><b name="Plus-406" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-407" name="Reduce-407"></b><em id="cartmenu-quantity-407" class="cart-zhi" name="Qty-407">0</em></div><b name="Plus-407" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-409" name="Reduce-409"></b><em id="cartmenu-quantity-409" class="cart-zhi" name="Qty-409">0</em></div><b name="Plus-409" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-410" name="Reduce-410"></b><em id="cartmenu-quantity-410" class="cart-zhi" name="Qty-410">0</em></div><b name="Plus-410" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>葱花面</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-411" name="Reduce-411"></b><em id="cartmenu-quantity-411" class="cart-zhi" name="Qty-411">0</em></div><b name="Plus-411" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>肉包</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-412" name="Reduce-412"></b><em id="cartmenu-quantity-412" class="cart-zhi" name="Qty-412">0</em></div><b name="Plus-412" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>煮玉米</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-413" name="Reduce-413"></b><em id="cartmenu-quantity-413" class="cart-zhi" name="Qty-413">0</em></div><b name="Plus-413" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div>周二菜单<ul><li class="right-sub-list" id="remai73"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周二菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧鱼块</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-322" name="Reduce-322"></b><em id="cartmenu-quantity-322" class="cart-zhi" name="Qty-322">0</em></div><b name="Plus-322" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>剁椒鱼块</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-323" name="Reduce-323"></b><em id="cartmenu-quantity-323" class="cart-zhi" name="Qty-323">0</em></div><b name="Plus-323" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>西红柿炒蛋</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-324" name="Reduce-324"></b><em id="cartmenu-quantity-324" class="cart-zhi" name="Qty-324">0</em></div><b name="Plus-324" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒炒蛋</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-325" name="Reduce-325"></b><em id="cartmenu-quantity-325" class="cart-zhi" name="Qty-325">0</em></div><b name="Plus-325" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>蒜香缸豆</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-326" name="Reduce-326"></b><em id="cartmenu-quantity-326" class="cart-zhi" name="Qty-326">0</em></div><b name="Plus-326" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧茄子</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-327" name="Reduce-327"></b><em id="cartmenu-quantity-327" class="cart-zhi" name="Qty-327">0</em></div><b name="Plus-327" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>煎蛋面</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-328" name="Reduce-328"></b><em id="cartmenu-quantity-328" class="cart-zhi" name="Qty-328">0</em></div><b name="Plus-328" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-365" name="Reduce-365"></b><em id="cartmenu-quantity-365" class="cart-zhi" name="Qty-365">0</em></div><b name="Plus-365" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-366" name="Reduce-366"></b><em id="cartmenu-quantity-366" class="cart-zhi" name="Qty-366">0</em></div><b name="Plus-366" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-367" name="Reduce-367"></b><em id="cartmenu-quantity-367" class="cart-zhi" name="Qty-367">0</em></div><b name="Plus-367" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-368" name="Reduce-368"></b><em id="cartmenu-quantity-368" class="cart-zhi" name="Qty-368">0</em></div><b name="Plus-368" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-369" name="Reduce-369"></b><em id="cartmenu-quantity-369" class="cart-zhi" name="Qty-369">0</em></div><b name="Plus-369" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-395" name="Reduce-395"></b><em id="cartmenu-quantity-395" class="cart-zhi" name="Qty-395">0</em></div><b name="Plus-395" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>蛋糕</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-414" name="Reduce-414"></b><em id="cartmenu-quantity-414" class="cart-zhi" name="Qty-414">0</em></div><b name="Plus-414" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>麻饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-415" name="Reduce-415"></b><em id="cartmenu-quantity-415" class="cart-zhi" name="Qty-415">0</em></div><b name="Plus-415" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周三菜单<ul><li class="right-sub-list" id="remai74"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周三菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧鸡腿 </h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-329" name="Reduce-329"></b><em id="cartmenu-quantity-329" class="cart-zhi" name="Qty-329">0</em></div><b name="Plus-329" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>辣子鸡块</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-330" name="Reduce-330"></b><em id="cartmenu-quantity-330" class="cart-zhi" name="Qty-330">0</em></div><b name="Plus-330" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酱爆鸡丁</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-331" name="Reduce-331"></b><em id="cartmenu-quantity-331" class="cart-zhi" name="Qty-331">0</em></div><b name="Plus-331" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒鸡丝</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-332" name="Reduce-332"></b><em id="cartmenu-quantity-332" class="cart-zhi" name="Qty-332">0</em></div><b name="Plus-332" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧包菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-333" name="Reduce-333"></b><em id="cartmenu-quantity-333" class="cart-zhi" name="Qty-333">0</em></div><b name="Plus-333" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>生菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-334" name="Reduce-334"></b><em id="cartmenu-quantity-334" class="cart-zhi" name="Qty-334">0</em></div><b name="Plus-334" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>辣子鸡面</h1><p class="price"><i>￥</i>7</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-335" name="Reduce-335"></b><em id="cartmenu-quantity-335" class="cart-zhi" name="Qty-335">0</em></div><b name="Plus-335" class="add iconfont icon-jiahao1" value="7" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-370" name="Reduce-370"></b><em id="cartmenu-quantity-370" class="cart-zhi" name="Qty-370">0</em></div><b name="Plus-370" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-371" name="Reduce-371"></b><em id="cartmenu-quantity-371" class="cart-zhi" name="Qty-371">0</em></div><b name="Plus-371" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-372" name="Reduce-372"></b><em id="cartmenu-quantity-372" class="cart-zhi" name="Qty-372">0</em></div><b name="Plus-372" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-373" name="Reduce-373"></b><em id="cartmenu-quantity-373" class="cart-zhi" name="Qty-373">0</em></div><b name="Plus-373" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-374" name="Reduce-374"></b><em id="cartmenu-quantity-374" class="cart-zhi" name="Qty-374">0</em></div><b name="Plus-374" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-396" name="Reduce-396"></b><em id="cartmenu-quantity-396" class="cart-zhi" name="Qty-396">0</em></div><b name="Plus-396" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>西红柿鸡蛋面</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-416" name="Reduce-416"></b><em id="cartmenu-quantity-416" class="cart-zhi" name="Qty-416">0</em></div><b name="Plus-416" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>千层饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-417" name="Reduce-417"></b><em id="cartmenu-quantity-417" class="cart-zhi" name="Qty-417">0</em></div><b name="Plus-417" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>肉包</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-418" name="Reduce-418"></b><em id="cartmenu-quantity-418" class="cart-zhi" name="Qty-418">0</em></div><b name="Plus-418" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周四菜单<ul><li class="right-sub-list" id="remai75"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周四菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1> 红烧肉</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-336" name="Reduce-336"></b><em id="cartmenu-quantity-336" class="cart-zhi" name="Qty-336">0</em></div><b name="Plus-336" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>蒜香排骨</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-337" name="Reduce-337"></b><em id="cartmenu-quantity-337" class="cart-zhi" name="Qty-337">0</em></div><b name="Plus-337" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白菜肉丝</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-338" name="Reduce-338"></b><em id="cartmenu-quantity-338" class="cart-zhi" name="Qty-338">0</em></div><b name="Plus-338" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>芹菜肉丝</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-339" name="Reduce-339"></b><em id="cartmenu-quantity-339" class="cart-zhi" name="Qty-339">0</em></div><b name="Plus-339" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒绿豆芽</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-340" name="Reduce-340"></b><em id="cartmenu-quantity-340" class="cart-zhi" name="Qty-340">0</em></div><b name="Plus-340" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>炒大白菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-341" name="Reduce-341"></b><em id="cartmenu-quantity-341" class="cart-zhi" name="Qty-341">0</em></div><b name="Plus-341" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酱爆猪肝面</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-342" name="Reduce-342"></b><em id="cartmenu-quantity-342" class="cart-zhi" name="Qty-342">0</em></div><b name="Plus-342" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-375" name="Reduce-375"></b><em id="cartmenu-quantity-375" class="cart-zhi" name="Qty-375">0</em></div><b name="Plus-375" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-376" name="Reduce-376"></b><em id="cartmenu-quantity-376" class="cart-zhi" name="Qty-376">0</em></div><b name="Plus-376" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-377" name="Reduce-377"></b><em id="cartmenu-quantity-377" class="cart-zhi" name="Qty-377">0</em></div><b name="Plus-377" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-378" name="Reduce-378"></b><em id="cartmenu-quantity-378" class="cart-zhi" name="Qty-378">0</em></div><b name="Plus-378" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-379" name="Reduce-379"></b><em id="cartmenu-quantity-379" class="cart-zhi" name="Qty-379">0</em></div><b name="Plus-379" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-397" name="Reduce-397"></b><em id="cartmenu-quantity-397" class="cart-zhi" name="Qty-397">0</em></div><b name="Plus-397" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>南瓜饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-419" name="Reduce-419"></b><em id="cartmenu-quantity-419" class="cart-zhi" name="Qty-419">0</em></div><b name="Plus-419" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酥饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-420" name="Reduce-420"></b><em id="cartmenu-quantity-420" class="cart-zhi" name="Qty-420">0</em></div><b name="Plus-420" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周五菜单<ul><li class="right-sub-list" id="remai76"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周五菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>椒盐鱼条</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-343" name="Reduce-343"></b><em id="cartmenu-quantity-343" class="cart-zhi" name="Qty-343">0</em></div><b name="Plus-343" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧冻鲳鱼</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-344" name="Reduce-344"></b><em id="cartmenu-quantity-344" class="cart-zhi" name="Qty-344">0</em></div><b name="Plus-344" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白瓜炒蛋</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-345" name="Reduce-345"></b><em id="cartmenu-quantity-345" class="cart-zhi" name="Qty-345">0</em></div><b name="Plus-345" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>韭菜炒蛋</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-346" name="Reduce-346"></b><em id="cartmenu-quantity-346" class="cart-zhi" name="Qty-346">0</em></div><b name="Plus-346" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>空心菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-347" name="Reduce-347"></b><em id="cartmenu-quantity-347" class="cart-zhi" name="Qty-347">0</em></div><b name="Plus-347" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>芹菜香干</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-348" name="Reduce-348"></b><em id="cartmenu-quantity-348" class="cart-zhi" name="Qty-348">0</em></div><b name="Plus-348" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>素鸡面</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-349" name="Reduce-349"></b><em id="cartmenu-quantity-349" class="cart-zhi" name="Qty-349">0</em></div><b name="Plus-349" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-380" name="Reduce-380"></b><em id="cartmenu-quantity-380" class="cart-zhi" name="Qty-380">0</em></div><b name="Plus-380" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-381" name="Reduce-381"></b><em id="cartmenu-quantity-381" class="cart-zhi" name="Qty-381">0</em></div><b name="Plus-381" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-382" name="Reduce-382"></b><em id="cartmenu-quantity-382" class="cart-zhi" name="Qty-382">0</em></div><b name="Plus-382" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-383" name="Reduce-383"></b><em id="cartmenu-quantity-383" class="cart-zhi" name="Qty-383">0</em></div><b name="Plus-383" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-384" name="Reduce-384"></b><em id="cartmenu-quantity-384" class="cart-zhi" name="Qty-384">0</em></div><b name="Plus-384" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-398" name="Reduce-398"></b><em id="cartmenu-quantity-398" class="cart-zhi" name="Qty-398">0</em></div><b name="Plus-398" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>大排面</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-421" name="Reduce-421"></b><em id="cartmenu-quantity-421" class="cart-zhi" name="Qty-421">0</em></div><b name="Plus-421" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>春卷</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-422" name="Reduce-422"></b><em id="cartmenu-quantity-422" class="cart-zhi" name="Qty-422">0</em></div><b name="Plus-422" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>香菇菜包</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-423" name="Reduce-423"></b><em id="cartmenu-quantity-423" class="cart-zhi" name="Qty-423">0</em></div><b name="Plus-423" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周六菜单<ul><li class="right-sub-list" id="remai77"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周六菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酸菜烧鸡</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-350" name="Reduce-350"></b><em id="cartmenu-quantity-350" class="cart-zhi" name="Qty-350">0</em></div><b name="Plus-350" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>香炸鸡排</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-351" name="Reduce-351"></b><em id="cartmenu-quantity-351" class="cart-zhi" name="Qty-351">0</em></div><b name="Plus-351" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>茭白鸡丁</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-352" name="Reduce-352"></b><em id="cartmenu-quantity-352" class="cart-zhi" name="Qty-352">0</em></div><b name="Plus-352" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>宫爆鸡丁</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-353" name="Reduce-353"></b><em id="cartmenu-quantity-353" class="cart-zhi" name="Qty-353">0</em></div><b name="Plus-353" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒干丝</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-354" name="Reduce-354"></b><em id="cartmenu-quantity-354" class="cart-zhi" name="Qty-354">0</em></div><b name="Plus-354" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>咸菜黄豆芽</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-355" name="Reduce-355"></b><em id="cartmenu-quantity-355" class="cart-zhi" name="Qty-355">0</em></div><b name="Plus-355" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>韭菜肉丝面</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-356" name="Reduce-356"></b><em id="cartmenu-quantity-356" class="cart-zhi" name="Qty-356">0</em></div><b name="Plus-356" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-385" name="Reduce-385"></b><em id="cartmenu-quantity-385" class="cart-zhi" name="Qty-385">0</em></div><b name="Plus-385" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-386" name="Reduce-386"></b><em id="cartmenu-quantity-386" class="cart-zhi" name="Qty-386">0</em></div><b name="Plus-386" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-387" name="Reduce-387"></b><em id="cartmenu-quantity-387" class="cart-zhi" name="Qty-387">0</em></div><b name="Plus-387" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-388" name="Reduce-388"></b><em id="cartmenu-quantity-388" class="cart-zhi" name="Qty-388">0</em></div><b name="Plus-388" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-389" name="Reduce-389"></b><em id="cartmenu-quantity-389" class="cart-zhi" name="Qty-389">0</em></div><b name="Plus-389" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-399" name="Reduce-399"></b><em id="cartmenu-quantity-399" class="cart-zhi" name="Qty-399">0</em></div><b name="Plus-399" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>玉米饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-424" name="Reduce-424"></b><em id="cartmenu-quantity-424" class="cart-zhi" name="Qty-424">0</em></div><b name="Plus-424" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>麻球</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-425" name="Reduce-425"></b><em id="cartmenu-quantity-425" class="cart-zhi" name="Qty-425">0</em></div><b name="Plus-425" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周日菜单<ul><li class="right-sub-list" id="remai78"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周日菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>乳汁大肉</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-357" name="Reduce-357"></b><em id="cartmenu-quantity-357" class="cart-zhi" name="Qty-357">0</em></div><b name="Plus-357" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>糖醋小排</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-358" name="Reduce-358"></b><em id="cartmenu-quantity-358" class="cart-zhi" name="Qty-358">0</em></div><b name="Plus-358" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酱爆肉丁</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-360" name="Reduce-360"></b><em id="cartmenu-quantity-360" class="cart-zhi" name="Qty-360">0</em></div><b name="Plus-360" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>莧菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-361" name="Reduce-361"></b><em id="cartmenu-quantity-361" class="cart-zhi" name="Qty-361">0</em></div><b name="Plus-361" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>菠菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-362" name="Reduce-362"></b><em id="cartmenu-quantity-362" class="cart-zhi" name="Qty-362">0</em></div><b name="Plus-362" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1> 牛肉面</h1><p class="price"><i>￥</i>8</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-363" name="Reduce-363"></b><em id="cartmenu-quantity-363" class="cart-zhi" name="Qty-363">0</em></div><b name="Plus-363" class="add iconfont icon-jiahao1" value="8" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-390" name="Reduce-390"></b><em id="cartmenu-quantity-390" class="cart-zhi" name="Qty-390">0</em></div><b name="Plus-390" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-391" name="Reduce-391"></b><em id="cartmenu-quantity-391" class="cart-zhi" name="Qty-391">0</em></div><b name="Plus-391" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-392" name="Reduce-392"></b><em id="cartmenu-quantity-392" class="cart-zhi" name="Qty-392">0</em></div><b name="Plus-392" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-393" name="Reduce-393"></b><em id="cartmenu-quantity-393" class="cart-zhi" name="Qty-393">0</em></div><b name="Plus-393" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-394" name="Reduce-394"></b><em id="cartmenu-quantity-394" class="cart-zhi" name="Qty-394">0</em></div><b name="Plus-394" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-400" name="Reduce-400"></b><em id="cartmenu-quantity-400" class="cart-zhi" name="Qty-400">0</em></div><b name="Plus-400" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>烧卖</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-426" name="Reduce-426"></b><em id="cartmenu-quantity-426" class="cart-zhi" name="Qty-426">0</em></div><b name="Plus-426" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>煎饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-427" name="Reduce-427"></b><em id="cartmenu-quantity-427" class="cart-zhi" name="Qty-427">0</em></div><b name="Plus-427" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="wine-menu" style="display: none;">
+        <ul class="menu-title">
+            <li id="kinds-btn"><label>分类</label><i class="i01"></i></li>
+            <li id="price-btn"><label>价格</label><i class="i02"></i></li>
+            <li id="choose-btn"><label>筛选</label><i class="i03"></i></li>
+            <li id="more-btn"><label class="lineHeight">更多产品...</label></li>
+        </ul>
+        <div class="menu-box01" style="padding-bottom:0px;padding-top:0px;height:0">
+
+        </div>
+        <div class="menu-drop" id="kinds-box" style="top: 142px;">
+            <ul>
+
+                <li class="list"><label name="72" type="1">周一菜单</label></li>
+                <li class="list"><label name="73" type="1">周二菜单</label></li>
+                <li class="list"><label name="74" type="1">周三菜单</label></li>
+                <li class="list"><label name="75" type="1">周四菜单</label></li>
+                <li class="list"><label name="76" type="1">周五菜单</label></li>
+                <li class="list"><label name="77" type="1">周六菜单</label></li>
+                <li class="list"><label name="78" type="1">周日菜单</label></li>
+            </ul>
+            <a class="menu-btn" id="submit-menu-btn-cancel">返回</a>
+            <a class="menu-btn ok-btn" id="submit-btn-kinds" onclick="MenuSelSort()">确认</a>
+        </div>
+        <div class="menu-drop" id="choose-box" style="top: 142px;">
+            <ul></ul>
+            <a class="menu-btn" id="submit-choose-btn-cancel">返回</a>
+            <a class="menu-btn ok-btn" id="submit-btn-choose" onclick="MenuSelSort()">确认</a>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="list-wrap" id="menuframe" style="display: none;">
+        <div class="menu" style="top: 42px;">
+            <ul id="menugroupul"><li class="list" name="72" type="1">周一菜单</li><li class="list" name="73" type="1">周二菜单</li><li class="list" name="74" type="1">周三菜单</li><li class="list" name="75" type="1">周四菜单</li><li class="list" name="76" type="1">周五菜单</li><li class="list" name="77" type="1">周六菜单</li><li class="list" name="78" type="1">周日菜单</li></ul>
+        </div>
+        <div id="menuitemdiv" style="overflow: auto; margin-top: 13.1875px;">
+            <ul><li class="right-list" id="list72"><div class="title" style="display:none;"><a href="#remai72" class="txt active">周一菜单</a></div><ul><li class="right-sub-list" id="remai72"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周一菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧猪脚</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-316" name="Reduce-316"></b><em id="cartmenu-quantity-316" class="cart-zhi" name="Qty-316">0</em></div><b name="Plus-316" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>糯米肉元</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-317" name="Reduce-317"></b><em id="cartmenu-quantity-317" class="cart-zhi" name="Qty-317">0</em></div><b name="Plus-317" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒肉丝</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-318" name="Reduce-318"></b><em id="cartmenu-quantity-318" class="cart-zhi" name="Qty-318">0</em></div><b name="Plus-318" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>茭白肉丝</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-319" name="Reduce-319"></b><em id="cartmenu-quantity-319" class="cart-zhi" name="Qty-319">0</em></div><b name="Plus-319" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>炒青菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-320" name="Reduce-320"></b><em id="cartmenu-quantity-320" class="cart-zhi" name="Qty-320">0</em></div><b name="Plus-320" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>炒杭白菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-321" name="Reduce-321"></b><em id="cartmenu-quantity-321" class="cart-zhi" name="Qty-321">0</em></div><b name="Plus-321" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-404" name="Reduce-404"></b><em id="cartmenu-quantity-404" class="cart-zhi" name="Qty-404">0</em></div><b name="Plus-404" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-405" name="Reduce-405"></b><em id="cartmenu-quantity-405" class="cart-zhi" name="Qty-405">0</em></div><b name="Plus-405" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-406" name="Reduce-406"></b><em id="cartmenu-quantity-406" class="cart-zhi" name="Qty-406">0</em></div><b name="Plus-406" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-407" name="Reduce-407"></b><em id="cartmenu-quantity-407" class="cart-zhi" name="Qty-407">0</em></div><b name="Plus-407" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-409" name="Reduce-409"></b><em id="cartmenu-quantity-409" class="cart-zhi" name="Qty-409">0</em></div><b name="Plus-409" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-410" name="Reduce-410"></b><em id="cartmenu-quantity-410" class="cart-zhi" name="Qty-410">0</em></div><b name="Plus-410" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>葱花面</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-411" name="Reduce-411"></b><em id="cartmenu-quantity-411" class="cart-zhi" name="Qty-411">0</em></div><b name="Plus-411" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>肉包</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-412" name="Reduce-412"></b><em id="cartmenu-quantity-412" class="cart-zhi" name="Qty-412">0</em></div><b name="Plus-412" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>煮玉米</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-413" name="Reduce-413"></b><em id="cartmenu-quantity-413" class="cart-zhi" name="Qty-413">0</em></div><b name="Plus-413" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div>周二菜单<ul><li class="right-sub-list" id="remai73"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周二菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧鱼块</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-322" name="Reduce-322"></b><em id="cartmenu-quantity-322" class="cart-zhi" name="Qty-322">0</em></div><b name="Plus-322" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>剁椒鱼块</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-323" name="Reduce-323"></b><em id="cartmenu-quantity-323" class="cart-zhi" name="Qty-323">0</em></div><b name="Plus-323" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>西红柿炒蛋</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-324" name="Reduce-324"></b><em id="cartmenu-quantity-324" class="cart-zhi" name="Qty-324">0</em></div><b name="Plus-324" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒炒蛋</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-325" name="Reduce-325"></b><em id="cartmenu-quantity-325" class="cart-zhi" name="Qty-325">0</em></div><b name="Plus-325" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>蒜香缸豆</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-326" name="Reduce-326"></b><em id="cartmenu-quantity-326" class="cart-zhi" name="Qty-326">0</em></div><b name="Plus-326" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧茄子</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-327" name="Reduce-327"></b><em id="cartmenu-quantity-327" class="cart-zhi" name="Qty-327">0</em></div><b name="Plus-327" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>煎蛋面</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-328" name="Reduce-328"></b><em id="cartmenu-quantity-328" class="cart-zhi" name="Qty-328">0</em></div><b name="Plus-328" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-365" name="Reduce-365"></b><em id="cartmenu-quantity-365" class="cart-zhi" name="Qty-365">0</em></div><b name="Plus-365" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-366" name="Reduce-366"></b><em id="cartmenu-quantity-366" class="cart-zhi" name="Qty-366">0</em></div><b name="Plus-366" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-367" name="Reduce-367"></b><em id="cartmenu-quantity-367" class="cart-zhi" name="Qty-367">0</em></div><b name="Plus-367" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-368" name="Reduce-368"></b><em id="cartmenu-quantity-368" class="cart-zhi" name="Qty-368">0</em></div><b name="Plus-368" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-369" name="Reduce-369"></b><em id="cartmenu-quantity-369" class="cart-zhi" name="Qty-369">0</em></div><b name="Plus-369" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-395" name="Reduce-395"></b><em id="cartmenu-quantity-395" class="cart-zhi" name="Qty-395">0</em></div><b name="Plus-395" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>蛋糕</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-414" name="Reduce-414"></b><em id="cartmenu-quantity-414" class="cart-zhi" name="Qty-414">0</em></div><b name="Plus-414" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>麻饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-415" name="Reduce-415"></b><em id="cartmenu-quantity-415" class="cart-zhi" name="Qty-415">0</em></div><b name="Plus-415" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周三菜单<ul><li class="right-sub-list" id="remai74"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周三菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧鸡腿 </h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-329" name="Reduce-329"></b><em id="cartmenu-quantity-329" class="cart-zhi" name="Qty-329">0</em></div><b name="Plus-329" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>辣子鸡块</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-330" name="Reduce-330"></b><em id="cartmenu-quantity-330" class="cart-zhi" name="Qty-330">0</em></div><b name="Plus-330" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酱爆鸡丁</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-331" name="Reduce-331"></b><em id="cartmenu-quantity-331" class="cart-zhi" name="Qty-331">0</em></div><b name="Plus-331" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒鸡丝</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-332" name="Reduce-332"></b><em id="cartmenu-quantity-332" class="cart-zhi" name="Qty-332">0</em></div><b name="Plus-332" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧包菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-333" name="Reduce-333"></b><em id="cartmenu-quantity-333" class="cart-zhi" name="Qty-333">0</em></div><b name="Plus-333" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>生菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-334" name="Reduce-334"></b><em id="cartmenu-quantity-334" class="cart-zhi" name="Qty-334">0</em></div><b name="Plus-334" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>辣子鸡面</h1><p class="price"><i>￥</i>7</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-335" name="Reduce-335"></b><em id="cartmenu-quantity-335" class="cart-zhi" name="Qty-335">0</em></div><b name="Plus-335" class="add iconfont icon-jiahao1" value="7" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-370" name="Reduce-370"></b><em id="cartmenu-quantity-370" class="cart-zhi" name="Qty-370">0</em></div><b name="Plus-370" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-371" name="Reduce-371"></b><em id="cartmenu-quantity-371" class="cart-zhi" name="Qty-371">0</em></div><b name="Plus-371" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-372" name="Reduce-372"></b><em id="cartmenu-quantity-372" class="cart-zhi" name="Qty-372">0</em></div><b name="Plus-372" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-373" name="Reduce-373"></b><em id="cartmenu-quantity-373" class="cart-zhi" name="Qty-373">0</em></div><b name="Plus-373" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-374" name="Reduce-374"></b><em id="cartmenu-quantity-374" class="cart-zhi" name="Qty-374">0</em></div><b name="Plus-374" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-396" name="Reduce-396"></b><em id="cartmenu-quantity-396" class="cart-zhi" name="Qty-396">0</em></div><b name="Plus-396" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>西红柿鸡蛋面</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-416" name="Reduce-416"></b><em id="cartmenu-quantity-416" class="cart-zhi" name="Qty-416">0</em></div><b name="Plus-416" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>千层饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-417" name="Reduce-417"></b><em id="cartmenu-quantity-417" class="cart-zhi" name="Qty-417">0</em></div><b name="Plus-417" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>肉包</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-418" name="Reduce-418"></b><em id="cartmenu-quantity-418" class="cart-zhi" name="Qty-418">0</em></div><b name="Plus-418" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周四菜单<ul><li class="right-sub-list" id="remai75"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周四菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1> 红烧肉</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-336" name="Reduce-336"></b><em id="cartmenu-quantity-336" class="cart-zhi" name="Qty-336">0</em></div><b name="Plus-336" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>蒜香排骨</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-337" name="Reduce-337"></b><em id="cartmenu-quantity-337" class="cart-zhi" name="Qty-337">0</em></div><b name="Plus-337" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白菜肉丝</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-338" name="Reduce-338"></b><em id="cartmenu-quantity-338" class="cart-zhi" name="Qty-338">0</em></div><b name="Plus-338" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>芹菜肉丝</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-339" name="Reduce-339"></b><em id="cartmenu-quantity-339" class="cart-zhi" name="Qty-339">0</em></div><b name="Plus-339" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒绿豆芽</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-340" name="Reduce-340"></b><em id="cartmenu-quantity-340" class="cart-zhi" name="Qty-340">0</em></div><b name="Plus-340" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>炒大白菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-341" name="Reduce-341"></b><em id="cartmenu-quantity-341" class="cart-zhi" name="Qty-341">0</em></div><b name="Plus-341" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酱爆猪肝面</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-342" name="Reduce-342"></b><em id="cartmenu-quantity-342" class="cart-zhi" name="Qty-342">0</em></div><b name="Plus-342" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-375" name="Reduce-375"></b><em id="cartmenu-quantity-375" class="cart-zhi" name="Qty-375">0</em></div><b name="Plus-375" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-376" name="Reduce-376"></b><em id="cartmenu-quantity-376" class="cart-zhi" name="Qty-376">0</em></div><b name="Plus-376" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-377" name="Reduce-377"></b><em id="cartmenu-quantity-377" class="cart-zhi" name="Qty-377">0</em></div><b name="Plus-377" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-378" name="Reduce-378"></b><em id="cartmenu-quantity-378" class="cart-zhi" name="Qty-378">0</em></div><b name="Plus-378" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-379" name="Reduce-379"></b><em id="cartmenu-quantity-379" class="cart-zhi" name="Qty-379">0</em></div><b name="Plus-379" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-397" name="Reduce-397"></b><em id="cartmenu-quantity-397" class="cart-zhi" name="Qty-397">0</em></div><b name="Plus-397" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>南瓜饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-419" name="Reduce-419"></b><em id="cartmenu-quantity-419" class="cart-zhi" name="Qty-419">0</em></div><b name="Plus-419" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酥饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-420" name="Reduce-420"></b><em id="cartmenu-quantity-420" class="cart-zhi" name="Qty-420">0</em></div><b name="Plus-420" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周五菜单<ul><li class="right-sub-list" id="remai76"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周五菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>椒盐鱼条</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-343" name="Reduce-343"></b><em id="cartmenu-quantity-343" class="cart-zhi" name="Qty-343">0</em></div><b name="Plus-343" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>红烧冻鲳鱼</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-344" name="Reduce-344"></b><em id="cartmenu-quantity-344" class="cart-zhi" name="Qty-344">0</em></div><b name="Plus-344" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白瓜炒蛋</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-345" name="Reduce-345"></b><em id="cartmenu-quantity-345" class="cart-zhi" name="Qty-345">0</em></div><b name="Plus-345" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>韭菜炒蛋</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-346" name="Reduce-346"></b><em id="cartmenu-quantity-346" class="cart-zhi" name="Qty-346">0</em></div><b name="Plus-346" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>空心菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-347" name="Reduce-347"></b><em id="cartmenu-quantity-347" class="cart-zhi" name="Qty-347">0</em></div><b name="Plus-347" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>芹菜香干</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-348" name="Reduce-348"></b><em id="cartmenu-quantity-348" class="cart-zhi" name="Qty-348">0</em></div><b name="Plus-348" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>素鸡面</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-349" name="Reduce-349"></b><em id="cartmenu-quantity-349" class="cart-zhi" name="Qty-349">0</em></div><b name="Plus-349" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-380" name="Reduce-380"></b><em id="cartmenu-quantity-380" class="cart-zhi" name="Qty-380">0</em></div><b name="Plus-380" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-381" name="Reduce-381"></b><em id="cartmenu-quantity-381" class="cart-zhi" name="Qty-381">0</em></div><b name="Plus-381" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-382" name="Reduce-382"></b><em id="cartmenu-quantity-382" class="cart-zhi" name="Qty-382">0</em></div><b name="Plus-382" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-383" name="Reduce-383"></b><em id="cartmenu-quantity-383" class="cart-zhi" name="Qty-383">0</em></div><b name="Plus-383" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-384" name="Reduce-384"></b><em id="cartmenu-quantity-384" class="cart-zhi" name="Qty-384">0</em></div><b name="Plus-384" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-398" name="Reduce-398"></b><em id="cartmenu-quantity-398" class="cart-zhi" name="Qty-398">0</em></div><b name="Plus-398" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>大排面</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-421" name="Reduce-421"></b><em id="cartmenu-quantity-421" class="cart-zhi" name="Qty-421">0</em></div><b name="Plus-421" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>春卷</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-422" name="Reduce-422"></b><em id="cartmenu-quantity-422" class="cart-zhi" name="Qty-422">0</em></div><b name="Plus-422" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>香菇菜包</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-423" name="Reduce-423"></b><em id="cartmenu-quantity-423" class="cart-zhi" name="Qty-423">0</em></div><b name="Plus-423" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周六菜单<ul><li class="right-sub-list" id="remai77"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周六菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酸菜烧鸡</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-350" name="Reduce-350"></b><em id="cartmenu-quantity-350" class="cart-zhi" name="Qty-350">0</em></div><b name="Plus-350" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>香炸鸡排</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-351" name="Reduce-351"></b><em id="cartmenu-quantity-351" class="cart-zhi" name="Qty-351">0</em></div><b name="Plus-351" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>茭白鸡丁</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-352" name="Reduce-352"></b><em id="cartmenu-quantity-352" class="cart-zhi" name="Qty-352">0</em></div><b name="Plus-352" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>宫爆鸡丁</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-353" name="Reduce-353"></b><em id="cartmenu-quantity-353" class="cart-zhi" name="Qty-353">0</em></div><b name="Plus-353" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>青椒干丝</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-354" name="Reduce-354"></b><em id="cartmenu-quantity-354" class="cart-zhi" name="Qty-354">0</em></div><b name="Plus-354" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>咸菜黄豆芽</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-355" name="Reduce-355"></b><em id="cartmenu-quantity-355" class="cart-zhi" name="Qty-355">0</em></div><b name="Plus-355" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>韭菜肉丝面</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-356" name="Reduce-356"></b><em id="cartmenu-quantity-356" class="cart-zhi" name="Qty-356">0</em></div><b name="Plus-356" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-385" name="Reduce-385"></b><em id="cartmenu-quantity-385" class="cart-zhi" name="Qty-385">0</em></div><b name="Plus-385" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-386" name="Reduce-386"></b><em id="cartmenu-quantity-386" class="cart-zhi" name="Qty-386">0</em></div><b name="Plus-386" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-387" name="Reduce-387"></b><em id="cartmenu-quantity-387" class="cart-zhi" name="Qty-387">0</em></div><b name="Plus-387" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-388" name="Reduce-388"></b><em id="cartmenu-quantity-388" class="cart-zhi" name="Qty-388">0</em></div><b name="Plus-388" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-389" name="Reduce-389"></b><em id="cartmenu-quantity-389" class="cart-zhi" name="Qty-389">0</em></div><b name="Plus-389" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-399" name="Reduce-399"></b><em id="cartmenu-quantity-399" class="cart-zhi" name="Qty-399">0</em></div><b name="Plus-399" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>玉米饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-424" name="Reduce-424"></b><em id="cartmenu-quantity-424" class="cart-zhi" name="Qty-424">0</em></div><b name="Plus-424" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>麻球</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-425" name="Reduce-425"></b><em id="cartmenu-quantity-425" class="cart-zhi" name="Qty-425">0</em></div><b name="Plus-425" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>周日菜单<ul><li class="right-sub-list" id="remai78"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">周日菜单</span><i class="tit-line line-right"></i></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>乳汁大肉</h1><p class="price"><i>￥</i>6</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-357" name="Reduce-357"></b><em id="cartmenu-quantity-357" class="cart-zhi" name="Qty-357">0</em></div><b name="Plus-357" class="add iconfont icon-jiahao1" value="6" ishadchose="0"></b> </div></div></div></li></ul><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>糖醋小排</h1><p class="price"><i>￥</i>5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-358" name="Reduce-358"></b><em id="cartmenu-quantity-358" class="cart-zhi" name="Qty-358">0</em></div><b name="Plus-358" class="add iconfont icon-jiahao1" value="5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>酱爆肉丁</h1><p class="price"><i>￥</i>4</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-360" name="Reduce-360"></b><em id="cartmenu-quantity-360" class="cart-zhi" name="Qty-360">0</em></div><b name="Plus-360" class="add iconfont icon-jiahao1" value="4" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>莧菜</h1><p class="price"><i>￥</i>3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-361" name="Reduce-361"></b><em id="cartmenu-quantity-361" class="cart-zhi" name="Qty-361">0</em></div><b name="Plus-361" class="add iconfont icon-jiahao1" value="3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>菠菜</h1><p class="price"><i>￥</i>2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-362" name="Reduce-362"></b><em id="cartmenu-quantity-362" class="cart-zhi" name="Qty-362">0</em></div><b name="Plus-362" class="add iconfont icon-jiahao1" value="2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1> 牛肉面</h1><p class="price"><i>￥</i>8</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-363" name="Reduce-363"></b><em id="cartmenu-quantity-363" class="cart-zhi" name="Qty-363">0</em></div><b name="Plus-363" class="add iconfont icon-jiahao1" value="8" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>豆浆</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-390" name="Reduce-390"></b><em id="cartmenu-quantity-390" class="cart-zhi" name="Qty-390">0</em></div><b name="Plus-390" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>白粥</h1><p class="price"><i>￥</i>0.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-391" name="Reduce-391"></b><em id="cartmenu-quantity-391" class="cart-zhi" name="Qty-391">0</em></div><b name="Plus-391" class="add iconfont icon-jiahao1" value="0.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>营养粥</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-392" name="Reduce-392"></b><em id="cartmenu-quantity-392" class="cart-zhi" name="Qty-392">0</em></div><b name="Plus-392" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>馒头</h1><p class="price"><i>￥</i>0.3</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-393" name="Reduce-393"></b><em id="cartmenu-quantity-393" class="cart-zhi" name="Qty-393">0</em></div><b name="Plus-393" class="add iconfont icon-jiahao1" value="0.3" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>鸡蛋</h1><p class="price"><i>￥</i>1</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-394" name="Reduce-394"></b><em id="cartmenu-quantity-394" class="cart-zhi" name="Qty-394">0</em></div><b name="Plus-394" class="add iconfont icon-jiahao1" value="1" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>凉菜一碟</h1><p class="price"><i>￥</i>1.2</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-400" name="Reduce-400"></b><em id="cartmenu-quantity-400" class="cart-zhi" name="Qty-400">0</em></div><b name="Plus-400" class="add iconfont icon-jiahao1" value="1.2" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>烧卖</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-426" name="Reduce-426"></b><em id="cartmenu-quantity-426" class="cart-zhi" name="Qty-426">0</em></div><b name="Plus-426" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div><div class="cart-list"><img src="/assets/images/left-pic-1.png"><div class="content"><h1>煎饼</h1><p class="price"><i>￥</i>1.5</p><div class="nub"><div class="ones"><b class="plus iconfont icon-jianhao6" id="menu-plus-427" name="Reduce-427"></b><em id="cartmenu-quantity-427" class="cart-zhi" name="Qty-427">0</em></div><b name="Plus-427" class="add iconfont icon-jiahao1" value="1.5" ishadchose="0"></b> </div></div></div>
+        </div>
+    </div>
+
+    <div class="shop-info">
+        <i id="endPC"></i>
+
+        <div class="shop-t">
+            <i style="float:left">
+                已选商品
+            </i>
+            <a href="javascript:void(0);" class="clear-btn" onclick="ClearCart()">清空购物车</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="shop-wrap" id="cartlistdiv">
+
+
+
+        </div>
+        <div class="shop-f">
+            <p><b id="sumpayb2">￥0.00<br><em>配送费 ¥0 打包费 ¥0</em></b></p>
+
+
+            <a class="check-out-btn" onclick="return CheckCartPriceStatus('goCart');">结算</a>
+        </div>
+    </div>
+
+    <div class="f-wrap">
+        <div class="shoppingBtn" id="ends">
+            <i id="menuitemcountlabel" style="background:#909294">0</i>
+        </div>
+        <div class="f-content" id="sumpayb"><div class="price">合计：<i></i><span>￥0.00</span></div> <span class="tips">配送费 ￥0 <br>打包费 ￥0</span></div>
+        <a class="check-out-btn " id="soure" onclick="return CheckCartPriceStatus('goCart');">结算</a>
+
+
+
+
+    </div>
+
+
+    <script src="/assets/js/requestAnimationFrame.js"></script>
+    <script src="/assets/js/fly.js"></script>
+    <script type="text/javascript">
+
+     var ph = $(".pop-shop").height();
+        var pop = ph / 2 * (-1);
+        $(".pop-shop").css({
+            'margin-top': pop + 'px'
+        });
+        $(".combo ul li").click(function () {
+            $(this).addClass("hover").siblings().removeClass("hover")
+        });
+        $(".cart-list").click(function () {
+            $(".pop-bg").show().css({"z-index":"1004"});
+            $(".pop-shop").show();
+        });
+        $(".close-btn").click(function () {
+            $(".pop-bg").hide().css({"z-index":"1000"});
+            $(".pop-shop").hide();
+        });
+
+
+        //左侧菜单
+        var wH = $(window).outerHeight();
+        var hH = $(".head").outerHeight();
+        var tH = $(".top").outerHeight();
+		var sH=$(".sell-header").outerHeight();
+        var fH = $(".f-wrap").outerHeight();
+        $(".container,.left,.left .element,.right,.right .element").css({"height":wH-sH-fH+2+"px"});
+		$(".right-list:last-child").css("min-height",wH-sH-fH+2+"px");
+
+        $(".cart-list .ones").hide();
+
+    var brandid; //用户选择品牌id
+    var isFirst = 0, isFirstLoading;
+
+    var langkey;//用户当前语言
+
+    var restid = $.cookies.get('current.restaurantId');//当前餐厅
+    var tableid = $.cookies.get('current.seatId');//桌号
+    //if (tableid == "") {
+    //    $.cookies.del('current.seatId')
+    //}
+    //var tableid = $.cookies.get('current.seatId');//桌号
+    var checktype;//用户当前用餐方式
+    var menugourpid = '0'; //当前用户选择菜品分组
+    var menugourpiddict = [] //点餐页面菜品分组字典
+    var menugourpiddata = {}//点餐页面菜品信息
+    var choicemenugroupid; //精选菜品组别id
+
+    var gx, gy, gt, gl;
+
+    var localstoragecart = '';  //购物车localstorage
+
+    var takecount = 5;        //菜单每页显示数目
+    var skipcount = 0;
+    var sel = '';  //条件和排序
+    var isloading = false;
+    var type ;
+    $(function () {
+        checktype = $.cookies.get('current.checkType');
+        choicemenugroupid = $.cookies.get('choicemenugroupId');
+        brandid = $.cookies.get('current.brandId');
+
+        if (brandid == '' || brandid == null) {
+            //return window.location = '/Home/Index';
+            return window.location.href = '/';
+        }
+        if ('true' == 'true') {
+
+            takecount = 500;
+            $('a[class="phone"]').attr('href', 'tel:4006318688');
+            if (choicemenugroupid == null || choicemenugroupid == '') {
+                //$('div[class="address-box"]').show();
+                $('div[class="sell-header"]').show();
+                $('div[class="outer-container left"]').show();
+                $('#menuframe').hide();
+            }
+            else {
+                try {
+                    $(window).scroll(scrollTopEvent);
+                }
+                catch (e) { }
+            }
+            switch (checktype) {
+                case 1:
+                    $('#hchecktype').html('外送');
+                    break;
+                case 2:
+                    $('#hchecktype').html('自提');
+                    break;
+                case 3:
+                    $('#hchecktype').html('门店自助');
+                    $('#ltable').show();
+                    //$('#ltable').append(tableid);
+                    $('#ltable').html(tableid)
+                    break;
+            }
+
+            $('#sectiongroupname').scroll(function () {
+
+                var divHeight = $(this).height();
+                var nScrollHeight = $(this)[0].scrollHeight;
+                var nScrollTop = $(this)[0].scrollTop;
+                var atest = 0;
+                var btest = 0;
+                $.each(menugourpiddict, function (index, item) {
+                    var groupLength = menugourpiddict.length;
+                    var atestLength = $('a[name="' + item + '"]').length;
+                    if (atestLength > 0) {
+                        atest = $('a[name="' + item + '"]').offset().top;
+                    }
+                    if (atest >= 190) { //216
+                        if (index > 0 && index < groupLength) {
+                            btest = menugourpiddict[index-1];
+                            if (index >= 5) {
+                                $('#sidebar').scrollTop((index - 4) * 100);
+                            }
+                            if (index < 5) {
+                                $('#sidebar').scrollTop(0);
+                            }
+                        }
+                        else {
+                            btest = item;
+                        }
+
+                        return false;
+                    }
+                    else{
+                        //if (index == menugourpiddict.length-1) {
+                        //    btest = menugourpiddict[index];
+                        //}
+                        btest = menugourpiddict[index];
+                        var grptype=$('#sidebar ul li[name="' + btest + '"]').attr("type");
+                        if(grptype=="3"){
+                            btest = menugourpiddict[index-1];
+                        }
+                        else{
+                            if (index == menugourpiddict.length-1) {
+                                btest = menugourpiddict[index];
+                            }
+                        }
+                    }
+                })
+                $('#sidebar ul li[name="' + btest + '"]').addClass("active").siblings().removeClass("active");
+                //var atest = $('div[name="38"]').offset().top;
+                //var btest = $('div[name="38"]').outerHeight();
+                //var ctest = $('#sectiongroupname').height();
+                //var dtest = $('#sectiongroupname').scrollTop();
+                //$('#p1').html('atest:' + btest);
+                //$('#p2').html('btest:' + btest);
+                //$('#p3').html('ctest:' + ctest);
+                //$('#p4').html('dtest:' + dtest);
+                //if (!(dtest > atest + btest && !(dtest < atest - ctest))) {
+                //    alert(1);
+                //}
+                //else {
+                //    alert(2);
+                //}
+                //$('#sectiongroupname').animate({ scrollTop: $('div[name="174"]').offset().top }, 800);
+
+                if (nScrollTop + divHeight + 150 >= nScrollHeight) {
+
+                    if (choicemenugroupid == null || choicemenugroupid == '') {
+                        //menugourpid = menugourpiddict[0];
+                        //$("#sidebar ul li[name='" + menugourpid + "']").click();
+                        //GetMenuItem(menugourpid, '1', $.cookies.get('current.restaurantId'));
+                    }
+                    else {
+                        type = '2';
+                        $.cookies.set('current.groupType', type);
+                        GetMenuItem(menugourpid, '2', $.cookies.get('current.restaurantId'));
+                    }
+                }
+            });
+
+            //try {
+            //    $(window).scroll(scrollTopEvent);
+            //}
+            //catch (e) { }
+        }
+        else {
+            takecount = 10;
+            $('a[class="phone"]').click(function () {
+                $('div[class="drop"]').hide();
+                msalert.alert('4006318688');
+            });
+            $('#menuitemdiv').scroll(function () {
+
+                var divHeight = $(this).height();
+                var nScrollHeight = $(this)[0].scrollHeight;
+                var nScrollTop = $(this)[0].scrollTop;
+                if (nScrollTop + divHeight + 1 >= nScrollHeight) {
+                    if (choicemenugroupid == null || choicemenugroupid == '') {
+                        type = '1';
+                        $.cookies.set('current.groupType', type);
+                        GetMenuItem(menugourpid, '1', $.cookies.get('current.restaurantId'));
+
+                    }
+                    else {
+                        type = '2';
+                        $.cookies.set('current.groupType', type);
+                        GetMenuItem(menugourpid, '2', $.cookies.get('current.restaurantId'));
+                    }
+
+                }
+            });
+        }
+
+        //brandid = $.cookies.get('current.brandId');
+
+        //if (brandid == ''|| brandid==null) {
+        //    window.location = '/Home/Index';
+        //}
+
+
+
+        langkey = getlanguage();
+
+        localstoragecart = window.localStorage['localcart'];
+
+        if (localstoragecart == undefined) {
+            localstoragecart = '';
+        }
+        //GetMenuGroup();
+
+        if (choicemenugroupid == null || choicemenugroupid == '') {
+            $('.wine-menu').css('display', 'none');
+            type = '1';
+            $.cookies.set('current.groupType', type);
+            GetMenuGroup('1');
+            GetMenuItem('0', '1', $.cookies.get('current.restaurantId'));
+        }
+        else {
+            $('.menu').css('display', 'none');
+            type = '2';
+            $.cookies.set('current.groupType', type);
+            GetMenuGroup('2');
+            GetMenuItem('0', '2', $.cookies.get('current.restaurantId'));
+            //$('#menugroupul li').each(function () {
+            //    if ($(this).attr('name') == choicemenugroupid) {
+            //        $(this).attr('class','hover');
+            //    }
+            //});
+            $('.menu').remove();
+        }
+        //Robby Zhu Bug For change Item Price
+        CheckCartPriceStatus('onload');
+        //Robby Zhu Bug For change Item Price
+        //GetCartCount(brandid);
+        //GetCart(brandid);
+        $("#ends").click(function () {
+            GetCart(brandid);
+            $(".shop-info").show();
+            $(".pop-bg").show();
+            $(".pop-bg").unbind();
+            $(".pop-bg").click(function () {
+                $(".shop-info").hide();
+                $(".pop-bg").hide();
+                $(".pop-bg").unbind();
+            });
+        })
+        //双11活动
+
+        //非订餐时间弹窗提醒
+        $.post("/Order/CheckTime", { "checkType": checktype, "time": '', "restId": restid }, function (data) {
+            if (data.resultcode != 200 && checktype != 3) {
+                var msg;
+                if (checktype == 1) {
+                    if(data.resultcode == 501){
+                        msalert.alert('由于交通管制等不可抗原因，门店暂时停止外送。您可以选择其他可配 送地址或新增其他外送地址。', function () {
+                            $.cookies.set("next","Menu1");
+                            //window.location.href = "/Order/ChooseAddress";
+                            window.location.href ="/Order/ChooseAddress";
+                        }, '确定')
+                    }
+                    else{
+                        msg = '外送点餐时间为' + data.msg + '，但你可以下7天以内预订单。';
+                    }
+                }
+                else if (checktype == 2) {
+                    msg = '该门店自提点餐时间为' + data.msg + '，但你可以下7天以内预订单。';
+                }
+                else if (checktype == 3) {
+                    msg = '该门店堂吃点餐时间为' + data.msg;
+                }
+
+                if(msg !=null){
+                    $('#alertdivtime .suc-box').html(msg);
+                    $('#alertdivtime').show();
+                    $('.pop-bg').show();
+                }
+            }
+        });
+
+        //帮助Tip
+        $('i[class="arrow-icon"]').click(function () {
+            if ($('div[class="drop"]').css('display') == 'none') {
+                $('div[class="drop"]').show();
+            }
+            else {
+                $('div[class="drop"]').hide();
+            }
+        });
+    })
+
+    // 验证商品特价时效性
+    function CheckCartPriceStatus(operationDes) {
+        var flag = false;
+        if (localstoragecart=="null" || localstoragecart == ''){
+            GetCartCount(brandid);
+            GetCart(brandid);
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'CheckCartPriceStatus',
+            data: { "cart": localstoragecart},
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.result.resultcode != 200) {
+                    flag = false;
+                    alert(data.result.msg);
+                    window.localStorage['localcart'] = data.newCarts;
+                    localstoragecart = window.localStorage['localcart'];
+                    if(operationDes == "goCart"){
+                        window.location.reload();
+                    }
+                } else {
+                    flag = true;
+                    var classname = $("#soure").attr("class");
+                    if (classname == "check-out-btn btn-active" && operationDes == "goCart") {
+                        window.location.href = '/Order/Cart';
+                            //window.location.href = '/Order/Cart';
+                    }
+                }
+                if(operationDes == "onload"){
+                    localstoragecart = window.localStorage['localcart'];
+                    GetCartCount(brandid);
+                    GetCart(brandid);
+                }
+            }
+        });
+        return flag;
+    }
+
+
+    //菜单分页
+    function scrollTopEvent() {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            if (choicemenugroupid == null || choicemenugroupid == '') {
+                type = '1';
+                $.cookies.set('current.groupType', type);
+                GetMenuItem(menugourpid, '1', $.cookies.get('current.restaurantId'));
+
+            }
+            else {
+                type = '2';
+                $.cookies.set('current.groupType', type);
+                GetMenuItem(menugourpid, '2', $.cookies.get('current.restaurantId'));
+            }
+        }
+
+    }
+
+    //抛物线动画效果
+    function addProduct(x, y, l, t, menuitemid, condimentrequest, condimentallow, price, quantity) {
+             var offset = $('#ends').offset(), flyer = $('<lable></label>');
+
+        flyer.fly({
+            start: {
+                left: x,
+                top: y
+            },
+            end: {
+                left: offset.left - l,
+                top: offset.top - t,
+                width: 20,
+                height: 20
+            },
+            onEnd: function () {
+                $('lable').remove();
+            }
+        });
+        addcart(menuitemid, condimentrequest, condimentallow, price, quantity);
+    }
+
+    //获取当前语言
+    function getlanguage() {
+        var languagetype;
+        $.ajax({
+            type: 'POST',
+            url: 'GetLanguage',
+            data: {},
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.isRedirect) {
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                languagetype = data.retCode;
+            }
+        });
+        return languagetype;
+    }
+
+    //菜品分类
+    function GetMenuGroup(type) {
+        $.ajax({
+            type: 'POST',
+            url: 'GetMenuGroup',
+            data: { "brandid": brandid, "type": type },
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.isRedirect) {
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                var html = '';
+                var htm = '';
+                var htmlnew = '';
+
+                if (data.retCode == '0') {
+                    $.each(data.Result, function (index, item) {
+                        menugourpiddict[index] = item.id;
+                        menugourpiddata[index] = item;
+                        if (langkey == 'en') {
+                            if (index == 0) {
+                                htmlnew += '<li class="list list-active" name="' + item.id + '" type="' + item.Type + '"> <a href = "#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;" class="list-a" >' + item.Name2 + '</a ></li >';
+                                //htmlnew += '<li class="active" name="' + item.id + '" type="' + item.Type + '"><a href="#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;">' + item.Name2 + '</a></li>';
+                                //$('#sectiongroupname h5 span').html(item.Name2);
+                            }
+                            else {
+                                htmlnew += '<li class="list"  name="' + item.id + '" type="' + item.Type + '"> <a href="#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;" class="list-a"> ' + item.Name2 + ' </a> </li>';
+                                //htmlnew += '<li name="' + item.id + '" type="' + item.Type + '"><a href="#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;">' + item.Name2 + '</a></li>';
+                            }
+                            html += '<li  class="list" name="' + item.id + '" type="' + item.Type + '">' + item.Name2 + '</li>'
+                            htm += '<li  class="list" name="' + item.id + '" type="' + item.Type + '"><label name="' + item.id + '" type="' + item.Type + '">' + item.Name2 + '</label></li>'
+                        }
+                        else {
+                            if (index == 0) {
+                                htmlnew += '<li class="list list-active" name="' + item.id + '" type="' + item.Type + '"> <a href = "#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;" class="list-a" >' + item.Name1 + '</a ></li >';
+                                //htmlnew += '<li class="active" name="' + item.id + '" type="' + item.Type + '"><a href="#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;">' + item.Name1 + '</a></li>';
+                                //$('#sectiongroupname h5 span').html(item.Name1);
+                            }
+                            else {
+                                htmlnew += '<li class="list"  name="' + item.id + '" type="' + item.Type + '"> <a href="#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;" class="list-a"> ' + item.Name1 + ' </a> </li>';
+                                //htmlnew += '<li name="' + item.id + '" type="' + item.Type + '"><a href="#' + item.id + '" onclick="ClearCache(this,\'' + item.Type + '\');return false;">' + item.Name1 + '</a></li>';
+                            }
+                            html += '<li  class="list" name="' + item.id + '" type="' + item.Type + '">' + item.Name1 + '</li>'
+                            htm += '<li  class="list"><label name="' + item.id + '" type="' + item.Type + '">' + item.Name1 + '</label></li>'
+                        }
+                    });
+                }
+                else {
+
+                }
+
+                $('#menugroupul').append(html);
+                $('#kinds-box ul').append(htm);
+                $('#sidebar ul').append(htmlnew);
+            }
+        });
+
+        $(".menu ul li").click(function () {
+
+            $(this).addClass("hover").siblings().removeClass("hover");
+
+            $('#menuitemdiv').html('');
+            $('#sectiongroupname').html('');
+            skipcount = 0;
+            menugourpid = $(this).attr('name');
+            type = $(this).attr('type');
+            $.cookies.set('current.groupType', type);
+            GetMenuItem($(this).attr('name'), $(this).attr('type'), $.cookies.get('current.restaurantId'));
+
+        });
+
+
+        $("#sidebar ul li").click(function () {
+
+            $(this).addClass("list-active").siblings().removeClass("list-active");
+
+            //$('#sectiongroupname').animate({ scrollTop: $('div[name="' + $(this).attr('name') + '"]').offset().top }, 800);
+            //$('#menuitemdiv').html('');
+            //$('#sectiongroupname div').remove();
+            //skipcount = 0;
+            //menugourpid = $(this).attr('name');
+
+            //GetMenuItem($(this).attr('name'), $(this).attr('type'), $.cookies.get('current.restaurantId'));
+
+        });
+
+        $('#kinds-box ul li label').click(function () {
+            //$(this).toggleClass("hover");
+            $(this).addClass("hover").parent('li').siblings().children().removeClass("hover");
+        });
+    }
+    //菜品
+    function GetMenuItem(groupid, type, restid) {
+        if (isloading) {
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'GetMenuItem',
+            data: { "brandid": brandid, "groupid": groupid, "type": type, "skipcount": skipcount, "takecount": takecount, "restid": restid, "sel": sel },
+            dataType: 'json',
+            async: true,
+            beforeSend: function () {
+                $('.ball-clip-rotate').show();
+                isloading = true;
+            },
+            success: function (data) {
+                if (data.isRedirect) {
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                skipcount = skipcount + data.Result.length;
+                var html = '';
+                var htm = '';
+                var currentgroupid = 0;
+                if (data.retCode == '0') {
+                    $.each(data.Result, function (index, item) {
+                            //html += '<div class="list-info w2" name="' + item.Price + '">';
+                        if (currentgroupid == '0' || currentgroupid != item.GroupId) {
+                            if (index==0) {
+                                html += '<ul><li class="right-list" id="list' + item.GroupId + '"><div class="title" style="display:none;"><a href="#remai' + item.GroupId + '" class="txt active">';
+                            }
+                            $.each(menugourpiddata, function (i, value) {
+                                if (value.id == item.GroupId) {
+                                    if (langkey == "en") {
+                                        html += value.Name2 + '</a></div><ul><li class="right-sub-list" id="remai' + item.GroupId + '"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">' + value.Name2 + '</span><i class="tit-line line-right"></i></div>';
+                                    }
+                                    else {
+                                        html += value.Name1 + '</a></div><ul><li class="right-sub-list" id="remai' + item.GroupId + '"><div class="sub-title"><i class="tit-line line-left"></i><span class="txt">' + value.Name1 + '</span><i class="tit-line line-right"></i></div>';
+                                    }
+                                }
+                            })
+                            //html += '<a name="' + item.GroupId + '"></a>';
+
+                            currentgroupid = item.GroupId;
+                        }
+                        //html += '<ul>';
+                        //agroup = item.GroupId;
+                        html += '<div class="cart-list">';
+
+
+                        if (item.ImageUrl != '' && item.ImageUrl != null) {
+                            //html += '<li class="pic-left"><img src="../' + item.ImageUrl + '" onclick="MenuItemImageOnclick(\'' + item.id + '\')" /></li>';
+                            html += '<img src="../' + item.ImageUrl + '" />'
+                        }
+                        if (item.ImageUrl == '' || item.ImageUrl == null) {
+                            //html += '<li class="pic-left"><img src="/assets/images/left-pic-1.png" onclick="MenuItemImageOnclick(\'' + item.id + '\')" /></li>';
+                            html += '<img src="/assets/images/left-pic-1.png" />'
+                        }
+                            //html += '<li class="list-text">';
+                        html += '<div class="content">';
+                        if (langkey == 'en') {
+                                html += '<h1>' + item.Name2 + '</h1>';
+                                if (item.Description2 != null) {
+                                    //html += '<b style="text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">' + item.Description2 + '</b>';
+                                    html += '<strong>' + item.Description2 + '</strong>'
+                                }
+                            }
+                            else {
+                                html += '<h1>' + item.Name1 + '</h1>';
+                                if (item.Description1 != null) {
+                                    //html += '<b style="text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">' + item.Description1 + '</b>';
+                                    html += '<strong>' + item.Description1 + '</strong>'
+                                }
+                            }
+                        html += '<p class="price"><i>￥</i>' +item.Price+'</p>'
+                        //html += '<p>￥' + item.Price ;
+                        //if (item.OrigPrice != null && item.OrigPrice != item.Price) {
+                           // html += '<em>原价<del>￥' + item.OrigPrice + '</del></em>';
+                        //}
+
+                        //html += '</p>';
+                        //html += '</li>';
+                            html+='<div class="nub">';
+                        html += '<div class="ones">';
+                        //html += '<li class="list-btn"><button class="add-btn" name="' + item.id + '" value="' + item.Price + '"></button></li>';
+                       // html += '</ul>';
+                        if (GetCartMenuQuantityById(brandid, item.id, 1) > 0) {
+                            html += '<div class="nub-menu">';
+                            html += '<b id="menu-plus-' + item.id + '" class="plus1" name="Reduce-' + item.id + '" value="' + item.Price + '"></b>';
+                            html += '<em id="cartmenu-quantity-' + item.id + '" class="cart-zhi" name="Qty-' + item.id + '">' + GetCartMenuQuantityById(brandid, item.id, 1) + '</em></div>';
+                            html += '<b name="Plus-' + item.id + '" class="add iconfont icon-jiahao1" value="' + item.Price + '" ishadChose="' + item.Ishadchose +'"></b>';
+                        }
+                        else {
+                            html += '<b class="plus iconfont icon-jianhao6" id="menu-plus-' + item.id + '" name="Reduce-' + item.id + '"></b><em  id="cartmenu-quantity-' + item.id + '" class="cart-zhi" name="Qty-' + item.id + '">' + GetCartMenuQuantityById(brandid, item.id, 1) + '</em></div><b name="Plus-' + item.id + '" class="add iconfont icon-jiahao1" value="' + item.Price + '" ishadChose="' + item.Ishadchose +'"></b>';
+                          //html += '<div class="nub-menu">';
+                          //html += '<b id="menu-plus-' + item.id + '" class="plus1" name="Reduce-' + item.id + '" style="display:none"></b>';
+                          //html += '<em id="cartmenu-quantity-' + item.id + '" class="cart-zhi" name="Qty-' + item.id + '" style="display:none">' + //GetCartMenuQuantityById(brandid, item.id, 1) + '</em>';
+                          //html += '<b name="Plus-' + item.id + '" class="add iconfont icon-jiahao1" value="' + item.Price + '" ishadChose="' + item.Ishadchose +'"></b></div>';
+                        }
+                        html += ' </div></div></div></li></ul></li></ul>';
+                    });
+
+                    //if (type == '2') {
+                    //    $.each(data.Remark, function (index, item) {
+                    //        htm += '<li><label>' + item + '</label></li>';
+                    //    });
+                    //}
+                }
+                else {
+
+                }
+                $("#imgLoading").remove();
+                $('#menuitemdiv').append(html).append('<div id="imgLoading" style="text-align:center"><img height="30" src="/assets/images/loading.gif"></div>');
+                if ('true' == 'true') {
+                    $('#sectiongroupname').append(html);
+                }
+                //$('#sectiongroupname').append(html);
+                if (isFirst == 0) {
+                    $('#choose-box ul').append(htm);
+                    isFirst = 1;
+                }
+
+                if (data.Result.length < takecount) {
+                    $("#imgLoading").remove();
+                }
+            },
+            complete: function () {
+                $('.ball-clip-rotate').hide();
+                bindClick();
+                isloading = false;
+            }
+        });
+
+        function bindClick() {
+            //点击加号事件
+            $(".nub-menu .add,.recommend-list img").unbind();
+            $(".nub-menu .add,.recommend-list img").click(function (e) {
+
+                e = e || window.event;
+
+                var x = e.pageX - $(document).scrollLeft();
+                var y = e.pageY - $(document).scrollTop();
+                var t = $(document).scrollTop();
+                var l = $(document).scrollLeft();
+
+                gx = x;
+                gy = y;
+                gt = t;
+                gl = l;
+
+                var menuitemid = $(this).attr('name');
+                menuitemid = menuitemid.substring(5, menuitemid.length);
+                var price = $(this).attr('value');
+                var ishadChose = $(this).attr("ishadChose");
+                if (ishadChose == "0") {
+                    //if (CheckMenuItem(menuitemid)) {
+                    addProduct(x, y, l, t, menuitemid, "", "", price, "1");
+
+                    var tmp = parseInt($('#cartmenu-quantity-' + menuitemid).text());
+                    tmp += 1;
+                    //$('#cartmenu-quantity-' + menuitemid).text(tmp);
+                    var qtyItem = 'em[name=Qty-' + menuitemid + ']'
+                    $(qtyItem).text(tmp);
+
+                    var menuReduce = 'b[name=Reduce-' + menuitemid + ']';
+                    if (tmp > 0) {
+                        //$('#menu-plus-' + menuitemid).attr('name', menuitemid);
+                        //$('#menu-plus-' + menuitemid).attr('value', price);
+                        $('#menu-plus-' + menuitemid).show();
+                        //$('#cartmenu-quantity-' + menuitemid).show();
+                        $(qtyItem).show();
+                        $(menuReduce).show();
+                    }
+
+                    //addcart(menuitemid, "", "", price, "1");  //普通菜品放入购物车
+                }
+                else {
+
+                    MenuItemDetail(menuitemid); //菜品详情
+                    var ph = $(".pop-shop").height();
+                    var pop = ph / 2 * (-1);
+                    $(".pop-shop").css({
+                        'margin-top': pop + 'px'
+                    });
+                    $("#cart").show();
+                    $(".pop-bg").show();
+                    $("body").css({ "overflow-y": "hidden" })
+                }
+                $("#soure").attr("class", "check-out-btn btn-active");
+                GetCart(brandid);
+            });
+            //点击减号事件
+            $(".nub-menu .plus1,.recommend-list img").unbind();
+            $(".nub-menu .plus1,.recommend-list img").click(function (e) {
+
+                var menuid = $(this).attr('name');
+                menuid = menuid.substring(7, menuid.length);
+
+                var cartid = GetCartMenuQuantityById(brandid, menuid, 2);
+                cartid = parseInt(cartid);
+                var tmp = parseInt($(this).next().text());
+                tmp -= 1;
+                //var cart = $.cookies.get('cart');
+                var cart = $.parseJSON(localstoragecart);
+                $.each(cart, function (index, item) {
+                    if (item.CartId == cartid) {
+                        ChangeQuantityCart(cartid, tmp);
+                        GetCart(brandid);
+                        GetCartCount(brandid);
+                    }
+                });
+
+                $(this).next().text(GetCartMenuQuantityById(brandid, menuid, 1));
+
+            });
+
+            $(".add-btn,.recommend-list img").unbind();
+            $(".add-btn,.recommend-list img").click(function (e) {
+
+                e = e || window.event;
+
+                var x = e.pageX - $(document).scrollLeft();
+                var y = e.pageY - $(document).scrollTop();
+                var t = $(document).scrollTop();
+                var l = $(document).scrollLeft();
+
+                var menuitemid = $(this).attr('name');
+                var price = $(this).val();
+                if (CheckMenuItem(menuitemid)) {
+                    addProduct(x, y, l, t, menuitemid, "", "", price, "1");
+                    //addcart(menuitemid, "", "", price, "1");  //普通菜品放入购物车
+                }
+                else {
+
+                    MenuItemDetail(menuitemid); //菜品详情
+
+                    $("#cart").show();
+                    $(".pop-bg").show();
+                    $("body").css({ "overflow-y": "hidden" })
+                }
+            });
+
+            $(".close-btn").click(function () {
+                $("#cart").hide();
+                $(".pop-bg").hide();
+                $("body").css({ "overflow-y": "auto" })
+            });
+
+            $('#choose-box ul li label').unbind();
+            $('#choose-box ul li label').click(function () {
+                //$(this).toggleClass("hover");
+                $(this).addClass("hover").parent().siblings().children().removeClass("hover");
+            });
+
+        }
+
+    }
+
+    //菜品图片点击
+    function MenuItemImageOnclick(menuitemid) {
+        MenuItemDetail(menuitemid);
+        var ph = $(".pop-shop").height();
+        var pop = ph / 2 * (-1);
+        $(".pop-shop").css({
+            'margin-top': pop + 'px'
+        });
+        $("#cart").show();
+        $(".pop-bg").show();
+        $("body").css({ "overflow-y": "hidden" });
+        $(".pop-bg").unbind('click');
+    }
+
+    //菜品详情
+    function MenuItemDetail(menuitemid) {
+
+        $('#quantityem').html('1');
+
+        $('#menuitemdetailhiden').val(menuitemid);
+
+        $.ajax({
+            type: 'POST',
+            url: 'MenuItemDetail',
+            data: { "menuitemid": menuitemid, "brandid": brandid, "restid": restid, "type": type },
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.isRedirect) {
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                if (data.retCode == '0') {
+                    //$.each(data.Result, function (index, item) {
+                    if (data.Result.Remark1 != '' && data.Result.Remark1 != null) {
+                        $('#MenuItemDetailimg').attr('src', data.Result.Remark1);
+                    }
+                    if (langkey == 'en') {
+                        $('#menumitemnameem').html(data.Result.Name2);
+                        $('#menuitemdescriptiondiv').html(data.Result.Description2);
+                    }
+                    else {
+                        $('#menumitemnameem').html(data.Result.Name1);
+                        $('#menuitemdescriptiondiv').html(data.Result.Description1);
+                    }
+                    $('#menumitemsumpricelabel').html('¥' + data.Result.Price.toFixed(2));
+
+                    //});
+                    $('.combo').remove();
+                    var html = '';
+                    //必选
+                    $.each(data.CondimentRequests, function (index, item) {
+                        $.each(item.CondimentAll, function (ind, it) {
+                            if (ind == 0) {
+                                html += '<div class="combo"><ul name="requestul">';
+                                if (langkey == 'en') {
+                                    html += '<h2>' + item.CondimentGroupName2 + '(' + item.CondimentAll.length + ' choose 1)' + '</h2>';
+                                }
+                                else {
+                                    html += '<h2>' + item.CondimentGroupName1 + '(' + item.CondimentAll.length + '选1)' + '</h2>';
+                                }
+                            }
+                            if (langkey == 'en') {
+                                if (ind == 0) {
+                                    html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '" class="hover">' + it.Name2 + '</li>';
+                                }
+                                else {
+                                    html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.Name2 + '</li>';
+                                }
+                            }
+                            else {
+                                if (ind == 0) {
+                                    html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '" class="hover">' + it.Name1 + '</li>';
+                                }
+                                else {
+                                    html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.Name1 + '</li>';
+                                }
+                            }
+                            if ((ind + 1) == item.CondimentAll.length) {
+                                html += '</ul></div>';
+                                html += '<div class="clearfix"></div>';
+                            }
+                        });
+                    });
+
+                    $('#menuitemdetaildiv').append(html);
+
+                    html = '';
+                    $.each(data.CondimentAllows, function (index, item) {
+                        $.each(item.CondimentAll, function (ind, it) {
+                            if (ind == 0) {
+                                html += '<div class="combo"><ul name="allowul">';
+                                if (langkey == 'en') {
+                                    html += '<h2>' + item.CondimentGroupName2 + '</h2>';
+                                }
+                                else {
+                                    html += '<h2>' + item.CondimentGroupName1 + '</h2>';
+                                }
+                            }
+                            if (langkey == 'en') {
+                                html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.CondimentAllowName2 + '</li>';
+                            }
+                            else {
+                                html += '<li name="' + it.MenuItemId + '" price="' + it.Price + '">' + it.CondimentAllowName1 + '</li>';
+                            }
+                            if ((ind + 1) == item.CondimentAll.length) {
+                                html += '</ul></div>';
+                                html += '<div class="clearfix"></div>';
+                            }
+                        });
+                    });
+
+                    $('#menuitemdetaildiv').append(html);
+
+
+                }
+                else {
+
+                }
+            }
+        });
+
+
+
+        $("ul[name='requestul'] li").click(function () {
+            if ($(this).attr('class') != 'hover') {
+                var sumprice = $('#menumitemsumpricelabel').html().replace('¥', '');
+
+                sumprice = parseFloat(sumprice);
+
+                var obj = $(this).siblings('.hover');
+
+                var tempprice1 = obj.attr('price');
+
+                var tempprice2 = parseFloat($(this).attr('price'));
+
+                if (tempprice1 == undefined) {
+                    tempprice1 = '0.00';
+                    tempprice1 = parseFloat(tempprice1);
+                }
+                else {
+                    tempprice1 = parseFloat(tempprice1);
+                }
+
+                $(this).addClass("hover").siblings().removeClass("hover");
+
+                sumprice = sumprice - tempprice1;
+                sumprice = sumprice + tempprice2;
+
+                sumprice = sumprice.toFixed(2);
+
+                $('#menumitemsumpricelabel').html('¥' + sumprice);
+            }
+        });
+
+        $("ul[name='allowul'] li").click(function () {
+
+            var sumprice = $('#menumitemsumpricelabel').html().replace('¥', '');
+            sumprice = parseFloat(sumprice);
+            var tempprice = parseFloat($(this).attr('price'));
+
+            $(this).toggleClass("hover");
+
+            if ($(this).attr('class') == 'hover') {
+                sumprice = sumprice + tempprice;
+            }
+            else {
+                sumprice = sumprice - tempprice;
+            }
+
+            sumprice = sumprice.toFixed(2);
+
+            $('#menumitemsumpricelabel').html('¥' + sumprice);
+        });
+
+    }
+
+    //必选配料验证并加入购物车
+    function CheckCondimentRequest() {
+
+        var requestobj = $('ul[name="requestul"]');
+
+        if (requestobj.length != 0) {
+            var mark2 = false;
+            $.each(requestobj, function (index, item) {
+                var lis = item.childNodes;
+
+                var mark1 = false;
+                $.each(lis, function (ind, it) {
+                    if (it.className == 'hover') {
+                        mark1 = true;
+                    }
+                });
+
+                mark2 = mark1;
+
+            });
+        }
+        else {
+            mark2 = true;
+        }
+
+        if (!mark2) {
+            $('#alertdiv').show();
+        }
+
+        if (!mark2) {
+            return mark2;
+        }
+        else {
+            MenuItemAllowRequestAddCart();
+            GetCart(brandid);
+        }
+    }
+
+    //必选配料提示关闭
+    function CloseCondimentRequestAlert() {
+        $('#alertdiv').hide();
+    }
+    //时间提醒关闭
+    function CloseTimetAlert() {
+        $('#alertdivtime').hide();
+        $('.pop-bg').hide();
+    }
+
+    //菜品类型
+    function CheckMenuItem(menuitemid) {
+        var issingle;
+        $.ajax({
+            type: 'POST',
+            url: 'CheckMenuItem',
+            data: { "menuitemid": menuitemid },
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.isRedirect) {
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                if (data.retCode == '0') {
+                    issingle = true;
+                }
+                else {
+                    issingle = false;
+                }
+            }
+        });
+
+        return issingle;
+    }
+
+    //菜品详情加入购物车
+    function MenuItemAllowRequestAddCart() {
+
+        var menuitemid = $('#menuitemdetailhiden').val();
+        var condimentrequest = '';
+        var condimentallow = '';
+        var totalprice = $('#menumitemsumpricelabel').html().replace('¥', '');
+        var quantity = $('#quantityem').html();
+
+        var requestobj = $('ul[name="requestul"]');
+
+        if (requestobj.length != 0) {
+            $.each(requestobj, function (index, item) {
+                var lis = item.childNodes;
+                $.each(lis, function (ind, it) {
+                    if (it.className == 'hover') {
+                        condimentrequest += it.getAttribute("name") + '|';
+                    }
+                });
+            });
+        }
+
+        var allowobj = $('ul[name="allowul"]');
+
+        if (allowobj.length != 0) {
+            $.each(allowobj, function (index, item) {
+                var lis = item.childNodes;
+                $.each(lis, function (ind, it) {
+                    if (it.className == 'hover') {
+                        condimentallow += it.getAttribute("name") + '|';
+                    }
+                });
+            });
+        }
+
+        //var obj = $('.add-btn[name="3281"]')
+        //alert(obj.position().left);
+
+        //var x = $('.add[name="' + menuitemid + '"]').offset().left
+        //var y = $('.add[name="' + menuitemid + '"]').offset().top
+        //var t = $(document).scrollTop();
+        //var l = $(document).scrollLeft();
+
+        addProduct(gx, gy, gl, gt, menuitemid, condimentrequest, condimentallow, totalprice, quantity);
+
+        //addcart(menuitemid, condimentrequest, condimentallow, totalprice, quantity);
+
+        $("#cart").hide();
+        $(".pop-bg").hide();
+        $("body").css({ "overflow-y": "auto" })
+
+        var cartid = GetCartMenuQuantityById(brandid, menuitemid, 2);
+
+        HideMenuOpeaorIdByIndex(brandid, cartid, 1);
+
+    }
+
+    //加入购物车
+    function addcart(menuitemid, condimentrequest, condimentallow, price, quantity) {
+
+        if (quantity != 0) {
+            $.ajax({
+                type: 'POST',
+                url: 'AddCart',
+                data: { "menuitemid": menuitemid, "condimentrequestlist": condimentrequest, "condimentallowlist": condimentallow, "price": price, "quantity": quantity, "brandid": brandid, "localcart": localstoragecart },
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    if (data.isRedirect) {
+                        var urlRedirect = data.redirectUrl;
+                        window.location.href = urlRedirect;
+                        return;
+                    }
+                    if (data.retCode == '0') {
+                        //alert('');
+                        localstoragecart = data.retMsg;
+                        GetCartCount(brandid); //统计购物车
+                    }
+                    else {
+
+                    }
+                }
+            });
+
+            window.localStorage['localcart'] = localstoragecart;
+        }
+        if (quantity == 0) {
+            return;
+        }
+    }
+
+    //获取购物车货物数量和总金额
+    function GetCartCount(brandid) {
+        var itemcount;
+        var sumpay;
+        var deliveryfee;
+        var packagefee;
+        var freedeliveryfeestand =50
+            freedeliveryfeestand = parseFloat(freedeliveryfeestand);
+        $.ajax({
+            type: 'POST',
+            url: 'GetCartCount',
+            data: { "brandid": brandid, "localcart": localstoragecart },
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.isRedirect) {
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                itemcount = data.retCode;
+                sumpay = data.retMsg;
+                if(sumpay == null){
+                    sumpay = 0;
+                }
+                sumpay = parseFloat(sumpay).toFixed(2);
+            }
+        });
+
+        $('#menuitemcountlabel').html(itemcount);
+
+        if (itemcount>0) {
+            $("#soure").attr("class", "check-out-btn btn-active");
+        }
+
+        //菜单购物车
+        //$('#menuitemcountlabel2').html(itemcount);
+
+        if (itemcount != '0') {
+            $('#menuitemcountlabel').attr('style', 'background:#FFB400');
+            //$('#menuitemcountlabel2').attr('style', 'background:#FFB400');
+            $('.f-wrap p i').attr('style', 'background-image:url("/assets/images/cart-icon-orange.png")');
+            $('.shop-num').attr('style', 'background-image:url("/assets/images/cart-icon-orange.png")');
+        }
+        else {
+            $('#menuitemcountlabel').attr('style', 'background:#909294');
+            //$('#menuitemcountlabel2').attr('style', 'background:#909294');
+            $('.f-wrap p i').attr('style', 'background-image:url("/assets/images/cart-icon.png")');
+            $('.shop-num').attr('style', 'background-image:url("/assets/images/cart-icon.png")');
+        }
+
+        if (checktype == '3') {
+            if (langkey == 'en') {
+
+                $("#sumpayb").html('<div class="price">SUM：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">Delivery Fee ￥0 </br>Delivery Fee ￥0</span>');
+
+                //$('#sumpayb').html('￥' + sumpay + '<em>Delivery Fee ￥0<br />Package Fee ￥0</em>');
+                $('#sumpayb2').html('￥' + sumpay + '<br /><em>Delivery Fee ￥0<br />Package Fee ￥0</em>');
+            }
+            else {
+                $("#sumpayb").html('<div class="price">合计：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">配送费 ¥0</br>打包费 ¥0</span>');
+                //$('#sumpayb').html('￥' + sumpay + '<em>配送费 ¥0 打包费 ¥0</em>');
+                $('#sumpayb2').html('￥' + sumpay + '<br /><em>配送费 ¥0</br>打包费 ¥0</em>');
+            }
+        }
+
+        if (checktype == '1' || checktype == '2') {
+
+            $.ajax({
+                type: 'POST',
+                url: 'GetDeliveryPackageFee',
+                data: { "brandid": brandid },
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    if (data.isRedirect) {
+                        var urlRedirect = data.redirectUrl;
+                        window.location.href = urlRedirect;
+                        return;
+                    }
+                    deliveryfee = data.retCode;
+                    packagefee = data.retMsg;
+                }
+            });
+
+            if (checktype == '2') {
+
+                if (langkey == 'en') {
+                    $("#sumpayb").html('<div class="price">SUM：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">Delivery Fee ￥0 </br>Delivery Fee ￥' + packagefee + '</span>');
+                    //$('#sumpayb').html('￥' + sumpay + '<em>Delivery Fee ¥0<br />Package Fee ¥' + packagefee + '</em>');
+                    $('#sumpayb2').html('￥' + sumpay + '<br /><em>Delivery Fee ¥0<br />Package Fee ¥' + packagefee + '</em>');
+                }
+                else {
+                    $("#sumpayb").html('<div class="price">合计：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">配送费 ￥0 </br>打包费 ￥' + packagefee + '</span>');
+                    //$('#sumpayb').html('￥' + sumpay + '<em>配送费 ¥0 打包费 ¥' + packagefee + '</em>');
+                    $('#sumpayb2').html('￥' + sumpay + '<br /><em>配送费 ¥0 打包费 ¥' + packagefee + '</em>');
+                }
+
+            }
+            if (checktype == '1') {
+                sumpay = parseFloat(sumpay);
+                if (sumpay >= freedeliveryfeestand) {
+                    deliveryfee = '0';
+                }
+                if (langkey == 'en') {
+                    $("#sumpayb").html('<div class="price">SUM：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">Delivery Fee ￥' + deliveryfee + ' </br>Delivery Fee ￥' + packagefee + '</span>');
+                    //$('#sumpayb').html('￥' + sumpay + '<em>Delivery Fee ¥' + deliveryfee + '<br />Package Fee ¥' + packagefee + '</em>');
+                    $('#sumpayb2').html('￥' + sumpay + '<br /><em>Delivery Fee ¥' + deliveryfee + '<br />Package Fee ¥' + packagefee + '</em>');
+                }
+                else {
+                    $("#sumpayb").html('<div class="price">合计：<i></i><span>￥' + sumpay + '</span></div> <span class="tips">配送费￥' + deliveryfee + '</br>打包费 ￥' + packagefee + '</span>');
+                    //$('#sumpayb').html('￥' + sumpay + '<em>配送费 ¥' + deliveryfee + ' 打包费 ¥' + packagefee + '</em>');
+                    $('#sumpayb2').html('￥' + sumpay + '<br /><em>配送费 ¥' + deliveryfee + ' 打包费 ¥' + packagefee + '</em>');
+                }
+            }
+
+        }
+    }
+
+    //购物车
+    function GetCart(brandid) {
+
+        $('.cart-list').remove();
+        var currentbrandid = brandid;
+        //var cart = $.cookies.get('cart');
+        var cart = $.parseJSON(localstoragecart);
+        var html = '';
+
+        if (cart != null) {
+            $.each(cart, function (index, item) {
+                if (item.Brandid == currentbrandid) {
+
+                    html += '<div class="cart-list">'
+                    html += '<div class="nub">';
+                    html += '<div class="ones cart-nub-box">';
+                    html += '<b class="plus iconfont icon-jianhao6" value="' + item.CartId + '" name="mycartplus"></b>';
+                    html += '<em class="cart-zhi">' + item.Quantity + '</em>';
+                    html += '<b class="add iconfont icon-jiahao1" value="' + item.CartId + '" name="mycartadd"></b>';
+                    html += '</div>'
+                    html += '</div>';
+                    if (langkey == 'en') {
+                        html += '<h1>' + item.Name2 + '</h1>';
+                    }
+                    else {
+                        html += '<h1>' + decodeURIComponent(item.Name1) + '</h1>';
+                    }
+                    html += '<div class="an">';
+
+                    $.each(item.CondimentRequests, function (rindex, ritem) {
+                        if (langkey == 'en') {
+                            html += '<p>' + ritem.Name2 + '</p>';
+                        }
+                        else {
+                            html += '<p>' + decodeURIComponent(ritem.Name1) + '</p>';
+                        }
+                    });
+
+                    $.each(item.CondimentAllows, function (aindex, aitem) {
+                        if (langkey == 'en') {
+                            html += '<p>' + aitem.Name2 + '</p>';
+                        }
+                        else {
+                            html += '<p>' + decodeURIComponent(aitem.Name1) + '</p>';
+                        }
+                    });
+
+                    html += '</div>';
+
+                    var price = parseFloat(item.Price);
+                    var quantity = parseFloat(item.Quantity);
+                    var total = price * quantity;
+                    total = total.toFixed(2);
+                    html += '<label class="totall">￥' + total + '</label>';
+                    html += '</div>';
+                }
+
+            });
+            $('#cartlistdiv').prepend(html);
+
+            //购物车数量加
+            $(".add[name='mycartadd']").click(function () {
+
+                var cartid = $(this).attr('value');
+                cartid = parseInt(cartid);
+
+                $(this).parent(".nub").find(".ones").show();
+                var tmp = parseInt($(this).parent(".nub").find("em").text());
+                tmp += 1;
+                $(this).parent(".nub").find("em").text(tmp);
+
+                //var cart = $.cookies.get('cart');
+                var cart = $.parseJSON(localstoragecart);
+                $.each(cart, function (index, item) {
+                    if (item.CartId == cartid) {
+                        ChangeQuantityCart(cartid, tmp);
+                    }
+                });
+
+                GetCart(brandid);
+
+                GetCartCount(brandid);
+            });
+
+            //购物车数量减
+            $(".plus[name='mycartplus']").click(function () {
+
+                var cartid = $(this).attr('value');
+                cartid = parseInt(cartid);
+
+                var tmp = parseInt($(this).next().text());
+                tmp -= 1;
+                if (tmp == 0) {
+                    $(this).parent().parent().parent().children(this).remove();
+                }
+                $(this).next().text(tmp);
+                if ($(this).next().text() == "0") {
+                    $(this).parent(".ones").hide();
+                }
+
+                //var cart = $.cookies.get('cart');
+                var cart = $.parseJSON(localstoragecart);
+                $.each(cart, function (index, item) {
+                    if (item.CartId == cartid) {
+                        ChangeQuantityCart(cartid, tmp);
+                        GetCart(brandid);
+                        GetCartCount(brandid);
+                    }
+                });
+            });
+        }
+    }
+
+    //更改菜品数量
+    function ChangeQuantityCart(cartid, quantity) {
+
+        var msg;
+        if (langkey == 'en') {
+            msg = 'Are you sure you want to delete it?';
+        }
+        else {
+            msg = '确定要删除吗？';
+        }
+
+        if (quantity == 0) {
+            //$('#cartdelalertdiv').show();
+            //$('.pop-bg').show();
+
+            if (!$(".pop-bg").data("events")) {
+
+                //$('#CondimentRequestReturna').unbind();
+                //$('#CondimentRequestReturna').click(function () {
+                //    $('#cartdelalertdiv').hide();
+                //    $('.pop-bg').hide();
+                //});
+
+                //$('#CondimentRequestSurea').unbind();
+                //$('#CondimentRequestSurea').click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ChangeQuantity',
+                        data: { "cartid": cartid, "quantity": quantity, "localcart": localstoragecart },
+                        dataType: 'json',
+                        async: false,
+                        beforeSend: function () {
+                            HideMenuOpeaorIdByIndex(brandid, cartid, 0);
+                        },
+                        success: function (data) {
+                            if (data.isRedirect) {
+                                var urlRedirect = data.redirectUrl;
+                                window.location.href = urlRedirect;
+                                return;
+                            }
+                            localstoragecart = data.retMsg;
+                        }
+                    });
+                    window.localStorage['localcart'] = localstoragecart;
+
+                    //$('#cartdelalertdiv').hide();
+                    //$('.pop-bg').hide();
+
+                    GetCart(brandid);
+                    GetCartCount(brandid);
+                //});
+                $(".pop-bg").click(function () {
+                    $(".shop-info").hide();
+                    $(".pop-bg").hide();
+                    $(".pop-bg").unbind();
+                });
+
+            }
+            else {
+                //$('.pop-bg').unbind();
+                //$('#CondimentRequestReturna').unbind();
+                //$('#CondimentRequestReturna').click(function () {
+                //    $('#cartdelalertdiv').hide();
+                //    //$('.pop-bg').hide();
+                //    $(".pop-bg").click(function () {
+                //        $(".shop-info").hide();
+                //        $(".pop-bg").hide();
+                //        $(".pop-bg").unbind();
+                //    });
+
+                //});
+
+                //$('#CondimentRequestSurea').unbind();
+                //$('#CondimentRequestSurea').click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ChangeQuantity',
+                        data: { "cartid": cartid, "quantity": quantity, "localcart": localstoragecart },
+                        dataType: 'json',
+                        async: false,
+                        beforeSend: function () {
+                            HideMenuOpeaorIdByIndex(brandid, cartid, 0);
+                        },
+                        success: function (data) {
+                            if (data.isRedirect) {
+                                var urlRedirect = data.redirectUrl;
+                                window.location.href = urlRedirect;
+                                return;
+                            }
+                            localstoragecart = data.retMsg;
+                        }
+                    });
+
+                    window.localStorage['localcart'] = localstoragecart;
+                    $('#cartdelalertdiv').hide();
+                    //$('.pop-bg').hide();
+                    $(".pop-bg").click(function () {
+                        $(".shop-info").hide();
+                        $(".pop-bg").hide();
+                        $(".pop-bg").unbind();
+                    });
+
+                    GetCart(brandid);
+                    GetCartCount(brandid);
+               // });
+            }
+            var number = $("#menuitemcountlabel").text();
+            if (number == 0) {
+                $("#soure").attr("class", "check-out-btn");
+            }
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: 'ChangeQuantity',
+                data: { "cartid": cartid, "quantity": quantity, "localcart": localstoragecart },
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    if (data.isRedirect) {
+                        var urlRedirect = data.redirectUrl;
+                        window.location.href = urlRedirect;
+                        return;
+                    }
+                    localstoragecart = data.retMsg;
+                }
+            });
+            window.localStorage['localcart'] = localstoragecart;
+            HideMenuOpeaorIdByIndex(brandid, cartid, 1);
+        }
+    }
+
+    //根据产品编号获取当前购物车中该商品的数量或CartId
+    function GetCartMenuQuantityById(brandid, menuid, returntype) {
+        var cartobj = $.parseJSON(localstoragecart);
+        var returnvalue = 0;
+        if (cartobj != null) {
+            $.each(cartobj, function (index, menu) {
+                if (menu.MenuItemId == menuid) {
+                    if (returntype == 1) {
+                        returnvalue = menu.Quantity;
+                    }
+                    if (returntype == 2) {
+                        returnvalue = menu.CartId;
+                    }
+                }
+            });
+        }
+        return returnvalue;
+    }
+
+    //隐藏商品减号、商品数量
+    function HideMenuOpeaorIdByIndex(brandid, cartid, type) {
+        var cartobj = $.parseJSON(localstoragecart);
+        var menuid = 0;
+        var quantity = 0;
+        $.each(cartobj, function (index, menu) {
+            if (menu.CartId == cartid) {
+                menuid = menu.MenuItemId;
+                quantity = menu.Quantity;
+            }
+        });
+        if (type == 0) {
+            //$('#menu-plus-' + menuid).hide();
+            var menuReduce = 'b[name=Reduce-' + menuid + ']';
+            $(menuReduce).hide();
+
+            //$('#cartmenu-quantity-' + menuid).text('0');
+            var qtyItem = 'em[name=Qty-' + menuid + ']'
+            $(qtyItem).text('0');
+            $(qtyItem).hide();
+            //$('#cartmenu-quantity-' + menuid).hide();
+        } else {
+            //$('#menu-plus-' + menuid).attr('name', menuid)
+            //$('#menu-plus-' + menuid).show();
+            var menuReduce = 'b[name=Reduce-' + menuid + ']';
+            $(menuReduce).show();
+
+            //$('#cartmenu-quantity-' + menuid).text(quantity);
+            var qtyItem = 'em[name=Qty-' + menuid + ']'
+            $(qtyItem).text(quantity);
+            $(qtyItem).show();
+            //$('#cartmenu-quantity-' + menuid).show();
+        }
+    }
+
+    function clearSX(type) {
+        if (type == 1) {
+            $('#kinds-box ul li label').removeClass("hover");
+        }
+        else if (type == 2) {
+            $('#choose-box ul li label').removeClass("hover");
+        }
+        else {
+            $('#kinds-box ul li label').removeClass("hover");
+            $('#choose-box ul li label').removeClass("hover");
+        }
+        MenuSelSort();
+    }
+
+    //筛选排序
+    function MenuSelSort() {
+
+        var selmenugroupid = new Array();
+        var selplace = new Array();
+        var sortsel;
+        var sel1 = '';
+        var sel2 = '';
+
+        $('div .menu-box01').html('');
+
+        $('#kinds-box ul li label[class="hover"]').each(function (index, item) {
+            selmenugroupid[index] = $(this).attr('name');
+            sel1 = '<label>' + $(this).html() + '<i onclick="clearSX(1)"></i></label>';
+        });
+        $('#choose-box ul li label[class="hover"]').each(function (index, item) {
+            selplace[index] = $(this).html();
+            sel2 = '<label>' + $(this).html() + '<i onclick="clearSX(2)"></i></label>';
+        });
+        if (sel1 != '') {
+            $('div .menu-box01').append(sel1);
+            $('div .menu-box01').removeAttr("style");//.css({ "padding-top": "0.5rem", "padding-botom": "0.5rem" });
+        }
+        if (sel2 != '') {
+            $('div .menu-box01').append(sel2);
+            $('div .menu-box01').removeAttr("style");//.css({ "padding-top": "0.5rem", "padding-botom": "0.5rem" });
+        }
+        if ($('#price-btn i').attr('class') == 'i02 i01_active') {
+            sortsel = 2;
+        }
+        else if ($('#price-btn i').attr('class') == 'i02 i015_active') {
+            sortsel = 1;
+        }
+        else {
+            sortsel = 0;
+        }
+
+        var selarray = {
+            sort: sortsel,
+            selmenugoupids: selmenugroupid,
+            selplaces: selplace
+        };
+
+        sel = JSON.stringify(selarray);
+
+        $('#menuitemdiv').html('');
+        skipcount = 0;
+        type = '2';
+        $.cookies.set('current.groupType', type);
+        GetMenuItem('0', '2', $.cookies.get('current.restaurantId'));
+
+        if ($.trim($('div .menu-box01').html()) == '') {
+            //padding-bottom:0px;padding-top:0px;height:0
+            $('div .menu-box01').css({ "padding-bottom": "0px", "padding-top": "0px", "height": "0" });
+        }
+    }
+
+    //选择更多
+    $('#more-btn').click(function () {
+        $.cookies.set("choicemenugroupId", '');
+        //window.location.href = "/Order/Menu1";
+        window.location.href = "/Order/Menu1";
+    });
+
+    function ClearCache(obj,Type) {
+        location.replace(obj.href);
+
+        //酒类跳转
+        if (Type == "3") {
+            $.cookies.set("choicemenugroupId", 183);
+            //window.location.href = "/Order/Menu1";
+            window.location.href = "/Order/Menu1";
+        }
+    }
+    </script>
+
+    <script type="text/javascript">
+
+        //清空当前品牌购物车
+        function ClearCart() {
+
+            $('#cartdelalertdiv').show();
+            //$(".pop-bg").show();
+            $(".pop-bg").unbind();
+            $('#CondimentRequestReturna').unbind();
+            $('#CondimentRequestReturna').click(function () {
+                $('#cartdelalertdiv').hide();
+                $(".pop-bg").click(function () {
+                    $(".shop-info").hide();
+                    $(".pop-bg").hide();
+                    $(".pop-bg").unbind();
+                });
+
+            });
+
+            $('#CondimentRequestSurea').unbind();
+            $('#CondimentRequestSurea').click(function () {
+
+                var cart = $.parseJSON(localstoragecart);
+                var cattr = $.grep(cart, function (item) {
+                    return item.Brandid != brandid;
+                }, false);
+                localstoragecart = JSON.stringify(cattr);
+                window.localStorage['localcart'] = localstoragecart;
+
+                GetCart(brandid);
+                GetCartCount(brandid);
+
+                $('#cartdelalertdiv').hide();
+                $(".pop-bg").click(function () {
+                    $(".shop-info").hide();
+                    $(".pop-bg").hide();
+                    $(".pop-bg").unbind();
+                });
+
+                $('.nub-menu .plus1').hide();
+                $('.nub-menu .cart-zhi').text('0');
+                $('.nub-menu .cart-zhi').hide();
+
+            });
+        }
+    </script>
+    <script type="text/javascript">
+
+    window.onload = function () {
+        var arrheight = [];
+
+        function arrHeight() {
+            var items = document.getElementsByClassName('right-list');
+            for (var i = 0; i < items.length; i++) {
+                var scrolltop = items[i].offsetTop;
+                arrheight.push(scrolltop);
+            }
+        }
+
+        function noactive() {
+            var item = document.getElementsByClassName('list')
+            for (var i = 0; i < item.length; i++) {
+                item[i].setAttribute('class', 'list');
+            }
+        }
+
+        // 左侧根据右侧当前滚动到的类别添加active
+        function scrollactive() {
+            var scrolltop = document.getElementById('right-hook').scrollTop;
+            for (var i = 0; i < arrheight.length; i++) {
+                // if (scrolltop > arrheight[i] && scrolltop < arrheight[i + 1]) {
+                if (scrolltop >= arrheight[i] && scrolltop < arrheight[i] + $(".right-list").eq(i).outerHeight()) {
+                    noactive();
+                    document.getElementsByClassName('list')[i].setAttribute('class', 'list list-active');
+                    break;
+                }
+            }
+        }
+        //左侧点击添加样式
+        function clickactve() {
+            // var list = document.getElementsByClassName('list');
+            var list = $(".list");
+            for (var i = 0; i < list.length; i++) {
+                list[i].onclick = function () {
+                    noactive();
+                    // list[i].setAttribute('class','list list-active');
+                    list.eq(i).addClass("list list-active");
+                }
+            }
+        }
+
+
+        function scrollTitleB() {
+            var scrolltop = document.getElementById('right-hook').scrollTop;
+            var titleHeight = $(".top-fixed").outerHeight();
+            var rightList = $(".right-list");
+            var titleSubHeight = $(".top-sub-title").outerHeight();
+            for (var i = 0; i < rightList.length; i++) {
+                var rightSubList = rightList.eq(i).find(".right-sub-list");
+                var offsetTop = rightList[i].offsetTop;
+                if (rightList.eq(i + 1).length > 0) {
+                    var offsetTop2 = rightList[i + 1].offsetTop;
+                } else {
+                    var offsetTop2 = rightList[i].offsetTop + rightList.eq(i).outerHeight();
+                }
+
+                if (scrolltop >= offsetTop && scrolltop < offsetTop2 - titleHeight) {
+                    $(".top-fixed").css("top", "0");
+                    $(".top-title").empty();
+                    for (var j = 0; j < rightSubList.length; j++) {
+                        var idText = rightSubList.eq(j).attr("id");
+                        var text = rightSubList.eq(j).find(".sub-title .txt").text();
+                        if (j == 0) {
+                            $(".top-title").append("<a href='#" + idText + "' class='txt active'>" + text + "</a>");
+                        } else {
+                            $(".top-title").append("<a href='#" + idText + "' class='txt'>" + text + "</a>");
+                        }
+
+                    }
+                    //scrollTitleSub2(rightSubList);
+                    scrollTitleSub(i);
+
+                    break;
+                } else if (scrolltop >= offsetTop2 - titleHeight && scrolltop < offsetTop2) {
+                    $(".top-fixed").css("top", -(titleHeight + scrolltop - offsetTop2) + "px");
+                    $(".top-title").empty();
+                    for (var j = 0; j < rightSubList.length; j++) {
+                        var idText = rightSubList.eq(j).attr("id");
+                        var text = rightSubList.eq(j).find(".sub-title .txt").text();
+                        if (j == 0) {
+                            $(".top-title").append("<a href='#" + idText + "' class='txt active'>" + text + "</a>");
+                        } else {
+                            $(".top-title").append("<a href='#" + idText + "' class='txt'>" + text + "</a>");
+                        }
+                        // scrollTitleSub2(rightSubList,j);
+                    }
+
+                    $(".top-sub-title .txt").text(rightList.eq(i).find(".right-sub-list:last-child .sub-title .txt").text());
+                    break;
+                } else if (scrolltop == offsetTop2 - 1) {
+                    $(".top-fixed").css("top", "0");
+                    $(".top-title").empty();
+                    for (var j = 0; j < rightSubList.length; j++) {
+                        var idText = rightSubList.eq(j).attr("id");
+                        var text = rightSubList.eq(j).find(".sub-title .txt").text();
+                        if (j == 0) {
+                            $(".top-title").append("<a href='#" + idText + "' class='txt active'>" + text + "</a>");
+                        }
+                        else {
+                            $(".top-title").append("<a href='#" + idText + "' class='txt'>" + text + "</a>");
+                        }
+                    }
+                    $(".top-sub-title .txt").text(rightList.eq(i + 1).find(".right-sub-list").find(".sub-title .txt").text());
+                    //scrollTitleSub2(rightSubList);
+                    //scrollTitleSub();
+                    break;
+                }
+            }
+        }
+
+
+        function scrollTitleSub(j) {
+            var scrolltop = document.getElementById('right-hook').scrollTop;
+            var titleHeight = $(".top-sub-title").outerHeight();
+            var rightList = $(".right-sub-list");
+            for (var i = 0; i < rightList.length; i++) {
+                // 				var offsetTop=rightList[i].offsetTop;
+                // 				var offsetTop2=rightList[i+1].offsetTop;
+                var offsetTop = rightList.eq(i).offset().top - $(".sell-header").outerHeight() + scrolltop;
+                var offsetTop2 = rightList.eq(i).offset().top + rightList.eq(i).outerHeight() - $(".sell-header").outerHeight() + scrolltop;
+
+                if (scrolltop >= offsetTop - titleHeight && scrolltop < offsetTop2 - titleHeight * 2) {
+                    $(".top-sub-title").css("top", "0");
+                    $(".top-sub-title .txt").text(rightList.eq(i).find(".sub-title .txt").text());
+
+                    $(".top-title").children("a").removeClass("active");
+                    var m = $(".right-list").eq(j).find(".right-sub-list").index($(".right-sub-list").eq(i));
+                    $(".top-title").children("a").eq(m).addClass("active");
+                    break;
+                } else if (scrolltop >= offsetTop2 - titleHeight * 2 && scrolltop < offsetTop2 - titleHeight) {
+                    $(".top-sub-title").css("top", -(titleHeight * 2 + scrolltop - offsetTop2) + "px");
+                    $(".top-sub-title .txt").text(rightList.eq(i).find(".sub-title .txt").text());
+
+                    $(".top-title").children("a").removeClass("active");
+                    var m = $(".right-list").eq(j).find(".right-sub-list").index($(".right-sub-list").eq(i));
+                    $(".top-title").children("a").eq(m).addClass("active");
+                    break;
+                } else if (scrolltop == offsetTop2 - titleHeight) {
+                    $(".top-sub-title").css("top", "0");
+                    $(".top-sub-title .txt").text(rightList.eq(i + 1).find(".sub-title .txt").text());
+                    // $(".top-title").children("a").removeClass("active");
+                    // for(var j=0;j<rightList.eq(i+1).length;j++){
+                    // var m=$(".right-list").eq(j).find(".right-sub-list").index($(".right-sub-list").eq(i));
+                    // $(".top-title").children("a").eq(i+1).addClass("active");
+                    // }
+                    break;
+                }
+            }
+        }
+
+
+
+        document.getElementById('right-hook').onscroll = function () {
+            scrollactive();
+            scrollTitleB();
+        };
+        arrHeight();
+        scrollactive();
+        clickactve();
+    }
+    $(document).on('click', '.list', function (e) {
+        $this = e.target;
+        $(this).siblings(".list").removeClass("list-active");
+        $(this).addClass("list-active");
+    })
+
+    $(function () {
+        //菜品详情
+        var ph = $(".pop-shop").height();
+        var pop = ph / 2 * (-1);
+        $(".pop-shop").css({
+            'margin-top': pop + 'px'
+        });
+        $(".combo ul li").click(function () {
+            $(this).addClass("hover").siblings().removeClass("hover")
+        });
+        $(".cart-list").click(function () {
+            $(".pop-bg").show().css({ "z-index": "1004" });
+            $(".pop-shop").show();
+        });
+        $(".close-btn").click(function () {
+            $(".pop-bg").hide().css({ "z-index": "1000" });
+            $(".pop-shop").hide();
+        });
+
+
+        //左侧菜单
+        var wH = $(window).outerHeight();
+        var hH = $(".head").outerHeight();
+        var tH = $(".top").outerHeight();
+        var sH = $(".sell-header").outerHeight();
+        var fH = $(".f-wrap").outerHeight();
+        $(".container,.left,.left .element,.right,.right .element").css({ "height": wH - sH - fH + 2 + "px" });
+        $(".right-list:last-child").css("min-height", wH - sH - fH + 2 + "px");
+
+        $(".cart-list .ones").hide();
+
+
+        //加
+        $(".add").click(function () {
+            $(this).parent(".nub").find(".ones").css({ "display": "inline-block" });
+            var tmp = parseInt($(this).parent(".nub").find("em").text());
+            tmp += 1;
+            $(this).parent(".nub").find("em").text(tmp);
+            $(".shoppingBtn").addClass("act");
+            $(".shoppingBtn i").text(tmp).addClass("act");
+            $(".check-out-btn").addClass("btn-active");
+            //$(".f-wrap").show();
+            //$(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH-fH+2+"px"});
+
+            $(".shoppingBtn").click(function () {
+                $(".pop-bg").show();
+                $(".shop").show();
+            });
+            $(".pop-bg").click(function () {
+                $(".pop-bg").hide();
+                $(".shop").hide();
+                $(".pop-shop").hide();
+            });
+
+            return false;
+        });
+
+        //减
+        $(".plus").click(function () {
+            var tmp = parseInt($(this).next().text());
+            tmp -= 1;
+            $(this).next().text(tmp);
+            $(".shoppingBtn i").text(tmp);
+            if ($(this).next().text() == "0") {
+                $(this).parent(".ones").hide();
+            }
+            if ($(".shoppingBtn i").text() == "0") {
+                $(".shoppingBtn").removeClass("act");
+                $(".shoppingBtn i").text(tmp).removeClass("act");
+                $(".check-out-btn").removeClass("btn-active");
+                //$(".f-wrap").hide();
+            }
+            //$(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH+2+"px"});
+
+            $(".shoppingBtn").unbind("click");
+            return false;
+        });
+        if ($(".cart-zhi").text() > "0") {
+            $(".menu-footer .ones").css({ "display": "inline-block" });
+        }
+    });
+
+    //添加菜品动画效果
+    $(".add").on("click", addProduct);
+    function addProduct(event) {
+        var x = event.pageX - $(document).scrollLeft();
+        var y = event.pageY - $(document).scrollTop();
+        var t = $(document).scrollTop();
+        var l = $(document).scrollLeft();
+        var offset = $('#end').offset(),
+            flyer = $("<lable class='pointer'></label>");
+        flyer.fly({
+            start: {
+                left: x,
+                top: y
+            },
+            end: {
+                left: offset.left - l,
+                top: offset.top - t,
+                width: 10,
+                height: 10
+            }
+        });
+    }
+    </script>
+
+
+
+
+    <script src="../assets/js/mobile.js"></script>
+</body>
+</html>

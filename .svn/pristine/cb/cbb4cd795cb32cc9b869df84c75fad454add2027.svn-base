@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head lang="en">	<meta charset="UTF-8">	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">	<meta name="format-detection" content="telephone=no">	<meta content="email=no" name="format-detection">	<meta name="apple-touch-fullscreen" content="yes">	<meta http-equiv="Cache-Control" content="max-age=0">	<meta name="apple-mobile-web-app-capable" content="yes">	<meta name="apple-mobile-web-app-status-bar-style" content="black">	<title>购物车</title>	<link rel="stylesheet" type="text/css" href="css/interactive/base.css" />	<link rel="stylesheet" type="text/css" href="css/interactive/main.css" />	<link rel="stylesheet" type="text/css" href="css/interactive/swiper.min.css" /></head><body class="bg"><div class="desk-title">A12</div><div class="title">	<img src="images/interactive/order-icon.png"/>	已下单状态</div><ul class="order-list">	<li>马甲线套餐<em>￥46.00 <i>×1</i><b>已下厨</b></em></li>	<li>牛油果三明治配烤番茄汤加蛋炒饭<em>￥46.00 <i>×1</i><b>已下厨</b></em></li>	<li>马甲线套餐<em>￥46.00 <i>×1</i><b>已下厨</b></em></li></ul><div class="line" style="margin-bottom: -1.5rem"></div><div class="line" style="margin-bottom: -1.5rem"></div><div class="recommend"><span>推荐菜品</span></div><div class="swiper-container">	<div class="swiper-wrapper">		<div class="swiper-slide">			<div class="recommend-list">				<a>					<img src="images/interactive/left-pic-1.png"/>				</a>				<h1>沃歌斯冠军套餐沃歌斯冠军套餐</h1>				<p>￥99</p>			</div>		</div>		<div class="swiper-slide">			<div class="recommend-list">				<a>					<img src="images/interactive/left-pic-1.png"/>				</a>				<h1>沃歌斯冠军套餐</h1>				<p>￥99</p>			</div>		</div>		<div class="swiper-slide">			<div class="recommend-list">				<a>					<img src="images/interactive/left-pic-1.png"/>				</a>				<h1>沃歌斯冠军套餐</h1>				<p>￥99</p>			</div>		</div>	</div></div><div style="height: 5.1rem"></div><!-- <div class="shoppingBtn act">	<i class="act">1</i></div><div class="f-wrap" style="display: block">	<p>		<b>￥280.00<em>共5份</em></b>	</p>	<a class="check-out-btn">付款</a>	<a class="add-btn">加菜</a></div> -->
+<div class="f-wrap">
+	<div class="shoppingBtn">
+		<i>0</i>
+	</div>
+	<div class="f-content">
+		<div id="" class="price">
+			合计：<i>￥</i><span>280.00</span>
+		</div>
+		<span class="tips">
+			共5份
+		</span>
+	</div>
+	<a class="add-dish-btn" href="">加菜</a>
+	<a class="check-out-btn" href="预订时间new.html">付款</a>
+</div>
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script><script type="text/javascript" src="js/requestAnimationFrame.js"></script><script type="text/javascript" src="js/fly.js"></script><script src="js/swiper.min.js"></script><script>    var swiper = new Swiper('.swiper-container', {        pagination: '.swiper-pagination',        slidesPerView: 3,        paginationClickable: true,        spaceBetween: 0    });</script></body></html>

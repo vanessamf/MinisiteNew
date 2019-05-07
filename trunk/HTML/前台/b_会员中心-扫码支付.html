@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/pay.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/pay.js"></script>
+    <script>
+        $(function () {
+            //显示支付选择窗
+            $("#bank").click(function () {
+                $(".pay-box").show();
+                $(".pop-bg").show();
+            });
+            //关闭支付选择窗
+            $(".close").click(function () {
+                $(".pay-box").hide();
+                $(".pop-bg").hide();
+            });
+            //选择支付方式
+            $(".pay-box li").click(function () {
+                $(this).addClass("act").siblings().removeClass("act");
+                $("#bank label").text($(this).text());
+            })
+        })
+    </script>
+</head>
+<body style="background: #d6a465">
+
+<div class="ftc_wzsf">
+    <div class="numb_box">
+        <div class="srzfmm_box">
+            <div class="qsrzfmm_bt"> <img src="images/close.png" class="close01" >请输入支付密码</div>
+            <h1>向欧尚（星塘店）支付</h1>
+            <h2>￥100.00</h2>
+            <ul class="mm_box">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <p class="forgetPW"><a>忘记密码？</a></p>
+        <ul class="nub_ggg">
+            <li><a href="javascript:void(0);">1</a></li>
+            <li><a href="javascript:void(0);" class="zj_x">2</a></li>
+            <li><a href="javascript:void(0);">3</a></li>
+            <li><a href="javascript:void(0);">4</a></li>
+            <li><a href="javascript:void(0);" class="zj_x">5</a></li>
+            <li><a href="javascript:void(0);">6</a></li>
+            <li><a href="javascript:void(0);">7</a></li>
+            <li><a href="javascript:void(0);" class="zj_x">8</a></li>
+            <li><a href="javascript:void(0);">9</a></li>
+            <li><span></span></li>
+            <li><a href="javascript:void(0);" class="zj_x">0</a></li>
+            <li><span  class="del" > <img src="images/jftc_18.png"   ></span></li>
+        </ul>
+    </div>
+    <div class="hbbj"></div>
+</div>
+
+
+<div class="pay-box">
+    <h1><a class="close"></a>请选择优先付款方式</h1>
+    <p>优先使用所选付款方式，如付款失败将尝试使用其它方式完成付款</p>
+    <ul>
+        <li>客凯易会员卡-通用卡（4978）</li>
+        <li>招商银行卡（1579）</li>
+        <li>中国银行卡（2578）</li>
+        <li>中国银行卡（2578）</li>
+        <li>中国银行卡（2578）</li>
+        <li>中国银行卡（2578）</li>
+        <li>中国银行卡（2578）</li>
+        <li>中国银行卡（2578）</li>
+    </ul>
+</div>
+<div class="pop-bg"></div>
+<img src="images/user-pic.png" class="head"/>
+<div class="code-box">
+    <img src="images/code02.png" class="w100"/>
+    <p>2017 **** 查看付款码数字</p>
+    <img src="images/code03.png" class="w40"/>
+    <a id="bank"><label>客凯易会员卡-通用卡（4978）</label>＞</a>
+</div>
+<div class="tips-text">如付款失败，请尝试使用其他会员卡</div>
+</body>
+</html>

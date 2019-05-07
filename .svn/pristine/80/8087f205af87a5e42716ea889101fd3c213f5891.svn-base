@@ -1,0 +1,348 @@
+﻿li{list-style-position:outside; list-style:none}
+img{border:0; vertical-align:top}
+ol,ul{list-style:none;}
+a,a.link,a.visited{text-decoration:none; color:#222}
+.clear {display:block; height:0; clear:both; font-size:0; overflow:hidden;}
+
+.layui-checkbox-disbaled[lay-skin=primary] span { color:#c2c2c2}
+
+input { outline:none;}
+textarea { resize:none}
+.kit-layout-admin .layui-logo{ background:url(./../images/logo_cuscapi.png) no-repeat 10px 0; background-size:140px;text-align:left;}
+.layui-logo span{ color:#fff; font-size:22px;padding-left:150px;}
+
+.t-btn { margin-bottom:10px}
+/*促销活动-券管理*/
+.table { width: 100%; border-collapse: collapse; border: 1px solid #eee}
+.table thead td { background: #fff }
+.table td{ padding: 0 5px; text-align: center;white-space:nowrap; text-overflow: ellipsis;border: 1px solid #eee;background: #fafcfc}
+.table tr:nth-child(2n) td { background: #fff}
+.table thead td { height: 32px;}
+.table thead td:last-child { border-right: 0}
+.table tbody td {height: 40px;}
+.table tr td.odd { background: #d4e4f2}
+/*main css style*/
+
+.table-responsive { padding: 10px; overflow: auto}
+.btn { display: inline-block; color: #222; cursor: pointer; margin: 0 5px}
+
+.tab { border-bottom: 1px solid #eee; margin:0 10px; }
+.tab em {
+    position: relative;
+    display: inline-block; width: 130px; font-style: normal; text-align: center;height: 32px; line-height: 32px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-radius: 3px 0 0 3px;
+    background: #f1f6fd;
+    cursor: pointer; vertical-align: middle; margin-bottom: 10px;
+}
+.tab em:after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; width: 14px; height: 32px;
+    background: url("../images/tab01.png") 0 0 no-repeat;
+
+}
+.tab em.active { color: #fff; background: #1d66dc}
+.tab em.active:after {background: url("../images/tab02.png") 0 0 no-repeat;}
+.tab em.active { color: #fff; background: #1d66dc}
+.more-btn { display: inline-block; cursor: pointer; position: relative; width: 130px; vertical-align: middle; margin:0 0 10px 20px}
+.more-btn i { display: block; border: 1px solid #cecdcd;text-align: center;border-radius: 5px; height: 32px; line-height: 32px; font-style: normal;}
+.more-box { display: none; position: absolute; right: 0; top: 30px; width: 100%;border-bottom: 1px solid #cecdcd; background: #fff; border-radius: 0 0 5px 5px; overflow: hidden; z-index: 1}
+.more-box p {
+    cursor: pointer; border-left: 1px solid #cecdcd;border-right: 1px solid #cecdcd; text-align: center; line-height: 40px; height: 40px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;}
+.more-box p:hover { background: #f1f6fd}
+
+.set-box { padding: 10px 10px 0 10px}
+.add { background:#57ba88 url("../images/add-icon.png") 20px center no-repeat; width: 100px;  padding-left: 40px}
+.add:hover { color: #fff}
+.search-btn { background: #1d66dc}
+
+.from-box { float: right}
+.from-box li { float: left; margin-left: 15px}
+.from-box li a { cursor: pointer; background: #1d66dc; color: #fff; line-height: 34px; border-radius: .5rem; text-align: center; display: inline-block; width: 80px}
+
+/*促销活动-创建券*/
+.nav-ticket { border-bottom: 1px solid #eee; margin:0 10px 15px 10px; line-height: 50px; color: #222}
+.nav-ticket a:hover{ color: #1d66dc;}
+.nav-ticket i { display: inline-block; font-style: normal; font-family: 宋体;}
+
+
+/*卡券中心*/
+.stamp {
+    width: 310px;
+    height: 125px;
+    padding-right:10px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 10px 0 10px;
+    display: inline-block;
+}
+.stamp:before {
+    content: '';
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:10px;
+    z-index: -1;
+}
+.stamp i {
+    position: absolute;
+    left: -17%;
+    bottom:-120%;
+    height: 190px;
+    width:500px;
+    background-color: rgba(255, 255, 255, .1);
+    transform: rotate(25deg);
+}
+.stamp .par {float: left;width: 280px;height: 125px;text-align: left;}
+.stamp01 .par {border-right:2px dashed #c31d32;}
+.stamp02 .par {border-right:2px dashed #318651;}
+.stamp .par p {color:#fff;font-size: 18px; text-align: center; padding: 20px 0}
+.stamp .par p img { vertical-align: middle}
+.stamp .par p em { font-style: normal; display: inline-block; vertical-align: middle; padding-left: 5px}
+
+.stamp .par span {display: block; font-size: 16px;color:#fff;padding: 0 15px 0 27px}
+
+.stamp01 {
+    background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10px, #e75164 10px);
+    background-size: 30px 30px;
+    background-position: 9px 3px;
+}
+.stamp01:before {background-color:#e75164;}
+.stamp .copy {
+    display: inline-block;
+    width:40px;
+    vertical-align: text-bottom;
+    font-size: 30px;
+    color:rgb(255,255,255);
+    text-align: center;
+    line-height: initial;
+}
+.stamp02 {
+    background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10px, #56b97b 10px);
+    background-size: 30px 30px;
+    background-position: 9px 3px;
+}
+.stamp02:before { background-color:#56b97b;}
+
+.layui-input-block { margin-left: 130px}
+.vertical .layui-form-label { width: 100px}
+.input01 { width: 350px;}
+.input02 { width: 90px;}
+.brand-select .layui-form-select{ width: 350px}
+.agio-select { margin:0 10px 0 -10px; display: inline-block;}
+.agio-select .layui-form-select{ width: 90px;}
+.wd-sm{width:90px;}
+.st-price.wd-sm{width:90px;display: inline-block;}
+.t-text { font-style: normal; display: inline-block; margin-right: 20px}
+.layui-form-radio { margin: 0 10px 0 0}
+.date { margin:0 10px 0 -10px; display: inline-block;}
+.date input { width: 180px; margin-top: 15px; background: url("../images/date.png") 96% center no-repeat}
+.layui-form-label { width: 100px}
+.choose-btn { cursor: pointer; display: inline-block; vertical-align:top; color: #1d66dc; border: 1px solid #e6e6e6; line-height: 28px; padding: 0 10px; margin-left: -5px; border-radius: 0 2px 2px 0;background: #f2f2f2}
+.layui-layedit { width: 620px; height: 200px}
+.layui-form-radio i:hover, .layui-form-radioed i { color:#1d66dc}
+
+.layui-form-label{padding:5px 15px;}
+.layui-btn{ height: 30px;line-height: 30px;background-color: #1d66dc}
+.layui-btn.submit-btn{  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+.layui-input, .layui-select, .layui-textarea{height: 30px;line-height: 30px;}
+.layui-table td, .layui-table th{text-align: center; padding: 5px 15px;}
+.layui-form-select dl{top:36px;}
+.layui-form-select dl dd, .layui-form-select dl dt{line-height: 30px;}
+.modal-content .layui-laypage{margin:0 0 10px;}
+.layui-form-radio i{font-size:20px;}
+
+.layui-btn-primary { background-color: #a4c7fe; color: #fff; border: 1px solid #a4c7fe}
+.layui-btn-primary:hover {border: 1px solid #a4c7fe; color: #fff}
+.red { color: #ff0000; font-style: normal; display: inline-block; margin-right: 5px;}
+input.disabled { background-color: #f2f2f2}
+.pop-bg { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,.5); z-index: 1001}
+.layui-laypage .layui-laypage-curr .layui-laypage-em {background: none}
+.layui-laypage .layui-laypage-curr em{ color: #1d66dc}
+.layui-laypage a, .layui-laypage span { font-size:14px; }
+.layui-laypage a:hover {color: #1d66dc}
+a.layui-laypage-prev ,a.layui-laypage-next { color: #1d66dc}
+
+.selected-stores .layui-form-item{margin-bottom: 0;}
+.selected-stores { position: relative; padding:10px 5px 10px 100px; border: 1px solid #eee; border-top: 0}
+.selected-stores em { display: block; position: absolute; left: 20px; top: 15px; font-style: normal;}
+.selected-stores ul { height: 68px; overflow: auto}
+.selected-stores li { float: left; border: 1px solid #eee; line-height: 28px; padding: 0 15px; margin:0 18px 8px 0}
+/*.selected-stores li:nth-child(6n) { margin:0 0 10px 0}*/
+.selected-stores li:hover { background: #1d66dc; border: 1px solid #1d66dc; color: #fff}
+.selected-stores li:hover .close { cursor: pointer; background: url("../images/close02.png") 0 center no-repeat }
+.close { width: 11px; height: 11px; background: url("../images/close01.png") 0 center no-repeat; display: inline-block;border: 0; margin-left: 10px}
+
+.search-box { padding: 10px 20px 0; margin-bottom: -5px}
+.search-box i{ font-style: normal;}
+.search-box .layui-form-item { display: inline-block;margin-bottom: 0;}
+.search-box .w90,.input-s{ margin: 0; display: inline-block; width: 93px; margin-right: 5px}
+.btn-search{ margin: 0; display: inline-block;}
+
+/*卡券中心-券管理*/
+.state-toggle,.state-toggle > li{ display: inline-block;}
+.op-list .btn,.state-toggle li > *{ color: #51a2fd; cursor: pointer}
+.op-list .btn:hover,.state-toggle > li:hover > *{ color: #20a0ff;font-weight: bold;}
+.state-toggle .state-disabled,.state-toggle.active .state-enabled{display: none}
+.state-toggle .state-enabled,.state-toggle.active .state-disabled{display: inline-block}
+/*场景式营销*/
+.t { background: #fed6db; text-align: center; margin: -15px 0 0 0}
+.t p{ display: inline-block; background: url("../images/t.png") 0 center no-repeat; line-height: 30px; padding-left: 30px; color: #333}
+.scene { padding: 0 10px 0 10px; border-bottom: 18px solid #f5f5f5; margin-bottom: 10px; overflow: hidden}
+.scene:last-child { margin-bottom: 0; border-bottom: 0}
+.scene h1 { color: #1d66dc; padding-bottom: 10px }
+.scene a {cursor: pointer; float: left; border: 1px solid #eee; width: 330px; padding: 10px; margin:0 10px 10px 0; border-radius: 3px}
+.scene a:hover { color: #222}
+.scene a h2 { font-size: 18px; text-align: center;}
+.scene a em { display: block; font-style: normal; color: #999; padding: 10px 0; font-size: 12px}
+.scene a p { text-align: center}
+
+.drop { display: none; position: absolute; left: 0; top: 36px; background: #fff; border: 1px solid #e6e6e6; width: 397px; z-index: 2}
+.drop ul { border-bottom: 1px solid #e6e6e6; overflow: hidden; padding-bottom: 10px;}
+.drop ul li { float: left; width: 50%;}
+.drop div { margin: 5px 0 5px 10px}
+.drop button { float: right; margin: 10px}
+.drop input[type=checkbox] { vertical-align: middle}
+.drop i { display: inline-block; font-style: normal; vertical-align: middle; margin-left: 10px}
+
+.tips { display: inline-block;}
+.tips i {cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: middle; border-radius: 17px; margin:0 10px 0 -18px; font-style: normal; color: #2167da; border: 1px solid #2167da; text-align: center;  }
+.tips-box01 { display: none; position: absolute; left: 0; top: 50px; width: 350px; background: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 3px; z-index: 2}
+.tips-box01:before {
+    content: '';
+    position: absolute;
+    left: 45%; top: -17px; width: 29px; height: 17px;
+    background: url("../images/arw.png") 0 0 no-repeat;
+}
+.tips-box02 { display: none; position: absolute; left: 0; top: 50px; width: 350px; background: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 3px; z-index: 2}
+.tips-box02:before {
+    content: '';
+    position: absolute;
+    right: 11%; top: -17px; width: 29px; height: 17px;
+    background: url("../images/arw.png") 0 0 no-repeat;
+}
+.tips-box02 p { text-align: center; padding-top: 10px}
+.tips-box02 p sub { display: inline-block; background: url("../images/right.png") right center no-repeat; padding-right: 20px; color: #d13e51; font-size: 14px}
+
+.view { padding: 20px}
+.view li { position: relative; padding:0 0 10px 100px}
+.view li:last-child { padding-bottom: 0}
+.view li em { position: absolute; left:0; top: 0; font-style: normal; display: inline-block; width: 90px; text-align: right}
+.btn01 { cursor: pointer; border: 0; background: none; margin-right: 20px}
+.md-box dl { display: inline;}
+.md-box dl dd { display: inline-block}
+.more-md { cursor: pointer; color: #1d66dc}
+
+.h3-warn{ padding:60px 0 40px;text-align:center; margin:auto;font-size: 32px;font-weight: bold;}
+#func_unrealized + span +.layui-layer-btn{ padding-bottom:50px;}
+#func_unrealized + span + .layui-layer-btn a{ background: #7d9ed1;border-color:#7d9ed1;padding: 2px 40px;}
+
+.step li { float: left; width: 33.3333%; text-align: center; color: #999; padding-bottom: 20px}
+.step li i { font-style: normal; display: inline-block; background: #999; color: #fff; vertical-align: middle; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 30px; margin-right: 10px}
+.step li.step-active { color: #6697e7}
+.step li.step-active i { background: #6697e7}
+
+.f-title { border-left: 3px solid #222; clear: both; margin-left: 10px; padding-left: 10px; margin-bottom: 20px}
+.time { display: inline; width: 150px; background: url("../images/time-icon.png") 95% center no-repeat; background-size: 19px;}
+.day-btn { cursor: pointer; display: inline; background: #1d66dc; border-radius: 5px; color: #fff; border: 0; width: 50px; height: 30px; margin-left: 10px}
+.day-btn.active {
+    background: #1c55b1;
+    -moz-box-shadow:0 0 10px #09267d inset;
+    -webkit-box-shadow:0 0 10px #09267d inset;
+    box-shadow:0 0 10px #09267d inset;
+}
+.date01 { background: url("../images/date.png") 95% center no-repeat;display: inline; width: 150px}
+.line { background: #eee; height: 1px; width: 30px; margin: 0 10px; display: inline-block; font-style: normal; vertical-align: middle}
+.t-box { padding: 15px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 0 10px 20px 10px; height: 30px}
+.t-box ul li { float: left; padding-right: 20px}
+.t-box ul li input { display: inline; margin-left: 10px}
+.t-box ul li .layui-select-title { width: 90px}
+.t-box ul li em { font-style: normal; width: 10px; height: 1px; display: inline-block; background: #ccc; margin-left:10px; vertical-align: middle}
+.t-box ul li button.layui-btn { margin-left: -10px}
+.layui-btn-normal { background: #57ba88}
+
+.tips-t { display: inline-block; background: url("../images/tips.png") 0 center no-repeat; background-size: 20px; line-height: 20px; padding-left: 25px; margin-left: 40px; color: #fa0000}
+
+.set-box { padding-top: 40px}
+.set-box li { margin-bottom: 20px}
+.set-box input[type=text] {width: 200px; display: inline}
+.set-box li .layui-unselect{ margin-left: 70px}
+.set-box li em { font-style: normal; display: inline-block; width: 60px; text-align: right; margin-left: -25px}
+
+.view-box { padding: 20px 20px 10px 20px}
+.view-box ul li { position: relative; padding:0 0 10px 80px}
+.view-box ul { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px}
+.view-box ul li em { font-style: normal; position: absolute; left: 0; top: 0;}
+
+.c-box input[type=text] {width: 120px; display: inline; margin: 0 5px}
+.add-btn { background:#57ba88 url("../images/add-icon.png") center center no-repeat; text-indent: -9999px; margin: 0 10px 0 20px }
+.del-btn { cursor: pointer; background:url("../images/del-icon.png") center center no-repeat; text-indent: -9999px; margin: 0 10px 0 27px; border: 0; width: 30px; height: 30px; vertical-align:middle }
+.m20 { margin:15px 0 0 130px}
+
+.s-rule { border: 1px solid #eee; margin: 0 10px}
+.s-rule h1 { padding: 15px}
+.s-rule p { border-top: 1px solid #eee; padding: 15px 15px 15px 65px;background: url("../images/tips01.png") 15px center no-repeat}
+.s-rule p:last-child {  background: none}
+.s-rule p em { font-style:normal; color: #ee0200}
+
+.s-step {border: 1px solid #eee; margin:20px 10px 10px 10px}
+.s-step h1 { padding: 15px; border-bottom: 1px solid #eee}
+.s-step table { border-collapse: collapse; width: 100%}
+.s-step table tr { border-bottom: 1px solid #eee}
+.s-step table tr:last-child { border-bottom: 0}
+.s-step table td { padding: 15px}
+.s-step table td:first-child { width: 250px}
+.s-step table td:last-child { width: 100px; text-align: center}
+.i-box { border: 1px solid #ccc; width: 250px; height:150px; text-align: center}
+.i-box p { font-size: 18px; padding: 40px 0 20px 0}
+
+.b-box { padding: 40px}
+
+.view table { border-collapse: collapse; width: 100%}
+.view table td{ border: 1px solid #ccc; padding: 15px}
+.view table tr td:nth-child(1) { text-align: center; background: #f1f6fd; width: 100px}
+
+.img-box  { cursor: pointer; position: relative; width: 27px; height: 27px; float: left; margin-right: 15px}
+.vip { display: none; position: absolute; right: -190px; top: 20px; z-index: 2}
+.drop-vip { position: relative; border: 1px solid #ccc; background: #fafafa; border-radius: 5px; display: inline-block; width: 170px; padding: 10px;}
+.drop-vip:before {content: ''; position: absolute; left: -9px; top: 5px; width: 9px; height: 17px; display: block; background: url("../images/left-arw.png") 0 0 no-repeat}
+.drop-vip b { font-weight: normal; padding-bottom: 5px; display: block}
+
+.g-box { margin-top: -20px}
+.g-box dd { position: relative; float: left; cursor: pointer; width: 44px; height: 44px; background: url("../images/grg.png") 0 0 no-repeat; margin:20px 20px 0 0}
+.g-box dd:hover {background: url("../images/blue01.png") 0 0 no-repeat; }
+.g-box dd.active {background: url("../images/blue02.png") 0 0 no-repeat; }
+.g-box dd span { display: block; font-weight: normal; color: #fff; font-size: 11px; padding-top: 5px; text-align: center; }
+
+.oneDiv { display: inline-block}
+.m10 { margin-top: 15px}
+.m10 button.del-btn { vertical-align: middle}
+
+.tab { border-bottom: 1px solid #eee; overflow: hidden}
+.tab li { float:left; display:inline-block; cursor:pointer; height:40px; line-height:40px; border-bottom:2px solid transparent;padding: 0 15px; font-weight: bold; background: url("../images/tab_line.png") center right no-repeat}
+.tab li:last-child { background: none}
+.tab .sale_hover { border-bottom:2px solid #1d66dc; font-weight: bold;  color: #1d66dc}
+.Contentbox{ padding:0 10px; clear:both;}
+
+.login ul li{ position: relative; float: left; width: 50% }
+.login ul li:nth-child(1) { background: url("../images/login-bg.png") right 0 no-repeat; background-size: contain}
+.login ul li:nth-child(2) { background: #1d66dc}
+.logo { margin: 50px 0 0 50px}
+.tree { position: absolute; left: 50%; top: 50%; width: 409px; height: 511px; margin: -255px 0 0 -234px}
+.login-w { position: absolute; left: 50%; top: 50%; background: #fff; border-radius: 10px; width: 450px; height: 510px; margin: -255px 0 0 -225px}
+.wapper { padding: 44px}
+.wapper h1 { padding: 44px 0; text-align: center; color: #1d66dc; font-size: 20px}
+.login-btn { width: 100%; height: 45px; line-height: 45px; font-size: 20px; margin-top: 44px}
+
+.box { position: relative; padding-left: 360px}
+.pic { position: absolute; left: 10px; top: 0}

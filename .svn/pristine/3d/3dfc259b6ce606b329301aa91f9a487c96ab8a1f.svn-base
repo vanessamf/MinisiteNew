@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>美食美馔</title>
+		<link rel="stylesheet" type="text/css" href="../css/interactive/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/interactive/main-mobile.css" />
+		<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css">
+	</head>
+	<body class="bg-dark" style="height:100%;">
+		<div class="catalog-header">
+			<img src="../images/interactive/banner5.jpg" alt="">
+			<div class="header-dec">
+				<h1>餐厅介绍</h1>
+				<i class="line"></i>
+				<p class="info">红砖青瓦装饰  独具闽南风情</p>
+				<p>
+					<span class="tag">闽粤菜肴</span>
+					<span class="tag">川湘菜</span>
+					<span class="tag">清吧茶室</span>
+				</p>
+			</div>
+		</div>
+		<div class="catalog-wrapper">
+			<ul>
+				<li>
+					<div class="dining-title">
+						<i class="line-left"></i>
+						<span>中化太仓</span>
+						<i class="line-right"></i>
+					</div>
+					<div class="dining-dec">
+						<a id="" href="用餐方式new.html">
+							<img src="../images/interactive/taicang.jpg" alt="">
+							<div class="img-text">
+								<img src="../images/interactive/img-text.jpg" alt="">
+							</div>
+						</a>
+						<div class="content">
+							<div class="name-wrapper">
+								<div class="name">
+									<h2>中化太仓</h2>
+									<span class="tag">悠闲</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+							
+							<div class="more">
+								<ul class="time">
+									<li>
+										<span>早餐</span>
+										<span>07:30-09:30</span>
+									</li>
+									<li>
+										<span>中餐</span>
+										<span>07:30-09:30</span>
+									</li>
+									<li>
+										<span>晚餐</span>
+										<span>07:30-09:30</span>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dining-title">
+						<i class="line-left"></i>
+						<span>山遇·桃源</span>
+						<i class="line-right"></i>
+					</div>
+					<div class="dining-dec">
+						<a id=""href="详情页.html">
+							<img src="../images/interactive/taoyuan.png" alt="">
+						</a>
+						<div class="content">
+							
+							<div class="name-wrapper">
+								<div class="name">
+									<h2>山遇·桃源</h2>
+									<span class="tag">高雅</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dining-title">
+						<i class="line-left"></i>
+						<span>得闲茶室</span>
+						<i class="line-right"></i>
+					</div>
+					<div class="dining-dec">
+						<a id="">
+							<img src="../images/interactive/chashi.png" alt="">
+						</a>
+						<div class="content">
+							
+							<div class="name-wrapper">
+								<div class="name">
+									<h2>得闲茶室</h2>
+									<span class="tag">高雅</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dining-title">
+						<i class="line-left"></i>
+						<span>半晌时光清吧</span>
+						<i class="line-right"></i>
+					</div>
+					<div class="dining-dec">
+						<a id="">
+							<img src="../images/interactive/qingba.png" alt="">
+						</a>
+						<div class="content">
+							
+							<div class="name-wrapper">
+								<div class="name">
+									<h2>半晌时光清吧</h2>
+									<span class="tag">休闲</span>
+									<span class="tag">休闲</span>
+									<span class="tag">休闲</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+<script>
+		
+	window.onload=function(){
+		liHeight();
+		
+		decHeight();
+		imgHeight();
+	}
+	window.onresize = function() {
+		liHeight();
+		
+		decHeight();
+		imgHeight();
+	}
+		
+	function liHeight(){
+		var liHeight=$(document.body).height()-$(".catalog-header").height();
+		var liList=$(".catalog-wrapper>ul>li");
+		for(var i=0;i<liList.length;i++){
+			liList.eq(i).outerHeight(liHeight);
+		}
+	}
+	
+	function decHeight(){
+		var decList=$(".catalog-wrapper .dining-dec");
+		for(var i=0;i<decList.length;i++){
+			var decHeight=$(".catalog-wrapper>ul>li").eq(i).height()-$(".catalog-wrapper>ul>li").eq(i).children(".dining-title").outerHeight();
+			decList.eq(i).outerHeight(decHeight);
+		}
+	}
+	function imgHeight(){
+		// debugger;
+		
+		var imgList=$(".dining-dec a");
+		for(var i=0;i<imgList.length;i++){
+			var imgHeight=$(".dining-dec").eq(i).height()-$(".dining-dec .content").eq(i).outerHeight();
+			imgList.eq(i).outerHeight(imgHeight);
+		}
+	}
+	
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-2.1.0.js"></script>
+    <script src="js/rp.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>更换手机号码</title>
+    <script src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript">
+        var countdown=60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.removeAttribute("class");
+                obj.value="重新获取";
+                countdown = 60;
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.className = 'abc';
+                obj.value= countdown + "s";
+                countdown--;
+            }
+            setTimeout(function() {
+                settime(obj) }
+           ,1000)
+        }
+    </script>
+</head>
+<body>
+<div class="meg-box">
+    <p>当前手机号：<b>131****3077</b></p>
+</div>
+<div class="inpBox02" style="padding:0 .5rem 0 2.2rem">
+    <em>新手机号码：</em><input type="tel" value="11"/>
+</div>
+<div class="inpBox02">
+    <em>图形验证码：</em><input type="text" placeholder="" /><img src="images/code04.png"/>
+</div>
+<div class="inpBox02">
+    <em>验证码：</em><input type="text" placeholder="" />
+    <input type="button" id="btn" value="获取短信验证码" onclick="settime(this)" />
+</div>
+<div class="m25">
+    <a href="个人资料.html" class="btn">确定</a>
+</div>
+</body>
+</html>

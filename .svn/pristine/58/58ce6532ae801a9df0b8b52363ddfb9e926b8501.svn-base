@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>更换手机号码</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        var countdown=60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.removeAttribute("class");
+                obj.value="重新获取";
+                countdown = 60;
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.className = 'abc';
+                obj.value= countdown + "s";
+                countdown--;
+            }
+            setTimeout(function() {
+                settime(obj) }
+           ,1000)
+        }
+    </script>
+</head>
+<body>
+<div class="meg-box">
+    <p>Current number：<b>131****3077</b></p>
+</div>
+<div class="inpBox03">
+    <em>Graphic code：</em>
+    <div><input type="text" placeholder="" /><img src="images/code04.png"/></div>
+</div>
+<div class="inpBox03">
+    <em>SMS Verification code：</em>
+    <div>
+        <input type="text" placeholder="" />
+        <input type="button" id="btn" value="Get Verificateion code" onclick="settime(this)" />
+    </div>
+</div>
+<a href="会员中心-设置-开启验证支付3.html" class="btn-sub">确定</a>
+</body>
+</html>

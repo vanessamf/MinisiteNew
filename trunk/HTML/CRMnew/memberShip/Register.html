@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 42.6667px;"><head lang="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../Scripts/jquery-2.1.0.js"></script>
+    <script src="../Scripts/rp.js?v=1"></script>
+    <script src="../Scripts/main.js?v=1"></script>
+
+    <title>注册</title>
+<link href="../css/Content/base.css" rel="stylesheet">
+<link href="../css/Content/main.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/Content/public.css?v=1">
+</head>
+<body style="">
+    
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      var countdown=60;
+      function settime(obj) {
+          if (countdown == 0) {
+              obj.removeAttribute("disabled");
+              obj.removeAttribute("class");
+              obj.value="重新获取";
+              countdown = 60;
+              return;
+          } else {
+              obj.setAttribute("disabled", true);
+              obj.className = 'abc';
+              obj.value= countdown + "s";
+              countdown--;
+          }
+          setTimeout(function() {
+                  settime(obj) }
+              ,1000)
+      }
+    </script>
+
+    <title>注册</title>
+
+
+    <img src="/images/user.png" class="user">
+    <div class="inpBox">
+        <ul>
+            <li><i class="phoneIcon"></i><input type="text" placeholder="手机号"></li>
+            <li><input type="text" placeholder="验证码" id="code"><input type="button" id="btn" value="发送验证码" onclick="settime(this)"></li>
+            <li><input type="text" placeholder="图形验证码"><img src="/images/code04.png"></li>
+        </ul>
+    </div>
+    <div class="pincode-input-error"><i></i>验证码不正确，请重新输入</div>
+    <div class="inpBox infoBox">
+        <ul>
+            <li>
+                <i>性别</i>
+                <div class="opt-wrapper">
+                	<div class="opt">
+                		<input class="magic-radio" type="radio" name="radio" id="r1" value="1" checked="">
+                		<label for="r1">男</label>
+                	</div>
+                	<div class="opt">
+                		<input class="magic-radio" type="radio" name="radio" id="r2" value="2">
+                		<label for="r2">女</label>
+                	</div>
+                	
+                </div>
+            </li>
+            <li><input id="demo1" type="text" readonly="" placeholder="生日" data-lcalendar="2016-05-11,2016-05-11" unselectable="on" onfocus="this.blur()" class="date"></li>
+        </ul>
+    </div>
+    <div class="m25 agreementBox">
+        <div class="checkbox">
+        	<input class="magic-checkbox" type="checkbox" name="layout" id="c1" checked="" onchange="checkAll()">
+        	<label for="c1" style="display: inline-block">同意</label>
+        	<a href="/Membership/RegistrationProtocol">《用户协议》</a>
+        </div>
+        <button class="btn disabled">确定</button>
+    </div>
+    <script src="js/datePicker.js"></script>
+		<script type="text/javascript">
+				
+			window.onload=function(){
+				checkAll()
+			}
+			$("#c1").on("click",function(){
+				checkAll()
+			})
+				
+			function checkAll(){
+				if($("#c1").is(':checked')){
+					$(".agreementBox .btn").css("background","#d4374c");
+				}else{
+					$(".agreementBox .btn").css("background","#959595");
+				}
+			}
+		</script>
+    <script>
+    var calendar = new datePicker();
+    calendar.init({
+        'trigger': '#demo1', /*按钮选择器，用于触发弹出插件*/
+        'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'minDate':'1900-1-1',/*最小日期*/
+        'maxDate':'2100-12-31',/*最大日期*/
+        'onSubmit':function(){/*确认时触发事件*/
+            var theSelectData=calendar.value;
+        },
+        'onClose':function(){/*取消时触发事件*/
+        }
+    });
+
+    //验证码
+    $(function () {
+        $('#code').blur(function(){
+            if(!($(this).val()=='1234')){
+                $(".pincode-input-error").show();
+            }else {
+                $(".pincode-input-error").hide();
+            }
+        })
+    })
+    </script>
+
+
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+<script src="/Scripts/jquery-2.1.0.js"></script>
+
+    <script src="/Scripts/base.js"></script>
+
+    <script src="/assets/js/String.js"></script>
+
+    
+
+
+<script>
+    //获取配置文件里的接口信息
+    var api_url = 'http://m1.jiezhiinfo.cn/api/xsite/interface/';
+
+    setApiUrl(api_url);
+</script>
+</body></html>

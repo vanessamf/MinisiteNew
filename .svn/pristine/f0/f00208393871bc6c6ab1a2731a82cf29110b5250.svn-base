@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html style="font-size: 42.6667px;">
+	<head lang="en">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<script src="../Scripts/jquery-2.1.0.js"></script>
+		<script src="../Scripts/rp.js?v=1"></script>
+		<script src="../Scripts/main.js?v=1"></script>
+
+		<title>完善账号</title>
+		<link href="../css/Content/base.css" rel="stylesheet">
+		<link href="../css/Content/main.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="../css/Content/public.css?v=1">
+		<link rel="stylesheet" href="../css/Content/main.css?v=4">
+		<style type="text/css">
+			.gearYM,
+			.gearDate,
+			.gearDatetime,
+			.gearTime {
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 10px;
+				background-color: rgba(0, 0, 0, 0.2);
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 9900;
+				overflow: hidden;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both
+			}
+
+			.date_ctrl {
+				vertical-align: middle;
+				background-color: #d5d8df;
+				color: #000;
+				margin: 0;
+				height: auto;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				z-index: 9901;
+				overflow: hidden;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0)
+			}
+
+			.slideInUp {
+				animation: slideInUp .3s ease;
+				-webkit-animation: slideInUp .3s ease;
+			}
+
+			@-webkit-keyframes slideInUp {
+				from {
+					-webkit-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0)
+				}
+
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0)
+				}
+			}
+
+			.ym_roll,
+			.date_roll,
+			.datetime_roll,
+			.time_roll {
+				display: -webkit-box;
+				width: 100%;
+				height: auto;
+				overflow: hidden;
+				background-color: transparent;
+				-webkit-mask: -webkit-gradient(linear, 0% 50%, 0% 100%, from(#debb47), to(rgba(36, 142, 36, 0)));
+				-webkit-mask: -webkit-linear-gradient(top, #debb47 50%, rgba(36, 142, 36, 0))
+			}
+
+			.ym_roll>div,
+			.date_roll>div,
+			.datetime_roll>div,
+			.time_roll>div {
+				font-size: 2.3em;
+				height: 6em;
+				float: left;
+				background-color: transparent;
+				position: relative;
+				overflow: hidden;
+				-webkit-box-flex: 4
+			}
+
+			.ym_roll>div .gear,
+			.date_roll>div .gear,
+			.datetime_roll>div .gear,
+			.time_roll>div .gear {
+				width: 100%;
+				float: left;
+				position: absolute;
+				z-index: 9902;
+				margin-top: -6em
+			}
+
+			.date_roll_mask {
+				-webkit-mask: -webkit-gradient(linear, 0% 40%, 0% 0%, from(#debb47), to(rgba(36, 142, 36, 0)));
+				-webkit-mask: -webkit-linear-gradient(bottom, #debb47 50%, rgba(36, 142, 36, 0));
+				padding: 0 0 3em 0
+			}
+
+			.date_roll>div:nth-child(2) {
+				-webkit-box-flex: 2
+			}
+
+			.date_roll>div:nth-child(1),
+			.datetime_roll>div:nth-child(1) {
+				-webkit-box-flex: 4
+			}
+
+			.datetime_roll>div:first-child {
+				-webkit-box-flex: 6
+			}
+
+			.datetime_roll>div:last-child {
+				-webkit-box-flex: 6
+			}
+
+			.date_grid {
+				position: relative;
+				top: 2em;
+				width: 100%;
+				height: 2em;
+				margin: 0;
+				box-sizing: border-box;
+				z-index: 0;
+				border-top: 1px solid #abaeb5;
+				border-bottom: 1px solid #abaeb5
+			}
+
+			.date_grid>div {
+				color: #000;
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: .8em;
+				line-height: 2.5em
+			}
+
+			.date_roll>div:nth-child(3) .date_grid>div {
+				left: 42%
+			}
+
+			.datetime_roll>div .date_grid>div {
+				right: 0
+			}
+
+			.datetime_roll>div:first-child .date_grid>div {
+				left: auto;
+				right: 0%
+			}
+
+			.datetime_roll>div:last-child .date_grid>div {
+				left: 50%
+			}
+
+			.time_roll>div:nth-child(1) .date_grid>div {
+				right: 1em
+			}
+
+			.ym_roll>div:nth-child(1) .date_grid>div {
+				right: .1em
+			}
+
+			.ym_roll>div .date_grid>div,
+			.time_roll>div .date_grid>div {
+				right: 5em
+			}
+
+			.date_btn {
+				color: #333;
+				font-size: 1.6em;
+				line-height: 1em;
+				text-align: center;
+				padding: .8em 1em
+			}
+
+			.date_btn_box:before,
+			.date_btn_box:after {
+				content: "";
+				position: absolute;
+				height: 1px;
+				width: 100%;
+				display: block;
+				background-color: #96979b;
+				z-index: 15;
+				-webkit-transform: scaleY(0.33);
+				transform: scaleY(0.33)
+			}
+
+			.date_btn_box {
+				display: -webkit-box;
+				-webkit-box-pack: justify;
+				-webkit-box-align: stretch;
+				background-color: #f1f2f4;
+				position: relative
+			}
+
+			.date_btn_box:before {
+				left: 0;
+				top: 0;
+				-webkit-transform-origin: 50% 20%;
+				transform-origin: 50% 20%
+			}
+
+			.date_btn_box:after {
+				left: 0;
+				bottom: 0;
+				-webkit-transform-origin: 50% 70%;
+				transform-origin: 50% 70%
+			}
+
+			.date_roll>div:nth-child(1) .gear {
+				text-indent: 20%
+			}
+
+			.date_roll>div:nth-child(2) .gear {
+				text-indent: -20%
+			}
+
+			.date_roll>div:nth-child(3) .gear {
+				text-indent: -55%
+			}
+
+			.datetime_roll>div .gear {
+				width: 100%;
+				text-indent: -25%
+			}
+
+			.datetime_roll>div:first-child .gear {
+				text-indent: -10%
+			}
+
+			.datetime_roll>div:last-child .gear {
+				text-indent: -50%
+			}
+
+			.ym_roll>div .gear,
+			.time_roll>div .gear {
+				width: 100%;
+				text-indent: -70%
+			}
+
+			.ym_roll>div:nth-child(1) .gear,
+			.time_roll>div:nth-child(1) .gear {
+				width: 100%;
+				text-indent: 10%
+			}
+
+			.tooth {
+				height: 2em;
+				line-height: 2em;
+				text-align: center
+			}
+		</style>
+	</head>
+	<body style="">
+
+
+
+
+
+
+
+		<title>完善账号</title>
+
+
+
+
+
+		<div class="inpBox">
+			<ul>
+				<li>
+					<i class="userIcon"></i>
+					<input type="text" placeholder="昵称" id="nickname" maxlength="6">
+				</li>
+				<li>
+					<i class="phoneIcon"></i>
+					<input type="text" placeholder="手机号" id="txtPhoneNo" maxlength="11">
+				</li>
+
+				<li><input type="text" placeholder="验证码" id="code" maxlength="6"><input type="button" id="btn" value="发送验证码"></li>
+			</ul>
+		</div>
+
+		<div class="inpBox infoBox">
+			<ul>
+				<li>
+					<i>性别</i>
+					<div class="opt-wrapper">
+						<div class="opt">
+							<input class="magic-radio" type="radio" name="radio" id="r1" value="1" checked="">
+							<label for="r1">男</label>
+						</div>
+						<div class="opt">
+							<input class="magic-radio" type="radio" name="radio" id="r2" value="2">
+							<label for="r2">女</label>
+						</div>
+
+					</div>
+				</li>
+				<li><input id="demo1" type="text" readonly="" placeholder="生日" data-lcalendar="2016-05-11,2016-05-11" unselectable="on"
+					 onfocus="this.blur()" class="date"></li>
+			</ul>
+		</div>
+		<div class="m25 agreementBox">
+			<div class="checkbox">
+				<input class="magic-checkbox" type="checkbox" name="layout" id="c1" checked="" onchange="checkAll()">
+				<label for="c1" style="display: inline-block">同意</label>
+				<a href="/Membership/RegistrationProtocol">《用户协议》</a>
+			</div>
+			<button class="btn" id="submitbtn">确定</button>
+		</div>
+
+
+
+
+		<script src="../Scripts/jquery-1.10.2.js"></script>
+		<script src="../Scripts/jquery-2.1.0.js"></script>
+
+		<script src="../Scripts/base.js"></script>
+
+		<script src="../assets/js/String.js"></script>
+
+
+
+		<script src="../Scripts/datePicker.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				cChecked();
+			}
+			$("#c1").on("click", function() {
+				cChecked();
+			})
+
+			function cChecked() {
+				if ($("#c1").is(':checked')) {
+					$(".agreementBox .btn").css("background", "#d4374c");
+				} else {
+					$(".agreementBox .btn").css("background", "#959595");
+				}
+			}
+		</script>
+		<script>
+			var countdown = 60; //按钮可用倒计时时间
+			var isButtonUsable = 1; //短信验证码按钮是否可用（1可用，0不可用）
+			$(document).ready(function() {
+				var calendar = new datePicker();
+				calendar.init({
+					'trigger': '#demo1',
+					/*按钮选择器，用于触发弹出插件*/
+					'type': 'date',
+					/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+					'minDate': '1900-1-1',
+					/*最小日期*/
+					'maxDate': '2100-12-31',
+					/*最大日期*/
+					'onSubmit': function() {},
+					/*确认时触发事件*/
+					'onClose': function() {} /*取消时触发事件*/
+				});
+
+				$("#btn").click(function() {
+					if (isButtonUsable == 0) {
+						alert('请勿频繁点击');
+						return;
+					}
+					setTimeout(function() {
+						if (CheckExceptCaptcha()) { //获取短信验证码之前判断输入是否合法
+							getCode(); //判断图形验证码，并调用短信验证码发送接口
+						}
+					}, 300);
+				});
+
+				$("#submitbtn").click(function() {
+					var code = document.getElementById("code").value;
+					var phoneNum = document.getElementById('txtPhoneNo').value;
+					var sex = $("input[name='radio']:checked").val();
+					var nickname = $("#nickname").val();
+					var birthday = $("#demo1").val();
+					if (nickname == "") {
+						alert("姓名不能为空")
+						return false;
+					}
+					if (phoneNum == "" && !CheckExceptCaptcha) {
+						return false;
+					}
+					if (code == "") {
+						alert("请输入验证码")
+						return false;
+					}
+					if (birthday == "") {
+						alert("生日不能为空")
+						return false;
+					}
+					$.ajax({
+						url: '/Membership/PerfectRegisterInformation',
+						type: 'POST', //POST
+						data: {
+							Captcha: code,
+							Phone: phoneNum,
+							Name: nickname,
+							Sex: sex,
+							Birthday: birthday
+						},
+						timeout: __const_timeout,
+						async: false,
+						dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+						success: function(data) {
+							if (data.isRedirect) {
+								alter(data.message)
+								window.location.href = data.redirectUrl;
+								return;
+							}
+							if (data.Code != 0) {
+								alert(data.ErrMsg);
+							} else {
+								if ("" == null || "" == "") {
+									window.location.href = '/Membership';
+								} else {
+									window.location.href = '/Membership/MemberInfomation';
+								}
+							}
+						},
+						error: function(xhr, textStatus, errorThrown) {
+							alert(data.ErrMsg);
+						},
+					})
+				});
+			})
+
+
+			function CheckExceptCaptcha() {
+				var phone = document.getElementById('txtPhoneNo').value;
+				if (JTrim(phone) == "") {
+					alert("手机号码不能为空");
+					return false;
+				}
+				if (!checkMobile(phone)) {
+					alert("手机号码有误");
+					return false;
+				}
+				return true;
+			}
+
+			function getCode() {
+				$.ajax({
+					url: '/Membership/ValidateVerificationCode',
+					type: 'POST', //POST
+					data: {
+						verificationCode: "",
+						phone: document.getElementById('txtPhoneNo').value,
+						captchaType: 2
+					},
+					timeout: __const_timeout,
+					async: false,
+					dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+					success: function(data) {
+						if (data.isRedirect) {
+							alter(data.message)
+							var urlRedirect = data.redirectUrl;
+							window.location.href = urlRedirect;
+							return;
+						}
+						if (data.Code != 0) { //返回出错的信息，并设置发送短信按钮可用
+							alert(data.ErrMsg);
+							document.getElementById("btn").removeAttribute("disabled");
+							document.getElementById("btn").removeAttribute("class");
+						} else { //设置发送短信按钮倒计时
+							alert("短信验证码已发送");
+							isButtonUsable = 0;
+							settime();
+						}
+					},
+					error: function(xhr, textStatus, errorThrown) { //返回出错的信息，并设置发送短信按钮可用
+						alert("操作失败：调用接口异常");
+						document.getElementById("btn").removeAttribute("disabled");
+						document.getElementById("btn").removeAttribute("class");
+					},
+				})
+			}
+
+			function settime() {
+				var btn = document.getElementById("btn");
+				btn.setAttribute("disabled", true);
+				btn.className = 'abc';
+				btn.value = countdown + "s";
+				countdown--;
+				if (countdown < 0) {
+					document.getElementById("btn").removeAttribute("disabled");
+					document.getElementById("btn").removeAttribute("class");
+					btn.value = "发送验证码";
+					countdown = 60;
+					isButtonUsable = 1;
+					return;
+				}
+				setTimeout(function() {
+					settime();
+				}, 1000)
+			}
+		</script>
+		<script type="text/javascript">
+
+		</script>
+
+
+
+		<script>
+			//获取配置文件里的接口信息
+			var api_url = 'http://m1.jiezhiinfo.cn/api/xsite/interface/';
+
+			setApiUrl(api_url);
+		</script>
+	</body>
+</html>

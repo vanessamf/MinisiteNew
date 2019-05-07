@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Cuscapi 会员管理系统</title>
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" media="all">
+</head>
+
+<body>
+<div class="pop-bg" style="display: none"></div>
+    <div class="layui-layout layui-layout-admin kit-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo"><span>会员管理系统</span>
+                <!--<img src="build/images/logo.png" />-->
+                <span></span>
+            </div>
+            <div class="layui-logo kit-logo-mobile" style="display: none">K</div>
+            <ul class="layui-nav layui-layout-right kit-nav" style="margin-right: 20px">
+                <li class="layui-nav-item">
+                    <a href="javascript:;"> Hi,sea</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">个人信息</a></dd>
+                        <dd><a href="javascript:;" style="color: #1d66dc">退出</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" style="display: none"><a href="javascript:;"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black kit-side">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="icon01"></i><span> 会员管理</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="会员信息" kit-target data-id='1'><span> 会员信息</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="会员卡信息" kit-target data-id='2'><span> 会员卡信息</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="会员标签" kit-target data-id='2'><span> 会员标签</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="卡类型" kit-target data-id='3'><span> 卡类型</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="会员中心-会员等级.html" data-icon="" data-title="会员等级" kit-target data-id='4'><span> 会员等级</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="会员中心-成长值策略.html" data-icon="" data-title="成长值策略" kit-target data-id='5'><span> 成长值策略</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="会员中心-会员权益.html" data-icon="" data-title="会员权益" kit-target data-id='5'><span> 会员权益</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="会员管理-积分规则.html" data-icon="" data-title="积分规则" kit-target data-id='6'><span> 积分规则</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon02" aria-hidden="true"></i><span> 营销活动</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="场景式营销.html" data-icon="" data-title="场景式营销" kit-target data-id='7'><span> 场景式营销</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="自定义营销" kit-target data-id='8'><span> 自定义营销</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="营销活动管理" kit-target data-id='9'><span> 营销活动管理</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="营销结果报表" kit-target data-id='10'><span> 营销结果报表</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon03" aria-hidden="true"></i><span> 促销活动</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="创建促销活动.html" data-icon="" data-title="创建促销活动" kit-target data-id='11'><span> 创建促销活动</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="促销活动管理.html" data-icon="" data-title="促销活动管理" kit-target data-id='12'><span> 促销活动管理</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="促销活动结果报表" kit-target data-id='13'><span> 促销活动结果报表</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon08" aria-hidden="true"></i><span> 卡券中心</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="卡券中心-创建券.html" data-icon="" data-title="创建券" kit-target data-id='14'><span> 创建券</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="卡券中心-券管理.html" data-icon="" data-title="券管理" kit-target data-id='15'><span> 券管理</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon04" aria-hidden="true"></i><span> 分析报表</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="储值消费汇总表" kit-target data-id='16'><span> 储值消费汇总表</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="交易明细表" kit-target data-id='17'><span> 交易明细表</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="跨店交易结算表" kit-target data-id='18'><span> 跨店交易结算表</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon05" aria-hidden="true"></i><span> 配置管理</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="企业配置" kit-target data-id='19'><span> 企业配置</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="支付方式管理" kit-target data-id='20'><span> 支付方式管理</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="权益说明" kit-target data-id='21'><span> 权益说明</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="会员中心配置.html" data-icon="" data-title="会员中心配置" kit-target data-id='22'><span> 会员中心配置</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon06" aria-hidden="true"></i><span> 机构管理</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="品牌管理" kit-target data-id='23'><span> 品牌管理</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="门店管理" kit-target data-id='24'><span> 门店管理</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="icon07" aria-hidden="true"></i><span> 账号管理</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="角色管理" kit-target data-id='25'><span> 角色管理</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="账号管理-权限管理.html" data-icon="" data-title="角色管理" kit-target data-id='26'><span> 权限管理</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" data-url="" data-icon="" data-title="账号管理" kit-target data-id='27'><span> 账号管理</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body" id="container">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">主体内容加载中,请稍等...</div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            2017 &copy; Cuscapi
+        </div>
+    </div>
+
+    <script src="./plugins/layui/layui.js"></script>
+    <script>
+        var message;
+        layui.config({
+            base: 'build/js/'
+        }).use(['app', 'message'], function() {
+            var app = layui.app,
+                $ = layui.jquery,
+                layer = layui.layer;
+            //将message设置为全局以便子页面调用
+            message = layui.message;
+            //主入口
+            app.set({
+                type: 'iframe'
+            }).init();
+        });
+    </script>
+</body>
+
+</html>

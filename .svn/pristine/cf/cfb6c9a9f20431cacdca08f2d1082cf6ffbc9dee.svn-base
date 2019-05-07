@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-2.1.0.js"></script>
+    <script src="js/rp.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>个人资料</title>
+</head>
+<body>
+<div class="pop-code">
+    <div><img src="images/code02.png" /></div>
+    <a class="close"></a>
+</div>
+<div class="pop-bg"></div>
+<div class="user-photo">
+    <a href="头像修改.html">
+        <img src="images/user.png"/>头像
+    </a>
+</div>
+<ul class="user-nav">
+    <li>
+        <a href="更换手机号码.html">
+            <img src="images/nav-icon02.png"/>
+            <span>手机号码</span>
+            <em>18012341234</em>
+        </a>
+    </li>
+    <li>
+        <a id="code">
+            <img src="images/nav-icon08.png"/>
+            <span>会员码</span>
+            <em><img src="images/code05.png" style="margin-right: 0" /></em>
+        </a>
+    </li>
+    <li>
+        <a href="更换昵称.html">
+            <img src="images/nav-icon04.png"/>
+            <span>昵称</span>
+            <em>Lion.song</em>
+        </a>
+    </li>
+    <li>
+        <a href="更换性别.html">
+            <img src="images/nav-icon05.png"/>
+            <span>性别</span>
+            <em>男</em>
+        </a>
+    </li>
+    <li>
+        <img src="images/nav-icon06.png"/>
+        <span>生日</span>
+        <em><input type="text" readonly placeholder="2016-05-11" /></em>
+    </li>
+</ul>
+<script src="js/jquery-2.1.0.js"></script>
+<script>
+    $(function(){
+        var h = $(".pop-code").outerHeight(true)/2*(-1);
+        $(".pop-code").css({
+            'margin-top':h + 'px'
+        });
+        $("#code").click(function () {
+            $(".pop-bg").show();
+            $(".pop-code").show();
+        })
+        $(".close").click(function () {
+            $(".pop-bg").hide();
+            $(".pop-code").hide();
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+body {font-size: 12px;background: #f1f1f1; color: #333;}
+*{margin: 0;padding: 0;font-family:arial,Microsoft YaHei,\5b8b\4f53;}
+a {text-decoration: none;}
+ul, li {list-style: none;}
+input,button,select{border:none;outline: none;}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { }
+
+a{text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0);outline:none; color: #333;-webkit-appearance: none;}
+img { vertical-align: top}
+
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.clearfix{clear:both;}
+
+h1,h2,h3,h4,h5,h6 { font-weight: normal}

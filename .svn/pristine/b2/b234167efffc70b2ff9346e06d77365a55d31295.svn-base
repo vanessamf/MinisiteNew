@@ -1,0 +1,144 @@
+<html style="font-size: 42.6667px;"><head lang="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../js/jquery-2.1.0.js"></script>
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/rp.js?v=1"></script>
+    <script src="/XSite/MiniWeb/MiniWeb/Scripts/main.js?v=1"></script>
+
+    <title>详情</title>
+    <link href="/XSite/MiniWeb/MiniWeb/Content/css?v=IvOHvRJXdt3OQyZMSW3SmFHL_LZL2tdne11snvisjzg1" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/Content/public.css?v=1">
+    <link rel="stylesheet" href="../css/Content/main.css?v=4">
+		<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css">
+</head>
+<body style="">
+    
+
+
+<form class="layui-form" action="/XSite/MiniWeb/MiniWeb/Order/Pay" name="query" id="Pay" method="get">
+    <input id="OrderCheckId" name="OrderCheckId" type="hidden" value="1745">
+    <input id="ispayImmediatelypay" name="ispayImmediatelypay" type="hidden" value="True">
+
+    <div class="address-warp">
+        <div class="order-info">
+            <ul>
+                <li style="text-align: center"><em>付款金额：</em>¥ 2.00</li>
+            </ul>
+        </div>
+        <div class="order-info">
+            <h1>订单信息</h1>
+            <ul>
+                <li><em>订单号：</em></li>
+                    <li><em>下单时间：</em><b>2019/1/7 11:57:51</b></li>
+                                    <li><em>订单状态：</em>未完成</li>
+                
+                <li>
+                    <em>就餐类型：</em>
+                        <b>堂食</b>
+
+                </li>
+                <li><em>应付金额：</em>￥2.00</li>
+                                                        <li><em>会员卡：</em><b>-￥2.00</b></li>
+            </ul>
+        </div>
+        <div class="price-info">
+            <h1>菜品信息</h1>
+            <ul>
+                    <li>
+                        粥<label><em>X 1</em><i>￥</i>2.00</label>
+                    </li>
+            </ul>
+        </div>
+				<ul class="star-wrapper">
+					<li class="rating-item iconfont icon-xingzhuang60kaobei2"></li>
+					<li class="rating-item iconfont icon-xingzhuang60kaobei2"></li>
+					<li class="rating-item iconfont icon-xingzhuang60kaobei2"></li>
+					<li class="rating-item iconfont icon-xingzhuang60kaobei2"></li>
+					<li class="rating-item iconfont icon-xingzhuang60kaobei2"></li>
+				</ul>
+		</div>
+		
+</form>
+<div class="order-detail-btn">
+		确定
+</div>
+<script src="/XSite/MiniWeb/MiniWeb/assets/js/msalert.js"></script>
+<script>
+	// 五星评分
+	var num = 5;
+	var $rating = $('.star-wrapper');
+	var $item = $rating.find('.rating-item');
+	
+	//点亮星星
+    var lightOn = function(num){
+        $item.each(function(){
+            if($(this).index() < num){
+                $(this).addClass("active");
+            }else{
+                $(this).removeClass("active");
+            }
+        });
+    }
+
+    //初始化,点亮num个星星
+    lightOn(num);
+
+    $item.on('mouseover',function(){//鼠标移入时,触发相应操作
+        lightOn($(this).index() + 1);
+    }).on('click',function(){//鼠标点击时,触发相应操作
+        num = $(this).index() + 1;
+    });
+
+    //鼠标移出是,触发相应的操作
+    $rating.on('mouseout',function(){
+        lightOn(num);
+    });
+		
+		$(".order-detail-btn").click(function () {
+			alert(num);
+		});
+
+      $("#btnSubmit").click(function () {
+            //$.post("/Order/CanPay", { OrderCheckId: $("#OrderCheckId").val() }, function (data) {
+            $.post("/XSite/MiniWeb/MiniWeb/Order/CanPay", { OrderCheckId: '1745' }, function (data) {
+                if (data.isRedirect) {
+                    alter(data.message)
+                    var urlRedirect = data.redirectUrl;
+                    window.location.href = urlRedirect;
+                    return;
+                }
+                if (data.resultcode == 200) {
+                    $("#Pay").submit();
+                    $('#btnSubmit').attr('disabled', 'disabled');
+                }
+                else {
+                    alert(data.msg);
+                    return false;
+                }
+
+            }, 'json');
+
+        });
+
+</script>
+
+    <script src="/XSite/MiniWeb/MiniWeb/bundles/jquery?v=En0r26p__0qItu4jtwA46F5kVaPYtba5nG-x4LoVFiU1"></script>
+
+    <script src="/XSite/MiniWeb/MiniWeb/bundles/base?v=D3RboyGwe08X6seezQ01TK0t-9ltInwcdoyy2CYTScQ1"></script>
+
+    <script src="/XSite/MiniWeb/MiniWeb/bundles/String?v=BwTqphDkrhcq0DKaAnvidaeqBqJBYhDzJwe7sFcYCjc1"></script>
+
+    
+
+
+<script>
+    //获取配置文件里的接口信息
+    var api_url = 'http://m.jiezhiinfo.cn/api/xsite/interface/';
+
+    setApiUrl(api_url);
+</script>
+</body></html>

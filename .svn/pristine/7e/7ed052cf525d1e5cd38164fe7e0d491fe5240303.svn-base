@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>更换手机号码</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div style="margin: 1rem; color: #999; font-size: 1.1rem">当前手机号码：12312341234</div>
+<ul class="info">
+    <li class="bg01"><label>国家地区</label><select><option>中国</option></select></li>
+    <li><label>+86</label><input type="text" placeholder="请填写手机号码"></li>
+</ul>
+<a class="btn ma20" href="c_更换手机号码-2.html">发送验证码</a>
+</body>
+</html>

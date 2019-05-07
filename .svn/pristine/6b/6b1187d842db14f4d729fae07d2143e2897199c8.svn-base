@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="email=no" name="format-detection">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta http-equiv="Cache-Control" content="max-age=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>自助点餐</title>
+	<link rel="stylesheet" type="text/css" href="css/interactive/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/interactive/main.css" />
+</head>
+
+<body style="overflow-y: hidden">
+<!--  购物车  -->
+<div class="shop" style="display: none">
+	<div class="title-w"><img src="images/interactive/rev-icon.png"/>REV平板 <a>清空</a></div>
+	<div class="shop-w">
+		<div class="shop-list">
+			<h2>三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</h2>
+			<ul>
+				<li>子项</li>
+				<li>子项</li>
+			</ul>
+			<p><i>￥</i>46.00</p>
+			<div class="nub">
+				<div class="ones"><b class="plus"></b><em class="cart-zhi">1</em></div>
+				<b class="add"></b>
+			</div>
+		</div>
+		<div class="shop-list">
+			<h2>三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</h2>
+			<p><i>￥</i>46.00</p>
+			<div class="nub">
+				<div class="ones"><b class="plus"></b><em class="cart-zhi">1</em></div>
+				<b class="add"></b>
+			</div>
+		</div>
+	</div>
+	<div class="title-w"><img src="images/interactive/weixin-icon01.png"/>微信昵称 <a>清空</a></div>
+	<div class="shop-w">
+		<div class="shop-list">
+			<h2>三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</h2>
+			<p><i>￥</i>46.00</p>
+			<div class="nub">
+				<div class="ones"><b class="plus"></b><em class="cart-zhi">1</em></div>
+				<b class="add"></b>
+			</div>
+		</div>
+	</div>
+	<div class="title-w"><img src="images/interactive/weixin-icon02.png"/>微信昵称 <a>清空</a></div>
+	<div class="shop-w">
+		<div class="shop-list">
+			<h2>三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</h2>
+			<p><i>￥</i>46.00</p>
+			<div class="nub">
+				<div class="ones"><b class="plus"></b><em class="cart-zhi">1</em></div>
+				<b class="add"></b>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  end 购物车  -->
+<!--  菜品详情弹窗  -->
+<div class="pop-shop">
+	<button class="close-btn">关闭</button>
+	<div class="menu-box">
+		<img src="images/interactive/pic.png" class="top-pic"/>
+		<h1><em>香茅草三明治</em><label>¥ 148</label></h1>
+		<div class="t-wrap">香茅草鸡肉，牛油果芝麻色拉，腌黄瓜</div>
+		<div class="combo">
+			<h2>可选主食（4选1）</h2>
+			<ul>
+				<li>核桃黑麦面包</li>
+				<li>罗马面包</li>
+				<li>鸡肉</li>
+				<li>熏三文鱼</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<div class="combo">
+			<h2>可选主食（4选1）</h2>
+			<ul>
+				<li>核桃黑麦面包</li>
+				<li>罗马面包</li>
+				<li>鸡肉</li>
+				<li>熏三文鱼</li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu-footer">
+		<div class="nub" style="position: relative; display: inline-block; margin-top: 1rem">
+			<div class="ones"><b class="plus"></b><em class="cart-zhi">1</em></div>
+			<b class="add"></b>
+		</div>
+		<a>加入购物车</a>
+	</div>
+</div>
+<!--  end 菜品详情弹窗  -->
+<div class="pop-bg"></div>
+
+<div class="head">
+	<img src="images/interactive/Logo.png" class="logo"/>
+	<a href="##">个人中心</a>
+</div>
+<div class="top">
+	<h1>堂食</h1>
+	<p>
+		<span>味千拉面(我格广场店)</span><br/>
+		<em>A12</em>
+	</p>
+</div>
+<div id="space" style="height: 8.5rem"></div>
+
+<div class="container">
+	<div class="outer-container left">
+		<div class="inner-container">
+			<div class="element">
+				<ul>
+					<li class="list list-active"> <a href="#list01" class="list-a">明星健身房单品</a> </li>
+					<li class="list"> <a href="#list02" class="list-a">酒水饮料</a> </li>
+					<li class="list"> <a href="#list03" class="list-a"> 分类03 </a> </li>
+					<li class="list"> <a href="#list04" class="list-a"> 分类04 </a> </li>
+					<li class="list"> <a href="#list05" class="list-a"> 分类05 </a> </li>
+					<li class="list"> <a href="#list06" class="list-a"> 分类06 </a> </li>
+					<li class="list"> <a href="#list07" class="list-a"> 分类07 </a> </li>
+					<li class="list"> <a href="#list08" class="list-a"> 分类08 </a> </li>
+					<li class="list"> <a href="#list09" class="list-a"> 分类09 </a> </li>
+					<li class="list"> <a href="#list10" class="list-a"> 分类10 </a> </li>
+					<li class="list"> <a href="#list10" class="list-a"> 分类11 </a> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="outer-container right">
+		<div class="inner-container" id="right-hook">
+			<div class="element">
+				<ul>
+					<li class="right-list" id="list01">
+						<div class="title">明星健身房单品</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list02">
+						<div class="title">酒水饮料</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list03">
+						<div class="title">分类03</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list04">
+						<div class="title">分类04</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list05">
+						<div class="title">分类05</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list06">
+						<div class="title">分类06</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list07">
+						<div class="title">分类07</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list08">
+						<div class="title">分类08</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list09">
+						<div class="title">分类09</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list10">
+						<div class="title">分类10</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+					<li class="right-list" id="list11">
+						<div class="title">分类11</div>
+						<div class="cart-list">
+							<img src="images/interactive/left-pic-1.png"/>
+							<h1>路易白马茶1</h1>
+							<strong>南非路易波士茶，香茅草</strong>
+							<p><i>￥</i>40</p>
+							<div class="nub">
+								<div class="ones"><b class="plus"></b><em class="cart-zhi">0</em></div>
+								<b class="add"></b>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="shoppingBtn">
+	<i>0</i>
+</div>
+<div class="f-wrap">
+	<p>
+		<b>￥280.00<em>共5份</em></b>
+	</p>
+	<a class="check-out-btn">选好了</a>
+</div>
+
+<i id="end"></i>
+
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="js/fly.js"></script>
+<script>
+    window.onload = function() {
+        var arrheight = [];
+
+        function arrHeight() {
+            var items = document.getElementsByClassName('right-list');
+            for (var i = 0; i < items.length; i++) {
+                var scrolltop = items[i].offsetTop;
+                arrheight.push(scrolltop);
+            }
+        }
+
+        function noactive() {
+            var item = document.getElementsByClassName('list')
+            for (var i = 0; i < item.length; i++) {
+                item[i].setAttribute('class', 'list');
+            }
+        }
+
+        function scrollactive() {
+            var scrolltop = document.getElementById('right-hook').scrollTop;
+            for (var i = 0; i < arrheight.length; i++) {
+                if (scrolltop > arrheight[i] && scrolltop < arrheight[i + 1]) {
+                    noactive();
+                    document.getElementsByClassName('list')[i].setAttribute('class', 'list list-active');
+                }
+            }
+        }
+
+        function clickactve() {
+            var list = document.getElementsByClassName('list');
+            for (var i = 0; i < list.length; i++) {
+                list[i].onclick = function() {
+                    noactive();
+                    list[i].setAttribute('class', 'list list-active');
+                }
+            }
+        }
+        document.getElementById('right-hook').onscroll = function() {
+            scrollactive();
+        };
+        arrHeight();
+        scrollactive();
+        clickactve();
+    }
+</script>
+
+<script type="text/javascript">
+
+    $(function () {
+        //菜品详情
+        var ph = $(".pop-shop").height();
+        var pop = ph / 2 * (-1);
+        $(".pop-shop").css({
+            'margin-top': pop + 'px'
+        });
+        $(".combo ul li").click(function () {
+            $(this).addClass("hover").siblings().removeClass("hover")
+        });
+        $(".cart-list").click(function () {
+            $(".pop-bg").show().css({"z-index":"1004"});
+            $(".pop-shop").show();
+        });
+        $(".close-btn").click(function () {
+            $(".pop-bg").hide().css({"z-index":"1000"});
+            $(".pop-shop").hide();
+        });
+
+
+        //左侧菜单
+        var wH = $(window).outerHeight();
+        var hH = $(".head").outerHeight();
+        var tH = $(".top").outerHeight();
+        var fH = $(".f-wrap").outerHeight();
+        $(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH-fH+2+"px"});
+
+        $(".cart-list .ones").hide();
+
+
+        //加
+        $(".add").click(function () {
+            $(this).parent(".nub").find(".ones").css({"display":"inline-block"});
+            var tmp = parseInt($(this).parent(".nub").find("em").text());
+            tmp += 1;
+            $(this).parent(".nub").find("em").text(tmp);
+            $(".shoppingBtn").addClass("act");
+            $(".shoppingBtn i").text(tmp).addClass("act");
+            //$(".f-wrap").show();
+            //$(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH-fH+2+"px"});
+
+            $(".shoppingBtn").click(function () {
+                $(".pop-bg").show();
+                $(".shop").show();
+            });
+            $(".pop-bg").click(function () {
+                $(".pop-bg").hide();
+                $(".shop").hide();
+                $(".pop-shop").hide();
+            });
+
+            return false;
+        });
+
+        //减
+        $(".plus").click(function () {
+            var tmp = parseInt($(this).next().text());
+            tmp -= 1;
+            $(this).next().text(tmp);
+            $(".shoppingBtn i").text(tmp);
+            if ($(this).next().text() == "0") {
+                $(this).parent(".ones").hide();
+            }
+            if ($(".shoppingBtn i").text() == "0") {
+                $(".shoppingBtn").removeClass("act");
+                $(".shoppingBtn i").text(tmp).removeClass("act");
+                //$(".f-wrap").hide();
+            }
+            //$(".container,.left,.left .element,.right,.right .element").css({"height":wH-hH-tH+2+"px"});
+
+            $(".shoppingBtn").unbind("click");
+            return false;
+        });
+        if ($(".cart-zhi").text() > "0") {
+            $(".menu-footer .ones").css({"display":"inline-block"});
+        }
+    });
+
+    //添加菜品动画效果
+    $(".add").on("click", addProduct);
+    function addProduct(event) {
+        var x = event.pageX - $(document).scrollLeft();
+        var y = event.pageY - $(document).scrollTop();
+        var t = $(document).scrollTop();
+        var l = $(document).scrollLeft();
+        var offset = $('#end').offset(),
+            flyer = $("<lable class='pointer'></label>");
+        flyer.fly({
+            start: {
+                left: x,
+                top: y
+            },
+            end: {
+                left: offset.left - l,
+                top: offset.top - t,
+                width: 10,
+                height: 10
+            }
+        });
+    }
+</script>
+</body>
+</html>

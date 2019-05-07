@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会员中心-会员等级-详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+</head>
+
+<body>
+<div class="view">
+    <ul>
+        <li><em>会员等级：</em>黄金会员</li>
+        <li><em>成长值范围：</em>200-300</li>
+        <li>
+            <em>员权益：</em>
+            <div class="img-box">
+                <img src="build/images/cong-icon.png" id="b01" />
+                <div class="vip" id="d01">
+                    <div class="drop-vip">
+                        <b>青铜权益：</b>
+                        <p>每充值100元送10元；</p>
+                        <p>每充值1000元送1500元；</p>
+                    </div>
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="build/images/ze-icon.png" id="b02" />
+                <div class="vip" id="d02">
+                    <div class="drop-vip">
+                        <b>青铜权益：</b>
+                        <p>每充值100元送10元；</p>
+                        <p>每充值1000元送1500元；</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </li>
+        <li>
+            <em>积分规则：</em>
+            <table>
+                <tr>
+                    <td>积分生成</td>
+                    <td>消费送积分：每消费满1元送1积分；一次性消费满100元额外送10积分。<br/>充值送积分：每充值满100元送50积分；一次性充值满1000元额外送100积分。</td>
+                </tr>
+                <tr>
+                    <td>积分消耗</td>
+                    <td>订单抵扣：每个积分抵扣1元。<br/>商品抵扣：每个积分抵扣3元。</td>
+                </tr>
+            </table>
+        </li>
+        <li><em>状态：</em>已启用</li>
+    </ul>
+</div>
+<script src="./build/js/jquery.js"></script>
+<script>
+    $(function () {
+        $("#b01").mouseover(function(){
+            $("#d01").show()
+        }).mouseout(function(){
+            $("#d01").hide()
+        });
+        $("#b02").mouseover(function(){
+            $("#d02").show()
+        }).mouseout(function(){
+            $("#d02").hide()
+        });
+    })
+</script>
+</body>
+</html>

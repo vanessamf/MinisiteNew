@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="radio-box">
+    <div class="opt">
+        <input class="magic-checkbox" type="radio" name="layout" id="c1">
+        <label for="c1"></label>
+    </div>
+    <div class="u-box blue">
+        <h1>2017 3456 9876 8763</h1>
+        <p>通用卡可以在 某某某旗下所有门店使用</p>
+        <b>余额：500元</b>
+        <img src="images/code.png" class="code"/>
+        <img src="images/text01.png" class="u-box-bg"/>
+    </div>
+</div>
+<div class="radio-box">
+    <div class="opt">
+        <input class="magic-checkbox" type="radio" name="layout" checked id="c2">
+        <label for="c2"></label>
+    </div>
+    <div class="u-box red">
+        <strong>cuscapi<i>|</i>园区店</strong>
+        <h1>2017 3456 9876 8763</h1>
+        <p>通用卡可以在 某某某旗下所有门店使用</p>
+        <b>余额：500元</b>
+        <img src="images/code.png" class="code"/>
+        <img src="images/text02.png" class="u-box-bg"/>
+    </div>
+</div>
+<div class="radio-box">
+    <div class="opt">
+        <input class="magic-checkbox" type="radio" name="layout" id="c3">
+        <label for="c3"></label>
+    </div>
+    <div class="u-box red">
+        <strong>cuscapi<i>|</i>园区店</strong>
+        <h1>2017 3456 9876 8763</h1>
+        <p>通用卡可以在 某某某旗下所有门店使用</p>
+        <b>余额：500元</b>
+        <img src="images/code.png" class="code"/>
+        <img src="images/text02.png" class="u-box-bg"/>
+    </div>
+</div>
+<div style="height: 5.5rem;"></div>
+<div class="f-btn"><a>确定</a></div>
+</body>
+</html>

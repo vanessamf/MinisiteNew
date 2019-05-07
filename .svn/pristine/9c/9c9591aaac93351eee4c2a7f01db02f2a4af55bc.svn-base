@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css">
+</head>
+<body>
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="u-box red">
+                <strong>cuscapi<i>|</i>园区店</strong>
+                <h1>2017 3456 9876 8763</h1>
+                <p>通用卡可以在 某某某旗下所有门店使用</p>
+                <img src="images/code.png" class="code"/>
+                <img src="images/text02.png" class="u-box-bg"/>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="u-box red">
+                <strong>cuscapi<i>|</i>园区店</strong>
+                <h1>2017 3456 9876 8763</h1>
+                <p>通用卡可以在 某某某旗下所有门店使用</p>
+                <img src="images/code.png" class="code"/>
+                <img src="images/text02.png" class="u-box-bg"/>
+            </div>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+
+<div class="code01"><img src="images/code01.png" /></div>
+<script>
+    function snNewsTab(name, cursel, n) {
+        for (i = 0; i < n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById("con_" + name + "_" + i);
+            menu.className = i == cursel ? "sn_hover" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+</script>
+<div class="Noticebox">
+    <ul>
+        <li id="one0" onclick="snNewsTab('one',0,3)" class="sn_hover">账单</li>
+        <li id="one1" onclick="snNewsTab('one',1,3)">消费记录</li>
+        <li id="one2" onclick="snNewsTab('one',2,3)">充值记录</li>
+    </ul>
+</div>
+<div class="Contentbox">
+    <div id="con_one_0">
+        <div class="list-info">
+            <h1>园区店<em>- 24.00</em></h1>
+            <p>1245679009876556789098765<em>2017-01-23  07:34</em></p>
+        </div>
+        <div class="list-info">
+            <h1>金鸡湖店<em>+ 24.00</em></h1>
+            <p>1245679009876556789098765<em>2017-01-23  07:34</em></p>
+        </div>
+        <div class="list-info">
+            <h1>上海陆家嘴店<em>+ 100.00</em></h1>
+            <p>1245679009876556789098765<em>2017-01-23  07:34</em></p>
+        </div>
+        <div class="list-info">
+            <h1>杭州西湖店<em>+ 24.00</em></h1>
+            <p>1245679009876556789098765<em>2017-01-23  07:34</em></p>
+        </div>
+        <div class="list-info">
+            <h1>园区店<em>- 24.00</em></h1>
+            <p>1245679009876556789098765<em>2017-01-23  07:34</em></p>
+        </div>
+    </div>
+    <div id="con_one_1" style="display: none;">2</div>
+    <div id="con_one_2" style="display: none;">3</div>
+</div>
+<!-- Swiper JS -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/swiper.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+</script>
+</body>
+</html>

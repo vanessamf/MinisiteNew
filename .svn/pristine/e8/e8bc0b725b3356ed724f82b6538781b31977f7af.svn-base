@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/pay.css">
+    <link rel="stylesheet" href="css/input02.css"/>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/pay01.js"></script>
+    <script type="text/javascript">
+        var countdown=60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.removeAttribute("class");
+                obj.value="重新获取";
+                countdown = 60;
+                $(".m20").css({"background":"#d6a465"})
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.className = 'abc';
+                obj.value= countdown + "s";
+                countdown--;
+                $(".m20").css({"background":"#888"})
+            }
+            setTimeout(function() {
+                settime(obj) }
+            ,1000)
+        }
+    </script>
+    <style>
+        #PW { margin-top: -50%}
+        .mm_box { margin-bottom: 1rem}
+        .mm_box li { width: 16%}
+        .nub_ggg { position: fixed; left: 0; bottom: 0; width: 100%; z-index: 2; background: #fff}
+    </style>
+</head>
+<body>
+<div class="pop" id="PW" style="display: block">
+    <div class="popBox">
+        <a class="closeBtn"></a>
+        <h1>请输入支付密码</h1>
+        <div class="srzfmm_box">
+            <ul class="mm_box">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <a href="##" class="forgetPWBtn">忘记密码?</a>
+    </div>
+</div>
+<ul class="nub_ggg">
+    <li><a href="javascript:void(0);">1</a></li>
+    <li><a href="javascript:void(0);" class="zj_x">2</a></li>
+    <li><a href="javascript:void(0);">3</a></li>
+    <li><a href="javascript:void(0);">4</a></li>
+    <li><a href="javascript:void(0);" class="zj_x">5</a></li>
+    <li><a href="javascript:void(0);">6</a></li>
+    <li><a href="javascript:void(0);">7</a></li>
+    <li><a href="javascript:void(0);" class="zj_x">8</a></li>
+    <li><a href="javascript:void(0);">9</a></li>
+    <li><span></span></li>
+    <li><a href="javascript:void(0);" class="zj_x">0</a></li>
+    <li><span  class="del"> <img src="images/jftc_18.png"></span></li>
+</ul>
+<div class="pop" id="sms" style="display: none">
+    <div class="popBox">
+        <a class="closeBtn"></a>
+        <h1>短信验证码</h1>
+        <p>本次交易需要短信确认，消校验码已发送至您的手机131****3390</p>
+        <div class="inpBox">
+            <input type="text" placeholder="请输入验证码" />
+            <input type="button" id="btn" value="点击获取" onclick="settime(this)" />
+        </div>
+    </div>
+</div>
+<div class="pop" id="bind" style="display: none">
+    <div class="popBox">
+        <a class="closeBtn"></a>
+        <h1>绑定手机号码</h1>
+        <p class="t01">本次交易需要您先绑定手机号码</p>
+        <div class="inpBox">
+            <input type="text" placeholder="输入手机号码" id="inp" />
+            <input type="button" id="btn01" value="确定" onclick="settime(this)" />
+        </div>
+        <a class="btn m20" id="btn02">确定</a>
+    </div>
+</div>
+<div class="pop-bg" style="display: block"></div>
+<div class="user-info">
+    <h2>堂食</h2>
+    <h1>收货人：Lion<em>18012341234</em></h1>
+    <p>收货地址：上海市陆家嘴区荣成路银城路口浦东荣成花园3幢801室</p>
+    <div class="tips">
+        <img src="images/wags-logo.png"/>
+    </div>
+</div>
+<div class="t-bg"></div>
+<div class="time">到店时间<input type="text" placeholder="请选择到店时间" id="appTime"/></div>
+<div class="pay">
+    <ul id="mode">
+        <li class="hover"><img src="images/alpay-icon.png" /><span>支付宝</span></li>
+        <li><img src="images/unionpay-icon.png" /><span>银联支付</span></li>
+    </ul>
+    <ul>
+        <li>
+            <img src="images/jifen-icon.png" /><span id="jf">使用积分</span>
+            <div class="jf-info">
+                <p>积分抵扣3.4元</p>
+                <b>本次可用3400积分，共6000积分</b>
+            </div>
+            <input class='toggle' type="checkbox" />
+        </li>
+        <li><img src="images/vip-icon.png" /><span>会员卡</span><a href="##">请选择</a></li>
+    </ul>
+</div>
+<div class="emDiv"></div>
+<button class="sub-btn"><span>￥99</span>确认订单</button>
+<script src="js/input.js"></script>
+<!--时间选择弹窗-->
+<script src="js/mobiscroll/mobiscroll_002.js" type="text/javascript"></script>
+<script src="js/mobiscroll/mobiscroll_004.js" type="text/javascript"></script>
+<script src="js/mobiscroll/mobiscroll.js" type="text/javascript"></script>
+<script src="js/mobiscroll/mobiscroll_003.js" type="text/javascript"></script>
+<script src="js/mobiscroll/mobiscroll_005.js" type="text/javascript"></script>
+<link href="css/mobiscroll_003.css" rel="stylesheet" type="text/css">
+<link href="css/mobiscroll_002.css" rel="stylesheet" type="text/css">
+<link href="css/mobiscroll.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+    $(function () {
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yyyy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 10, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+
+        //$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
+        //var optDateTime = $.extend(opt['datetime'], opt['default']);
+		//$("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+        var optTime = $.extend(opt['time'], opt['default']);        
+        $("#appTime").mobiscroll(optTime).time(optTime);
+
+
+        var tbg = $(".user-info").height();
+        $(".t-bg").css({
+            'height': (tbg-30)
+        });
+
+        //支付方式选择
+        $("#mode li").click(function () {
+            $(this).addClass("hover").siblings().removeClass("hover");
+        });
+
+        //绑定手机号
+        var bindh = $("#bind").outerHeight(true)/2*(-1);
+        $("#bind").css({'margin-top':bindh});
+
+        $("#btn01").hide();
+
+        $("#btn02").click(function () {
+            $("#btn01").show();
+            $("#inp").attr("placeholder","短信验证码");
+            $(".t01").html("验证码已发送到您的手机<span>131****3077</span>");
+        });
+
+        //短信
+        var smsh = $("#sms").outerHeight(true)/2*(-1);
+        $("#sms").css({'margin-top':smsh});
+
+        //密码支付
+//        var pwh = $("#PW").outerHeight(true)/2*(-1);
+//        $("#PW").css({'margin-top':(pwh-50)});
+//        $('#pincode-input1').pincodeInput({
+//            inputs:6,
+//            complete:function(value, e, errorElement){
+//                /*$("#pincode-callback").html("This is the 'complete' callback firing. Current value: " + value);*/
+//                if(value!="123456"){
+//                    $(errorElement).html("密码输入错误！请重新输入");
+//                }
+//
+//            }
+//        });
+
+        //积分明细显示隐藏
+        var flag = 1;
+        $(".toggle").click(function(){
+            if(flag==1){
+                $("#jf").hide();
+                $(".jf-info").css({"display":"inline-block"});
+                flag=2;
+            }else if(flag==2){
+                flag=1;
+                $("#jf").show();
+                $(".jf-info").css({"display":"none"});
+            }
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="user-header">
+    <a class="vip">会员权益</a>
+    <img src="images/user.png" class="top-user" />
+    <h1>Lion.song</h1>
+    <p><i>180 1234 1234</i></p>
+</div>
+<ul class="user-link">
+    <li>
+        <p><img src="images/u-link-icon01.png" /></p>
+        <label>支付码</label>
+    </li>
+    <li>
+        <p><img src="images/u-link-icon02.png" /></p>
+        <label>我的订单</label>
+        <i></i>
+    </li>
+    <li>
+        <p>
+            <img src="images/u-link-icon03.png" />
+        </p>
+        <label>我的卡</label>
+    </li>
+</ul>
+<ul class="nav">
+    <li><a>优惠券</a></li>
+    <li><a>积分交易明细</a></li>
+    <li><a>储值交易明细</a></li>
+    <li><a>我要充值</a></li>
+</ul>
+<ul class="nav set ">
+    <li><a>设置</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>美食美馔</title>
+		<link rel="stylesheet" type="text/css" href="css/interactive/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/interactive/main.css" />
+		<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+	</head>
+	<body class="bg-dark" style="height:100%;">
+		<div class="catalog-header">
+			<!-- <img src="images/interactive/banner.jpg" alt=""> -->
+			<div class="header-dec">
+				<h1>餐厅介绍</h1>
+				<i class="line"></i>
+				<p class="info">红砖青瓦装饰  独具闽南风情</p>
+				<p>
+					<span class="tag">闽粤菜肴</span>
+					<span class="tag">川湘菜</span>
+					<span class="tag">清吧茶室</span>
+				</p>
+			</div>
+		</div>
+		<div class="catalog-wrapper">
+			<ul>
+				<li>
+					<div class="dining-title">
+						<i></i>
+						<span></span>
+						<i></i>
+					</div>
+					<div class="dining-dec">
+						<a id="" href="用餐方式new.html">
+							<img src="images/interactive/xiaonanshan.png" alt="">
+						</a>
+						<div class="content">
+							<div class="name">
+								<h2>山遇·小南山</h2>
+								<span class="tag">悠闲</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dining-title">
+						<i></i>
+						<span></span>
+						<i></i>
+					</div>
+					<div class="dining-dec">
+						<a id=""href="详情页.html">
+							<img src="images/interactive/taoyuan.png" alt="">
+						</a>
+						<div class="content">
+							<div class="name">
+								<h2>山遇·桃源</h2>
+								<span class="tag">高雅</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dining-title">
+						<i></i>
+						<span></span>
+						<i></i>
+					</div>
+					<div class="dining-dec">
+						<a id="">
+							<img src="images/interactive/chashi.png" alt="">
+						</a>
+						<div class="content">
+							<div class="name">
+								<h2>得闲茶室</h2>
+								<span class="tag">高雅</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dining-title">
+						<i></i>
+						<span></span>
+						<i></i>
+					</div>
+					<div class="dining-dec">
+						<a id="">
+							<img src="images/interactive/qingba.png" alt="">
+						</a>
+						<div class="content">
+							<div class="name">
+								<h2>半晌时光清吧</h2>
+								<span class="tag">休闲</span>
+								<span class="tag">休闲</span>
+								<span class="tag">休闲</span>
+							</div>
+							<div class="more">
+								<div class="time">
+									<span>早餐</span>
+									<span>07:30-09:30</span>
+									<span>07:30-09:30</span>
+								</div>
+								<span class="tel">
+									<i></i>
+										预约
+								</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

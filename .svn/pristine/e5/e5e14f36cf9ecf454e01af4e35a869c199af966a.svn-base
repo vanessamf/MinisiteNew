@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>预订信息</title>
+		<link rel="stylesheet" href="../css/interactive/base.css" />
+		<!-- <link rel="stylesheet" href="../css/interactive/main1.css" /> -->
+		<link rel="stylesheet" href="../css/interactive/main-mobile.css" />
+		<!-- <link rel="stylesheet" href="../css/interactive/app.built.css" /> -->
+		<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css">
+	</head>
+	<body class="bg" style="height:100%">
+		<div class="booking-wrapper">
+			<div class="booking-info">
+				<ul>
+					<li>
+						<div>
+							<span>时间</span>
+							<i class="required">*</i>
+						</div>
+						<input id="demo1" type="text" readonly="" placeholder="" data-lcalendar="2016-05-11,2016-05-11" unselectable="on"
+						onfocus="this.blur()" class="date"value="2018-12-09 10:00">
+					</li>
+					<li>
+						<div id="" class="">
+							<span>人数</span>
+							<i class="required">*</i>
+						</div>
+						<div class="num-wrapper">
+							<input type="text" placeholder="" id="txtPhoneNo" class="num" value="12">
+							位
+						</div>
+					</li>
+					<li>
+						<div>
+							<span>预订包厢</span>
+							<i class="required">*</i>
+						</div>
+						<div class="box-wrapper">
+							<select class="box-select">
+								<option value="volvo">一品桂圆</option>
+								<option value="saab">Saab</option>
+								<option value="opel">Opel</option>
+								<option value="audi">Audi</option>
+								<option value="volvo">qssw桂圆</option>
+								<option value="saab">Saab</option>
+								<option value="opel">Opel</option>
+								<option value="audi">Audi</option>
+								<option value="volvo">一品桂圆</option>
+								<option value="saab">Saab</option>
+								<option value="opel">Opel</option>
+								<option value="audi">Audi</option>
+							</select>
+							<i class="iconfont icon-you3"></i>
+						</div>
+					</li>
+					<li class="name">
+						<div>
+							<span>客户姓名</span>
+							<i class="required">*</i>
+						</div>
+						<input type="text" placeholder="" id="txtPhoneNo" value="张**">
+					</li>
+					<li>
+						<div>
+							<span>性别</span>
+							<i class="required">*</i>
+						</div>
+						<div class="gender-wrapper">
+							<div class="gender">
+								<input class="magic-radio" type="radio" name="radio" id="r1" value="1" checked="">
+								<label for="r1">男</label>
+							</div>
+							<div class="gender">
+								<input class="magic-radio" type="radio" name="radio" id="r2" value="2">
+								<label for="r2">女</label>
+							</div>
+						</div>
+					</li>
+					<li class="phone">
+						<div>
+							<span>客户电话</span>
+							<i class="required">*</i>
+						</div>
+						<input type="text" placeholder="手机号" id="txtPhoneNo">
+					</li>
+					<li class="verificationCode">
+						<span>验证码</span>
+						<input type="text" placeholder="验证码" id="code" maxlength="6">
+						<input type="button" id="btn" value="获取验证码">
+					</li>
+					<li>
+						<div>
+							<span>点选菜品</span>
+						</div>
+
+						<a>
+							<span id="uPleaseChoose">共13项，2000元</span>
+							<i class="iconfont icon-you3"></i>
+						</a>
+					</li>
+					<li class="remark">
+						<span>备注</span>
+						<textarea name="textarea" rows="3" cols="" placeholder=""></textarea>
+					</li>
+					<li class="payment">
+						<span>预付定金</span>
+						<input type="text" placeholder="" id="txtPhoneNo" maxlength="11" value="200">
+					</li>
+					<li class="liPayType wechat" id="liPaymentType2" value="2">
+						<div>
+							<i></i>
+							<span>微信支付</span>
+						</div>
+						<!-- <i class="typeChecked"></i> -->
+						<div>
+							<input class="magic-radio" type="radio" name="radio2" id="pay1" value="1" checked="">
+							<label for="pay1"></label>
+						</div>
+
+					</li>
+					<li class="liPayType vipCard" id="liPaymentType3" value="3">
+						<div>
+							<i></i>
+							<span>会员卡</span>
+						</div>
+						<!-- <i class="unChecked"></i> -->
+						<div>
+							<input class="magic-radio" type="radio" name="radio2" id="pay2" value="1" checked="">
+							<label for="pay2"></label>
+						</div>
+					</li>
+					<li id="coupon" class="couponCon">
+						<div>
+							<i></i>
+							<span>使用优惠券</span>
+						</div>
+						<div>
+							<span id="uPleaseChoose" class="highlighted">无可用优惠券</span>
+							<i class="iconfont icon-you3"></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="booking-btn">
+			<a href="">
+				取消预订
+			</a>
+			<a href="">
+				确认预订
+			</a>
+		</div>
+		<div class="pop-bg" style="display: none;"></div>
+		
+		<!-- 优惠券弹框 -->
+		<div class="coupon" id="coupon-box" style="display: none;">
+			<div class="coupon-input">
+				<input id="txtCouponCode" name="txtCouponCode" type="text" placeholder=""><a href="javascript:void(0)" onclick="checkFrom()">兑换</a>
+			</div>
+			<ul id="ulCoupons">
+
+			</ul>
+			<a class="menu-btn" id="sub-coupon-cancel-btn">取消</a>
+			<a class="menu-btn ok-btn" id="sub-coupon-btn">确定</a>
+		</div>
+	</body>
+	<script src="../js/jquery-2.1.0.js"></script>
+	<script src="../js/jquery-2.1.0.js"></script>
+	<script src="../js/datePicker.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var calendar = new datePicker();
+			calendar.init({
+				'trigger': '#demo1',
+				/*按钮选择器，用于触发弹出插件*/
+				'type': 'datetime',
+				/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+				'minDate': '1900-1-1',
+				/*最小日期*/
+				'maxDate': '2100-12-31',
+				/*最大日期*/
+				'onSubmit': function() {},
+				/*确认时触发事件*/
+				'onClose': function() {} /*取消时触发事件*/
+			});
+		});
+	</script>
+	<script>
+		//优惠券
+		$("#coupon").click(function() {
+			getCouponDetail();
+		})
+		//取消选择优惠券
+		$("#sub-coupon-cancel-btn").click(function() {
+			$(".pop-bg").hide();
+			$(".coupon").hide();
+		});
+		$("#sub-coupon-btn").click(function() {
+			var coupon_id = $(".coupon ul li[class*='hover']").attr("id");
+			selectedCouponItems = [];
+			couponId = null;
+			$("#Coupon").val('');
+			$("#CouponId").val('');
+
+			$("#uPleaseChoose").html('请选择');
+			$("#uPleaseChoose").removeClass("highGrey");
+			$(".pop-bg").hide();
+			$(".coupon").hide();
+		})
+
+		function getCouponDetail() {
+			$(".pop-bg").show();
+			$(".coupon").show();
+		}
+	</script>
+</html>

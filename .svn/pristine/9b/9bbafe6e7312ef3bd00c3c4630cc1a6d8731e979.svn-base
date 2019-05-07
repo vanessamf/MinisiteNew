@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>促销活动管理-详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+</head>
+
+<body>
+<div class="view-box">
+    <ul>
+        <li><em>品牌设置：</em>品牌一</li>
+        <li><em>活动名称：</em>部分商品买100元减10元，部分商品买300元减40元</li>
+        <li><em>促销类型：</em>阶梯满减</li>
+        <li><em>活动规则：</em>满100元减10元，满200元减15元，满300元减20元，满500元减55元</li>
+        <li><em>起止日期：</em>2017.10.10-2017.11.10</li>
+        <li><em>节假日：</em>不限制</li>
+        <li><em>时间限制：</em>无限制</li>
+        <li><em>参与方式：</em>部分商品参与</li>
+        <li><em>目标群体：</em>黄金会员等级，钻石会员等级</li>
+        <li><em>使用业务：</em>堂食、外卖、自提</li>
+    </ul>
+    <h1>商品列表</h1>
+    <table class="layui-table" lay-even>
+        <thead>
+        <tr>
+            <th>类别</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>价格</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>热菜</td>
+            <td>001</td>
+            <td >大闸蟹</td>
+            <td>100.00</td>
+        </tr>
+        <tr>
+            <td>热菜</td>
+            <td>001</td>
+            <td >大闸蟹</td>
+            <td>100.00</td>
+        </tr>
+        <tr>
+            <td>热菜</td>
+            <td>001</td>
+            <td >大闸蟹</td>
+            <td>100.00</td>
+        </tr>
+        <tr>
+            <td>热菜</td>
+            <td>001</td>
+            <td >大闸蟹</td>
+            <td>100.00</td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="page" style="text-align: right"></div>
+</div>
+<script src="./plugins/layui/layui.js"></script>
+<script src="./build/js/x-layui.js" charset="utf-8"></script>
+<script src="./build/js/jquery.js"></script>
+
+<script>
+    layui.use(['form', 'layer','laypage'], function(){
+        $ = layui.jquery;
+        laypage = layui.laypage //分页
+
+        //分页
+        laypage.render({
+            elem: 'page' //分页容器的id
+            ,count: 100 //总页数
+            ,skin: '#1E9FFF' //自定义选中色值
+        });
+    });
+
+</script>
+</body>
+</html>

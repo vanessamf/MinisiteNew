@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="regBox">
+    <img src="images/header.png"/>
+    <ul>
+        <li>1、注册后立即获得100积分</li>
+        <li>2、活动时间有效期2016.12.23～2017.03.15</li>
+        <li>3、首充可即时获得限量定制版无敌公仔</li>
+        <li>4、获得会员VIP试用一年</li>
+    </ul>
+</div>
+<div class="reg">
+    <a class="btn">成为新会员</a>
+    <a class="a-btn text-w">《会员注册服务协议》</a>
+</div>
+<img src="images/login-bg.png" class="bg"/>
+</body>
+</html>

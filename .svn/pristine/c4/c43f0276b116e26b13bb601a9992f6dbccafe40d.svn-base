@@ -1,0 +1,13 @@
+.pincode-input-container { text-align: center; margin: 2rem 0 0 0; border-radius: .5rem}
+.pincode-input-container { display:inline-block;}
+.pincode-input-container input:focus {border: .1rem solid #333; background: #fff;}
+.pincode-input-container input.first { border-radius: .5rem 0 0 .5rem}
+.pincode-input-container input.last { border-radius: 0 .5rem .5rem 0; border-right: .1rem solid #d7d7d7}
+.pincode-input-container input.last:focus {border-right: .1rem solid #333}
+.pincode-input-text, .form-control.pincode-input-text {
+    border: .1rem solid #d7d7d7; height: 4rem; line-height: 4rem; width:15%; text-align: center; font-size: 2rem;
+    background:#fff; border-right: 0;
+}
+
+.pincode-input-error{ display: none; clear:both; color: #ff0000; font-size: .26rem; margin: .3rem 0; text-align: center;}
+.pincode-input-error i { display: inline-block; width: .4rem; height: .4rem; background: url("../images/error.png") 0 0 no-repeat; background-size: 100%; vertical-align: middle; margin-right: .1rem}

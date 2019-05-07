@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>积分查询</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            var flag = 1;
+            $(".jf-list em").click(function(){
+                if(flag==1){
+                    $(this).addClass("act");
+                    $(this).parents().children("ul").show();
+                    flag=2;
+                }else if(flag==2){
+                    $(this).removeClass("act");
+                    $(this).parents().children("ul").hide();
+                    flag=1;
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="user-header">
+    <a class="vip">会员权益</a>
+    <img src="images/user.png" class="top-user" />
+    <h1>Lion.song</h1>
+    <p><i>180 1234 1234</i></p>
+</div>
+<div class="jf-list">
+    <img src="images/logo.png"/>
+    <h1>我是客凯易品牌</h1>
+    <b>有效期至2017.12.30</b>
+    <em>更多使用规则</em>
+    <ul class="jf-tip">
+        <li>1.可与其他优惠同享</li>
+        <li>2.1000积分可抵10元</li>
+        <li>3.积分满1000才能使用</li>
+    </ul>
+    <div class="jf-right">
+        <label>500</label><i>积分</i>
+        <p>满1000积分可用</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+    <title>场景式营销</title>
+</head>
+
+<body>
+<div class="nav-ticket">场景式营销</div>
+<div class="scene">
+    <h1>拉新吸粉</h1>
+    <a class=" fun-unrealized">
+        <h2>注册激励</h2>
+        <em>对新注册成为会员的用户发券，激励用户注册。</em>
+        <p><img src="build/images/s-icon01.png"/></p>
+    </a>
+    <a class=" fun-unrealized">
+        <h2>新会员激励</h2>
+        <em>给已注册但未消费的会员发券，激励新会员到店消费。</em>
+        <p><img src="build/images/s-icon02.png"/></p>
+    </a>
+</div>
+<div class="scene">
+    <h1>沉淀拓展</h1>
+    <a class=" fun-unrealized">
+        <h2>消费返券</h2>
+        <em>消费满x元送券，有效激励会员提高客单价。</em>
+        <p><img src="build/images/s-icon03.png"/></p>
+    </a>
+    <a class=" fun-unrealized">
+        <h2>充值激励</h2>
+        <em>充值满x元送券，有效激励会员充值。</em>
+        <p><img src="build/images/s-icon04.png"/></p>
+    </a>
+</div>
+<div class="scene">
+    <h1>忠诚培育</h1>
+    <a class=" fun-unrealized">
+        <h2>沉睡会员激励</h2>
+        <em>给60天以上未到店消费的会员发券，激励沉寂会员到店消费。</em>
+        <p><img src="build/images/s-icon05.png"/></p>
+    </a>
+    <a class=" fun-unrealized">
+        <h2>活跃会员激励</h2>
+        <em>给60天内消费2次以上的会员发券，给予活跃会员奖励。</em>
+        <p><img src="build/images/s-icon06.png"/></p>
+    </a>
+    <a href="场景式营销-生日赠券.html">
+        <h2>生日赠券</h2>
+        <em>给即将过生日的会员赠券，激励生日会员到店消费。</em>
+        <p><img src="build/images/s-icon07.png"/></p>
+    </a>
+</div>
+<div class="scene">
+    <h1>挽留维护</h1>
+    <a class=" fun-unrealized">
+        <h2>会员赠券</h2>
+        <em>给全部会员赠券，激励会员到店消费。</em>
+        <p><img src="build/images/s-icon08.png"/></p>
+    </a>
+</div>
+<script src="./plugins/layui/layui.js"></script>
+<script src="build/js/x-layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate','element','layer'], function() {
+        var $ = layui.jquery  //jquery
+            ,layer = layui.layer
+        $('.fun-unrealized').click(function(){
+            layer.open({
+                type: 1,
+                id:'func_unrealized',
+//                area: ['440px', '230px'],
+                area:'440px;',
+                title: false,
+                moveType:1,
+                closeBtn:false,
+                btnAlign:'c',
+                content: '<h3 class="h3-warn" style="">此功能暂未开放</h3>',
+                scrollbar: false,
+                btn: '关闭',
+                //btn: ['取消','确定']
+            })
+        })
+
+
+    });
+
+
+</script>
+</body>
+</html>

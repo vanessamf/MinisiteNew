@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="user-photo">
+    <a href="c_头像修改.html">
+        <img src="images/user.png"/>头像
+    </a>
+</div>
+<ul class="user-nav">
+    <li>
+        <img src="images/nav-icon01.png"/>
+        <span>会员ID</span>
+        <em>8765432345675</em>
+    </li>
+    <li>
+        <a href="c_更换手机号码-1.html">
+            <img src="images/nav-icon02.png"/>
+            <span>手机号码</span>
+            <em>18012341234</em>
+        </a>
+    </li>
+    <li>
+        <a href="##">
+            <img src="images/nav-icon08.png"/>
+            <span>我的二维码</span>
+            <em><img src="images/top-code.png" style="margin-right: 0" /></em>
+        </a>
+    </li>
+    <li>
+        <a href="##">
+            <img src="images/nav-icon03.png"/>
+            <span>用户姓名</span>
+            <em>客凯易</em>
+        </a>
+    </li>
+    <li>
+        <a href="c_更换昵称.html">
+            <img src="images/nav-icon04.png"/>
+            <span>昵称</span>
+            <em>Lion.song</em>
+        </a>
+    </li>
+    <li>
+        <a href="c_更换性别.html">
+            <img src="images/nav-icon05.png"/>
+            <span>性别</span>
+            <em>男</em>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)">
+            <img src="images/nav-icon06.png"/>
+            <span>生日</span>
+            <em><input id="demo1" type="text" readonly placeholder="请选择您的生日" data-lcalendar="2016-05-11,2016-05-11" unselectable="on" onfocus="this.blur()"  /></em>
+        </a>
+    </li>
+</ul>
+<ul class="user-nav m10">
+    <li>
+        <a href="tel:4006318688">
+            <img src="images/nav-icon07.png"/>
+            <span>热线电话</span>
+            <em>400-631-8688</em>
+        </a>
+    </li>
+    <li>
+        <a href="##">
+            <img src="images/nav-icon09.png"/>
+            <span>问题帮助</span>
+        </a>
+    </li>
+</ul>
+<a class="btn ma20">退出当前账户</a>
+<script src="js/datePicker.js"></script>
+<script>
+    var calendar = new datePicker();
+    calendar.init({
+        'trigger': '#demo1', /*按钮选择器，用于触发弹出插件*/
+        'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'minDate':'1900-1-1',/*最小日期*/
+        'maxDate':'2100-12-31',/*最大日期*/
+        'onSubmit':function(){/*确认时触发事件*/
+            var theSelectData=calendar.value;
+        },
+        'onClose':function(){/*取消时触发事件*/
+        }
+    });
+
+</script>
+</body>
+</html>

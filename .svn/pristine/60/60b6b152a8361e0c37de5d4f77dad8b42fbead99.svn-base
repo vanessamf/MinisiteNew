@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-2.1.0.js"></script>
+    <script src="js/rp.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>设置</title>
+    <script src="js/jquery-2.1.0.js"></script>
+    <script>
+        $(function () {
+            $("#setPW").hide();
+
+            var flag = 1;
+            $(".toggle").click(function(){
+                if(flag==1){
+                    $("#setPW").show();
+                    flag=2;
+                }else if(flag==2){
+                    flag=1;
+                    $("#setPW").hide();
+                }
+            })
+
+            //$(".toggle").click(function(){
+            //   window.open("开启验证支付.html","_parent");
+            //})
+        })
+    </script>
+</head>
+<body>
+<div class="set-link">关闭验证支付<input class="toggle" type="checkbox" /></div>
+<div class="set-link" id="setPW">
+    <a href="重置支付密码.html">重置支付密码</a>
+</div>
+<div class="set-link">
+    <a>清空缓存</a>
+</div>
+</body>
+</html>

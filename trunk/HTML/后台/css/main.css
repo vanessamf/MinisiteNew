@@ -1,0 +1,76 @@
+
+
+/*header css style start*/
+.header { position: fixed; top: 0; left: 0; width: 100%;background: #1d66dc; height: 72px; z-index: 1}
+.logo { margin: 15px 0 0 15px}
+
+.user { position: absolute; right: 15px; top: 18px; height: 35px; line-height: 35px; z-index: 3 }
+.user label { color: #fff; display:inline-block; font-weight: normal; background: url("../images/user-downIcon.png") right center no-repeat; padding-right:20px}
+.user label.active { color: #6d6d6d; background: url("../images/user-upIcon.png") right center no-repeat}
+
+.dropDown { display: none; position: absolute; right: 0; top: 10px; width: 130px; border: 1px solid #e4e4e4; border-right: 0; background: #fff; padding: 40px 0 10px 0; z-index: 2}
+.dropDown a { display: block; height: 30px; line-height: 30px;color: #6d6d6d; margin-left: 15px}
+.dropDown a:last-child { color: #1d66dc}
+/*header css style end*/
+
+/*left bar css style start*/
+.leftSidebar_box{position:fixed; left:0; top:72px;width:190px;background:#0e1e37; overflow: auto; z-index: 2}
+
+.ny_zblb1{}
+.ny_zblb1 li{line-height:45px;float:left;width:100%;}
+.ny_zblb1 li a{display:block;text-decoration:none;color:#fff;background:#08111f url(../images/downIcon.png) no-repeat 92%; padding-left:10px; border-bottom: 1px solid #212936}
+.ny_zblb1 li a.cur{background:#08111f url(../images/upIcon.png) no-repeat 92%;text-decoration:none;}
+.ny_zblb1 li a img { vertical-align: middle; margin-right:10px }
+
+.ny_zblb1 li ul{display:none; overflow: hidden}
+.ny_zblb1 li ul li{float:none; height: 38px; line-height: 38px;margin-top:0px;font-size:12px;}
+.ny_zblb1 li ul li a{display:block;background:none; border-bottom: 0; height: 38px; line-height: 38px; border-left: 5px solid transparent; padding-left: 32px}
+.ny_zblb1 li ul li a.cur_h { background: #172842;}
+.ny_zblb1 li ul a:hover{ background: #172842;}
+/*left bar css style end*/
+
+
+/*main css style*/
+.main { border: 1px solid #dbe1e8; background: #fff; margin:10px;}
+
+.table-responsive { padding: 10px; overflow: auto}
+.btn { display: inline-block; color: #222; cursor: pointer; margin: 0 5px}
+/*page css style*/
+.page {text-align:right; padding:30px 0 20px 0;}
+.page a { border:#ddd 1px solid; margin:2px; padding:5px 10px; color: #1bbae1}
+.page a:hover { border:#c2c8cf 1px solid; text-decoration: none}
+.page span.current { border:#e0e0e0 1px solid; padding:5px 10px; font-weight:bold; margin:2px; background:#f0f0f0}
+.page span.disabled { border:#f3f3f3 1px solid; padding:5px 10px; color:#ccc}
+
+.nav { padding: 10px}
+.tab { border-bottom: 1px solid #eee; margin:0 10px; padding-bottom: 10px}
+.tab em {
+    border: 1px solid #cecdcd; display: inline-block; width: 12%; font-style: normal; text-align: center; margin-right: 1.5%; border-radius: 5px; height: 40px; line-height: 40px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    cursor: pointer;
+}
+.tab em.active { border: 1px solid #fff; color: #1d66dc; box-shadow: 0 0 3px #1d66dc}
+.more-btn { cursor: pointer; position: relative; float: right; width: 12%;}
+.more-btn i { display: block; border: 1px solid #cecdcd;text-align: center;border-radius: 5px; height: 40px; line-height: 40px; font-style: normal;}
+.more-box { display: none; position: absolute; right: 0; top: 39px; width: 100%;border-bottom: 1px solid #cecdcd; background: #fff; border-radius: 0 0 5px 5px; overflow: hidden}
+.more-box p {
+    cursor: pointer; border-left: 1px solid #cecdcd;border-right: 1px solid #cecdcd; text-align: center; line-height: 40px; height: 40px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.more-box p:hover { background: #f1f6fd}
+
+.set-box { padding: 10px 10px 0 10px}
+.add { display: inline-block; background:#57ba88 url("../images/add-icon.png") 30px center no-repeat; color: #fff; width: 70px; height: 30px; line-height: 30px; border-radius: 5px; padding-left: 50px}
+
+.from-box { float: right}
+.from-box li { float: left; margin-left: 15px}
+.from-box li select { width: 130px; height: 34px}
+.from-box li input { width: 120px; height: 30px; padding: 0 5px}
+.from-box li a { cursor: pointer; background: #1d66dc; color: #fff; line-height: 34px; border-radius: .5rem; text-align: center; display: inline-block; width: 80px}
+

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta content="email=no" name="format-detection">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta http-equiv="Cache-Control" content="max-age=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>确认订单</title>
+		<link rel="stylesheet" href="css/interactive/base.css" />
+		<link rel="stylesheet" href="css/interactive/main.css" />
+		<link rel="stylesheet" href="css/interactive/app.built.css" />
+		<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+	</head>
+	<body class="bg" style="height:100%">
+		<div class="order-warp">
+			<div class="base-wrapper">
+				<div class="user-info">
+					<div class="user-left">
+						<p>
+							<span>张桂元</span>
+							<span>12398765427</span>
+						</p>
+						<p>苏州市吴中工业园区创意产业园3栋苏州市吴中工业园区创意产业园3栋602苏州市吴中工业园区创意产业园3栋602</p>
+					</div>
+					<i class="iconfont icon-you3"></i>
+				</div>
+				<div class="time-info">
+					<span>预订时间</span>
+					<div>
+						<input type="text" placeholder="" id="txtEstimatedArriveTime" name="txtEstimatedArriveTime" data-datetime=""
+						 value="" readonly="readonly"/>
+						<!-- <input>2018-11-7 13:19</input> -->
+						<i class="iconfont icon-you3"></i>
+					</div>
+				</div>
+			</div>
+			<div class="table-info">
+				<ul class="">
+					<li class="" >
+						<span >桌子/包厢</span>
+						<span class="table-num">包厢206</span>
+					</li>
+					<li class="">
+						<sapn>人数</sapn>
+						<sapn>12人</sapn>
+					</li>
+				</ul>
+			</div>
+			<div class="pay-info">
+				<ul class="pay-box ul-box">
+					<li class="liPayType" id="liPaymentType2" value="2">
+						<sapn>微信支付</sapn>
+						<i class="typeChecked"></i>
+					</li>
+					<li class="liPayType" id="liPaymentType3" value="3">
+						<sapn>会员卡支付</sapn>
+						<i class="unChecked"></i>
+					</li>
+					<li id="coupon" class="couponCon">
+						<span>使用优惠券</span>
+						<div>
+							<span id="uPleaseChoose"class="highGrey">暂无可用优惠券</span>
+							<i class="iconfont icon-you3"></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tableware dropup-title enviroment-row" style="" onclick="showSelectPersonCount()">
+				<span>餐具数</span>
+				<div>
+					<!-- id="uPleaseChoose" -->
+					<span id="personCountInput"class="highGrey">不需要</span>
+					<i class="iconfont icon-you3"></i>
+				</div>
+			</div>
+
+			<div class="price-info">
+				<span class="price-title">点餐详情</span>
+				<ul>
+					<li class="price-item">
+						<span class="name">三文鱼牛油果配沙拉三文鱼牛油果配沙拉三文鱼牛油果配沙拉</span>
+						<span class="count">1份</span>
+						<p class="price"><i>￥</i>40</p>
+					</li>
+					<li class="price-item">
+						<span class="name">记忆中的耦合</span>
+						<span class="count">1份</span>
+						<p class="price"><i>￥</i>40</p>
+					</li>
+					<li class="price-item">
+						<span class="name">秘制客家炒饭</span>
+						<span class="count">1份</span>
+						<p class="price"><i>￥</i>40</p>
+					</li>
+				</ul>
+			</div>
+			<div class="remark">
+				<span>备注:</span>
+				<textarea name="textarea" rows="2" cols="" placeholder=""></textarea>
+			</div>
+			<div class="tips-box">您成功完成网上订餐后，订单会实时下到门店，员工会立即开始制作食品，因此我们无法接受修改或取消订单。如有特殊需求，请致电400-6318-688。需要发票的客户，请至fapiao.wagas.com.cn打印电子发票。</div>
+		</div>
+		<a class="sub-btn">
+			<span id="">
+				¥99.00
+			</span>
+			确认订单
+		</a>
+		<div class="pop-bg" style="display: none;"></div>
+		<!-- 取餐时间弹框 -->
+		<div class="modal" id="selTablewareModal" style="display:none;">
+			<div class="datetime-picker-box animated fadeInDown">
+				<div class="dt-title">取餐时间</div>
+				<div class="main-cont">
+					<!--动态写入 已完成-->
+					<div class="pt-side h-scroll-y">
+					</div>
+					<div class="pt-time-period h-scroll-y">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 选择餐具数量弹框 -->
+		<div class="PopPersonCount" style="display: none;" id="selectPersonCountArea">
+			<p class="flex-center"><span class="enviroment-logo"></span><span>无需餐具,助力环保</span></p>
+			<div class="sel-person-box">
+				<ul id="tableware-box" class="dropup-list">
+					<li class="dropup-item seledEnv" data-personcount="0">
+						<div class="flex-center"><span class="ico-thumbs-up"></span>不需要</div>
+					</li>
+					<li class="dropup-item" data-personcount="1">1 份餐具 </li>
+					<li class="dropup-item" data-personcount="2">2 份餐具</li>
+					<li class="dropup-item" data-personcount="3">3 份餐具</li>
+					<li class="dropup-item" data-personcount="4">4 份餐具</li>
+					<li class="dropup-item" data-personcount="5">5 份餐具</li>
+					<li class="dropup-item" data-personcount="6">6 份餐具</li>
+					<li class="dropup-item" data-personcount="7">7 份餐具</li>
+					<li class="dropup-item" data-personcount="8">8 份餐具</li>
+					<li class="dropup-item" data-personcount="9">9 份餐具</li>
+					<li class="dropup-item" data-personcount="10">10 人及以上<span>（请添加备注）</span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 优惠券弹框 -->
+		<div class="coupon" id="coupon-box" style="display: none;">
+			<div class="coupon-input">
+				<input id="txtCouponCode" name="txtCouponCode" type="text" placeholder=""><a href="javascript:void(0)" onclick="checkFrom()">兑换</a>
+			</div>
+			<ul id="ulCoupons">
+
+			</ul>
+			<a class="menu-btn" id="sub-coupon-cancel-btn">取消</a>
+			<a class="menu-btn ok-btn" id="sub-coupon-btn">确定</a>
+		</div>
+	</body>
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src="js/datetime.js"></script>
+	<script>
+		$(function() {
+			$(".pay-info ul li.liPayType").click(function() {
+
+				if ($(this).children("i").hasClass("typeChecked")) {
+					$(this).children("i").removeClass("typeChecked");
+					$(this).children("i").addClass("unChecked");
+				} else {
+					$(this).siblings("li.liPayType").children("i").removeClass("typeChecked");
+					$(this).siblings("li.liPayType").children("i").addClass("unChecked");
+					$(this).children("i").removeClass("unChecked");
+					$(this).children("i").addClass("typeChecked");
+				}
+			});
+		})
+	</script>
+	<script>
+		// 显示餐具选择框
+		function showSelectPersonCount() {
+			$("#personCountInput").blur();
+			$(".pop-bg").show() && $('html').css({
+				"overflow": "hidden"
+			});
+			// cModalHelper.afterOpen()
+			$("#selectPersonCountArea").show();
+		}
+
+
+		// 选择餐具数量
+		function selectPersonCount(e) {
+			var self = $(e);
+			var $item = self.is('.dropup-item') ? self : self.closest('.dropup-item');
+			var personCount = $item.attr("data-personcount");
+			if (personCount == 0) {
+				$("#personCountInput").html('不需要');
+				$("#personCountInput").addClass("highGrey");
+			} else if (personCount > 0 && personCount < 10) {
+				$("#personCountInput").html('{0} 份餐具'.replace("{0}", personCount));
+				$("#personCountInput").removeClass("highGrey");
+			} else if (personCount == 10) {
+				$("#personCountInput").html('10 人及以上');
+				$("#personCountInput").removeClass("highGrey");
+			}
+			$("#PersonCount").val(personCount);
+			$("#personCountInput").attr("data-personcount", personCount);
+			$("#personCountInput").attr("data-selected", 1);
+			$("#selectPersonCountArea").hide();
+			//$(".dropup-item").css("color", "black");
+			$item.addClass('seledEnv').siblings().removeClass('seledEnv');
+			//$(e).css("color", "#ff8222");
+			$(".pop-bg").hide() && $('html').css({
+				"overflow": "auto"
+			});
+			// cModalHelper.beforeClose()
+		};
+		$(".dropup-item").click(function(e) {
+			// selectPersonCount(e.target.parentElement);
+			selectPersonCount($(this));
+		})
+	</script>
+	<script>
+		//优惠券
+		$("#coupon").click(function() {
+			getCouponDetail();
+		})
+		//取消选择优惠券
+		$("#sub-coupon-cancel-btn").click(function() {
+			$(".pop-bg").hide();
+			$(".coupon").hide();
+		});
+		$("#sub-coupon-btn").click(function() {
+			var coupon_id = $(".coupon ul li[class*='hover']").attr("id");
+			selectedCouponItems = [];
+			couponId = null;
+			$("#Coupon").val('');
+			$("#CouponId").val('');
+
+			$("#uPleaseChoose").html('请选择');
+			$("#uPleaseChoose").removeClass("highGrey");
+			$(".pop-bg").hide();
+			$(".coupon").hide();
+		})
+
+		function getCouponDetail() {
+			$(".pop-bg").show();
+			$(".coupon").show();
+		}
+	</script>
+</html>

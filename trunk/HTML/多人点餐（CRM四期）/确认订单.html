@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="css/interactive/base.css"/>
+    <!-- <link rel="stylesheet" href="css/interactive/main.css"/> -->
+	<link rel="stylesheet" href="css/interactive/main-mobile.css"/>
+</head>
+<body class="bg">
+<div class="from-box" id="box01">
+    <a class="closeBtn"></a>
+    <h1>完善账号信息</h1>
+    <p>本次交易需要先完善手机号码</p>
+    <div class="i-box" id="code01">
+        <input type="text" placeholder="输入手机号码"/>
+        <a class="okBtn" id="btn01">确定</a>
+    </div>
+    <div class="i-box" id="code02" style="display: none">
+        <input type="text" placeholder=""/>
+        <input type="button" value="获取验证码" onclick="settime(this)" />
+        <a class="okBtn">确定</a>
+    </div>
+</div>
+<div class="from-box" id="box02">
+    <a class="closeBtn"></a>
+    <h1>完善账号信息</h1>
+    <div class="i-box" id="code03">
+        <input type="text" placeholder="输入手机号码"/>
+        <em>补全账号信息后，每次交易可获取积分，下次交易可抵扣 现金，更多会员优惠等着你</em>
+        <a class="okBtn" id="btn02">确定</a>
+    </div>
+    <div class="i-box" id="code04" style="display: none">
+        <input type="text" placeholder=""/>
+        <input type="button" value="获取验证码" onclick="settime(this)" />
+        <em>补全账号信息后，每次交易可获取积分，下次交易可抵扣 现金，更多会员优惠等着你</em>
+        <a class="okBtn">确定</a>
+    </div>
+</div>
+<div class="pop-bg"></div>
+<div class="ok-wrap">
+    <span class="desk-num">A12</span>
+    <span class="ren-num">4</span>
+    <div class="dp-info">
+        <img src="images/interactive/Logo.png"/>
+        <p>味千拉面（我格广场店）</p>
+        <h1>实付金额：<i>¥350.50</i></h1>
+    </div>
+</div>
+<div class="line"></div>
+<div class="pay">
+    <ul>
+        <li>
+            <img src="images/interactive/jifen-icon.png" />
+            <span>使用积分</span>
+            <div class="jf-info">
+                <p>积分抵扣3.4元</p>
+                <b>共3450分／已使用3450分</b>
+            </div>
+            <input class="toggle" type="checkbox" id="jf" />
+        </li>
+        <li>
+            <img src="images/interactive/vip-icon.png" />
+            <span>会员卡</span>
+            <div class="jf-info">
+                <p>会员卡抵扣254.00元</p>
+                <b>卡余额¥500.00</b>
+            </div>
+            <div class="vipBtn"><em>无会员卡可用</em><i></i></div>
+        </li>
+<li><strong>备注：</strong><input type="text" id="txtCustomerRemark" name="txtCustomerRemark" placeholder="添加备注，可输入偏好、忌口等"></li>
+    </ul>
+</div>
+<div class="t-box">共5份，合计<i>¥300.00</i></div>
+<ul class="order-list01">
+    <li>马甲线套餐<em>￥46.00 <i>×1</i></em></li>
+    <li>马甲线套餐<em>￥46.00 <i>×1</i></em></li>
+    <li>牛油果三明治配烤番茄汤加蛋炒饭牛油果三明治配烤番茄汤加蛋炒饭牛油果三明治配烤番茄汤加蛋炒饭<em>￥46.00 <i>×1</i></em></li>
+    <li>马甲线套餐<em>￥46.00 <i>×1</i></em><p>治配烤番<p><p>治配烤番<p></li>
+</ul>
+<div class="f-link">
+    <a><img src="images/interactive/tips.png" />完善会员信息立享会员专属优惠 ></a>
+</div>
+<div style="height: 7rem"></div>
+<a class="sub-btn">确认订单</a>
+<script src="js/jquery-2.1.0.js"></script>
+<script>
+    $(function () {
+        //积分明细显示隐藏
+        var flag = 1;
+        $("#jf").click(function(){
+            if(flag==1){
+                $(this).siblings("span").hide();
+                $(this).siblings(".jf-info").css({"display":"inline-block"});
+                flag=2;
+            }else if(flag==2){
+                flag=1;
+                $(this).siblings("span").show();
+                $(this).siblings(".jf-info").css({"display":"none"});
+            }
+        });
+
+
+        //绑定手机弹窗
+        var h = $("#box01").outerHeight(true)/2*(-1);
+        $("#box01").css({
+            'margin-top':h + 'px',
+            "visibility":"hidden"
+        });
+        var hh = $("#box02").outerHeight(true)/2*(-1);
+        $("#box02").css({
+            'margin-top':h + 'px',
+            "visibility":"hidden"
+        });
+        //------------------------
+        $(".sub-btn").click(function () {
+            $(".pop-bg").show();
+            $("#box01").css("visibility","visibility");
+        });
+        $("#btn01").click(function () {
+            $("#code01").hide();
+            $("#code02").show();
+        });
+        //------------------------
+        $(".f-link a").click(function () {
+            $(".pop-bg").show();
+            $("#box02").css("visibility","visibility");
+        });
+        $("#btn02").click(function () {
+            $("#code03").hide();
+            $("#code04").show();
+        });
+        //------------------------关闭
+        $(".closeBtn").click(function () {
+            $(".pop-bg").hide();
+            $("#box01").css("visibility","hidden");
+            $("#box02").css("visibility","hidden");
+        })
+
+    });
+
+    //获取验证码
+    var countdown=60;
+    function settime(obj) {
+        if (countdown == 0) {
+            obj.removeAttribute("disabled");
+            obj.removeAttribute("class");
+            obj.value="获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            obj.setAttribute("disabled", true);
+            obj.className = 'abc';
+            obj.value= countdown + "s";
+            countdown--;
+        }
+        setTimeout(function() {
+                settime(obj) }
+            ,1000)
+    }
+</script>
+</body>
+</html>

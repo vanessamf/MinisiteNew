@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>卡乐星</title>
+    <link rel="stylesheet" href="css/interactive/swiper.min.css">
+    <link rel="stylesheet" href="css/interactive/base.css"/>
+    <link rel="stylesheet" href="css/interactive/main.css"/>
+    <script src="js/jquery-2.1.0.js"></script>
+</head>
+<body style="background:#070200">
+<div class="logo">
+    <a href="##"><img src="images/interactive/logo-w.png" /></a>
+    <a href="##" class="hotPro">明星产品</a>
+    <a href="##" class="userCenter">个人中心</a>
+</div>
+<div class="userIcon">您好，angero</div>
+<!-- Swiper -->
+<div class="swiper-container s-1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/interactive/banner-7.jpg" /></div>
+        <div class="swiper-slide"><img src="images/interactive/banner-1.jpg" /></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<!-- Swiper JS -->
+<script src="js/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false,
+        loop: true
+    });
+    window.onload = function () {
+        var bodyH = $(document).outerHeight();
+        var logoH = $(".logo").outerHeight();
+        var btnH = $(".footer-btn").outerHeight();
+        $("body").css({ "padding-top": logoH });
+        $(".swiper-container").height(bodyH - logoH - btnH);
+    }
+</script>
+<div class="footer-btn">
+    <a href="#">进入点餐</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html style="font-size: 42.6667px;"><head lang="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="/Scripts/jquery-2.1.0.js"></script>
+    <script src="/Scripts/rp.js?v=1"></script>
+    <script src="/Scripts/main.js?v=1"></script>
+
+    <title>我的卡</title>
+    <link href="/Content/base.css" rel="stylesheet">
+<link href="/Content/main.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/public.css?v=1">
+    <link rel="stylesheet" href="/Content/main.css?v=4">
+</head>
+<body style="">
+    
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="max-age=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>我的卡</title>
+    <link rel="stylesheet" href="/Content/base.css">
+    <link rel="stylesheet" href="/Content/main.css">
+
+
+
+    <div id="result" style="padding-bottom:5px;"></div>
+
+
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+<script src="/Scripts/jquery-2.1.0.js"></script>
+
+    <script src="/Scripts/base.js"></script>
+
+    <script src="/assets/js/String.js"></script>
+
+    
+
+<script src="/Scripts/jsrender.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Scripts/jsrender.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/jsrender" id="contentarea" data-jsv-tmpl="_0">
+
+    <div class="u-box red">
+        <strong name="{{:Id}}">{{:RuleType}}</strong>
+        <h1>{{formatNumber:Number}}</h1>
+        <p>{{:Rule}}</p>
+        <em>余额：{{:Balance}} 元</em>
+        <img src="../Images/code.png" class="code" />
+    </div>
+</script>
+<script language="javascript">
+
+    $(document).ready(function () {
+        $.views.converters("formatNumber", function (number) {
+            if (number != null) {
+                return TruncateByFour(number);
+            }
+        });
+        var cardlist = {"Code":0,"ErrMsg":"操作成功","CardResult":[]};
+        var templates = $.templates("#contentarea");
+        var htmlOutput = templates.render(cardlist.CardResult);
+        $("#result").html(htmlOutput);
+        $(".u-box.red").click(function () {
+            var cardid = $(this).find("strong").attr("name");
+            //window.open("CardTransaction?cardid=" + cardid + "&enterpriseid=" + getUrlParam("enterpriseid"));
+            window.location.href = '/Card/CardTransaction' + '?cardid=' + cardid ;
+        });
+    })
+</script>
+
+
+
+<script>
+    //获取配置文件里的接口信息
+    var api_url = 'http://m1.jiezhiinfo.cn/api/xsite/interface/';
+
+    setApiUrl(api_url);
+</script>
+</body></html>

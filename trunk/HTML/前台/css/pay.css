@@ -1,0 +1,36 @@
+.nub_ggg img { vertical-align: middle; }
+.close01 { position: absolute; left:1rem; top: 1rem; width: 2rem; height: 2rem}
+
+.forgetPW { text-align: right;}
+.forgetPW a { font-size: 1.2rem; color:#d6a465; display: inline-block; margin: 1rem}
+
+.ftc_wzsf .hbbj { width: 100%; height: 100%; position: absolute; z-index: 8; background: #000; opacity: 0.4; top: 0; left: 0; }
+.srzfmm_box h1{ text-align: center; font-size: 1.4rem; padding-top: 1rem}
+.srzfmm_box h2{ text-align: center; font-size: 3rem}
+
+.qsrzfmm_bt { font-size: 1.2rem; border-bottom: 1px solid #c9daca; text-align: center; line-height: 4rem;}
+.mm_box { width: 93%; margin: 1rem auto 0 auto; height: 4rem; border: .1rem solid #bebebe; border-radius: .5rem; overflow: hidden }
+.mm_box li { border-right: .1rem solid #efefef; height: 4rem; float: left; width: 16.3%; background: #FFF; }
+.mm_box li.mmdd{ background:#FFF url(../images/dd_03.jpg) center no-repeat ; background-size:25%;}
+.mm_box li:last-child { border-right: none; }
+.numb_box { position: absolute; z-index:10; background: #fff; width: 100%; bottom: 0; }
+.nub_ggg { border-top: .1rem solid #dadada; overflow: hidden; border-bottom: none; }
+.nub_ggg li { width: 33.3333%; border-bottom: .1rem solid #dadada; float: left; text-align: center; font-size: 2rem }
+.nub_ggg li a { display: block; color: #000; height: 4rem; line-height: 4rem; overflow: hidden; }
+.nub_ggg li a:active  { background: #e0e0e0;}
+.nub_ggg li a.zj_x { border-left: .1rem solid #dadada; border-right: .1rem solid #dadada; }
+.nub_ggg li span { display: block; color: #e0e0e0; background: #d1d5db; height: 4rem; line-height: 4rem; overflow: hidden; }
+.nub_ggg li span.del img { width: 30%; }
+
+
+/*
+.btn-sub {
+    background: #d6a465; color: #fff; border-radius: .5rem; display: block; width: 80%; margin: 1rem auto; text-align: center; font-size: 1.4rem; line-height: 3.5rem;
+    box-shadow: 0 .1rem .8rem #d6a465;
+}
+*/
+.cg-box { background: #fff; border-bottom: .1rem solid #ddd; text-align: center; padding: 1rem 0}
+.cg-box img{ display: block; width: 20%; margin: 1rem auto;}
+.cg-box em { display: block; font-style: normal; font-size: 2rem; color: #d6a465}
+.cg-box p { font-size: 1.2rem; color: #999}
+.cg-box h1 { font-size: 3rem; padding: 1rem 0 }

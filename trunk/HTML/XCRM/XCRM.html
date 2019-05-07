@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Cuscapi云系统</title>
+	<link rel="stylesheet" href="css/base.css" type="text/css" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/date.js"></script>
+	<script src="js/Calendar.js"></script>
+
+</head>
+
+<body onload="showDT()">
+<div class="header">
+	<div class="top">
+		<strong>Cuscapi<em>云系统</em></strong>
+		<label id="theClock"></label>
+	</div>
+	<a class="back" onclick="window.open('main.html','_parent')">返回</a>
+	<div class="user">
+		<label>Caspar</label>
+	</div>
+	<div class="nav">
+		<ul>
+			<li>标题1</li>
+			<li>标题2</li>
+			<li>标题3</li>
+			<li class="hover">标题4</li>
+		</ul>
+	</div>
+</div>
+<div class="navContent">
+	<a href="materialMaintenance.html">物料维护</a>
+	<a href="inventoryTime.html">库存期间</a>
+	<a href="supplier.html">供应商</a>
+	<a href="documentNumber.html">单据号码</a>
+	<a href="costCenter.html" class="hover">成本中心</a>
+	<a href="recipes.html">食谱</a>
+	<a href="reason.html">原因</a>
+	<a href="relationMaintenance.html">调拨关系维护</a>
+	<a href="foodRecipes.html">菜品联系食谱</a>
+</div>
+<div class="wrapper">
+	<div class="wrap">
+		<div class="leftBar">
+			<h1>品牌名称</h1>
+			<div class="tab-w">
+				<ul>
+					<li id="one0" onclick="Tab('one',0,4)" class="hover">单据交易</li>
+					<li id="one1" onclick="Tab('one',1,4)">总部管理</li>
+					<li id="one2" onclick="Tab('one',2,4)">库存管理</li>
+					<li id="one3" onclick="Tab('one',3,4)">库存配置</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tabContent-w">
+			<div id="one_0">
+				<div class="w-btn-box">
+					<a class="btn-border">添加</a><a class="btn-border">批量删除</a>
+					<div class="r-box">
+						会员设置开关<input class='toggle' type="checkbox" />
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="wrapper-table">
+					<table class="table">
+						<thead>
+						<tr>
+							<td><input type="checkbox" id="checkAll"/></td>
+							<td>等级名称</td>
+							<td>积分范围</td>
+							<td>状态</td>
+							<td>创建时间</td>
+							<td>操作</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>钻石会员</td>
+							<td>20000 - 100000</td>
+							<td>生效</td>
+							<td>2017-09-18 20:22:30</td>
+							<td><a class="btn-border">编辑</a> <a class="btn-border">删除</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>钻石会员</td>
+							<td>20000 - 100000</td>
+							<td>生效</td>
+							<td>2017-09-18 20:22:30</td>
+							<td><a class="btn-border">编辑</a> <a class="btn-border">删除</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>钻石会员</td>
+							<td>20000 - 100000</td>
+							<td>生效</td>
+							<td>2017-09-18 20:22:30</td>
+							<td><a class="btn-border">编辑</a> <a class="btn-border">删除</a></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="page"><span class="disabled"> < </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">200</a><a href="#?page=2"> > </a></div>
+
+			</div>
+			<div id="one_1" style="display: none">2</div>
+			<div id="one_2" style="display: none">3</div>
+			<div id="one_3" style="display: none">4</div>
+		</div>
+
+	</div>
+</div>
+<script>
+    function Tab(name, cursel, n) {
+        for (i = 0; i < n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById( name + "_" + i);
+            menu.className = i == cursel ? "hover" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+</script>
+</body>
+</html>

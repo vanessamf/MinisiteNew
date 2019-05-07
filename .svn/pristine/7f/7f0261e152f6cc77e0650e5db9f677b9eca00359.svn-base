@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/rp.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript">
+      var countdown=60;
+      function settime(obj) {
+          if (countdown == 0) {
+              obj.removeAttribute("disabled");
+              obj.removeAttribute("class");
+              obj.value="重新获取";
+              countdown = 60;
+              return;
+          } else {
+              obj.setAttribute("disabled", true);
+              obj.className = 'abc';
+              obj.value= countdown + "s";
+              countdown--;
+          }
+          setTimeout(function() {
+                  settime(obj) }
+              ,1000)
+      }
+  </script>
+
+  <title>积分明细</title>
+</head>
+<body>
+<img src="images/user.png" class="user"/>
+<div class="inpBox">
+  <ul>
+    <li><input type="text" placeholder="手机号" /></li>
+    <li><input type="text" placeholder="图形验证码" /><img src="images/code04.png"/></li>
+    <li><input type="text" placeholder="验证码" id="code" /><input type="button" id="btn" value="发送验证码" onclick="settime(this)" /></li>
+  </ul>
+</div>
+<div class="pincode-input-error"><i></i>验证码不正确，请重新输入</div>
+<div class="inpBox">
+  <ul>
+    <li>
+      <i>性别</i>
+      <div class="opt">
+        <input class="magic-radio" type="radio" name="radio" id="r2" value="option2">
+        <label for="r2">女</label>
+      </div>
+      <div class="opt">
+        <input class="magic-radio" type="radio" name="radio" id="r1" value="option1" checked>
+        <label for="r1">男</label>
+      </div>
+    </li>
+    <li><input id="demo1" type="text" readonly placeholder="生日" data-lcalendar="2016-05-11,2016-05-11" unselectable="on" onfocus="this.blur()" class="date"  /></li>
+  </ul>
+</div>
+<div class="m25">
+  <div class="checkbox">
+    <input class="magic-checkbox" type="checkbox" name="layout" id="c1" checked>
+    <label for="c1" style="display: inline-block">同意</label>
+    <a href="用户协议.html">《用户协议》</a>
+  </div>
+  <button class="btn disabled">确定</button>
+</div>
+<script src="js/datePicker.js"></script>
+<script>
+    var calendar = new datePicker();
+    calendar.init({
+        'trigger': '#demo1', /*按钮选择器，用于触发弹出插件*/
+        'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'minDate':'1900-1-1',/*最小日期*/
+        'maxDate':'2100-12-31',/*最大日期*/
+        'onSubmit':function(){/*确认时触发事件*/
+            var theSelectData=calendar.value;
+        },
+        'onClose':function(){/*取消时触发事件*/
+        }
+    });
+
+    //验证码
+    $(function () {
+        $('#code').blur(function(){
+            if(!($(this).val()=='1234')){
+                $(".pincode-input-error").show();
+            }else {
+                $(".pincode-input-error").hide();
+            }
+        })
+    })
+</script>
+</body>
+</html>

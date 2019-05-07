@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-2.1.0.js"></script>
+    <script src="js/rp.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>订单详情</title>
+</head>
+<body>
+<div class="address-warp">
+    <div class="order-info">
+        <h1>顾客信息</h1>
+        <ul>
+            <li><em>就餐人：</em>AAA</li>
+            <li><em>餐厅名称：</em>卡乐星来福士餐厅</li>
+        </ul>
+    </div>
+    <div class="order-info">
+        <h1>订单信息</h1>
+        <ul>
+            <li><em>订单号：</em>900956</li>
+            <li><em>就餐时间：</em><b>2016-05－13  17:30（预计）</b></li>
+            <li><em>订单状态：</em>未完成</li>
+            <li><em>支付类型：</em>支付宝</li>
+            <li><em>就餐类型：</em><b>外卖</b></li>
+            <li><em>订单金额：</em>¥99.00</li>
+            <li><em>应付金额：</em><b>¥99.00</b></li>
+        </ul>
+    </div>
+    <div class="price-info">
+        <h1>菜品信息</h1>
+        <ul>
+            <li>卡乐星冠军套餐<label><em>X1</em><i>￥</i>33.00</label></li>
+            <li>
+                卡乐星冠军套餐<label><em>X2</em><i>￥</i>33.00</label>
+                <dl>
+                    <dd>油醋汁</dd>
+                    <dd>鸡胸肉</dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="text-box">您成功完成网上订餐后，订餐会实时下到门店，员工会立即开始制作食品，因此我们无法接受修改或取消订单，如需下预约单，请致电4000-00-00-00</div>
+</div>
+
+<a class="sub-btn">确定</a>
+<script src="js/jquery-2.1.0.js"></script>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>促销活动-满减促销</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./build/css/app.css" media="all">
+    <link rel="stylesheet" href="./build/css/main.css" type="text/css" />
+    <style>
+        .layui-form-select { width: 350px}
+        .layui-form-item .layui-form-checkbox[lay-skin=primary] { margin-top: 0}
+    </style>
+</head>
+
+<body>
+<div class="nav-ticket"><a href="创建促销活动.html">创建促销活动</a> <i>></i> 满减促销</div>
+<ul class="step">
+    <li class="step-active"><i>1</i>设置促销规则</li>
+    <li><i>2</i>设置商品优惠</li>
+    <li><i>3</i>提交活动</li>
+</ul>
+<div class="layui-form" action="">
+    <div class="f-title">活动设置</div>
+    <div class="layui-form-item" style="margin-bottom: 5px">
+        <label class="layui-form-label"><i class="red">*</i>品牌设置：</label>        
+		<div class="layui-input-block">
+			<div class="drop" id="drop02">
+				<input type="checkbox" lay-skin="primary" value="全部" lay-filter="allChoose" ><i>全部</i><br/>
+				<ul>
+					<li><input type="checkbox" lay-skin="primary" value="品牌一" ><i>品牌一</i></li>
+					<li><input type="checkbox" lay-skin="primary" value="品牌二" ><i>品牌二</i></li>
+					<li><input type="checkbox" lay-skin="primary" value="品牌三" ><i>品牌三</i></li>
+					<li><input type="checkbox" lay-skin="primary" value="品牌四" ><i>品牌四</i></li>
+				</ul>
+				<button class="layui-btn" id="sub-btn02">确定</button>
+			</div>
+			<div class="layui-input-block" style="display: inline-block; margin:0 0 10px 0">
+				<input type="text" name="title" autocomplete="off" value="" lay-verify="required" class="layui-input input01" readonly id="vip02" style="width: 300px">
+			</div>
+			<button class="choose-btn" id="btn02">选择</button>
+		</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>活动名称：</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" autocomplete="off" placeholder="" lay-verify="required" class="layui-input input01" value="">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>促销类型：</label>
+        <div class="layui-input-block">
+            <select name="interest" lay-filter="test">
+                <option value="0">每满减</option>
+                <option value="1">阶梯满减</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>活动规则：</label>
+        <div class="c-box" id="a01">
+            满<input type="text" autocomplete="off" class="layui-input">元，减<input type="text" autocomplete="off" class="layui-input">元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;或者 打<input type="text" autocomplete="off" class="layui-input" placeholder="填写0.1-9.9间">折
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" lay-skin="primary" title="上不封顶" checked id="ab" >
+            <div id="aa" style="display: inline-block"><input type="text" autocomplete="off"  class="layui-input" style="width: 80px">元</div>
+        </div>
+        <div id="a02">
+            <div class="c-box">
+                满<input type="text" autocomplete="off" class="layui-input">元，减<input type="text" autocomplete="off" class="layui-input">元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;或者 打<input type="text" autocomplete="off" class="layui-input" placeholder="填写0.1-9.9间">折
+                <button class="layui-btn add-btn">添加</button><font style="color: #999">最多添加3条</font>
+            </div>
+            <div class="c-box m20">
+                满<input type="text" autocomplete="off" class="layui-input">元，减<input type="text" autocomplete="off" class="layui-input">元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;或者 打<input type="text" autocomplete="off" class="layui-input" placeholder="填写0.1-9.9间">折
+                <button class="del-btn">删除</button>
+            </div>
+            <div class="c-box m20">
+                满<input type="text" autocomplete="off" class="layui-input">元，减<input type="text" autocomplete="off" class="layui-input">元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;或者 打<input type="text" autocomplete="off" class="layui-input" placeholder="填写0.1-9.9间">折
+                <button class="del-btn">删除</button>
+            </div>
+        </div>
+    </div>
+    <div class="f-title">时间设置</div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>起止日期 ：</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input date01" id="test6"><em class="line"></em><input type="text" class="layui-input date01" id="test7">
+            <button class="day-btn">7天</button><button class="day-btn">15天</button><button class="day-btn">30天</button>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">节假日限制：</label>
+        <div class="layui-input-block" style="padding-top: 6px">
+            <input type="radio" name="agio" title="不限制" checked="">
+            <input type="radio" name="agio" title="仅节假日">
+            <input type="radio" name="agio" title="不含节假日">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">时间限制：</label>
+        <div class="layui-input-block">
+            <input type="text" id="test8" class="layui-input time"><em class="line"></em><input type="text" id="test9" class="layui-input time"><i class="t-text" style="color: #999; margin-left: 13px">留白或填0则无限制</i>
+        </div>
+    </div>
+    <div class="f-title">对象设置</div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>参与方式 ：</label>
+        <div class="layui-input-block" style="margin-top: -10px">
+            <input type="radio" name="like" lay-skin="primary" title="全场参与" checked="">
+            <input type="radio" name="like" lay-skin="primary" title="部分商品参与">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="red">*</i>目标群体：</label>
+        <div class="layui-input-block">
+            <div class="drop" id="drop01">
+                <input type="checkbox" lay-skin="primary" value="全部" lay-filter="allChoose" ><i>全部</i><br/>
+                <ul>
+                    <li><input type="checkbox" lay-skin="primary" value="青铜会员" ><i>青铜会员</i></li>
+                    <li><input type="checkbox" lay-skin="primary" value="白银会员" ><i>白银会员</i></li>
+                    <li><input type="checkbox" lay-skin="primary" value="黄金会员" ><i>黄金会员</i></li>
+                    <li><input type="checkbox" lay-skin="primary" value="钻石会员" ><i>钻石会员</i></li>
+                </ul>
+                <button class="layui-btn" id="sub-btn01">确定</button>
+            </div>
+            <div class="layui-input-block" style="display: inline-block; margin:0 0 10px 0">
+                <input type="text" name="title" autocomplete="off" value="" lay-verify="required" class="layui-input input01" readonly id="vip" style="width: 300px">
+            </div>
+            <button class="choose-btn" id="btn01">选择</button>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="margin-top: -5px"><i class="red">*</i>适用业务：</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="like1[monday]" lay-skin="primary" title="堂食" checked >
+            <input type="checkbox" name="like1[tuesday]" lay-skin="primary" title="外卖" checked="">
+            <input type="checkbox" name="like1[wednesday]" lay-skin="primary" title="自提" checked="">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block" style="margin-right: 135px; text-align: center">
+            <button class="layui-btn" onclick="window.open('促销活动-满减促销02.html','_self')">设置商品</button>
+        </div>
+    </div>
+</div>
+<script src="build/js/jquery.js"></script>
+<script src="./plugins/layui/layui.js"></script>
+<script src="build/js/x-layui.js"></script>
+<script>
+    layui.use(['form', 'element','layer','laydate'], function() {
+        var $ = layui.jquery;//jquery
+        var form = layui.form,
+            layer = layui.layer;
+            laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#test6'
+        });
+        laydate.render({
+            elem: '#test7'
+        });
+
+        //时间范围
+        laydate.render({
+            elem: '#test8'
+            ,type: 'time'
+        });
+        laydate.render({
+            elem: '#test9'
+            ,type: 'time'
+        });
+
+        //会员等级全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('.drop').find('input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+
+        });
+        $("#a02").hide();
+        form.on('select(test)', function (data) {
+            //alert();
+            if(data.value==0){
+                $("#a01").show();
+                $("#a02").hide();
+            }else if(data.value==1) {
+                $("#a01").hide();
+                $("#a02").show();
+            }
+        });
+        $(function () {
+
+            var flag = 1;
+            $("#aa").hide();
+            $("#ab + div").click(function(){
+                if(flag==1){
+                    $("#aa").show();
+                    flag=2;
+                }else if(flag==2){
+                    $("#aa").hide();
+                    flag=1;
+                }
+            });
+
+
+            $(".day-btn").click(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+		
+            //会员等级下拉框
+            $("#btn01").click(function () {
+                $("#drop01").show();
+            });
+            $("#sub-btn01").click(function () {
+                var arr = new Array();
+                $("#drop01 ul li input:checkbox:checked").each(function(){
+                    arr.push($(this).val());
+                });
+                var str=arr.join("，");
+                $("#vip").val(str);
+
+                $("#drop01").hide();
+            });
+			
+			//品牌设置
+			$("#btn02").click(function () {
+                $("#drop02").show();
+            });
+            $("#sub-btn02").click(function () {
+                var arr = new Array();
+                $("#drop02 ul li input:checkbox:checked").each(function(){
+                    arr.push($(this).val());
+                });
+                var str=arr.join("，");
+                $("#vip02").val(str);
+
+                $("#drop02").hide();
+            });
+
+        })
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
