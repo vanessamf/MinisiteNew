@@ -4072,7 +4072,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, .50);
+	background: rgba(0, 0, 0, .10);
 }
 .mode-wrap li a i {
 	padding: 0.5rem 1.07rem;
